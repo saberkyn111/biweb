@@ -1,0 +1,244 @@
+@{
+    ViewData["Title"] = "Xác Nhận Đơn Hàng & Thanh Toán - BIWEB";
+    List<CTHD> listcthd = ViewBag.listcthd ?? new List<CTHD>();
+    KhuyenMai KM = ViewBag.KM ?? new KhuyenMai();
+    long ThanhTien = 0;
+    long TongTien = 0;
+    long TTPhaiTra = 0;
+    long TienGiam = 0;
+    KhachHang KH = ViewBag.KH ?? new KhachHang();
+}
+
+<!-- Breadcrumb Header -->
+<div class="bg-[#0F172A] text-white py-10 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute -top-20 right-0 w-80 h-80 bg-[#0052FF]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span class="text-slate-500">/</span>
+            <a href="/GioHang/Cart" class="hover:text-white no-underline text-[#00C6FF]">Giỏ hàng</a>
+            <span class="text-slate-500">/</span>
+            <span class="text-white">Xác nhận thanh toán</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            Xác Nhận & Kích Hoạt Bản Quyền
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1 m-0">
+            Kiểm tra thông tin chi tiết gói phần mềm, lựa chọn hình thức thanh toán và địa chỉ email nhận License Key
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-[#F8FAFC] min-h-screen">
+    <div class="container mx-auto px-4 max-w-5xl">
+        
+        <!-- Stepper Progress Bar -->
+        <div class="flex items-center justify-center max-w-xl mx-auto mb-10 text-xs font-bold">
+            <div class="flex items-center text-[#0052FF]">
+                <span class="w-8 h-8 rounded-full bi-btn-primary text-white flex items-center justify-center font-bold mr-2 shadow-sm">
+                    <i class="fa fa-check"></i>
+                </span>
+                <span>Giỏ hàng</span>
+            </div>
+            <div class="w-16 sm:w-24 h-1 bg-[#0052FF] mx-2 sm:mx-4 rounded"></div>
+            <div class="flex items-center text-[#0052FF]">
+                <span class="w-8 h-8 rounded-full bi-btn-primary text-white flex items-center justify-center font-bold mr-2 shadow-md shadow-[#0052FF]/30">
+                    2
+                </span>
+                <span>Thanh toán & Nhận Key</span>
+            </div>
+            <div class="w-16 sm:w-24 h-1 bg-slate-200 mx-2 sm:mx-4 rounded"></div>
+            <div class="flex items-center text-[#4B5563]">
+                <span class="w-8 h-8 rounded-full bg-slate-200 text-[#4B5563] flex items-center justify-center font-bold mr-2">
+                    3
+                </span>
+                <span>Hoàn tất</span>
+            </div>
+        </div>
+
+        <form action="/HoaDon/InsertHD" method="post" id="checkoutForm">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Column: Order Items & Payment Methods -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Selected Tools Card -->
+                    <div class="bi-card-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
+                        <h2 class="text-base font-bold text-[#0F172A] pb-3 border-b border-slate-100 flex items-center m-0">
+                            <i class="fa fa-layer-group text-[#0052FF] mr-2.5"></i>
+                            Gói Phần Mềm & License Đã Chọn
+                        </h2>
+
+                        <div class="divide-y divide-slate-100 my-4">
+                            @foreach (var item in listcthd)
+                            {
+                                <input name="MaTTSP[]" type="hidden" value="@item.MaTTSP" />
+                                <input name="SoLuong[]" type="hidden" value="@item.SoLuong" />
+                                {
+                                    ThanhTien = item.Gia * item.SoLuong;
+                                    TongTien += ThanhTien;
+                                }
+                                <div class="py-3.5 flex items-center justify-between text-xs">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 rounded-xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center font-bold flex-shrink-0">
+                                            <i class="fa fa-cube"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold text-[#0F172A] text-sm leading-snug">@item.TenSP</div>
+                                            <div class="text-[#4B5563] mt-0.5">Số lượng: <strong>@item.SoLuong License Key</strong></div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right font-black text-[#0052FF] text-sm">
+                                        @string.Format("{0:0,0 đ}", ThanhTien)
+                                    </div>
+                                </div>
+                            }
+                            <input name="MaKM" type="hidden" value="@KM.MaKM" />
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Selection -->
+                    <div class="bi-card-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
+                        <h2 class="text-base font-bold text-[#0F172A] pb-3 border-b border-slate-100 flex items-center m-0">
+                            <i class="fa fa-credit-card text-[#10B981] mr-2.5"></i>
+                            Chọn Hình Thức Thanh Toán
+                        </h2>
+
+                        <div class="space-y-3 mt-4">
+                            <!-- Option 1: VietQR Bank Transfer (Recommended) -->
+                            <label class="flex items-start p-4 rounded-2xl border-2 border-[#0052FF] bg-[#0052FF]/5 cursor-pointer transition">
+                                <input type="radio" name="paymentMethod" value="vietqr" checked class="mt-1 text-[#0052FF] focus:ring-[#0052FF]" />
+                                <div class="ml-3 flex-1 text-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-[#0F172A] text-sm">Chuyển Khoản Ngân Hàng (VietQR Tự Động)</span>
+                                        <span class="px-2.5 py-0.5 rounded-lg bg-[#10B981] text-white font-black text-[10px]">KHUYÊN DÙNG</span>
+                                    </div>
+                                    <p class="text-[#4B5563] mt-1 mb-2">Hệ thống quét mã QR tự động cấp License Key qua Email trong 30 giây ngay sau khi giao dịch thành công.</p>
+                                    <div class="p-3 rounded-xl bg-white border border-[#0052FF]/30 flex items-center space-x-3 text-[#0F172A]">
+                                        <div class="w-10 h-10 rounded-lg bi-btn-primary text-white flex items-center justify-center font-bold">
+                                            <i class="fa fa-qrcode text-lg"></i>
+                                        </div>
+                                        <div class="text-[11px] leading-tight">
+                                            <div>Ngân hàng: <strong>MBBank / Techcombank</strong></div>
+                                            <div>Số tài khoản: <strong>0909008064</strong> (CTCP BIWEB)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Option 2: MoMo / E-Wallet -->
+                            <label class="flex items-start p-4 rounded-2xl border border-slate-200 hover:border-slate-300 bg-white cursor-pointer transition">
+                                <input type="radio" name="paymentMethod" value="momo" class="mt-1 text-pink-600 focus:ring-pink-500" />
+                                <div class="ml-3 flex-1 text-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-[#0F172A] text-sm">Ví Điện Tử MoMo / ZaloPay</span>
+                                        <span class="px-2 py-0.5 rounded bg-pink-100 text-pink-700 font-bold text-[10px]">TIỆN LỢI</span>
+                                    </div>
+                                    <p class="text-[#4B5563] mt-1 m-0">Quét mã QR qua ứng dụng MoMo trên điện thoại nhanh chóng và an toàn tuyệt đối.</p>
+                                </div>
+                            </label>
+
+                            <!-- Option 3: Support Tech / Ultraview -->
+                            <label class="flex items-start p-4 rounded-2xl border border-slate-200 hover:border-slate-300 bg-white cursor-pointer transition">
+                                <input type="radio" name="paymentMethod" value="ultraview" class="mt-1 text-[#0052FF] focus:ring-[#0052FF]" />
+                                <div class="ml-3 flex-1 text-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-[#0F172A] text-sm">Hỗ Trợ Kỹ Thuật Viên Cài Đặt Trực Tiếp (Ultraview)</span>
+                                    </div>
+                                    <p class="text-[#4B5563] mt-1 m-0">Kỹ thuật viên sẽ liên hệ hướng dẫn cài đặt phần mềm xong xuôi trước khi hoàn tất thanh toán.</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Recipient Info & Calculation -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <div class="bi-card-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-5">
+                        <h2 class="text-base font-bold text-[#0F172A] pb-3 border-b border-slate-100 flex items-center m-0">
+                            <i class="fa fa-envelope-open-text text-[#0052FF] mr-2.5"></i>
+                            Thông Tin Nhận License Key
+                        </h2>
+
+                        <!-- Recipient Email & Info -->
+                        <div>
+                            <label for="DiaChi" class="block text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-2">
+                                Địa chỉ Email / Zalo Nhận License Key <span class="text-rose-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                    <i class="fa fa-envelope text-sm"></i>
+                                </span>
+                                <input type="text"
+                                       name="DiaChi"
+                                       id="DiaChi"
+                                       required
+                                       value="@(KH.Email ?? "")"
+                                       placeholder="VD: minhquan.ads@gmail.com hoặc địa chỉ công ty..."
+                                       class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-xs sm:text-sm text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0052FF]" />
+                            </div>
+                            <span class="text-[11px] text-[#4B5563] mt-1.5 block">
+                                * Mã kích hoạt phần mềm và link tải bộ cài sẽ được gửi về địa chỉ này trong 30 giây.
+                            </span>
+                        </div>
+
+                        <!-- Price Calculations -->
+                        @{
+                            if (KM.TTienToiThieu <= TongTien && KM.SoPTKM > 0)
+                            {
+                                TienGiam = (TongTien * KM.SoPTKM) / 100;
+                                TTPhaiTra = TongTien - TienGiam;
+                            }
+                            else
+                            {
+                                TTPhaiTra = TongTien;
+                            }
+                        }
+
+                        <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 space-y-2.5 text-xs">
+                            <div class="flex justify-between text-[#4B5563]">
+                                <span>Tổng tiền phần mềm:</span>
+                                <span class="font-bold text-[#0F172A]">@string.Format("{0:0,0 đ}", TongTien)</span>
+                            </div>
+                            <div class="flex justify-between text-[#4B5563]">
+                                <span class="flex items-center">
+                                    Giảm giá khuyến mãi:
+                                    @if (KM.SoPTKM > 0 && KM.TTienToiThieu <= TongTien)
+                                    {
+                                        <span class="ml-1.5 px-2 py-0.5 rounded text-[10px] font-bold bg-[#10B981]/15 text-[#10B981]">
+                                            -@KM.SoPTKM%
+                                        </span>
+                                    }
+                                </span>
+                                <span class="font-bold text-[#10B981]">-@string.Format("{0:0,0 đ}", TienGiam)</span>
+                            </div>
+                            <div class="pt-2 border-t border-slate-200 flex justify-between items-baseline">
+                                <span class="text-sm font-extrabold text-[#0F172A]">Tổng tiền thanh toán:</span>
+                                <span class="text-2xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", TTPhaiTra)</span>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Button -->
+                        <button type="submit" 
+                                class="w-full py-4 rounded-2xl font-bold text-sm text-white bi-btn-primary shadow-lg transition flex items-center justify-center space-x-2 border-0 cursor-pointer">
+                            <i class="fa fa-shield-check text-base"></i>
+                            <span>HOÀN TẤT ĐẶT HÀNG & NHẬN KEY</span>
+                        </button>
+
+                        <!-- Back link -->
+                        <div class="text-center pt-2">
+                            <a href="/GioHang/Cart" class="text-xs font-semibold text-[#4B5563] hover:text-[#0052FF] no-underline transition">
+                                <i class="fa fa-arrow-left mr-1"></i> Quay lại chỉnh sửa giỏ hàng
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>

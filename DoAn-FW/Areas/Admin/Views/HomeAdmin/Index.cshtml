@@ -1,0 +1,150 @@
+@model IEnumerable<Web_projectframeword_admin.Models.HoaDonViewModel>
+@{ int pages = Convert.ToInt32(ViewData["pages"]); int p = Convert.ToInt32(ViewData["page"]);}
+<div class="content-wrapper" style="min-height: 639px;">
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box Sản phẩm -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>@ViewData["TotalProducts"]</h3>
+                        <p>Tool Facebook & Ads</p>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                    </div>
+                    <a href="/Admin/SanPham/LietKeSanPham" class="small-box-footer">Quản lý kho Tool <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box Bài viết -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>5</h3>
+                        <p>Tuts & Hướng Dẫn Ads</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-android-chat "></i>
+                    </div>
+                    <a href="/Admin/TinTuc/index" class="small-box-footer">Danh sách bài viết <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box Liên hệ -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>13</h3>
+                        <p>Yêu cầu hỗ trợ kỹ thuật</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-email"></i>
+                    </div>
+                    <a href="/Admin/KhachHang/index" class="small-box-footer">Khách hàng cần support <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box Giao hàng -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>33</h3>
+                        <p>Cấp Key & Kích Hoạt</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-cube"></i>
+                    </div>
+                    <a href="/Admin/GiaoHang/index" class="small-box-footer">Tình trạng cấp Key <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="fa fa-shopping-basket"> Danh sách đơn mua bản quyền phần mềm FB</h3>
+                        <div class="brcb">
+                            <form class="searchbox" action="/Admin/HomeAdmin/Index" method="get">
+                                <input type="text" placeholder="Tìm theo mã đơn hoặc khách..." name="SearchString">
+                                <button type="submit" style="width: 50px; 
+                                                             height: 25px; 
+                                                             background-color: #1877f2; 
+                                                             border-radius: 10px; 
+                                                             color: white; 
+                                                             border-color: #1877f2;">
+                                    <i class="fas fa-search-location"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- hiển thị thông tin: Mã hóa đơn - Khách hàng - Địa chỉ GH - Tổng tiền - Ngày đặt - Xử lí đơn - Thao tác -->
+                    <div class="box-body">
+                        <div class="row" style="padding:0px; margin:0px; height: 500px;">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered" style="font-size: 0.9em;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Mã đơn hàng</th>
+                                            <th>Khách Hàng</th>
+                                            <th>Địa chỉ / Email / Telegram</th>
+                                            <th class="text-center">Tổng thanh toán</th>
+                                            <th>Ngày đặt</th>
+                                            <th class="text-center" colspan="2">Cấp bản quyền</th>
+                                            <th class="text-center" colspan="2">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center">@item.MaHD</td>
+                                                <td><strong>@item.TenKH</strong></td>
+                                                <td>@item.DiaChiGH</td>
+                                                <td class="text-center" style="font-weight:bold; color:#e74c3c;">@string.Format("{0:N0}", item.TongTienTT) VNĐ</td>
+                                                <td>@item.NgayLapHD.Date.ToString("dd-MM-yyyy")</td>
+                                                <td style="text-align: center;">
+                                                    <a class="btn btn-primary btn-xs" href="/Admin/GiaoHang/DuyetHD?MAHD=@item.MaHD" onclick="return confirm('Xác nhận kích hoạt và cấp Key bản quyền cho khách?')" role="button">
+                                                        <i class="fa fa-key"></i> Kích hoạt Key
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    @{var t = (Model.Count() == 1) ? (p - 1) : p;}
+                                                    <a class="btn btn-danger btn-xs" href="/Admin/HomeAdmin/HuyHD?MAHD=@item.MaHD&page=@t" onclick="return confirm('Xác nhận hủy đơn hàng này ?')">
+                                                        <i class="fa fa-trash"></i> Hủy đơn
+                                                    </a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-info btn-xs" href="/Admin/HoaDon/XemHD?ID=@item.MaHD" role="button">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>Xem
+                                                    </a>
+                                                    <a class="btn bg-olive btn-xs" href="/Admin/HoaDon/XemCTHD?ID=@item.MaHD" role="button">
+                                                        <i class="glyphicon glyphicon-eye-open"></i>CTHD
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="pull-right pagination">
+                    <form action="/Admin/HomeAdmin/Index" method="get">
+                        <input type="submit" value="Go to" /> page <input type="number" max="@pages" min="1" name="page" value="@p" /> of @pages
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,183 @@
+@{
+    ViewData["Title"] = "Hồ Sơ Doanh Nghiệp - BIWEB";
+    KhachHang KH = ViewBag.KH ?? new KhachHang();
+}
+
+<!-- Breadcrumb Header -->
+<div class="bg-[#0F172A] text-white py-8 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span class="text-slate-500">/</span>
+            <span class="text-white">Tài khoản</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Quản Lý Tài Khoản Doanh Nghiệp
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1 m-0">
+            Xem và cập nhật thông tin đơn vị, liên hệ nhận License giải pháp và quản trị dịch vụ BIWEB
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-[#F8FAFC] min-h-screen">
+    <div class="container mx-auto px-4 max-w-5xl">
+        
+        <!-- Account Sub-navigation Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
+            <a href="/TaiKhoan/ThongTinTK" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bi-btn-primary shadow-sm no-underline">
+                <i class="fa fa-user-circle"></i>
+                <span>Thông tin đối tác</span>
+            </a>
+            <a href="/HoaDon/LichSuHD" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-medium text-sm text-[#4B5563] hover:text-[#0052FF] hover:bg-slate-100 transition no-underline">
+                <i class="fa fa-file-invoice-dollar"></i>
+                <span>Lịch sử hợp đồng & Hóa đơn</span>
+            </a>
+            <a href="/DSSPMua/DSSPMua" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-medium text-sm text-[#4B5563] hover:text-[#0052FF] hover:bg-slate-100 transition no-underline">
+                <i class="fa fa-key"></i>
+                <span>Kho License & Bản quyền</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Info Card -->
+            <div class="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm text-center">
+                <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center mx-auto text-3xl font-black mb-4 shadow-lg shadow-blue-500/20">
+                    @(string.IsNullOrEmpty(KH.TenKH) ? "U" : KH.TenKH.Substring(0, 1).ToUpper())
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900 mb-1">@KH.TenKH</h3>
+                <p class="text-xs text-slate-500 mb-4">@KH.Email</p>
+
+                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span> Thành Viên Active
+                </div>
+
+                <div class="border-t border-slate-100 pt-4 text-left space-y-3 text-xs text-slate-600">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-400">Mã khách hàng:</span>
+                        <span class="font-bold font-mono text-slate-800">#@KH.MaKH</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-400">Số điện thoại:</span>
+                        <span class="font-bold text-slate-800">@(string.IsNullOrEmpty(KH.SDT) ? "Chưa cập nhật" : KH.SDT)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-400">Giới tính:</span>
+                        <span class="font-bold text-slate-800">@KH.GioiTinh</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Edit Form Card -->
+            <div class="lg:col-span-2 bg-white rounded-3xl border border-slate-200/80 p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Chi Tiết Thông Tin Cá Nhân</h2>
+                        <p class="text-xs text-slate-500 m-0">Cập nhật thông tin nhận License và tài khoản hỗ trợ</p>
+                    </div>
+                    <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                        Cập nhật tự động
+                    </span>
+                </div>
+
+                <form action="/TaiKhoan/CapNhatTK" method="post" class="dangki space-y-5">
+                    <input name="MaKH" value="@KH.MaKH" style="display:none" />
+                    <input name="Email" value="@KH.Email" style="display:none" />
+                    <input name="MatKhau" value="@KH.MatKhau" style="display:none" />
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="TenKH" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Họ và tên
+                            </label>
+                            <input name="TenKH"
+                                   type="text"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                   id="TenKH" 
+                                   value="@KH.TenKH" />
+                        </div>
+
+                        <div>
+                            <label for="GioiTinh" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Giới tính
+                            </label>
+                            <select name="GioiTinh"
+                                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                    id="GioiTinh">
+                                @if (KH.GioiTinh == "Nam")
+                                {
+                                    <option value="Nam" selected>Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                }
+                                else
+                                {
+                                    <option value="Nữ" selected>Nữ</option>
+                                    <option value="Nam">Nam</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="SDT" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Số điện thoại
+                            </label>
+                            <input name="SDT"
+                                   type="text"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                   id="SDT" 
+                                   value="@KH.SDT"/>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Email đăng ký
+                            </label>
+                            <input type="text"
+                                   disabled
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-100 text-sm text-slate-500 cursor-not-allowed"
+                                   value="@KH.Email" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="CMND" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                CMND / CCCD
+                            </label>
+                            <input name="CMND"
+                                   type="text"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                   id="CMND" 
+                                   value="@KH.CMND" />
+                        </div>
+
+                        <div>
+                            <label for="DiaChi" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                                Địa chỉ
+                            </label>
+                            <input name="DiaChi"
+                                   type="text"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                   id="DiaChi" 
+                                   value="@KH.DiaChi"/>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-end">
+                        <button type="submit"
+                                class="px-6 py-3 rounded-xl font-bold text-white bi-btn-primary shadow-md shadow-[#0052FF]/20 transition flex items-center space-x-2 text-sm border-0 cursor-pointer">
+                            <i class="fa fa-save"></i>
+                            <span>Cập Nhật Thông Tin</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>

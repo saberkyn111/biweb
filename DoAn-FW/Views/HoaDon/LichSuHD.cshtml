@@ -1,0 +1,175 @@
+@{
+    ViewData["Title"] = "Lịch Sử Hợp Đồng & Hóa Đơn - BIWEB";
+    List<HoaDon> ListHD = ViewBag.ListHD ?? new List<HoaDon>();
+}
+
+<!-- Breadcrumb Header -->
+<div class="bg-[#0F172A] text-white py-8 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span class="text-slate-500">/</span>
+            <span class="text-white">Lịch sử đơn hàng</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Quản Lý Đơn Hàng & Hợp Đồng
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1 m-0">
+            Theo dõi trạng thái hợp đồng, hóa đơn giải pháp và kích hoạt License Key của doanh nghiệp
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-[#F8FAFC] min-h-screen">
+    <div class="container mx-auto px-4 max-w-6xl">
+        
+        <!-- Account Sub-navigation Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
+            <a href="/TaiKhoan/ThongTinTK" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-medium text-sm text-[#4B5563] hover:text-[#0052FF] hover:bg-slate-100 transition no-underline">
+                <i class="fa fa-user-circle"></i>
+                <span>Thông tin đối tác</span>
+            </a>
+            <a href="/HoaDon/LichSuHD" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bi-btn-primary shadow-sm no-underline">
+                <i class="fa fa-file-invoice-dollar"></i>
+                <span>Lịch sử hợp đồng & Hóa đơn</span>
+            </a>
+            <a href="/DSSPMua/DSSPMua" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-medium text-sm text-[#4B5563] hover:text-[#0052FF] hover:bg-slate-100 transition no-underline">
+                <i class="fa fa-key"></i>
+                <span>Kho License & Bản quyền</span>
+            </a>
+        </div>
+
+        <div class="bi-card-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                <div>
+                    <h2 class="text-lg font-bold text-[#0F172A]">Danh Sách Hóa Đơn Giải Pháp</h2>
+                    <p class="text-xs text-slate-500 m-0">Tổng cộng @ListHD.Count đơn hàng đã tạo</p>
+                </div>
+            </div>
+
+            @if (ListHD.Count == 0)
+            {
+                <div class="text-center py-16 text-slate-400">
+                    <i class="fa fa-shopping-bag text-5xl mb-4 text-slate-300"></i>
+                    <h3 class="text-base font-bold text-slate-700">Chưa có đơn hàng nào</h3>
+                    <p class="text-xs text-slate-500 mt-1 mb-6">Bạn chưa thực hiện đơn đặt mua tool nào trên hệ thống.</p>
+                    <a href="/SanPham/Products" class="inline-flex items-center px-6 py-2.5 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition text-xs no-underline shadow-sm">
+                        <i class="fa fa-rocket mr-2"></i> Khám phá kho tool
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider border-b border-slate-200">
+                            <tr>
+                                <th class="py-3.5 px-4 rounded-l-xl">Mã Hóa Đơn</th>
+                                <th class="py-3.5 px-4">Ngày Tạo</th>
+                                <th class="py-3.5 px-4 text-right">Tổng Tiền</th>
+                                <th class="py-3.5 px-4 text-center">Trạng Thái Đơn</th>
+                                <th class="py-3.5 px-4 text-center">Cấp Bản Quyền</th>
+                                <th class="py-3.5 px-4 text-center">Thanh Toán</th>
+                                <th class="py-3.5 px-4 text-center rounded-r-xl">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            @foreach (var item in ListHD)
+                            {
+                                <tr class="hover:bg-slate-50/80 transition">
+                                    <td class="py-4 px-4 font-mono font-bold text-blue-600">
+                                        #@item.MaHD
+                                    </td>
+                                    <td class="py-4 px-4 text-slate-600 text-xs">
+                                        @item.NgayLapHD.ToString("dd/MM/yyyy HH:mm")
+                                    </td>
+                                    <td class="py-4 px-4 text-right font-black text-rose-600">
+                                        @string.Format("{0:0,0 đ}", item.TongTienTT)
+                                    </td>
+                                    <td class="py-4 px-4 text-center text-xs">
+                                        @if (item.TinhTrangHD == 0)
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                                                <i class="fa fa-clock mr-1"></i> Chờ duyệt
+                                            </span>
+                                        }
+                                        else if (item.TinhTrangHD == -1)
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full font-bold bg-rose-50 text-rose-700 border border-rose-200">
+                                                <i class="fa fa-times-circle mr-1"></i> Đã hủy
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                                <i class="fa fa-check-circle mr-1"></i> Đã duyệt
+                                            </span>
+                                        }
+                                    </td>
+                                    <td class="py-4 px-4 text-center text-xs">
+                                        @if (item.TinhTrangGH == 0)
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full font-medium bg-slate-100 text-slate-600">
+                                                Chưa cấp key
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full font-medium bg-sky-50 text-sky-700 border border-sky-200">
+                                                <i class="fa fa-key mr-1"></i> Đã cấp key
+                                            </span>
+                                        }
+                                    </td>
+                                    <td class="py-4 px-4 text-center text-xs">
+                                        @if (item.TinhTrangTT == 0)
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full font-medium bg-amber-50 text-amber-700">
+                                                Chưa TT
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full font-medium bg-emerald-50 text-emerald-700">
+                                                Đã TT
+                                            </span>
+                                        }
+                                    </td>
+                                    <td class="py-4 px-4 text-center">
+                                        <div class="inline-flex items-center space-x-1.5">
+                                            <a href="/HoaDon/CTHD?mahd=@item.MaHD" 
+                                               class="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition text-xs font-semibold no-underline"
+                                               title="Xem chi tiết hóa đơn">
+                                                <i class="fa fa-eye mr-1"></i> Xem
+                                            </a>
+
+                                            @if (item.TinhTrangHD == 0)
+                                            {
+                                                <a href="/HoaDon/CapNhatHD?mahd=@item.MaHD&tthd=-1" 
+                                                   class="p-2 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition text-xs font-semibold no-underline"
+                                                   onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?');"
+                                                   title="Hủy đơn hàng">
+                                                    <i class="fa fa-times mr-1"></i> Hủy
+                                                </a>
+                                            }
+                                            else if (item.TinhTrangHD == -1)
+                                            {
+                                                <a href="/HoaDon/CapNhatHD?mahd=@item.MaHD&tthd=0" 
+                                                   class="p-2 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition text-xs font-semibold no-underline"
+                                                   title="Đặt lại đơn hàng">
+                                                    <i class="fa fa-redo mr-1"></i> Đặt lại
+                                                </a>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

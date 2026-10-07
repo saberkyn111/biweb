@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Gửi Đánh Giá Giải Pháp - BIWEB";
+    var count = ViewData["count"];
+    bool isSuccess = false;
+    if (count != null && int.TryParse(count.ToString(), out int c) && c >= 0)
+    {
+        isSuccess = true;
+    }
+}
+
+<div class="py-16 bg-[#F8FAFC] min-h-[500px] flex items-center justify-center">
+    <div class="container mx-auto px-4 max-w-md">
+        <div class="bi-card-white rounded-3xl border border-slate-200/80 p-8 shadow-xl text-center">
+            @if (isSuccess)
+            {
+                <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-2xl shadow-sm">
+                    <i class="fa fa-star"></i>
+                </div>
+                <h2 class="text-xl font-black text-[#0F172A] mb-2">Cám Ơn Phản Hồi Của Doanh Nghiệp!</h2>
+                <p class="text-xs text-[#4B5563] mb-6 leading-relaxed">
+                    Phản hồi và đánh giá trải nghiệm giải pháp của bạn đã được ghi nhận. Đóng góp của bạn giúp hệ sinh thái BIWEB không ngừng nâng cao chất lượng dịch vụ.
+                </p>
+                <a href="/SanPham/Products" class="inline-flex items-center px-6 py-2.5 rounded-xl font-bold text-white bi-btn-primary transition text-xs no-underline shadow-sm">
+                    <i class="fa fa-arrow-left mr-2"></i> Khám phá giải pháp khác
+                </a>
+            }
+            else
+            {
+                <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-2xl shadow-sm">
+                    <i class="fa fa-times"></i>
+                </div>
+                <h2 class="text-xl font-black text-[#0F172A] mb-2">Gửi Đánh Giá Thất Bại!</h2>
+                <p class="text-xs text-[#4B5563] mb-6 leading-relaxed">
+                    Không thể lưu đánh giá lúc này. Vui lòng kiểm tra lại nội dung bình luận hoặc liên hệ chuyên viên hỗ trợ.
+                </p>
+                <a href="/SanPham/Products" class="inline-flex items-center px-6 py-2.5 rounded-xl font-bold text-white bg-rose-600 hover:bg-rose-700 transition text-xs no-underline shadow-sm">
+                    <i class="fa fa-arrow-left mr-2"></i> Quay lại danh mục giải pháp
+                </a>
+            }
+        </div>
+    </div>
+</div>

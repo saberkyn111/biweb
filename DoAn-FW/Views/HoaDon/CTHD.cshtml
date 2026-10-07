@@ -1,0 +1,163 @@
+@{ 
+    ViewData["Title"] = "Chi Tiết Hóa Đơn Điện Tử - BIWEB";
+    HoaDon HD = ViewBag.HD ?? new HoaDon();
+    List<CTHD> listcthd = ViewBag.CTHD ?? new List<CTHD>();
+    long TongTien = 0;
+}
+
+<!-- Breadcrumb Header -->
+<div class="bg-[#0F172A] text-white py-8 border-b border-slate-800 print:hidden relative overflow-hidden">
+    <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span class="text-slate-500">/</span>
+            <a href="/HoaDon/LichSuHD" class="hover:text-white no-underline text-[#00C6FF]">Lịch sử đơn hàng</a>
+            <span class="text-slate-500">/</span>
+            <span class="text-white">Chi tiết hóa đơn #@HD.MaHD</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Hóa Đơn Cung Cấp Giải Pháp Số
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1 m-0">
+            Hóa đơn điện tử hợp lệ cung cấp bản quyền phần mềm MarTech & ERP từ BIWEB
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-[#F8FAFC] min-h-screen">
+    <div class="container mx-auto px-4 max-w-4xl">
+        
+        <!-- Action Toolbar for Print / Back -->
+        <div class="flex items-center justify-between mb-6 print:hidden">
+            <a href="/HoaDon/LichSuHD" class="inline-flex items-center text-xs font-bold text-[#4B5563] hover:text-[#0F172A] no-underline">
+                <i class="fa fa-arrow-left mr-2"></i> Quay lại lịch sử đơn hàng
+            </a>
+            <button onclick="window.print()" class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold text-[#0F172A] bg-white border border-slate-200 hover:bg-slate-50 shadow-sm transition cursor-pointer">
+                <i class="fa fa-print mr-2 text-[#0052FF]"></i> In Hóa Đơn
+            </button>
+        </div>
+
+        <div class="bi-card-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-xl">
+            
+            <!-- Invoice Header -->
+            <div class="flex flex-wrap items-start justify-between pb-8 mb-8 border-b border-slate-200">
+                <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center text-xl font-black shadow-md shadow-[#0052FF]/30">
+                        2B
+                    </div>
+                    <div>
+                        <div class="text-lg font-black text-[#0F172A]">CÔNG TY CỔ PHẦN GIẢI PHÁP & ĐẦU TƯ CÔNG NGHỆ BIWEB</div>
+                        <div class="text-xs text-[#0052FF] font-semibold">MarTech Cho Doanh Nghiệp Số | ERP & AI Agent</div>
+                        <div class="text-[11px] text-[#4B5563] mt-0.5">Hotline: 0909 008 064 | Email: contact@biweb.vn | The Hive • 94 Xuân Thủy, TP. Thủ Đức, TP. HCM</div>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20 uppercase tracking-wider mb-2">
+                        HÓA ĐƠN ĐIỆN TỬ
+                    </span>
+                    <div class="text-lg font-black text-[#0F172A] font-mono">#HD-@HD.MaHD</div>
+                    <div class="text-xs text-[#4B5563] mt-1">Ngày lập: @HD.NgayLapHD.ToString("dd/MM/yyyy HH:mm")</div>
+                </div>
+            </div>
+
+            <!-- Customer & Delivery Info -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 rounded-2xl bg-slate-50 border border-slate-200 mb-8 text-xs text-slate-700">
+                <div>
+                    <h4 class="font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center">
+                        <i class="fa fa-map-marker-alt text-blue-600 mr-2"></i> Địa Chỉ / Email Nhận Key
+                    </h4>
+                    <p class="text-sm font-semibold text-slate-800 m-0 leading-relaxed">
+                        @HD.DiaChiGH
+                    </p>
+                </div>
+                <div class="sm:text-right">
+                    <h4 class="font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center sm:justify-end">
+                        <i class="fa fa-info-circle text-blue-600 mr-2"></i> Trạng Thái Đơn Hàng
+                    </h4>
+                    <div class="space-y-1">
+                        <div>
+                            Duyệt đơn: 
+                            @if (HD.TinhTrangHD == 0)
+                            { <span class="font-bold text-amber-600">Đang chờ duyệt</span> }
+                            else if (HD.TinhTrangHD == -1)
+                            { <span class="font-bold text-rose-600">Đã hủy</span> }
+                            else
+                            { <span class="font-bold text-emerald-600">Đã duyệt ✓</span> }
+                        </div>
+                        <div>
+                            Giao bản quyền: 
+                            @if (HD.TinhTrangGH == 0)
+                            { <span class="font-bold text-slate-500">Chưa cấp</span> }
+                            else
+                            { <span class="font-bold text-emerald-600">Đã cấp qua Email ✓</span> }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line Items Table -->
+            <div class="overflow-x-auto rounded-2xl border border-slate-200 mb-8">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider border-b border-slate-200">
+                        <tr>
+                            <th class="py-3 px-4">Tên Phần Mềm & Tool Bản Quyền</th>
+                            <th class="py-3 px-4 text-center">Số Lượng Key</th>
+                            <th class="py-3 px-4 text-right">Thành Tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        @foreach (var item in listcthd)
+                        {
+                            TongTien += item.ThanhTien;
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="py-3.5 px-4 font-semibold text-slate-800 flex items-center space-x-2">
+                                    <i class="fa fa-cube text-blue-500"></i>
+                                    <span>@item.TenSP</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-center font-bold text-slate-700">
+                                    @item.SoLuong
+                                </td>
+                                <td class="py-3.5 px-4 text-right font-bold text-slate-800">
+                                    @string.Format("{0:0,0 đ}", item.ThanhTien)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Total Breakdown -->
+            <div class="max-w-xs ml-auto space-y-2 text-xs text-slate-600 mb-8">
+                <div class="flex justify-between">
+                    <span>Tổng tiền sản phẩm:</span>
+                    <span class="font-bold text-slate-800">@string.Format("{0:0,0 đ}", TongTien)</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Giảm trừ khuyến mại:</span>
+                    <span class="font-bold text-emerald-600">-@string.Format("{0:0,0 đ}", TongTien - HD.TongTienTT)</span>
+                </div>
+                <div class="pt-2 border-t border-slate-200 flex justify-between items-baseline text-sm">
+                    <span class="font-extrabold text-slate-900">Tổng thanh toán:</span>
+                    <span class="text-xl font-black text-rose-600">@string.Format("{0:0,0 đ}", HD.TongTienTT)</span>
+                </div>
+            </div>
+
+            <!-- Footer Notes & Back to Shop -->
+            <div class="pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between text-xs text-slate-500">
+                <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+                    <i class="fa fa-check-circle text-emerald-500 text-base"></i>
+                    <span>Cám ơn bạn đã lựa chọn sử dụng giải pháp tự động hóa của chúng tôi!</span>
+                </div>
+                <div class="print:hidden">
+                    <a href="/Home/Index" class="inline-flex items-center px-6 py-2.5 rounded-xl font-bold text-white bi-btn-primary shadow-sm transition no-underline">
+                        <i class="fa fa-home mr-2"></i> Quay lại trang chủ
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

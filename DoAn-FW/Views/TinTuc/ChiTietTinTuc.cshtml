@@ -1,0 +1,57 @@
+@model List<DoAn_FW.Models.TinTuc>
+@{
+    ViewData["Title"] = "Chi Tiết Bài Viết - BIWEB MarTech & Chuyển Đổi Số";
+}
+
+<!-- Breadcrumb Header -->
+<div class="bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-10 border-b border-slate-800">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span>/</span>
+            <a href="/TinTuc/DanhSachTinTuc" class="hover:text-white no-underline text-[#00C6FF]">Cẩm nang MarTech</a>
+            <span>/</span>
+            <span class="text-white">Chi tiết</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Cẩm Nang &amp; Tài Liệu Chuyển Đổi Số BIWEB
+        </h1>
+    </div>
+</div>
+
+<div class="py-12 bg-slate-50 min-h-screen">
+    <div class="container mx-auto px-4 max-w-4xl">
+        
+        @foreach (var tintuc in Model)
+        {
+            <article class="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-10 shadow-sm mb-8">
+                <!-- Article Title -->
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug mb-6">
+                    @tintuc.TieuDe
+                </h2>
+
+                <!-- Cover Image -->
+                <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-100">
+                    <img src="@tintuc.HinhBia" alt="@tintuc.TieuDe" class="w-full max-h-[460px] object-cover" />
+                </div>
+
+                <!-- Content -->
+                <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4 whitespace-pre-line mb-8">
+                    @tintuc.NoiDung
+                </div>
+
+                <!-- Navigation Bar -->
+                <div class="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                    <a href="/TinTuc/DanhSachTinTuc" class="inline-flex items-center px-5 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition no-underline">
+                        <i class="fa fa-arrow-left mr-2"></i> Quay lại danh sách bài viết
+                    </a>
+
+                    <a href="/SanPham/Products" class="inline-flex items-center px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition no-underline">
+                        <i class="fa fa-rocket mr-2"></i> Trải nghiệm tool ngay
+                    </a>
+                </div>
+            </article>
+        }
+
+    </div>
+</div>

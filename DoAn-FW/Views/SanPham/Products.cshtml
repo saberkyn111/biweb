@@ -1,0 +1,452 @@
+@{
+    ViewData["Title"] = "Kho Giải Pháp & Phần Mềm Chuyển Đổi Số - BIWEB";
+    List<object> Model = ViewData["list"] as List<object>;
+    List<object> ModelLoaiSP = ViewData["ListLoaiSP"] as List<object>;
+    List<object> ModelHang = ViewData["ListHang"] as List<object>;
+    List<object> ModelRam = ViewData["ListRam"] as List<object>;
+    List<object> ModelMemory = ViewData["ListMemory"] as List<object>;
+    List<object> ModelManHinh = ViewData["ListManHinh"] as List<object>;
+    KhachHang kh = ViewBag.KH;
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+
+    var loaiDict = new Dictionary<string, string>();
+    if (ModelLoaiSP != null)
+    {
+        foreach (var l in ModelLoaiSP)
+        {
+            var k = l.GetType().GetProperty("MaLoaiSP")?.GetValue(l, null)?.ToString();
+            var v = l.GetType().GetProperty("TenLoaiSP")?.GetValue(l, null)?.ToString();
+            if (k != null && v != null) { loaiDict[k] = v; }
+        }
+    }
+
+    var hangDict = new Dictionary<string, string>();
+    if (ModelHang != null)
+    {
+        foreach (var h in ModelHang)
+        {
+            var k = h.GetType().GetProperty("MaTH")?.GetValue(h, null)?.ToString();
+            var v = h.GetType().GetProperty("TenTH")?.GetValue(h, null)?.ToString();
+            if (k != null && v != null) { hangDict[k] = v; }
+        }
+    }
+
+    var queryLoai = Context.Request.Query["MaLoaiSP"].ToList();
+    var queryRam = Context.Request.Query["Ram"].ToList();
+    var queryMemory = Context.Request.Query["Memory"].Concat(Context.Request.Query["BoNhoTrong"]).ToList();
+    var queryTH = Context.Request.Query["MaTH"].ToList();
+    var currentSort = Context.Request.Query["sortOrder"].ToString();
+}
+
+<!-- Page Header Banner -->
+<div class="bg-[#0F172A] text-white py-12 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute -top-24 right-0 w-96 h-96 bg-[#0052FF]/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 left-0 w-96 h-96 bg-[#00C6FF]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 text-center sm:text-left flex flex-wrap justify-between items-center gap-6 relative z-10">
+        <div>
+            <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-semibold mb-2">
+                <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+                <span class="text-slate-500">/</span>
+                <span class="text-white">Kho Giải Pháp Số</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+                Kho Giải Pháp &amp; Phần Mềm BIWEB
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl leading-relaxed m-0">
+                Các module MarTech, CDP 360°, ERP &amp; AI Agent giúp doanh nghiệp tự động hóa vận hành, tối ưu chi phí và tăng trưởng doanh thu bền vững.
+            </p>
+        </div>
+        <div class="hidden md:flex items-center space-x-4 text-xs bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-xl">
+            <div class="text-center px-3 border-r border-slate-800">
+                <div class="text-xl font-black text-[#00C6FF]">50+</div>
+                <div class="text-slate-400 text-[11px] font-medium mt-0.5">Đối Tác Tin Dùng</div>
+            </div>
+            <div class="text-center px-3 border-r border-slate-800">
+                <div class="text-xl font-black text-[#10B981]">100%</div>
+                <div class="text-slate-400 text-[11px] font-medium mt-0.5">In-House R&amp;D</div>
+            </div>
+            <div class="text-center px-3">
+                <div class="text-xl font-black text-[#FF6B00]">24/7</div>
+                <div class="text-slate-400 text-[11px] font-medium mt-0.5">Đồng Hành Chiến Lược</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-10 bg-[#F8FAFC] min-h-screen">
+    <div class="container mx-auto px-4">
+        
+        <!-- Search and Sort Toolbar -->
+        <div class="bi-card-white rounded-2xl p-4 border border-slate-200/90 shadow-sm mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+                
+                <!-- Search Box -->
+                <div class="lg:col-span-8">
+                    <form action="/SanPham/Products" method="get" class="flex gap-2">
+                        <div class="relative flex-1">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            <input type="search" name="search" value="@Context.Request.Query["search"]" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0052FF] focus:border-[#0052FF] text-sm text-[#0F172A]" placeholder="Tìm kiếm giải pháp MarTech, ERP, AI Agent, CDP..." />
+                        </div>
+                        @if (!string.IsNullOrEmpty(Context.Request.Query["sortOrder"]))
+                        {
+                            <input type="hidden" name="sortOrder" value="@Context.Request.Query["sortOrder"]" />
+                        }
+                        <button type="submit" class="px-5 py-2.5 rounded-xl font-bold text-sm text-white bi-btn-primary shadow-sm flex items-center whitespace-nowrap border-0 cursor-pointer">
+                            <i class="fa fa-search mr-1.5"></i> Tìm Kiếm
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sort Dropdown -->
+                <div class="lg:col-span-4 flex items-center justify-end">
+                    <label class="text-xs text-[#4B5563] mr-2 font-medium whitespace-nowrap">Sắp xếp theo:</label>
+                    <select name="sortOrder" id="sortOrder" onchange="sortProduct(this.value)" class="w-full sm:w-auto py-2.5 px-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF] bg-white text-[#0F172A]">
+                        <option value="" selected="@(string.IsNullOrEmpty(currentSort))">-- Mặc định --</option>
+                        <option value="price_asc" selected="@(currentSort == "price_asc")">Giá: Thấp đến Cao</option>
+                        <option value="price_desc" selected="@(currentSort == "price_desc")">Giá: Cao đến Thấp</option>
+                        <option value="name_asc" selected="@(currentSort == "name_asc")">Tên Tool: A-Z</option>
+                        <option value="name_desc" selected="@(currentSort == "name_desc")">Tên Tool: Z-A</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Filter Sidebar -->
+            <aside class="lg:col-span-3">
+                <form action="/SanPham/Products" method="get" id="filterSidebarForm" class="bi-card-white rounded-2xl border border-slate-200/90 p-5 shadow-sm space-y-6">
+                    @if (!string.IsNullOrEmpty(Context.Request.Query["search"]))
+                    {
+                        <input type="hidden" name="search" value="@Context.Request.Query["search"]" />
+                    }
+                    @if (!string.IsNullOrEmpty(Context.Request.Query["sortOrder"]))
+                    {
+                        <input type="hidden" name="sortOrder" value="@Context.Request.Query["sortOrder"]" />
+                    }
+                    
+                    <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                        <h2 class="text-base font-bold text-[#0F172A] flex items-center m-0">
+                            <i class="fa fa-filter text-[#0052FF] mr-2"></i> BỘ LỌC TÌM KIẾM
+                        </h2>
+                        <a href="/SanPham/Products" class="text-xs text-[#4B5563] hover:text-[#0052FF] transition no-underline font-medium">
+                            <i class="fa fa-redo mr-1"></i> Đặt lại
+                        </a>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                            <i class="fa fa-layer-group text-[#0052FF] mr-1.5"></i> Phân Loại Tool
+                        </h3>
+                        <div class="space-y-2 text-sm text-[#4B5563]">
+                            @foreach (var hang in ModelLoaiSP)
+                            {
+                                var loaiId = hang.GetType().GetProperty("MaLoaiSP").GetValue(hang, null)?.ToString();
+                                var loaiName = hang.GetType().GetProperty("TenLoaiSP").GetValue(hang, null)?.ToString();
+                                var isChecked = queryLoai.Contains(loaiId);
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaLoaiSP" value="@loaiId" @(isChecked ? "checked" : "") onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs leading-snug @(isChecked ? "font-bold text-[#0052FF]" : "")">@loaiName</span>
+                                </label>
+                            }
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100 m-0" />
+
+                    <!-- Threads Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                            <i class="fa fa-microchip text-[#00C6FF] mr-1.5"></i> Số Luồng (Threads)
+                        </h3>
+                        <div class="space-y-2 text-sm text-[#4B5563]">
+                            @foreach (var hang in ModelRam)
+                            {
+                                var ramVal = hang.GetType().GetProperty("Ram").GetValue(hang, null)?.ToString();
+                                var isChecked = queryRam.Contains(ramVal);
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="@ramVal" @(isChecked ? "checked" : "") onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs @(isChecked ? "font-bold text-[#0052FF]" : "")">@ramVal Luồng song song</span>
+                                </label>
+                            }
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100 m-0" />
+
+                    <!-- Accounts Managed Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                            <i class="fa fa-users text-[#FF6B00] mr-1.5"></i> Số Nick Quản Lý (Acc)
+                        </h3>
+                        <div class="space-y-2 text-sm text-[#4B5563]">
+                            @foreach (var hang in ModelMemory)
+                            {
+                                var memVal = hang.GetType().GetProperty("BoNhoTrong").GetValue(hang, null)?.ToString();
+                                var isChecked = queryMemory.Contains(memVal);
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="@memVal" @(isChecked ? "checked" : "") onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs @(isChecked ? "font-bold text-[#0052FF]" : "")">@memVal Accounts</span>
+                                </label>
+                            }
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100 m-0" />
+
+                    <!-- Developer Brands Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                            <i class="fa fa-building text-[#10B981] mr-1.5"></i> Đơn Vị Phát Triển
+                        </h3>
+                        <div class="space-y-2 text-sm text-[#4B5563] max-h-48 overflow-y-auto pr-1">
+                            @foreach (var hang in ModelHang)
+                            {
+                                var thId = hang.GetType().GetProperty("MaTH").GetValue(hang, null)?.ToString();
+                                var thName = hang.GetType().GetProperty("TenTH").GetValue(hang, null)?.ToString();
+                                var isChecked = queryTH.Contains(thId);
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="@thId" @(isChecked ? "checked" : "") onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs @(isChecked ? "font-bold text-[#0052FF]" : "")">@thName</span>
+                                </label>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-3 rounded-xl font-bold text-sm text-white bi-btn-primary shadow-md transition flex items-center justify-center border-0 cursor-pointer">
+                        <i class="fa fa-check mr-2"></i> Áp Dụng Lọc
+                    </button>
+                </form>
+            </aside>
+
+            <!-- Product Cards Grid -->
+            <main class="lg:col-span-9">
+                @{
+                    var hasAnyFilter = Context.Request.Query.Keys.Any(k => k != "pg" && k != "sortOrder" && !string.IsNullOrEmpty(Context.Request.Query[k]));
+                }
+                @if (hasAnyFilter)
+                {
+                    <div class="mb-6 p-4 bg-white rounded-2xl border border-[#0052FF]/30 shadow-sm flex flex-wrap items-center gap-2 text-xs">
+                        <span class="font-bold text-[#0F172A] flex items-center mr-1">
+                            <i class="fa fa-filter text-[#0052FF] mr-1.5"></i> Đang lọc:
+                        </span>
+                        @foreach (var key in Context.Request.Query.Keys)
+                        {
+                            if (key == "pg" || key == "sortOrder" || string.IsNullOrEmpty(Context.Request.Query[key])) { continue; }
+                            foreach (var val in Context.Request.Query[key])
+                            {
+                                string label = val;
+                                if (key == "search") { label = "Từ khóa: \"" + val + "\""; }
+                                else if (key == "Ram") { label = val + " Luồng"; }
+                                else if (key == "Memory" || key == "BoNhoTrong") { label = val + " Acc"; }
+                                else if (key == "MaLoaiSP" && loaiDict.ContainsKey(val)) { label = "Danh mục: " + loaiDict[val]; }
+                                else if (key == "MaTH" && hangDict.ContainsKey(val)) { label = "Hãng: " + hangDict[val]; }
+
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20 font-semibold shadow-xs">
+                                    <span>@label</span>
+                                    <button type="button" onclick="removeFilter('@key', '@val')" title="Bỏ lọc" class="ml-1.5 text-[#0052FF]/60 hover:text-rose-600 bg-transparent border-0 p-0 cursor-pointer text-xs">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </span>
+                            }
+                        }
+                        <a href="/SanPham/Products" class="ml-auto text-xs text-rose-600 hover:text-rose-700 font-bold no-underline flex items-center px-2 py-1 rounded-lg hover:bg-rose-50 transition">
+                            <i class="fa fa-trash-alt mr-1"></i> Xóa tất cả lọc
+                        </a>
+                    </div>
+                }
+
+                @if (Model != null && Model.Count > 0)
+                {
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                        @foreach (var item in Model)
+                        {
+                            var id = item.GetType().GetProperty("MaTTSP").GetValue(item, null).ToString();
+                            var name = item.GetType().GetProperty("TenSP").GetValue(item, null).ToString();
+                            var img = item.GetType().GetProperty("HinhAnh").GetValue(item, null).ToString();
+                            var loaiId = item.GetType().GetProperty("MaLoaiSP").GetValue(item, null).ToString();
+                            var mauSac = item.GetType().GetProperty("MauSac").GetValue(item, null).ToString();
+                            var ram = item.GetType().GetProperty("Ram").GetValue(item, null).ToString();
+                            var boNho = item.GetType().GetProperty("BoNhoTrong").GetValue(item, null).ToString();
+                            var giaKM = int.Parse(item.GetType().GetProperty("GiaKM").GetValue(item, null).ToString());
+                            var giaGoc = int.Parse(item.GetType().GetProperty("Gia").GetValue(item, null).ToString());
+
+                            <div class="bi-card-white rounded-3xl border border-slate-200/90 p-4 sm:p-5 shadow-sm hover:border-[#0052FF] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-100 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="@img" alt="@name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            @mauSac
+                                        </span>
+                                        @if (giaKM > 0 && giaKM < giaGoc)
+                                        {
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -@(((giaGoc - giaKM) * 100) / giaGoc)%
+                                            </span>
+                                        }
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-[#0F172A] line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="text-[#0F172A] group-hover:text-[#0052FF] no-underline transition">
+                                            @name
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-100 text-[#4B5563] font-medium">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> @ram Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-100 text-[#4B5563] font-medium">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> @boNho Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/10 text-[#10B981] font-semibold border border-[#10B981]/25 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-slate-100">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                        @if (giaKM > 0)
+                                        {
+                                            <span class="text-xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", giaKM)</span>
+                                            <span class="text-xs text-[#4B5563] line-through">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                                        }
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=@id" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-[#0F172A] bg-slate-100 hover:bg-slate-200 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Pagination -->
+                    @if (pager.TotalPages > 0)
+                    {
+                        <div class="mt-12 flex justify-center">
+                            <nav class="inline-flex items-center space-x-1.5 bg-white p-2 rounded-2xl border border-slate-200/90 shadow-sm">
+                                @if (pager.CurrentPage > 1)
+                                {
+                                    <a href="javascript:void(0);" onclick="navigatePage(@(pager.CurrentPage - 1))" class="px-3.5 py-2 rounded-xl text-xs font-bold text-[#4B5563] hover:bg-slate-100 no-underline transition">
+                                        <i class="fa fa-chevron-left mr-1"></i> Trước
+                                    </a>
+                                }
+
+                                @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                                {
+                                    if (pge == pager.CurrentPage)
+                                    {
+                                        <span class="px-4 py-2 rounded-xl text-xs font-bold bi-btn-primary text-white shadow-sm">@pge</span>
+                                    }
+                                    else
+                                    {
+                                        <a href="javascript:void(0);" onclick="navigatePage(@pge)" class="px-4 py-2 rounded-xl text-xs font-semibold text-[#4B5563] hover:text-[#0F172A] hover:bg-slate-100 no-underline transition">@pge</a>
+                                    }
+                                }
+
+                                @if (pager.CurrentPage < pager.TotalPages)
+                                {
+                                    <a href="javascript:void(0);" onclick="navigatePage(@(pager.CurrentPage + 1))" class="px-3.5 py-2 rounded-xl text-xs font-bold text-[#4B5563] hover:bg-slate-100 no-underline transition">
+                                        Sau <i class="fa fa-chevron-right ml-1"></i>
+                                    </a>
+                                }
+                            </nav>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="bg-white rounded-3xl p-12 text-center border border-slate-200/90 shadow-sm">
+                        <div class="w-16 h-16 rounded-full bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#0F172A] mb-2">Không tìm thấy phần mềm / Tool Facebook nào!</h3>
+                        <p class="text-xs sm:text-sm text-[#4B5563] mb-6">Vui lòng thử lại với từ khóa tìm kiếm hoặc bỏ chọn bớt bộ lọc.</p>
+                        <a href="/SanPham/Products" class="inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-bold text-white bi-btn-primary no-underline">
+                            <i class="fa fa-redo mr-2"></i> Xem Tất Cả Tool
+                        </a>
+                    </div>
+                }
+            </main>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function navigatePage(pageNumber) {
+        if (pageNumber < 1) return;
+        var url = new URL(window.location.href);
+        url.searchParams.set('pg', pageNumber);
+        window.location.href = url.toString();
+    }
+
+    function sortProduct(sortInfor) {
+        var url = new URL(window.location.href);
+        if (sortInfor) {
+            url.searchParams.set('sortOrder', sortInfor);
+        } else {
+            url.searchParams.delete('sortOrder');
+        }
+        url.searchParams.set('pg', '1');
+        window.location.href = url.toString();
+    }
+
+    function removeFilter(name, value) {
+        var url = new URL(window.location.href);
+        var allValues = url.searchParams.getAll(name).filter(function(v) { return v !== value; });
+        url.searchParams.delete(name);
+        allValues.forEach(function(v) { url.searchParams.append(name, v); });
+        url.searchParams.set('pg', '1');
+        window.location.href = url.toString();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var url = new URL(window.location.href);
+        var sortOrder = url.searchParams.get("sortOrder");
+        if (sortOrder && document.getElementById("sortOrder")) {
+            document.getElementById("sortOrder").value = sortOrder;
+        }
+
+        ['MaLoaiSP', 'Ram', 'Memory', 'MaTH'].forEach(function(param) {
+            var values = url.searchParams.getAll(param);
+            if (values.length > 0) {
+                var checkboxes = document.querySelectorAll('input[name="' + param + '"]');
+                checkboxes.forEach(function (checkbox) {
+                    if (values.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+        });
+    });
+</script>

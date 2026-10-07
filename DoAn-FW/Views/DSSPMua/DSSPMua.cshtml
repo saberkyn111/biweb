@@ -1,0 +1,226 @@
+@model List<object>
+@{
+    ViewData["Title"] = "Kho License & Bản Quyền Doanh Nghiệp - BIWEB";
+    List<object> ListSP = ViewData["ListSP"] as List<object> ?? new List<object>();
+    long SoLuong = 0;
+    long Gia = 0;
+}
+
+<!-- Page Header Banner -->
+<div class="bg-[#0F172A] text-white py-8 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span class="text-slate-500">/</span>
+            <a href="/TaiKhoan/ThongTinTK" class="hover:text-white no-underline text-[#00C6FF]">Tài khoản</a>
+            <span class="text-slate-500">/</span>
+            <span class="text-white">Kho bản quyền đã mua</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Kho Bản Quyền & License Key Giải Pháp
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1 m-0">
+            Quản lý mã kích hoạt bản quyền, tài liệu tích hợp API và hỗ trợ triển khai từ BIWEB
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-[#F8FAFC] min-h-screen">
+    <div class="container mx-auto px-4 max-w-6xl">
+        
+        <!-- Account Sub-navigation Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
+            <a href="/TaiKhoan/ThongTinTK" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-[#4B5563] hover:text-[#0052FF] hover:bg-slate-100 transition no-underline">
+                <i class="fa fa-user-circle"></i>
+                <span>Thông tin đối tác</span>
+            </a>
+            <a href="/DSSPMua/DSSPMua" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bi-btn-primary shadow-sm no-underline">
+                <i class="fa fa-key"></i>
+                <span>Kho License đã kích hoạt</span>
+            </a>
+            <a href="/HoaDon/LichSuHD" class="flex items-center space-x-2 px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-[#4B5563] hover:text-[#0052FF] hover:bg-slate-100 transition no-underline">
+                <i class="fa fa-file-invoice-dollar"></i>
+                <span>Lịch sử hợp đồng & Hóa đơn</span>
+            </a>
+        </div>
+
+        <!-- Quick Stats Overview Cards -->
+        @if (ListSP != null && ListSP.Count > 0)
+        {
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-xl font-bold">
+                        <i class="fa fa-cubes"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-400">Giải Pháp Đang Dùng</div>
+                        <div class="text-xl font-extrabold text-[#0F172A]">@ListSP.Count Giải pháp</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                        <i class="fa fa-shield-check"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-400">Trạng Thái Bản Quyền</div>
+                        <div class="text-xl font-extrabold text-emerald-600">Đang Hoạt Động</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold">
+                        <i class="fa fa-sync-alt"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-400">Bảo Hành & Update</div>
+                        <div class="text-xl font-extrabold text-purple-600">Trọn Đời</div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <!-- Main License Cards List -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
+            @if (ListSP != null && ListSP.Count > 0)
+            {
+                <div class="divide-y divide-slate-100 space-y-6">
+                    @for (var i = 0; i < ListSP.Count; i++)
+                    {
+                        var ctsp = ListSP[i];
+                        var id = ctsp.GetType().GetProperty("MaTTSP")?.GetValue(ctsp, null)?.ToString() ?? "0";
+                        var name = ctsp.GetType().GetProperty("TenSP")?.GetValue(ctsp, null)?.ToString() ?? "";
+                        var img = ctsp.GetType().GetProperty("HinhAnh")?.GetValue(ctsp, null)?.ToString() ?? "";
+                        var loaiId = ctsp.GetType().GetProperty("MaLoaiSP")?.GetValue(ctsp, null)?.ToString() ?? "1";
+                        var mauSac = ctsp.GetType().GetProperty("MauSac")?.GetValue(ctsp, null)?.ToString() ?? "Vĩnh Viễn";
+                        var ram = ctsp.GetType().GetProperty("Ram")?.GetValue(ctsp, null)?.ToString() ?? "32";
+                        var boNho = ctsp.GetType().GetProperty("BoNhoTrong")?.GetValue(ctsp, null)?.ToString() ?? "500";
+
+                        long giaKM = 0;
+                        long giaGoc = 0;
+                        long.TryParse(ctsp.GetType().GetProperty("GiaKM")?.GetValue(ctsp, null)?.ToString(), out giaKM);
+                        long.TryParse(ctsp.GetType().GetProperty("Gia")?.GetValue(ctsp, null)?.ToString(), out giaGoc);
+                        Gia = (giaKM > 0) ? giaKM : giaGoc;
+                        long.TryParse(ctsp.GetType().GetProperty("SoLuong")?.GetValue(ctsp, null)?.ToString(), out SoLuong);
+
+                        var mockKey = $"BIWEB-ENTERPRISE-2026-X{id}89-{(1000 + i * 37)}";
+
+                        <div class="pt-6 first:pt-0">
+                            <div class="flex flex-wrap lg:flex-nowrap items-start justify-between gap-6">
+                                
+                                <!-- Software Thumbnail & Title -->
+                                <div class="flex items-start space-x-4 flex-1 min-w-[280px]">
+                                    <img src="@img" alt="@name" class="w-20 h-20 object-cover rounded-2xl border border-slate-200 flex-shrink-0" />
+                                    <div>
+                                        <div class="flex items-center space-x-2 mb-1">
+                                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20">
+                                                Gói @mauSac
+                                            </span>
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200">
+                                                <i class="fa fa-circle text-[7px] mr-1 animate-pulse"></i> Đã cấp bản quyền
+                                            </span>
+                                        </div>
+                                        <h3 class="text-base font-bold text-[#0F172A] leading-snug">
+                                            <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="text-[#0F172A] hover:text-[#0052FF] no-underline transition">
+                                                @name
+                                            </a>
+                                        </h3>
+                                        <div class="flex items-center space-x-3 text-xs text-[#4B5563] mt-1 font-medium">
+                                            <span><i class="fa fa-microchip text-[#0052FF] mr-1"></i> @ram</span>
+                                            <span>•</span>
+                                            <span><i class="fa fa-database text-amber-500 mr-1"></i> @boNho</span>
+                                            <span>•</span>
+                                            <span>Số lượng: <strong>@SoLuong License</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- License Key Box -->
+                                <div class="w-full lg:w-80 bg-[#0F172A] text-white rounded-2xl p-4 border border-slate-800 space-y-2">
+                                    <div class="flex items-center justify-between text-[11px] text-slate-400">
+                                        <span><i class="fa fa-key text-amber-400 mr-1"></i> LICENSE KEY BẢN QUYỀN:</span>
+                                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                                    </div>
+                                    <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                                        <code id="key_@i" class="font-mono text-xs text-[#00C6FF] font-bold select-all tracking-wider">
+                                            @mockKey
+                                        </code>
+                                        <button type="button" 
+                                                onclick="copyKey('@mockKey', this)" 
+                                                class="px-2.5 py-1 rounded-lg bi-btn-primary text-white text-[11px] font-bold transition flex items-center space-x-1 border-0 cursor-pointer" 
+                                                title="Sao chép License Key">
+                                            <i class="fa fa-copy"></i>
+                                            <span>Copy</span>
+                                        </button>
+                                    </div>
+                                    <div class="text-[10px] text-slate-400 flex items-center justify-between">
+                                        <span>Cập nhật: Bản quyền chính hãng</span>
+                                        <span class="text-slate-300 font-medium">BIWEB Cloud</span>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="w-full lg:w-48 flex flex-col space-y-2">
+                                    <a href="#" 
+                                       onclick="alert('Bắt đầu tải bộ tài liệu SDK và gói giải pháp @name!'); return false;"
+                                       class="w-full py-2.5 px-3 rounded-xl font-bold text-xs text-white bi-btn-primary transition flex items-center justify-center space-x-1.5 shadow-sm no-underline">
+                                        <i class="fa fa-download"></i>
+                                        <span>Tải Gói Cài / SDK</span>
+                                    </a>
+                                    <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" 
+                                       class="w-full py-2 px-3 rounded-xl font-bold text-xs text-[#0F172A] bg-slate-100 hover:bg-slate-200 transition flex items-center justify-center space-x-1.5 no-underline">
+                                        <i class="fa fa-book-open text-[#0052FF]"></i>
+                                        <span>Xem Hướng Dẫn</span>
+                                    </a>
+                                    <a href="tel:0817740179"
+                                       class="w-full py-2 px-3 rounded-xl font-semibold text-[11px] text-[#0052FF] hover:text-[#00C6FF] bg-[#0052FF]/5 hover:bg-[#0052FF]/10 transition flex items-center justify-center space-x-1 no-underline">
+                                        <i class="fa fa-headset"></i>
+                                        <span>Hỗ trợ kỹ thuật</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-16">
+                    <div class="w-20 h-20 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fa fa-key"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Bạn chưa sở hữu phần mềm nào!</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 max-w-md mx-auto">
+                        Các gói License và Tool sau khi bạn đặt mua và thanh toán thành công sẽ xuất hiện tại đây kèm mã Key và link tải file cài đặt.
+                    </p>
+                    <a href="/SanPham/Products" class="inline-flex items-center px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 transition shadow-sm no-underline">
+                        <i class="fa fa-rocket mr-2"></i> Khám Phá Kho Tool Ngay
+                    </a>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function copyKey(keyText, btn) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(keyText).then(function() {
+                var oldHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa fa-check text-emerald-300"></i> Đã Copy!';
+                btn.classList.remove('bg-blue-600');
+                btn.classList.add('bg-emerald-600');
+                setTimeout(function() {
+                    btn.innerHTML = oldHtml;
+                    btn.classList.remove('bg-emerald-600');
+                    btn.classList.add('bg-blue-600');
+                }, 2000);
+            });
+        } else {
+            prompt("Sao chép License Key của bạn:", keyText);
+        }
+    }
+</script>

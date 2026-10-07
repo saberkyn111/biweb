@@ -1,0 +1,271 @@
+
+@using Web_projectframeword_admin.Models;
+@model SanPham
+@{
+    List<LoaiSanPham> ListLoaiSP = new List<LoaiSanPham>();
+    ListLoaiSP = ViewBag.DSLSP as List<LoaiSanPham>;
+    List<ThuongHieu> ListTH = new List<ThuongHieu>();
+    ListTH = ViewBag.DSTH as List<ThuongHieu>;
+}
+@{
+    <div class="content-wrapper" style="min-height: 639px;">
+        <form action="/Admin/SanPham/InsertSanPham" method="post">
+            <section class="content-header">
+                <h1>
+                    <i class="fa fa-cogs"></i> Thêm Tool Facebook / Phần Mềm Mới
+                </h1>
+                <div class="breadcrumb">
+                    <a class="btn btn-primary btn-sm" role="button">
+                        <span class="glyphicon glyphicon-floppy-save"></span>
+                        <input type="submit" name="submit" value="Lưu Tool" />
+                    </a>
+                    <a class="btn btn-primary btn-sm" href="/Admin/SanPham/LietKeSanPham" role="button">
+                        <span class="glyphicon glyphicon-remove do_nos"></span>Thoát
+                    </a>
+                </div>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box" id="view">
+                            <div class="box-header with-border">
+                                <div class="box-body">
+                                    <div class="col-md-8" style="border-right: ridge;">
+                                        <div class="form-group">
+
+                                            <label for="tenSP">Tên Tool / Phần mềm Facebook</label>
+                                            <input type="text" class="form-control" name="TENSP" style="width:100%" placeholder="Ví dụ: Tool Auto Lên Camp & Nhân Nhóm Ads">
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6" style="padding-left: 0px;">
+                                                    <div class="form-group">
+
+                                                        <Label>Phân loại Tool</Label>
+                                                        <select name="MALOAISP" class="form-control">
+                                                            <option value="MALOAISP">[--Chọn phân loại--]</option>
+                                                            <option value="1">Tool Chạy Ads & Tối Ưu Camp</option>
+                                                            <option value="2">Tool Nuôi Nick & Tương Tác Tự Động</option>
+                                                            <option value="3">Tool Quét UID & Data Khách Hàng</option>
+                                                            <option value="4">Tool Seeding & Spam Tin Nhắn</option>
+                                                            <option value="5">Nguyên Liệu Ads, BM & Proxy</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+                                                    <div class="form-group">
+                                                        <Label>Đơn vị phát triển / Hãng Tool</Label>
+                                                        <select name="MATH" class="form-control">
+                                                            <option value="MATH">[--Chọn đơn vị phát triển--]</option>
+                                                            <option value="1">MetaAds Pro</option>
+                                                            <option value="2">Ninja Software</option>
+                                                            <option value="3">Simple FB Tech</option>
+                                                            <option value="4">FPlus Automation</option>
+                                                            <option value="5">MaxCare System</option>
+                                                            <option value="6">MKT Software</option>
+                                                            <option value="7">AdsPower Anti-Detect</option>
+                                                            <option value="8">Gologin Browser</option>
+                                                            <option value="9">VSoftware VN</option>
+                                                            <option value="10">ProxyVN & Cloud Ads</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="hinhAnh">Hình ảnh sản phẩm</label>
+                                            <input type="text" class="form-control" name="HINHANH" style="width:100%" placeholder="đường link hình ảnh" required>
+
+                                        </div>
+                                        <div class="row">
+                                            <span style="color: red; font-weight: 700; font-size: 18;">Thông tin sản phẩm</span>
+                                            <div class="col-md-12" style="border-top:ridge; padding-top: 10px;">
+                                                <div class="col-md-6" style="padding-left: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="gia">Giá</label>
+                                                        <input name="GIA" class="form-control" type="number" min="0" step="5000">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="giaKM">Giá khuyến mãi</label>
+                                                        <input name="GIAKM" class="form-control" type="number" min="0" step="5000">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6" style="padding-left: 0px;">
+
+                                                    <label for="maTTSP">Mã sản phẩm</label>
+                                                    <input name="MATTSP" type="text" class="form-control">
+
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+
+                                                    <label for="soLuong">Số lượng</label>
+                                                    <input name="SOLUONG" class="form-control" type="number" min="0" step="1">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6" style="padding-left: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="ram">Số luồng chạy (Threads)</label>
+                                                        <input name="RAM" class="form-control" type="number" min="0" max="1000" step="1" placeholder="Ví dụ: 50">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="boNhoTrong">Số Nick/TK Quản lý</label>
+                                                        <input name="BONHOTRONG" class="form-control" type="number" min="0" max="50000" step="1" placeholder="Ví dụ: 1000">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6" style="padding-left: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="pin">Thời hạn bảo hành/Update (ngày)</label>
+                                                        <input name="PIN" class="form-control" type="number" min="0" max="100000" step="1" placeholder="Ví dụ: 365">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="kichthuocmanhinh">Phiên bản (Version)</label>
+                                                        <input name="KICHTHUOCMANHINH" class="form-control" type="number" min="0" max="100" step="0.1" placeholder="Ví dụ: 5.2">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6" style="padding-left: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="cameraTruoc">Hệ điều hành tương thích</label>
+                                                        <input name="CAMERATRUOC" class="form-control" type="text" placeholder="Windows 10/11 & VPS">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="cameraSau">Hình thức cấp key</label>
+                                                        <input name="CAMERASAU" class="form-control" type="text" placeholder="Key kích hoạt online">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6" style="padding-left: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="mauSac">Gói bản quyền</label>
+                                                        <input name="MAUSAC" class="form-control" type="text" placeholder="Gói 1 Năm / Vĩnh viễn">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+                                                    <div class="form-group">
+
+                                                        <label for="cpu">Công nghệ / API nền tảng</label>
+                                                        <input name="CPU" class="form-control" type="text" placeholder="C# .NET / Chromium Anti-detect">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        </form>
+        <div class="col-md-4">
+            <span style="color: red; font-weight: 700; font-size: 18;">Loại sản phẩm</span>
+            <div class="col-md-12" style="border:ridge; padding-top: 10px;">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered" style="font-size: 14;">
+                        <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th>Tên Loại sản phẩm</th>
+                                <th class="text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 0;}
+                            @foreach (var item in ListLoaiSP)
+                            {
+
+                                i++;
+                                <tr>
+                                    <th class="text-center" style="font-weight: 300;">@i</th>
+                                    <th style="font-weight: 300;">@item.TENLOAISP</th>
+                                    <th class="text-center">
+                                        <a class="btn btn-danger btn-xs" onclick="return confirm('Xác nhận xóa Loại sản phẩm này ?')" href="/Admin/SanPham/DeleteLoaiSP?Id=@item.TENLOAISP" role="button">
+                                            <span class="glyphicon glyphicon-trash"></span>Xóa
+                                        </a>
+                                    </th>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <form action="/Admin/SanPham/InsertLoaiSP" method="get">
+                    <input type="text" name="TENLOAISP">
+                    <button class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-plus"></span>Thêm
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4" style="margin-top: 10;">
+            <span style="color: red; font-weight: 700; font-size: 18;">Thương hiệu</span>
+            <div class="col-md-12" style="border:ridge; padding-top: 10px;">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered" style="font-size: 14;">
+                        <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th>Tên Thương hiệu</th>
+                                <th class="text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int j = 0;}
+                            @foreach (var item in ListTH)
+                            {
+                                j++;
+                                <tr>
+                                    <th class="text-center" style="font-weight: 300;">@j</th>
+                                    <th style="font-weight: 300;">@item.TENTH</th>
+                                    <th class="text-center">
+                                        <a class="btn btn-danger btn-xs" onclick="return confirm('Xác nhận xóa Loại sản phẩm này ?')" href="/Admin/SanPham/DeleteTH?Id=@item.TENTH" role="button">
+                                            <span class="glyphicon glyphicon-trash"></span>Xóa
+                                        </a>
+                                    </th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <form action="/Admin/SanPham/InsertTH" method="get">
+                    <input type="text" name="TENTH">
+                    <button class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-plus"></span>Thêm
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+              }

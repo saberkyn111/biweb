@@ -1,0 +1,29 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.cs       text diff=csharp
+*.cshtml   text diff=html
+*.css      text
+*.js       text
+*.json     text
+*.sql      text
+*.md       text
+*.xml      text
+*.csproj   text
+*.sln      text eol=crlf
+
+# Denote all binary files that should not be modified
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.ico      binary
+*.pdf      binary
+*.woff     binary
+*.woff2    binary
+*.ttf      binary
+*.eot      binary
+*.zip      binary
+*.dll      binary

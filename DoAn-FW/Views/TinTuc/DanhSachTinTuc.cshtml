@@ -1,0 +1,113 @@
+@model IEnumerable<DoAn_FW.Models.TinTuc>
+@{
+    ViewData["Title"] = "Kiến Thức MarTech & Chuyển Đổi Số Doanh Nghiệp - BIWEB";
+
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if(ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage; 
+    }
+}
+
+<!-- Breadcrumb Header -->
+<div class="bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white py-12 border-b border-slate-800">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-semibold mb-2">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span>/</span>
+            <span class="text-white">Cẩm nang MarTech &amp; Doanh nghiệp số</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
+            Kiến Thức MarTech, ERP &amp; AI Cho Doanh Nghiệp Số
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl m-0 leading-relaxed">
+            Tổng hợp kinh nghiệm thực chiến từ chuyên gia BIWEB về tự động hóa Marketing, tối ưu phễu chuyển đổi, thấu hiểu khách hàng 360° và số hóa quy trình quản trị.
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-slate-50 min-h-screen">
+    <div class="container mx-auto px-4 max-w-7xl">
+        
+        <!-- Articles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach (var tintuc in Model)
+            {
+                if (tintuc.TrangThai == 1)
+                {
+                    <div class="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <!-- Article Cover Image -->
+                            <div class="relative overflow-hidden h-48 bg-slate-100">
+                                <img src="@tintuc.HinhBia"
+                                     alt="@tintuc.TieuDe"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-600/90 text-white backdrop-blur-sm shadow-sm">
+                                    <i class="fa fa-newspaper mr-1"></i> Tuts Ads
+                                </span>
+                            </div>
+
+                            <!-- Article Content -->
+                            <div class="p-6">
+                                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition leading-snug line-clamp-2 min-h-[48px] mb-2.5">
+                                    <a href="/TinTuc/ChiTietTinTuc?Id=@tintuc.MaTinTuc" class="text-slate-900 group-hover:text-blue-600 no-underline">
+                                        @tintuc.TieuDe
+                                    </a>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed line-clamp-3 m-0">
+                                    @tintuc.NoiDung
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Read More Button -->
+                        <div class="p-6 pt-0">
+                            <a href="/TinTuc/ChiTietTinTuc?Id=@tintuc.MaTinTuc"
+                               class="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-blue-600 bg-blue-50 hover:bg-blue-600 hover:text-white transition flex items-center justify-center space-x-1.5 no-underline">
+                                <span>Đọc chi tiết</span>
+                                <i class="fa fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <!-- Pagination -->
+        @if (pager.TotalPages > 0)
+        {
+            <div class="mt-12 flex justify-center">
+                <nav class="flex items-center space-x-1 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
+                    @if (pager.CurrentPage > 1)
+                    {
+                        <a href="/TinTuc/DanhSachTinTuc?pg=@(pager.CurrentPage - 1)" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition no-underline">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                    }
+
+                    @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                    {
+                        if (pge == pager.CurrentPage)
+                        {
+                            <span class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm">@pge</span>
+                        }
+                        else
+                        {
+                            <a href="/TinTuc/DanhSachTinTuc?pg=@pge" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition no-underline">@pge</a>
+                        }
+                    }
+
+                    @if (pager.CurrentPage < pager.TotalPages)
+                    {
+                        <a href="/TinTuc/DanhSachTinTuc?pg=@(pager.CurrentPage + 1)" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition no-underline">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    }
+                </nav>
+            </div>
+        }
+
+    </div>
+</div>

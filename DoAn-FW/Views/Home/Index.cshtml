@@ -1,0 +1,1918 @@
+@{
+    ViewData["Title"] = "BIWEB - Martech Cho Doanh Nghiệp Số | Tăng Trưởng Bền Vững Với ERP & AI Agent";
+    List<object> ListSP = ViewBag.ListSP ?? new List<object>();
+    List<object> ListLoaiSP = ViewBag.ListLoaiSP as List<object> ?? new List<object>();
+
+    int countAll = ListSP.Count;
+    int countCat1 = 0, countCat2 = 0, countCat3 = 0, countCat4 = 0, countCat5 = 0;
+    foreach (var item in ListSP)
+    {
+        var cid = item.GetType().GetProperty("MaLoaiSP")?.GetValue(item, null)?.ToString();
+        if (cid == "1") countCat1++;
+        else if (cid == "2") countCat2++;
+        else if (cid == "3") countCat3++;
+        else if (cid == "4") countCat4++;
+        else if (cid == "5") countCat5++;
+    }
+}
+
+<!-- Style rule to guarantee instant filter hide/show with high specificity -->
+<style>
+    .product-home-card {
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .product-home-card.is-hidden {
+        display: none !important;
+    }
+    .product-home-card.is-visible {
+        display: flex !important;
+    }
+</style>
+
+<!-- Advertisement popup -->
+@await Html.PartialAsync("Overlay")
+
+<!-- ===================== 1. HERO BANNER ===================== -->
+<section id="hero" class="relative overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-white to-white pt-12 pb-16 lg:pt-16 lg:pb-24">
+    <div class="absolute inset-0 bi-grid-bg pointer-events-none"></div>
+    <div class="absolute -top-32 -right-24 w-[560px] h-[560px] rounded-full bg-[#00C6FF]/15 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-40 -left-32 w-[480px] h-[480px] rounded-full bg-[#0052FF]/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 right-1/4 w-[360px] h-[360px] rounded-full bg-[#FF6B00]/10 blur-3xl pointer-events-none"></div>
+
+    <div class="container mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            
+            <!-- Left Column: Value Proposition -->
+            <div class="lg:col-span-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0052FF]/10 border border-[#0052FF]/20 text-[#0052FF] text-xs font-bold uppercase tracking-wider mb-5">
+                    <span class="w-2 h-2 rounded-full bg-[#FF6B00] animate-ping"></span>
+                    Hệ Sinh Thái Công Nghệ R&amp;D Tự Chủ
+                </div>
+
+                <h1 class="text-[34px] sm:text-5xl xl:text-[56px] font-black leading-[1.12] tracking-tight text-[#0F172A] mb-5">
+                    BIWEB — Martech cho <br class="hidden sm:inline" />
+                    <span class="bi-text-gradient">doanh nghiệp số.</span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-[#0F172A] font-bold leading-snug max-w-xl mx-auto lg:mx-0 mb-3">
+                    Tăng trưởng đột phá với Martech — Phát triển bền vững với ERP &amp; AI Agent.
+                </p>
+
+                <p class="text-sm sm:text-base text-[#4B5563] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                    Xây dựng hệ sinh thái công nghệ từ R&amp;D tự chủ: <strong class="text-[#0F172A]">WebApp · CRM · ERP · AI Agent · Zalo Mini App</strong>, giúp doanh nghiệp vận hành liền mạch, bảo mật và tối ưu mọi điểm chạm.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
+                    <a href="#contact" class="bi-btn-primary px-8 py-4 text-sm sm:text-[15px] font-bold no-underline hover:no-underline shadow-lg">
+                        <i class="fa fa-paper-plane mr-2.5"></i> Nhận tư vấn chiến lược
+                    </a>
+                    <a href="#ecosystem" class="bi-btn-outline px-8 py-4 text-sm sm:text-[15px] font-bold no-underline hover:no-underline">
+                        <i class="fa fa-cubes mr-2.5 text-[#0052FF]"></i> Khám phá hệ sinh thái
+                    </a>
+                </div>
+
+                <!-- Trust badge micro-bar -->
+                <div class="mt-9 pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs text-[#4B5563]">
+                    <span class="flex items-center gap-1.5 font-semibold text-[#0F172A]">
+                        <i class="fa fa-shield-check text-[#10B981]"></i> Không mã nguồn copy
+                    </span>
+                    <span class="hidden sm:inline text-slate-300">•</span>
+                    <span class="flex items-center gap-1.5 font-semibold text-[#0F172A]">
+                        <i class="fa fa-robot text-[#FF6B00]"></i> Tăng 300% hiệu suất AI
+                    </span>
+                    <span class="hidden sm:inline text-slate-300">•</span>
+                    <span class="flex items-center gap-1.5 font-semibold text-[#0F172A]">
+                        <i class="fa fa-globe text-[#0052FF]"></i> Chuẩn MOU BIWEB USA
+                    </span>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Ecosystem Dashboard Mockup -->
+            <div class="lg:col-span-6 relative">
+                <div class="relative bg-white rounded-[32px] border border-slate-200/90 shadow-[0_40px_80px_-25px_rgba(0,82,255,0.28)] p-6 sm:p-8">
+                    
+                    <!-- Dashboard Top Bar -->
+                    <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-[#FF6B00]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#00C6FF]"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#10B981]"></span>
+                            <span class="ml-2 text-xs font-extrabold text-[#0F172A] tracking-wider uppercase">BIWEB Platform 360°</span>
+                        </div>
+                        <span class="text-[11px] font-bold text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/25 rounded-full px-3 py-1 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span> Vận Hành Liền Mạch
+                        </span>
+                    </div>
+
+                    <!-- 2 Wings Split Preview -->
+                    <div class="grid grid-cols-2 gap-3.5 mb-5">
+                        
+                        <!-- Growth Wing -->
+                        <div class="rounded-2xl bg-gradient-to-br from-[#0052FF]/5 to-[#00C6FF]/10 border border-[#0052FF]/20 p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="w-8 h-8 rounded-xl bg-[#0052FF] text-white flex items-center justify-center text-xs font-bold">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+                                <span class="text-[10px] font-extrabold text-[#0052FF] bg-[#0052FF]/10 px-2 py-0.5 rounded-full uppercase">Tăng Trưởng</span>
+                            </div>
+                            <div class="text-xs font-extrabold text-[#0F172A] mb-1">MarTech · CDP · Omnichannel</div>
+                            <div class="text-[11px] text-[#4B5563] leading-snug">Vũ khí tạo doanh thu, quản trị khách hàng &amp; cá nhân hóa điểm chạm.</div>
+                            <div class="mt-3 pt-2 border-t border-[#0052FF]/15 flex items-baseline justify-between">
+                                <span class="text-xs text-[#4B5563]">Doanh thu</span>
+                                <span class="text-sm font-black text-[#10B981]">+30% / Quý</span>
+                            </div>
+                        </div>
+
+                        <!-- Operations Wing -->
+                        <div class="rounded-2xl bg-gradient-to-br from-[#FF6B00]/5 to-[#FF8C33]/10 border border-[#FF6B00]/20 p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="w-8 h-8 rounded-xl bg-[#FF6B00] text-white flex items-center justify-center text-xs font-bold">
+                                    <i class="fa fa-cogs"></i>
+                                </span>
+                                <span class="text-[10px] font-extrabold text-[#FF6B00] bg-[#FF6B00]/10 px-2 py-0.5 rounded-full uppercase">Vận Hành</span>
+                            </div>
+                            <div class="text-xs font-extrabold text-[#0F172A] mb-1">ERP &amp; AI Agent Lõi</div>
+                            <div class="text-[11px] text-[#4B5563] leading-snug">Số hóa quy trình quản trị Tài chính, Kế toán, Nhân sự, Kho vận.</div>
+                            <div class="mt-3 pt-2 border-t border-[#FF6B00]/15 flex items-baseline justify-between">
+                                <span class="text-xs text-[#4B5563]">Hiệu suất AI</span>
+                                <span class="text-sm font-black text-[#FF6B00]">Tăng 300%</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 3 Real Metric Counters from Profile -->
+                    <div class="grid grid-cols-3 gap-3 mb-5">
+                        <div class="rounded-xl bg-[#F8FAFC] border border-slate-100 p-3 text-center">
+                            <div class="text-[10.5px] text-[#4B5563] font-semibold">Khách Hàng CRM</div>
+                            <div class="text-lg font-black text-[#0F172A] mt-0.5">9.000+</div>
+                            <div class="text-[10px] font-bold text-[#10B981]">Single Source</div>
+                        </div>
+                        <div class="rounded-xl bg-[#F8FAFC] border border-slate-100 p-3 text-center">
+                            <div class="text-[10.5px] text-[#4B5563] font-semibold">Tối Ưu Chi Phí</div>
+                            <div class="text-lg font-black text-[#0052FF] mt-0.5">-15%</div>
+                            <div class="text-[10px] font-bold text-[#10B981]">Vận hành tự động</div>
+                        </div>
+                        <div class="rounded-xl bg-[#F8FAFC] border border-slate-100 p-3 text-center">
+                            <div class="text-[10.5px] text-[#4B5563] font-semibold">Zalo Mini App</div>
+                            <div class="text-lg font-black text-[#FF6B00] mt-0.5">70 Triệu</div>
+                            <div class="text-[10px] font-bold text-[#0052FF]">Zero-friction</div>
+                        </div>
+                    </div>
+
+                    <!-- Live AI Agent Process Feed -->
+                    <div class="space-y-2 text-xs">
+                        <div class="flex items-center justify-between rounded-xl bg-[#F8FAFC] border border-slate-100 px-3.5 py-2.5">
+                            <div class="flex items-center gap-2.5 font-semibold text-[#0F172A]">
+                                <span class="w-6 h-6 rounded-lg bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-[11px]"><i class="fa fa-database"></i></span>
+                                <span>BIWEB CDP: Đồng bộ dữ liệu Online &amp; Offline 360°</span>
+                            </div>
+                            <span class="text-[11px] font-bold text-[#10B981]"><i class="fa fa-check-circle"></i> Realtime</span>
+                        </div>
+                        <div class="flex items-center justify-between rounded-xl bg-[#F8FAFC] border border-slate-100 px-3.5 py-2.5">
+                            <div class="flex items-center gap-2.5 font-semibold text-[#0F172A]">
+                                <span class="w-6 h-6 rounded-lg bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center text-[11px]"><i class="fa fa-robot"></i></span>
+                                <span>AI Agent: Đối soát công nợ &amp; AI Call CSKH</span>
+                            </div>
+                            <span class="text-[11px] font-bold text-[#0052FF] flex items-center gap-1"><i class="fa fa-sync-alt fa-spin"></i> Tự động 24/7</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Badges -->
+                <div class="hidden sm:flex absolute -left-6 top-16 bi-float bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-lg"><i class="fa fa-check-double"></i></span>
+                    <div>
+                        <div class="text-[11px] text-[#4B5563]">Triết lý hành động</div>
+                        <div class="text-xs font-black text-[#0F172A]">“Tử tế để thành công”</div>
+                    </div>
+                </div>
+                <div class="hidden sm:flex absolute -right-4 -bottom-6 bi-float-delay bg-[#0F172A] rounded-2xl shadow-2xl px-4 py-3 items-center gap-3 text-white">
+                    <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center"><i class="fa fa-globe-americas"></i></span>
+                    <div>
+                        <div class="text-[11px] text-white/70">Tầm nhìn Go Global</div>
+                        <div class="text-xs font-black text-white">Biên bản MOU BIWEB USA</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===================== TRUSTED PARTNERS (TRANG 18 PDF) ===================== -->
+        <div id="partners" class="mt-20 pt-10 border-t border-slate-200">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <span class="text-xs font-extrabold text-[#0052FF] uppercase tracking-wider block mb-1">Mạng Lưới Đối Tác Doanh Nghiệp</span>
+                <p class="text-base sm:text-lg text-[#0F172A] font-extrabold m-0">
+                    Được tin tưởng bởi hơn <span class="bi-text-gradient text-xl">50+ doanh nghiệp</span> trong và ngoài nước
+                </p>
+            </div>
+
+            <!-- Partner Industries Showcase -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+                
+                <!-- BĐS & Xây dựng -->
+                <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm hover:border-[#0052FF] transition">
+                    <div class="text-[11px] font-extrabold text-[#0052FF] uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                        <i class="fa fa-building"></i> BĐS &amp; Xây dựng
+                    </div>
+                    <div class="space-y-1.5 text-xs text-[#0F172A] font-semibold">
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Tân Phú Land</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Thịnh Khởi Group</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Vilatviet</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Sreal ESG</div>
+                    </div>
+                </div>
+
+                <!-- Tập đoàn & Tiêu dùng -->
+                <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm hover:border-[#0052FF] transition">
+                    <div class="text-[11px] font-extrabold text-[#FF6B00] uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                        <i class="fa fa-shopping-bag"></i> Doanh Nghiệp &amp; Bán Lẻ
+                    </div>
+                    <div class="space-y-1.5 text-xs text-[#0F172A] font-semibold">
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Vissan (2015-2025)</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Vinamilk</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> TPBank</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> ShopeeFood &amp; Grab</div>
+                    </div>
+                </div>
+
+                <!-- Giáo dục & Đào tạo -->
+                <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm hover:border-[#0052FF] transition">
+                    <div class="text-[11px] font-extrabold text-[#10B981] uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                        <i class="fa fa-graduation-cap"></i> Giáo Dục &amp; Đào Tạo
+                    </div>
+                    <div class="space-y-1.5 text-xs text-[#0F172A] font-semibold">
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Fahasa</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> vnEdu (VNPT)</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> British Council</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> ISET Education</div>
+                    </div>
+                </div>
+
+                <!-- Công nghệ số -->
+                <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm hover:border-[#0052FF] transition">
+                    <div class="text-[11px] font-extrabold text-[#00C6FF] uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                        <i class="fa fa-code"></i> Công Nghệ &amp; Đổi Mới
+                    </div>
+                    <div class="space-y-1.5 text-xs text-[#0F172A] font-semibold">
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> DigiBird Platform</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> DVL Ventures</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> VIPDS Tech</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> VietnamHR Partner</div>
+                    </div>
+                </div>
+
+                <!-- Khối Ban Ngành & Sản Xuất -->
+                <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm hover:border-[#0052FF] transition col-span-2 sm:col-span-1">
+                    <div class="text-[11px] font-extrabold text-[#0F172A] uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                        <i class="fa fa-landmark"></i> Cơ Quan &amp; Sản Xuất
+                    </div>
+                    <div class="space-y-1.5 text-xs text-[#0F172A] font-semibold">
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> UBND Các Quận Huyện</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Nature Pharma Group</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Matalife Việt Nam</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-[#10B981] text-[10px]"></i> Thanh Lor Brand</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== 2. ABOUT US & TRIẾT LÝ "TỬ TẾ ĐỂ THÀNH CÔNG" (TRANG 2 PDF) ===================== -->
+<section id="about" class="bi-section bg-white">
+    <div class="container mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> About Us · Tầm Nhìn Mới</span>
+            <h2 class="bi-title">
+                CHÚNG TÔI LÀ <span class="bi-text-gradient">BIWEB</span>
+            </h2>
+            <p class="bi-lead">
+                Đồng hành cùng doanh nghiệp trên hành trình chuyển đổi số, vận hành thông minh và vươn tầm quốc tế.
+            </p>
+        </div>
+
+        <!-- Core Philosophy Box -->
+        <div class="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] p-8 sm:p-10 text-white mb-14 shadow-xl">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#FF6B00]/20 blur-3xl pointer-events-none"></div>
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="max-w-3xl">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-black bg-[#FF6B00] text-white tracking-widest uppercase mb-3">
+                        TRIẾT LÝ CỐT LÕI
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white m-0 leading-tight">
+                        “TỬ TẾ ĐỂ THÀNH CÔNG”
+                    </h3>
+                    <p class="text-slate-300 text-sm sm:text-base mt-2 mb-0 leading-relaxed">
+                        Chọn làm những bài toán công nghệ khó nhất để mang lại giá trị thực và tạo sự khác biệt vượt trội cho từng đối tác doanh nghiệp.
+                    </p>
+                </div>
+                <a href="#contact" class="bi-btn-highlight px-7 py-3.5 text-sm font-bold no-underline hover:no-underline whitespace-nowrap">
+                    Đồng hành cùng BIWEB <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 4 Core Pillars (PDF Page 2) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="bi-hover-lift rounded-3xl bg-[#F8FAFC] border border-slate-200/90 p-7 flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl font-black text-[#0052FF] mb-3">01</div>
+                    <h3 class="text-lg font-extrabold text-[#0F172A] mb-2 uppercase">BIWEB MARTECH+</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-4">
+                        Tự động hóa Marketing, tối ưu tăng trưởng doanh thu &amp; hành trình khách hàng.
+                    </p>
+                </div>
+                <ul class="text-xs space-y-2 text-[#0F172A] font-semibold border-t border-slate-200 pt-4 m-0 p-0 list-none">
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Tracking hành vi khách hàng</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Nuôi dưỡng Lead Nurturing</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Cá nhân hóa tiếp thị đa kênh</li>
+                </ul>
+            </div>
+
+            <div class="bi-hover-lift rounded-3xl bg-[#F8FAFC] border border-slate-200/90 p-7 flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl font-black text-[#FF6B00] mb-3">02</div>
+                    <h3 class="text-lg font-extrabold text-[#0F172A] mb-2 uppercase">BIWEB ERP &amp; AI AGENT</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-4">
+                        Chuyển đổi số sâu rộng, vận hành thông minh và phát triển bền vững.
+                    </p>
+                </div>
+                <ul class="text-xs space-y-2 text-[#0F172A] font-semibold border-t border-slate-200 pt-4 m-0 p-0 list-none">
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Xóa bỏ ốc đảo phòng ban</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Trợ lý ảo AI đọc báo cáo, đối soát</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Tăng 300% hiệu suất vận hành</li>
+                </ul>
+            </div>
+
+            <div class="bi-hover-lift rounded-3xl bg-[#F8FAFC] border border-slate-200/90 p-7 flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl font-black text-[#10B981] mb-3">03</div>
+                    <h3 class="text-lg font-extrabold text-[#0F172A] mb-2 uppercase">BIWEB CDP+</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-4">
+                        Thấu hiểu khách hàng 360 độ từ dữ liệu lớn (Single Source of Truth).
+                    </p>
+                </div>
+                <ul class="text-xs space-y-2 text-[#0F172A] font-semibold border-t border-slate-200 pt-4 m-0 p-0 list-none">
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Gom dữ liệu Online đến Offline</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Phân khúc tự động theo hành vi</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Đúng người · Đúng thông điệp</li>
+                </ul>
+            </div>
+
+            <div class="bi-hover-lift rounded-3xl bg-[#F8FAFC] border border-slate-200/90 p-7 flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl font-black text-[#00C6FF] mb-3">04</div>
+                    <h3 class="text-lg font-extrabold text-[#0F172A] mb-2 uppercase">OMNICHANNEL &amp; MINI APP</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-4">
+                        Kết nối đa kênh không đứt gãy, trải nghiệm mượt mà trên 70M user Zalo.
+                    </p>
+                </div>
+                <ul class="text-xs space-y-2 text-[#0F172A] font-semibold border-t border-slate-200 pt-4 m-0 p-0 list-none">
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Zero-friction không cần tải app</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Tích điểm, Loyalty, Gamification</li>
+                    <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Đồng bộ kho vận, đơn hàng realtime</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== 3. NĂNG LỰC CÔNG NGHỆ LÕI & CAM KẾT BẢO MẬT (TRANG 3 & 19 PDF) ===================== -->
+<section id="core-tech" class="bi-section bg-[#F8FAFC]">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Năng Lực Công Nghệ Lõi &amp; Cam Kết Bảo Mật</span>
+            <h2 class="bi-title">
+                Nền tảng tự chủ cho <span class="bi-text-gradient">doanh nghiệp số</span>
+            </h2>
+            <p class="bi-lead">
+                Biweb không sử dụng mã nguồn mở copy (no copied source). Chúng tôi phát triển kiến trúc hệ thống tự chủ, độc quyền với chuẩn an toàn dữ liệu cao nhất.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Pillar 01: In-House R&D -->
+            <div class="bi-hover-lift rounded-[28px] bg-white border border-slate-200/90 p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="w-14 h-14 rounded-2xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-2xl font-black">
+                            01
+                        </span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#0052FF]/10 text-[#0052FF]">IN-HOUSE R&amp;D</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">TỰ CHỦ CÔNG NGHỆ</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-6">
+                        Hệ thống của Biweb <strong class="text-[#0F172A]">hoàn toàn không dùng mã nguồn copy</strong>. Biweb đầu tư mạnh mẽ vào đội ngũ R&amp;D chuyên nghiệp, phát triển kiến trúc hệ thống độc quyền, có khả năng tùy biến sâu theo đặc thù từng ngành hàng (Tailor-made).
+                    </p>
+                </div>
+                <div class="bg-[#F8FAFC] rounded-2xl p-4 border border-slate-100 text-xs text-[#0F172A] font-semibold space-y-2">
+                    <div class="flex items-center gap-2"><i class="fa fa-code text-[#0052FF]"></i> Độc quyền kiến trúc lõi</div>
+                    <div class="flex items-center gap-2"><i class="fa fa-sliders-h text-[#0052FF]"></i> May đo sâu theo quy trình nghiệp vụ</div>
+                    <div class="flex items-center gap-2"><i class="fa fa-shield-alt text-[#0052FF]"></i> Không rủi ro lỗ hổng mã copy</div>
+                </div>
+            </div>
+
+            <!-- Pillar 02: Microservices & AI Agent -->
+            <div class="bi-hover-lift rounded-[28px] bg-white border border-slate-200/90 p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="w-14 h-14 rounded-2xl bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center text-2xl font-black">
+                            02
+                        </span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#FF6B00]/10 text-[#FF6B00]">VƯỢT TRỘI</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">THẾ MẠNH CÔNG NGHỆ</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-6">
+                        <strong class="text-[#0F172A]">Microservices &amp; API-first:</strong> Linh hoạt mở rộng quy mô triệu người dùng, dễ dàng tích hợp với phần mềm sẵn có.
+                        <br /><br />
+                        <strong class="text-[#0F172A]">AI Agent &amp; Automation:</strong> Tích hợp AI vào lõi hệ thống gồm AI Call, AI phân tích dữ liệu và tự động hóa quy trình nghiệp vụ.
+                    </p>
+                </div>
+                <div class="bg-[#F8FAFC] rounded-2xl p-4 border border-slate-100 text-xs text-[#0F172A] font-semibold space-y-2">
+                    <div class="flex items-center gap-2"><i class="fa fa-network-wired text-[#FF6B00]"></i> Kiến trúc Microservices &amp; API-first</div>
+                    <div class="flex items-center gap-2"><i class="fa fa-phone-volume text-[#FF6B00]"></i> AI Call CSKH &amp; Telesales tự động</div>
+                    <div class="flex items-center gap-2"><i class="fa fa-brain text-[#FF6B00]"></i> Tự động đọc báo cáo &amp; lọc hồ sơ</div>
+                </div>
+            </div>
+
+            <!-- Pillar 03: Security & MOU USA -->
+            <div class="bi-hover-lift rounded-[28px] bg-white border border-slate-200/90 p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="w-14 h-14 rounded-2xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-2xl font-black">
+                            03
+                        </span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#10B981]/10 text-[#10B981]">SECURITY</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">CAM KẾT BẢO MẬT</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-6">
+                        Hệ thống máy chủ độc lập, mã hóa dữ liệu đầu cuối. Phân quyền nhiều lớp, cam kết bảo mật dữ liệu khách hàng tuyệt đối (<strong class="text-[#0F172A]">Data Privacy</strong>). Hệ thống dữ liệu chuẩn mực để các Tập đoàn lớn an tâm đưa toàn bộ dữ liệu lên nền tảng.
+                    </p>
+                </div>
+                <div class="bg-[#F8FAFC] rounded-2xl p-4 border border-slate-100 text-xs text-[#0F172A] font-semibold space-y-2">
+                    <div class="flex items-center gap-2"><i class="fa fa-server text-[#10B981]"></i> Hệ thống máy chủ độc lập chuyên biệt</div>
+                    <div class="flex items-center gap-2"><i class="fa fa-user-lock text-[#10B981]"></i> Phân quyền dữ liệu đa cấp bảo mật cao</div>
+                    <div class="flex items-center gap-2"><i class="fa fa-globe text-[#10B981]"></i> Chuẩn mực đối tác quốc tế BIWEB USA</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 4. HỆ SINH THÁI GIẢI PHÁP: HAI CÁNH TAY ĐẮC LỰC (TRANG 7 PDF) ===================== -->
+<section id="ecosystem" class="bi-section bg-white">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Hệ Sinh Thái Giải Pháp BIWEB</span>
+            <h2 class="bi-title">
+                Hai cánh tay đắc lực cho <span class="bi-text-gradient">tăng trưởng &amp; vận hành</span>
+            </h2>
+            <p class="bi-lead">
+                Sự kết hợp đồng nhất giữa mũi nhọn doanh thu (MarTech) và bệ phóng vững chắc (ERP &amp; AI Agent).
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left Wing: Mảng Tăng Trưởng (5 cols) -->
+            <div class="lg:col-span-5 rounded-[32px] bg-gradient-to-br from-[#0052FF] to-[#00C6FF] p-8 sm:p-10 text-white shadow-xl flex flex-col justify-between min-h-[460px]">
+                <div>
+                    <div class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-6">
+                        <i class="fa fa-rocket mr-1.5"></i> Cánh Tay 1: Mảng Tăng Trưởng
+                    </div>
+                    <h3 class="text-3xl font-black text-white leading-tight mb-4">
+                        MarTech &amp; CDP &amp;<br />Omnichannel
+                    </h3>
+                    <div class="text-base text-white/95 font-semibold mb-6">
+                        Vũ khí tạo ra doanh thu, quản trị khách hàng, cá nhân hóa mọi điểm chạm.
+                    </div>
+                    <ul class="space-y-3 text-sm text-white/90 list-none p-0 m-0">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa fa-check-circle text-white mt-1"></i>
+                            <span><strong>Tăng trưởng tạo doanh thu:</strong> Kết nối Marketing – Sales – CSKH không đứt gãy.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa fa-check-circle text-white mt-1"></i>
+                            <span><strong>Khai thác dữ liệu khách hàng:</strong> Gom dữ liệu phân mảnh về một nguồn duy nhất.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa fa-check-circle text-white mt-1"></i>
+                            <span><strong>Zalo Mini App:</strong> Mở rộng điểm chạm với 70 triệu người dùng mà không cần cài app.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 border-t border-white/20">
+                    <a href="#martech" class="inline-flex items-center font-bold text-white text-sm hover:underline no-underline">
+                        Tìm hiểu chi tiết giải pháp MarTech <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Center Hub: BIWEB Unified Platform (2 cols) -->
+            <div class="lg:col-span-2 text-center flex flex-col items-center justify-center py-6">
+                <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-[#FF6B00] via-[#0052FF] to-[#00C6FF] flex items-center justify-center text-white text-3xl font-black shadow-glow transform hover:rotate-6 transition">
+                    2B
+                </div>
+                <div class="text-base font-black text-[#0F172A] mt-3">BIWEB HUB</div>
+                <div class="text-xs text-[#4B5563] mt-1 font-medium">Hợp Nhất Dữ Liệu</div>
+                <div class="hidden lg:flex items-center justify-center gap-2 mt-4 text-[#0052FF]">
+                    <i class="fa fa-arrows-alt-h text-xl animate-pulse"></i>
+                </div>
+            </div>
+
+            <!-- Right Wing: Mảng Vận Hành (5 cols) -->
+            <div class="lg:col-span-5 rounded-[32px] bg-[#0F172A] p-8 sm:p-10 text-white shadow-xl flex flex-col justify-between min-h-[460px] border border-slate-800">
+                <div>
+                    <div class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#FF6B00]/20 text-[#FF6B00] border border-[#FF6B00]/30 text-xs font-bold uppercase tracking-wider mb-6">
+                        <i class="fa fa-cogs mr-1.5"></i> Cánh Tay 2: Mảng Vận Hành
+                    </div>
+                    <h3 class="text-3xl font-black text-white leading-tight mb-4">
+                        Digital Transformation &amp; ERP &amp; AI
+                    </h3>
+                    <div class="text-base text-white/95 font-semibold mb-6">
+                        Nền tảng phát triển bền vững, số hóa quy trình quản trị bằng AI Agent.
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-300 list-none p-0 m-0">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa fa-check-circle text-[#FF6B00] mt-1"></i>
+                            <span><strong>Vận hành tạo nền tảng vững chắc:</strong> Quản trị tập trung Tài chính, Kế toán, Nhân sự, Kho.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa fa-check-circle text-[#FF6B00] mt-1"></i>
+                            <span><strong>Xóa bỏ ốc đảo phòng ban:</strong> Đảm bảo dòng chảy công việc thông suốt, dữ liệu minh bạch.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa fa-check-circle text-[#FF6B00] mt-1"></i>
+                            <span><strong>Trợ lý ảo AI Agent:</strong> Tăng 300% hiệu suất công việc mà không cần tăng quỹ lương.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 border-t border-slate-800">
+                    <a href="#erp-ai" class="inline-flex items-center font-bold text-[#FF6B00] text-sm hover:underline no-underline">
+                        Tìm hiểu chi tiết ERP &amp; AI Agent <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 5. CHI TIẾT 4 TRỤ CỘT GIẢI PHÁP CHUYÊN SÂU (TRANG 10-14 PDF) ===================== -->
+
+<!-- Solution 1: BIWEB MARTECH (Trang 10) -->
+<section id="martech" class="bi-section bg-[#F8FAFC] border-t border-slate-200">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-6">
+                <span class="bi-tag"><span class="bi-tag-dot"></span> Trụ Cột 01 · Tăng Trưởng</span>
+                <h2 class="bi-title">
+                    BIWEB MARTECH —<br />
+                    <span class="bi-text-gradient">Tự động hóa Marketing, tối ưu hiệu quả</span>
+                </h2>
+                <p class="text-base text-[#0F172A] font-bold mb-4">
+                    Kết nối liên mạch dữ liệu giữa Marketing – Sales – CSKH.
+                </p>
+                <p class="text-sm sm:text-base text-[#4B5563] leading-relaxed mb-6">
+                    Giúp doanh nghiệp giảm chi phí quảng cáo, giải quyết bài toán lãng phí ngân sách và bứt phá tỷ lệ chuyển đổi khách hàng một cách khoa học.
+                </p>
+
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <span class="w-10 h-10 rounded-xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-lg flex-shrink-0 mt-0.5"><i class="fa fa-eye"></i></span>
+                        <div>
+                            <h4 class="text-sm font-bold text-[#0F172A] m-0 mb-1">Tracking hành vi khách hàng</h4>
+                            <p class="text-xs text-[#4B5563] m-0">Theo dõi toàn bộ hành trình trải nghiệm từ lúc tiếp cận quảng cáo đến khi quyết định thanh toán.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <span class="w-10 h-10 rounded-xl bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center text-lg flex-shrink-0 mt-0.5"><i class="fa fa-mail-bulk"></i></span>
+                        <div>
+                            <h4 class="text-sm font-bold text-[#0F172A] m-0 mb-1">Tự động hóa kịch bản nuôi dưỡng (Lead Nurturing)</h4>
+                            <p class="text-xs text-[#4B5563] m-0">Kích hoạt kịch bản chăm sóc tự động theo từng giai đoạn nhận thức, tăng 4x tốc độ chốt đơn.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <span class="w-10 h-10 rounded-xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-lg flex-shrink-0 mt-0.5"><i class="fa fa-bullseye"></i></span>
+                        <div>
+                            <h4 class="text-sm font-bold text-[#0F172A] m-0 mb-1">Cá nhân hóa thông điệp tiếp thị đa kênh</h4>
+                            <p class="text-xs text-[#4B5563] m-0">Gửi ưu đãi phù hợp sở thích từng khách hàng qua Zalo, Web, Email, SMS với chi phí tối ưu nhất.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#contact" class="bi-btn-primary px-8 py-3.5 text-sm font-bold no-underline hover:no-underline">
+                    Tư vấn giải pháp MarTech <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="lg:col-span-6">
+                <div class="rounded-[32px] bg-[#0F172A] p-7 sm:p-9 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#0052FF]/30 blur-3xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="text-xs font-bold text-[#00C6FF] uppercase tracking-wider mb-2">Quy Trình Khép Kín</div>
+                        <h3 class="text-xl font-extrabold text-white mb-6">Marketing – Sales – CSKH Liên Mạch</h3>
+                        
+                        <div class="grid grid-cols-3 gap-3 mb-6">
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <i class="fa fa-bullhorn text-2xl text-[#00C6FF] mb-2"></i>
+                                <div class="text-xs font-extrabold text-white">MARKETING</div>
+                                <div class="text-[10px] text-white/60 mt-1">Thu hút &amp; Lọc Lead</div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <i class="fa fa-handshake text-2xl text-[#FF6B00] mb-2"></i>
+                                <div class="text-xs font-extrabold text-white">SALES</div>
+                                <div class="text-[10px] text-white/60 mt-1">Chốt Đơn Tự Động</div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <i class="fa fa-headset text-2xl text-[#10B981] mb-2"></i>
+                                <div class="text-xs font-extrabold text-white">CSKH</div>
+                                <div class="text-[10px] text-white/60 mt-1">Chăm Sóc &amp; Upsell</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-gradient-to-r from-[#0052FF]/20 to-[#00C6FF]/20 border border-[#00C6FF]/40 text-center">
+                            <div class="text-xs text-white/80">Hiệu quả kiểm chứng</div>
+                            <div class="text-lg font-black text-[#00C6FF] mt-1">GIẢM CHI PHÍ QUẢNG CÁO · TĂNG TỶ LỆ CHUYỂN ĐỔI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Solution 2: BIWEB CDP+ (Trang 11) -->
+<section id="cdp" class="bi-section bg-white">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-6 order-2 lg:order-1">
+                <div class="rounded-[32px] bg-gradient-to-br from-[#0F172A] to-[#1E293B] p-8 sm:p-10 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#10B981]/20 blur-3xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-black bg-[#10B981] text-slate-950 uppercase tracking-wider">
+                                SINGLE SOURCE OF TRUTH
+                            </span>
+                            <span class="text-xs text-slate-400">Online &amp; Offline Data</span>
+                        </div>
+
+                        <div class="text-center my-6">
+                            <div class="w-20 h-20 rounded-full bg-[#10B981]/20 border-2 border-[#10B981] flex items-center justify-center text-3xl font-black text-[#10B981] mx-auto shadow-glow">
+                                360°
+                            </div>
+                            <h3 class="text-xl font-black text-white mt-3 mb-1">Hồ Sơ Khách Hàng Độc Nhất</h3>
+                            <p class="text-xs text-slate-300 max-w-sm mx-auto">Tất cả tương tác, lịch sử đơn hàng, hành vi duyệt web và phản hồi đều được hội tụ về 1 điểm.</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                <div class="text-slate-400 text-[10px]">Kênh Online</div>
+                                <div class="text-white font-bold mt-1">Web, App, Fanpage, Zalo, Ads</div>
+                            </div>
+                            <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                                <div class="text-slate-400 text-[10px]">Kênh Offline</div>
+                                <div class="text-white font-bold mt-1">Cửa hàng, Showroom, Sự kiện</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 order-1 lg:order-2">
+                <span class="bi-tag"><span class="bi-tag-dot"></span> Trụ Cột 02 · Dữ Liệu Lớn</span>
+                <h2 class="bi-title">
+                    BIWEB CDP —<br />
+                    <span class="bi-text-gradient">Thấu hiểu khách hàng 360 độ</span>
+                </h2>
+                <p class="text-base text-[#0F172A] font-bold mb-3">
+                    Gom toàn bộ dữ liệu phân mảnh từ Online đến Offline về một kho dữ liệu duy nhất (Single Source of Truth).
+                </p>
+                <p class="text-sm sm:text-base text-[#4B5563] leading-relaxed mb-6">
+                    Không còn tình trạng khách mua ở cửa hàng nhưng lại bị quảng cáo sản phẩm cũ trên mạng. BIWEB CDP phân khúc thông minh để từng chiến dịch kích hoạt chuẩn xác.
+                </p>
+
+                <div class="p-4 rounded-2xl bg-[#0052FF]/5 border border-[#0052FF]/20 text-[#0052FF] font-black text-sm mb-6 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa fa-bullseye text-[#FF6B00] text-lg"></i>
+                    ĐÚNG NGƯỜI — ĐÚNG THÔNG ĐIỆP — ĐÚNG THỜI ĐIỂM
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                    <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200">
+                        <i class="fa fa-id-card text-xl text-[#0052FF] mb-2"></i>
+                        <h4 class="text-xs font-bold text-[#0F172A] m-0 mb-1">Chân Dung Chi Tiết</h4>
+                        <p class="text-[11px] text-[#4B5563] m-0">Nhận diện khách VIP, khách vãng lai, sở thích mua sắm.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200">
+                        <i class="fa fa-users-cog text-xl text-[#FF6B00] mb-2"></i>
+                        <h4 class="text-xs font-bold text-[#0F172A] m-0 mb-1">Phân Khúc Tự Động</h4>
+                        <p class="text-[11px] text-[#4B5563] m-0">Tự gom nhóm theo giá trị đơn hàng và tần suất tương tác.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200">
+                        <i class="fa fa-bolt text-xl text-[#10B981] mb-2"></i>
+                        <h4 class="text-xs font-bold text-[#0F172A] m-0 mb-1">Kích Hoạt Chuẩn Xác</h4>
+                        <p class="text-[11px] text-[#4B5563] m-0">Tự động gửi thông điệp kích hoạt hành vi mua lại kịp thời.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Solution 3: BIWEB OMNICHANNEL & ZALO MINI APP (Trang 12, 13) -->
+<section id="omnichannel" class="bi-section bg-[#F8FAFC] border-t border-slate-200">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Trụ Cột 03 · Đa Kênh &amp; Mini App</span>
+            <h2 class="bi-title">
+                BIWEB Omnichannel &amp; Zalo Mini App —<br />
+                <span class="bi-text-gradient">Bán hàng và chăm sóc không đứt gãy</span>
+            </h2>
+            <p class="bi-lead">
+                Đồng nhất trải nghiệm từ Website, App, MXH, Sàn TMĐT cho đến Cửa hàng vật lý. Tận dụng tối đa điểm chạm 70 triệu người dùng Zalo.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-10">
+            
+            <!-- Omnichannel Box -->
+            <div class="rounded-[28px] bg-white border border-slate-200 p-8 sm:p-9 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-black text-[#0052FF] uppercase tracking-wider block mb-2">
+                        BIWEB OMNICHANNEL
+                    </span>
+                    <h3 class="text-2xl font-black text-[#0F172A] mb-4">
+                        Trải Nghiệm Mua Sắm Nhất Quán
+                    </h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed mb-6">
+                        Bất kể khách hàng tiếp xúc ở đâu (Website, App, Facebook, Shopee, TikTok Shop hay tại quầy thu ngân), dữ liệu đều được ghi nhận tập trung thời gian thực.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-100 font-semibold text-[#0F172A]">
+                            <i class="fa fa-boxes text-[#0052FF] mr-2"></i> Quản lý kho hàng đồng bộ
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-100 font-semibold text-[#0F172A]">
+                            <i class="fa fa-receipt text-[#0052FF] mr-2"></i> Đơn hàng cập nhật realtime
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-100 font-semibold text-[#0F172A]">
+                            <i class="fa fa-id-card-alt text-[#0052FF] mr-2"></i> Thẻ thành viên tích điểm chung
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-100 font-semibold text-[#0F172A]">
+                            <i class="fa fa-sync text-[#0052FF] mr-2"></i> Báo cáo doanh số tập trung
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zalo Mini App Box -->
+            <div class="rounded-[28px] bg-[#0F172A] p-8 sm:p-9 text-white flex flex-col justify-between border border-slate-800 relative overflow-hidden">
+                <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#00C6FF]/20 blur-3xl pointer-events-none"></div>
+                <div class="relative">
+                    <span class="text-xs font-black text-[#00C6FF] uppercase tracking-wider block mb-2">
+                        BIWEB ZALO MINI APP · 70 TRIỆU USER
+                    </span>
+                    <h3 class="text-2xl font-black text-white mb-4">
+                        Tối Ưu Điểm Chạm Zero-Friction
+                    </h3>
+                    <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                        <strong class="text-white">Không cần tải App (Zero-friction)</strong> — Khách hàng có thể mua sắm, nhận voucher và tích điểm trực tiếp trên ứng dụng Zalo quen thuộc hàng ngày.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <i class="fa fa-mobile-alt text-[#00C6FF] text-lg mb-1 block"></i>
+                            <span class="font-bold text-white text-[11px]">1. Mở Zalo</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <i class="fa fa-store text-[#00C6FF] text-lg mb-1 block"></i>
+                            <span class="font-bold text-white text-[11px]">2. Vào Mini App</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <i class="fa fa-shopping-cart text-[#FF6B00] text-lg mb-1 block"></i>
+                            <span class="font-bold text-white text-[11px]">3. Mua Sắm</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <i class="fa fa-award text-[#10B981] text-lg mb-1 block"></i>
+                            <span class="font-bold text-white text-[11px]">4. Tích Điểm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 mt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
+                    <span><i class="fa fa-bell text-[#10B981] mr-1"></i> Gửi thông báo ZNS tự động siêu rẻ</span>
+                    <span><i class="fa fa-gamepad text-[#FF6B00] mr-1"></i> Gamification vòng quay may mắn</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Solution 4: BIWEB ERP & AI AGENT (Trang 14) -->
+<section id="erp-ai" class="bi-section bg-white border-t border-slate-200">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-6">
+                <span class="bi-tag"><span class="bi-tag-dot"></span> Trụ Cột 04 · Nâng Cấp Cốt Lõi</span>
+                <h2 class="bi-title">
+                    Tái cấu trúc vận hành với<br />
+                    <span class="bi-text-gradient">ERP &amp; Trợ Lý Ảo AI Agent</span>
+                </h2>
+                <div class="text-base text-[#0F172A] font-extrabold mb-4">
+                    Xóa bỏ “Ốc đảo phòng ban” — Đảm bảo dòng chảy công việc thông suốt.
+                </div>
+                <p class="text-sm sm:text-base text-[#4B5563] leading-relaxed mb-6">
+                    Quản trị tập trung Tài chính, Kế toán, Nhân sự, Kho vận trên một nền tảng chuyên nghiệp, bảo mật cao. Đột phá tích hợp AI Agent giúp thực hiện các nghiệp vụ lặp lại tự động 24/7.
+                </p>
+
+                <div class="space-y-4 mb-8">
+                    <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-black text-sm text-[#0F172A]">1. Giải Pháp ERP Tập Trung</span>
+                            <span class="text-xs font-bold text-[#0052FF]">Bảo Mật Cao</span>
+                        </div>
+                        <p class="text-xs text-[#4B5563] m-0">
+                            Kết nối Tài chính - Kế toán - Nhân sự - Kho vận. Dữ liệu chuẩn để các Tập đoàn lớn an tâm đưa toàn bộ quy trình lên nền tảng.
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-[#FF6B00]/5 border border-[#FF6B00]/25">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-black text-sm text-[#FF6B00]">2. Sức Mạnh Của AI Agent</span>
+                            <span class="text-xs font-bold text-[#FF6B00]">Tự Động Hóa 24/7</span>
+                        </div>
+                        <p class="text-xs text-[#4B5563] m-0">
+                            AI Agent tự động đọc báo cáo, trích xuất dữ liệu, đối soát công nợ cơ bản, thực hiện cuộc gọi AI Call CSKH, tự lọc hồ sơ tuyển dụng.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 300% Highlight from Profile -->
+                <div class="p-5 rounded-2xl bg-gradient-to-r from-[#FF6B00] to-[#FF8C33] text-white shadow-lg">
+                    <div class="text-2xl sm:text-3xl font-black">
+                        Tăng 300% hiệu suất
+                    </div>
+                    <div class="text-sm font-semibold text-white/95 mt-0.5">
+                        mà không cần tăng quỹ lương nhân sự
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6">
+                <div class="rounded-[32px] bg-[#0F172A] p-8 sm:p-10 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#FF6B00]/20 blur-3xl pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="text-center mb-8">
+                            <div class="w-16 h-16 rounded-2xl bg-[#FF6B00] text-white flex items-center justify-center text-3xl mx-auto shadow-glow-highlight">
+                                <i class="fa fa-robot"></i>
+                            </div>
+                            <h3 class="text-xl font-black text-white mt-3 mb-1">HỆ THỐNG ERP &amp; AI AGENT</h3>
+                            <p class="text-xs text-slate-300">Nền tảng tập trung, bảo mật cao chuẩn Enterprise</p>
+                        </div>
+
+                        <!-- 4 Departments Linked -->
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <i class="fa fa-wallet text-xl text-[#00C6FF] mb-1.5 block"></i>
+                                <div class="text-xs font-bold text-white">TÀI CHÍNH</div>
+                                <div class="text-[10px] text-slate-400">Kiểm soát dòng tiền</div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <i class="fa fa-file-invoice text-xl text-[#10B981] mb-1.5 block"></i>
+                                <div class="text-xs font-bold text-white">KẾ TOÁN</div>
+                                <div class="text-[10px] text-slate-400">Đối soát công nợ tự động</div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <i class="fa fa-users text-xl text-[#FF6B00] mb-1.5 block"></i>
+                                <div class="text-xs font-bold text-white">NHÂN SỰ</div>
+                                <div class="text-[10px] text-slate-400">Lọc hồ sơ &amp; chấm công</div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <i class="fa fa-warehouse text-xl text-[#0052FF] mb-1.5 block"></i>
+                                <div class="text-xs font-bold text-white">KHO VẬN</div>
+                                <div class="text-[10px] text-slate-400">Đồng bộ tồn kho đa kênh</div>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-white/10 text-center text-xs text-slate-200">
+                            <i class="fa fa-shield-alt text-[#10B981] mr-1.5"></i> Xóa bỏ hoàn toàn tình trạng đứt gãy thông tin giữa các bộ phận
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 6. TẦM NHÌN TOÀN CẦU — LỘ TRÌNH “GO GLOBAL” & BIWEB USA (TRANG 8 PDF) ===================== -->
+<section id="biweb-usa" class="bi-section bg-gradient-to-r from-[#0F172A] via-[#111C35] to-[#0F172A] text-white">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-7">
+                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#00C6FF]/15 border border-[#00C6FF]/30 text-[#00C6FF] text-xs font-bold uppercase tracking-wider mb-5">
+                    <i class="fa fa-globe-americas mr-1.5"></i> Tầm Nhìn Toàn Cầu
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-5">
+                    Lộ trình “Go Global” &amp;<br />
+                    <span class="bi-text-gradient-cyan">BIWEB USA</span>
+                </h2>
+                <p class="text-base text-white/90 font-bold mb-4">
+                    Khẳng định chất lượng công nghệ Việt Nam trên trường quốc tế.
+                </p>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                    Biweb chọn dấn thân vào các thị trường khó tính nhất để chứng minh sự vượt trội và khác biệt về công nghệ.
+                </p>
+
+                <!-- MOU Sign Box -->
+                <div class="rounded-2xl bg-white/5 border border-white/15 p-5 mb-8">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-10 h-10 rounded-xl bg-[#00C6FF]/20 text-[#00C6FF] flex items-center justify-center text-lg"><i class="fa fa-file-signature"></i></span>
+                        <div>
+                            <div class="text-sm font-black text-white uppercase tracking-wider">Ký Kết Biên Bản Ghi Nhớ</div>
+                            <div class="text-base font-black text-[#00C6FF]">MOU BIWEB USA</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 m-0 leading-relaxed">
+                        Chính thức ký kết biên bản ghi nhớ thành lập <strong>BIWEB USA</strong>, đánh dấu bước chuyển mình quan trọng vươn ra thị trường toàn cầu.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-[#0052FF]/20 border border-[#0052FF]/40 text-xs sm:text-sm text-slate-200 leading-relaxed">
+                    <i class="fa fa-check-circle text-[#10B981] mr-1.5"></i>
+                    Sự tín nhiệm từ thị trường Mỹ là <strong>bảo chứng mạnh mẽ nhất</strong> cho năng lực, chất lượng sản phẩm và chuẩn mực bảo mật của Biweb đối với các đối tác trong nước.
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 text-center">
+                <div class="relative p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-[#0052FF] to-[#00C6FF] flex items-center justify-center text-4xl text-white mx-auto mb-4 shadow-glow">
+                        <i class="fa fa-flag-usa"></i>
+                    </div>
+                    <div class="text-xl font-black text-white mb-2">BIWEB USA ROADMAP</div>
+                    <p class="text-xs text-slate-300 mb-6">Chuẩn bảo mật dữ liệu cấp quốc tế cho doanh nghiệp Việt</p>
+                    <div class="space-y-2 text-xs text-left">
+                        <div class="p-3 bg-white/5 rounded-xl border border-white/10 flex items-center gap-2">
+                            <i class="fa fa-lock text-[#10B981]"></i> Tiêu chuẩn bảo mật dữ liệu quốc tế
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-xl border border-white/10 flex items-center gap-2">
+                            <i class="fa fa-tachometer-alt text-[#00C6FF]"></i> Khả năng mở rộng quy mô toàn cầu
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-xl border border-white/10 flex items-center gap-2">
+                            <i class="fa fa-award text-[#FF6B00]"></i> Chứng nhận đối tác chiến lược
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 7. LỘ TRÌNH 7 BƯỚC CHUYỂN ĐỔI SỐ TOÀN DIỆN (TRANG 9 PDF) ===================== -->
+<section id="roadmap" class="bi-section bg-white">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Đồng Hành Xuyên Suốt</span>
+            <h2 class="bi-title">
+                Lộ trình 7 bước chuyển đổi số &amp;<br />
+                <span class="bi-text-gradient">hợp tác toàn diện</span>
+            </h2>
+            <div class="mt-4 inline-flex items-center gap-3 px-5 py-2 rounded-full bg-[#0052FF]/5 border border-[#0052FF]/20 text-xs sm:text-sm font-black text-[#0052FF]">
+                <span>CHIẾN LƯỢC RÕ RÀNG</span>
+                <i class="fa fa-angle-double-right text-[#FF6B00]"></i>
+                <span>THỰC THI HIỆU QUẢ</span>
+                <i class="fa fa-angle-double-right text-[#FF6B00]"></i>
+                <span>TĂNG TRƯỞNG BỀN VỮNG</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            
+            <!-- Step 01 -->
+            <div class="bi-hover-lift rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#0052FF] text-white flex items-center justify-center font-black text-base shadow-sm">01</div>
+                        <span class="text-xs font-bold text-[#0052FF] uppercase tracking-wider">Khảo Sát</span>
+                    </div>
+                    <h4 class="text-base font-extrabold text-[#0F172A] mb-2">Phân tích mục tiêu kinh doanh</h4>
+                    <p class="text-xs sm:text-sm text-[#4B5563] m-0 leading-relaxed">
+                        Khảo sát toàn diện mục tiêu kinh doanh và quy trình nghiệp vụ (Business Flow) của doanh nghiệp.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="bi-hover-lift rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#0052FF] text-white flex items-center justify-center font-black text-base shadow-sm">02</div>
+                        <span class="text-xs font-bold text-[#0052FF] uppercase tracking-wider">Audit Hệ Thống</span>
+                    </div>
+                    <h4 class="text-base font-extrabold text-[#0F172A] mb-2">Audit kiến trúc hiện tại</h4>
+                    <p class="text-xs sm:text-sm text-[#4B5563] m-0 leading-relaxed">
+                        Đánh giá hệ thống hiện có và xác định chính xác các điểm nghẽn dữ liệu làm giảm hiệu suất.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="bi-hover-lift rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#0052FF] text-white flex items-center justify-center font-black text-base shadow-sm">03</div>
+                        <span class="text-xs font-bold text-[#0052FF] uppercase tracking-wider">Chiến Lược</span>
+                    </div>
+                    <h4 class="text-base font-extrabold text-[#0F172A] mb-2">Hoạch định tổng thể</h4>
+                    <p class="text-xs sm:text-sm text-[#4B5563] m-0 leading-relaxed">
+                        Xây dựng chiến lược kết hợp tối ưu giữa Martech tăng doanh thu và ERP vận hành bền vững.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="bi-hover-lift rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#FF6B00] text-white flex items-center justify-center font-black text-base shadow-sm">04</div>
+                        <span class="text-xs font-bold text-[#FF6B00] uppercase tracking-wider">Nền Tảng Lõi</span>
+                    </div>
+                    <h4 class="text-base font-extrabold text-[#0F172A] mb-2">Thiết lập ERP &amp; CRM</h4>
+                    <p class="text-xs sm:text-sm text-[#4B5563] m-0 leading-relaxed">
+                        Triển khai hệ thống ERP và CRM lõi, chuẩn hóa cơ sở dữ liệu và phân quyền bảo mật.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 05 -->
+            <div class="bi-hover-lift rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#0052FF] text-white flex items-center justify-center font-black text-base shadow-sm">05</div>
+                        <span class="text-xs font-bold text-[#0052FF] uppercase tracking-wider">Điểm Chạm</span>
+                    </div>
+                    <h4 class="text-base font-extrabold text-[#0F172A] mb-2">Xây dựng điểm chạm khách hàng</h4>
+                    <p class="text-xs sm:text-sm text-[#4B5563] m-0 leading-relaxed">
+                        Thiết lập Website, Mobile App, Zalo Mini App nhằm tối ưu hành trình trải nghiệm người dùng.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 06 -->
+            <div class="bi-hover-lift rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#FF6B00] text-white flex items-center justify-center font-black text-base shadow-sm">06</div>
+                        <span class="text-xs font-bold text-[#FF6B00] uppercase tracking-wider">AI Automation</span>
+                    </div>
+                    <h4 class="text-base font-extrabold text-[#0F172A] mb-2">Tích hợp AI Agent</h4>
+                    <p class="text-xs sm:text-sm text-[#4B5563] m-0 leading-relaxed">
+                        Tự động hóa vận hành, đối soát, CSKH thông minh và chăm sóc khách hàng 24/7.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 07 -->
+            <div class="bi-hover-lift rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#10B981] text-white flex items-center justify-center font-black text-base shadow-sm">07</div>
+                        <span class="text-xs font-bold text-[#10B981] uppercase tracking-wider">Tăng Trưởng</span>
+                    </div>
+                    <h4 class="text-base font-extrabold text-[#0F172A] mb-2">Đo lường &amp; Mở rộng</h4>
+                    <p class="text-xs sm:text-sm text-[#4B5563] m-0 leading-relaxed">
+                        Vận hành Data-driven, báo cáo thời gian thực và mở rộng quy mô kinh doanh không giới hạn.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Callout Card -->
+            <div class="rounded-3xl bg-[#0F172A] p-6 text-white flex flex-col justify-between">
+                <div>
+                    <div class="text-lg font-black text-white mb-2">Sẵn sàng chuyển đổi?</div>
+                    <p class="text-xs text-slate-300 leading-relaxed m-0">
+                        Chuyên gia chiến lược BIWEB sẽ phân tích và lập lộ trình chi tiết cho doanh nghiệp bạn.
+                    </p>
+                </div>
+                <a href="#contact" class="bi-btn-highlight w-full py-3 text-xs font-bold text-center no-underline hover:no-underline mt-4">
+                    Nhận tư vấn lộ trình <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 8. ĐỘI NGŨ ĐỒNG HÀNH CỐT CÁN (TRANG 4, 5, 6 PDF) ===================== -->
+<section id="team" class="bi-section bg-[#F8FAFC]">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Ban Lãnh Đạo &amp; Đội Ngũ Cốt Cán</span>
+            <h2 class="bi-title">
+                Đội ngũ đồng hành với <span class="bi-text-gradient">nhiều kinh nghiệm thực chiến</span>
+            </h2>
+            <p class="bi-lead">
+                Sự kết hợp giữa tầm nhìn quản trị cấp cao của tập đoàn lớn và các chuyên gia công nghệ, dữ liệu hàng đầu.
+            </p>
+        </div>
+
+        <!-- 2 Top Leaders Showcase (PDF Page 5) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            
+            <!-- Th.S Nguyễn Phúc Khoa -->
+            <div class="bi-hover-lift rounded-[32px] bg-white border border-slate-200 p-8 sm:p-9 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between gap-4 mb-5">
+                        <div>
+                            <span class="text-xs font-black text-[#0052FF] uppercase tracking-wider block mb-1">
+                                LÃNH ĐẠO CHIẾN LƯỢC
+                            </span>
+                            <h3 class="text-2xl font-black text-[#0F172A] m-0">
+                                Th.S Nguyễn Phúc Khoa
+                            </h3>
+                            <div class="text-sm font-bold text-[#FF6B00] mt-1">
+                                CHỦ TỊCH HỘI ĐỒNG QUẢN TRỊ BIWEB
+                            </div>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center text-xl font-black flex-shrink-0 shadow-md">
+                            NK
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 text-xs sm:text-sm text-[#0F172A] font-semibold mb-6">
+                        <div class="flex items-center gap-2"><i class="fa fa-award text-[#FF6B00]"></i> Nguyên Chủ Tịch Vissan (2015–2025)</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-award text-[#FF6B00]"></i> Phó Chủ Tịch Hiệp Hội Bán Lẻ Việt Nam</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-award text-[#FF6B00]"></i> Phó Chủ Tịch Hiệp Hội Lương Thực Thực Phẩm Việt Nam</div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed border-t border-slate-100 pt-4 m-0">
+                        Với tầm nhìn dài hạn, Thạc sĩ Nguyễn Phúc Khoa phụ trách xây dựng nguồn lực, hoạch định chiến lược và định hướng phát triển bền vững, đồng thời thúc đẩy chuyển đổi số và phát triển hệ sinh thái kinh doanh đa kênh nhằm tối ưu tăng trưởng.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ông Nguyễn Đăng Hoàng Sơn -->
+            <div class="bi-hover-lift rounded-[32px] bg-white border border-slate-200 p-8 sm:p-9 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between gap-4 mb-5">
+                        <div>
+                            <span class="text-xs font-black text-[#0052FF] uppercase tracking-wider block mb-1">
+                                NHÀ SÁNG LẬP &amp; ĐIỀU HÀNH
+                            </span>
+                            <h3 class="text-2xl font-black text-[#0F172A] m-0">
+                                Ông Nguyễn Đăng Hoàng Sơn
+                            </h3>
+                            <div class="text-sm font-bold text-[#FF6B00] mt-1">
+                                FOUNDER &amp; CEO BIWEB
+                            </div>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#FF6B00] to-[#FF8C33] text-white flex items-center justify-center text-xl font-black flex-shrink-0 shadow-md">
+                            HS
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5 text-xs text-[#0F172A] font-semibold mb-4">
+                        <div class="flex items-center gap-2"><i class="fa fa-check-circle text-[#0052FF]"></i> Phó Chủ Tịch Hội Doanh Nghiệp P. Thủ Đức</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check-circle text-[#0052FF]"></i> Trưởng Ban Truyền Thông &amp; Công Nghệ</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check-circle text-[#0052FF]"></i> Ban Cố Vấn Startup Wings Đại Học Hutech (06 năm)</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check-circle text-[#0052FF]"></i> Cựu CEO WebBNC (Vatgia) · Cựu Founder &amp; CEO Zaloka</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check-circle text-[#0052FF]"></i> Hơn 20 năm kinh nghiệm trong Web, Digital &amp; Thương mại điện tử</div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed border-t border-slate-100 pt-3 m-0">
+                        Chuyên sâu về MarTech, Growth &amp; Performance Marketing: Xây dựng &amp; tối ưu hệ thống dựa trên dữ liệu (data-driven), thiết kế hệ sinh thái MarTech (CRM, Automation, CDP) và tối ưu hóa toàn diện hành trình khách hàng.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 3 Core Leaders (PDF Page 6) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Bà Trương Ngọc An -->
+            <div class="bi-hover-lift rounded-3xl bg-white border border-slate-200 p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-base font-black">NA</div>
+                        <div>
+                            <h4 class="text-base font-extrabold text-[#0F172A] m-0">Trương Ngọc An</h4>
+                            <span class="text-xs font-bold text-[#0052FF]">Data Analytics Leader</span>
+                        </div>
+                    </div>
+                    <div class="text-xs font-semibold text-[#FF6B00] mb-2">Cựu Co-Founder Appnet · 12+ năm kinh nghiệm</div>
+                    <p class="text-xs text-[#4B5563] leading-relaxed m-0">
+                        Chuyên xây dựng hệ thống dữ liệu, tracking và hành trình khách hàng. Triển khai giải pháp data-driven cho tăng trưởng bền vững của doanh nghiệp.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ông Văn Đức Sơn Hà -->
+            <div class="bi-hover-lift rounded-3xl bg-white border border-slate-200 p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-base font-black">SH</div>
+                        <div>
+                            <h4 class="text-base font-extrabold text-[#0F172A] m-0">Văn Đức Sơn Hà</h4>
+                            <span class="text-xs font-bold text-[#10B981]">Co-Founder &amp; CTO</span>
+                        </div>
+                    </div>
+                    <div class="text-xs font-semibold text-[#FF6B00] mb-2">Cựu Founder &amp; CEO Appnet · 18+ năm kinh nghiệm</div>
+                    <p class="text-xs text-[#4B5563] leading-relaxed m-0">
+                        Chuyên sâu về performance marketing, data tạo chuyển đổi số hệ thống. Phụ trách triển khai các giải pháp và hệ thống công nghệ cho đối tác.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ông Huỳnh Thi -->
+            <div class="bi-hover-lift rounded-3xl bg-white border border-slate-200 p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center text-base font-black">HT</div>
+                        <div>
+                            <h4 class="text-base font-extrabold text-[#0F172A] m-0">Huỳnh Thi</h4>
+                            <span class="text-xs font-bold text-[#FF6B00]">Co-Founder &amp; AI-Tech Leader</span>
+                        </div>
+                    </div>
+                    <div class="text-xs font-semibold text-[#0052FF] mb-2">3+ năm về Web, CRM &amp; AI</div>
+                    <p class="text-xs text-[#4B5563] leading-relaxed m-0">
+                        Chuyên triển khai website, hệ thống CRM, automation và giải pháp AI giúp tối ưu vận hành và tăng trưởng doanh nghiệp.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== 9. CASE STUDIES THỰC CHIẾN (TRANG 15, 16, 17 PDF) ===================== -->
+<section id="case-study" class="bi-section bg-white">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Thực Chiến Kiểm Chứng</span>
+            <h2 class="bi-title">
+                Case Study thực tế từ <span class="bi-text-gradient">các đối tác tiêu biểu</span>
+            </h2>
+            <p class="bi-lead">
+                Dữ liệu và kết quả tăng trưởng thực tế được chứng minh qua các dự án lớn đã triển khai.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Case Study 1: DigiBird (Trang 15) -->
+            <div class="bi-hover-lift rounded-[28px] bg-white border border-slate-200 p-7 sm:p-8 flex flex-col justify-between shadow-sm">
+                <div>
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#0052FF]/10 text-[#0052FF]">Công Nghệ &amp; MarTech</span>
+                        <span class="text-xs font-bold text-[#4B5563]">Biweb x DigiBird</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">
+                        DIGIBIRD — Kiến Tạo Tăng Trưởng Bền Vững
+                    </h3>
+                    <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed mb-5">
+                        Anh Sơn, đại diện từ Biweb, đảm nhiệm vai trò <strong>Phó Giám Đốc Điều Hành (Co-Founder) tại Digibird</strong>, trực tiếp định hình và tái cấu trúc chiến lược sản phẩm theo hướng MarTech cao cấp (Mobile App &amp; CDP).
+                    </p>
+                    <ul class="text-xs space-y-2 text-[#0F172A] font-semibold border-t border-slate-100 pt-4 mb-6 list-none p-0">
+                        <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Chuẩn hóa toàn bộ quy trình Sales – Marketing</li>
+                        <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Mô hình vận hành dựa trên dữ liệu (data-driven)</li>
+                        <li><i class="fa fa-check text-[#10B981] mr-1.5"></i> Gia tăng chuyển đổi và tối đa hóa doanh thu DGB</li>
+                    </ul>
+                </div>
+                <div class="p-3 bg-[#F8FAFC] rounded-xl text-center text-xs font-bold text-[#0052FF]">
+                    Cầu Nối Chiến Lược — Quy Trình — Sản Phẩm
+                </div>
+            </div>
+
+            <!-- Case Study 2: Nature Pharma Group (Trang 16) -->
+            <div class="bi-hover-lift rounded-[28px] bg-white border border-slate-200 p-7 sm:p-8 flex flex-col justify-between shadow-sm">
+                <div>
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#10B981]/10 text-[#10B981]">Dược Phẩm &amp; Phân Phối</span>
+                        <span class="text-xs font-bold text-[#4B5563]">Sau 3 tháng</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">
+                        NATURE PHARMA — Hệ Thống Tuyển Dụng &amp; Quy Mô
+                    </h3>
+                    <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed mb-5">
+                        <strong>Mục tiêu:</strong> Tuyển dụng &amp; mở rộng hệ thống đại lý cho nhà máy Nature trên toàn quốc bằng phễu tự động hóa dữ liệu.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 border-t border-slate-100 pt-4 mb-6">
+                        <div class="p-3 bg-[#F8FAFC] rounded-xl text-center">
+                            <div class="text-2xl font-black text-[#10B981]">80+</div>
+                            <div class="text-[10px] text-[#4B5563] font-semibold mt-1">Leads đại lý / Tháng</div>
+                        </div>
+                        <div class="p-3 bg-[#F8FAFC] rounded-xl text-center">
+                            <div class="text-lg font-black text-[#0052FF]">150–180K</div>
+                            <div class="text-[10px] text-[#4B5563] font-semibold mt-1">CPA / Lead đại lý</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 bg-[#10B981]/10 rounded-xl text-center text-xs font-bold text-[#10B981]">
+                    Tốc độ mở rộng hệ thống tăng x3 lần
+                </div>
+            </div>
+
+            <!-- Case Study 3: Tân Phú Land (Trang 17) -->
+            <div class="bi-hover-lift rounded-[28px] bg-[#0F172A] p-7 sm:p-8 text-white flex flex-col justify-between shadow-xl border border-slate-800">
+                <div>
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#FF6B00] text-white">Bất Động Sản</span>
+                        <span class="text-xs text-slate-400">Khách hàng: Anh Lê Văn Hùng</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white mb-2">
+                        TÂN PHÚ LAND — Bứt Phá Doanh Thu Nhờ MarTech
+                    </h3>
+                    <div class="text-xs text-[#00C6FF] font-semibold mb-3">Tổng Giám Đốc Tân Phú Land</div>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                        <strong>Phân khúc:</strong> Người mua BĐS để ở &amp; đầu tư tại Tân Bình, Bình Tân, Phú Nhuận (Nhà phố, nhà hẻm).
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 border-t border-slate-800 pt-4 mb-6 text-center">
+                        <div class="p-2.5 rounded-xl bg-white/5">
+                            <div class="text-lg font-black text-[#10B981]">100+</div>
+                            <div class="text-[10px] text-slate-400">Leads / tháng</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-white/5">
+                            <div class="text-lg font-black text-white">~450K</div>
+                            <div class="text-[10px] text-slate-400">CPA / lead</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-white/5">
+                            <div class="text-lg font-black text-[#FF6B00]">5–10</div>
+                            <div class="text-[10px] text-slate-400">Giao dịch / tháng</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/10 rounded-xl text-center text-xs font-bold text-[#FF6B00]">
+                    Tối ưu hiệu suất chốt giao dịch vượt trội
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 10. BIWEB — NƠI CÔNG NGHỆ KIẾN TẠO SỰ THỊNH VƯỢNG BỀN VỮNG (TRANG 19 PDF) ===================== -->
+<section class="bi-section bg-[#F8FAFC]">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Điểm Khác Biệt Vượt Trội</span>
+            <h2 class="bi-title">
+                BIWEB — Nơi công nghệ kiến tạo <br />
+                <span class="bi-text-gradient">sự thịnh vượng bền vững</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bi-hover-lift rounded-3xl bg-white border border-slate-200 p-8 text-center flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 rounded-2xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-2xl font-black mx-auto mb-5">
+                        01
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">Toàn diện (All-in-one)</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed m-0">
+                        Vừa giỏi <strong class="text-[#0052FF]">Martech</strong> (tạo ra dòng tiền), vừa mạnh <strong class="text-[#FF6B00]">ERP &amp; AI</strong> (giữ tiền và tối ưu chi phí vận hành). Doanh nghiệp không cần tìm kiếm nhiều đơn vị lẻ tẻ.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-[#0052FF]">
+                    Một đối tác · Trọn vẹn giải pháp
+                </div>
+            </div>
+
+            <div class="bi-hover-lift rounded-3xl bg-white border border-slate-200 p-8 text-center flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 rounded-2xl bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center text-2xl font-black mx-auto mb-5">
+                        02
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">Công nghệ cốt lõi</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed m-0">
+                        Hệ thống <strong class="text-[#0F172A]">In-house R&amp;D</strong>, không phụ thuộc mã nguồn mở sao chép, khả năng customize (may đo) sâu sát nghiệp vụ của từng quy mô doanh nghiệp.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-[#FF6B00]">
+                    Tự chủ 100% · Linh hoạt mở rộng
+                </div>
+            </div>
+
+            <div class="bi-hover-lift rounded-3xl bg-white border border-slate-200 p-8 text-center flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 rounded-2xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-2xl font-black mx-auto mb-5">
+                        03
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0F172A] mb-3">Bảo mật &amp; Chuẩn Quốc Tế</h3>
+                    <p class="text-sm text-[#4B5563] leading-relaxed m-0">
+                        Sẵn sàng vươn ra thị trường Mỹ (<strong class="text-[#10B981]">BIWEB USA</strong>) — Tiêu chuẩn cao nhất về an toàn dữ liệu, mã hóa đầu cuối và tính ổn định dài hạn.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-[#10B981]">
+                    Enterprise-Grade Data Privacy
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 11. KHO GIẢI PHÁP & CÔNG CỤ SỐ (CATALOG) ===================== -->
+<section id="products" class="bi-section bg-white border-t border-slate-200">
+    <div class="container mx-auto">
+        
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+            <div class="max-w-2xl">
+                <span class="bi-tag"><span class="bi-tag-dot"></span> Kho Phần Mềm &amp; Giải Pháp Số</span>
+                <h2 class="bi-title">Giải pháp công nghệ chuyên dụng</h2>
+                <p class="bi-lead">Các module phần mềm tự động hóa Marketing, nuôi nick, quét data UID và quản trị vận hành từ hệ sinh thái BIWEB.</p>
+            </div>
+            <a href="/SanPham/Products" class="bi-btn-outline px-6 py-3.5 text-sm no-underline hover:no-underline self-start lg:self-auto font-bold">
+                Xem toàn bộ kho giải pháp <i class="fa fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6 overflow-x-auto pb-2" id="homeFilterBar">
+            <button type="button" data-cat="all" onclick="filterHomeCategory('all', this)" class="home-cat-btn px-4 py-2.5 rounded-xl text-xs font-bold bi-btn-primary text-white shadow-sm border-0 cursor-pointer whitespace-nowrap transition flex items-center gap-1.5">
+                <i class="fa fa-th-large"></i> <span>Tất Cả Giải Pháp</span> <span class="ml-1 px-1.5 py-0.5 rounded-md bg-white/20 text-[10px] text-white font-bold">@countAll</span>
+            </button>
+            <button type="button" data-cat="1" onclick="filterHomeCategory('1', this)" class="home-cat-btn px-4 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 text-[#4B5563] border border-slate-200 cursor-pointer transition whitespace-nowrap shadow-sm flex items-center gap-1.5">
+                <span>🚀 MarTech &amp; Tối Ưu Ads</span> <span class="ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-[10px] text-slate-600 font-bold">@countCat1</span>
+            </button>
+            <button type="button" data-cat="2" onclick="filterHomeCategory('2', this)" class="home-cat-btn px-4 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 text-[#4B5563] border border-slate-200 cursor-pointer transition whitespace-nowrap shadow-sm flex items-center gap-1.5">
+                <span>🤖 ERP, Nuôi Nick &amp; AI</span> <span class="ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-[10px] text-slate-600 font-bold">@countCat2</span>
+            </button>
+            <button type="button" data-cat="3" onclick="filterHomeCategory('3', this)" class="home-cat-btn px-4 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 text-[#4B5563] border border-slate-200 cursor-pointer transition whitespace-nowrap shadow-sm flex items-center gap-1.5">
+                <span>🎯 CDP &amp; Quét Data Khách</span> <span class="ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-[10px] text-slate-600 font-bold">@countCat3</span>
+            </button>
+            <button type="button" data-cat="4" onclick="filterHomeCategory('4', this)" class="home-cat-btn px-4 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 text-[#4B5563] border border-slate-200 cursor-pointer transition whitespace-nowrap shadow-sm flex items-center gap-1.5">
+                <span>💬 Omnichannel &amp; Tin Nhắn</span> <span class="ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-[10px] text-slate-600 font-bold">@countCat4</span>
+            </button>
+            <button type="button" data-cat="5" onclick="filterHomeCategory('5', this)" class="home-cat-btn px-4 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 text-[#4B5563] border border-slate-200 cursor-pointer transition whitespace-nowrap shadow-sm flex items-center gap-1.5">
+                <span>🌐 Hạ Tầng Cloud &amp; Proxy</span> <span class="ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-[10px] text-slate-600 font-bold">@countCat5</span>
+            </button>
+        </div>
+
+        <!-- Filter Status Summary Bar -->
+        <div class="flex flex-wrap items-center justify-between text-xs text-[#4B5563] mb-8 pb-3 border-b border-slate-100 gap-2">
+            <div class="flex items-center gap-2">
+                <i class="fa fa-filter text-[#0052FF]"></i>
+                <span>Đang hiển thị: <strong class="text-[#0F172A]" id="homeFilterCount">@countAll/@countAll</strong> giải pháp <span id="homeFilterLabel" class="text-[#0052FF] font-semibold"></span></span>
+            </div>
+            <button type="button" onclick="filterHomeCategory('all', document.querySelector('.home-cat-btn[data-cat=\'all\']'))" class="text-[#0052FF] hover:text-[#00C6FF] hover:underline bg-transparent border-0 cursor-pointer p-0 font-semibold text-xs flex items-center gap-1">
+                <i class="fa fa-sync-alt text-[10px]"></i> Đặt lại tất cả
+            </button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-7" id="homeProductsGrid">
+            @foreach (var item in ListSP)
+            {
+                var id = item.GetType().GetProperty("MaTTSP")?.GetValue(item, null)?.ToString();
+                var name = item.GetType().GetProperty("TenSP")?.GetValue(item, null)?.ToString();
+                var img = item.GetType().GetProperty("HinhAnh")?.GetValue(item, null)?.ToString();
+                var loaiId = item.GetType().GetProperty("MaLoaiSP")?.GetValue(item, null)?.ToString();
+                var mauSac = item.GetType().GetProperty("MauSac")?.GetValue(item, null)?.ToString();
+                var ram = item.GetType().GetProperty("Ram")?.GetValue(item, null)?.ToString();
+                var boNho = item.GetType().GetProperty("BoNhoTrong")?.GetValue(item, null)?.ToString();
+                var giaKM = 0;
+                var giaGoc = 0;
+
+                int.TryParse(item.GetType().GetProperty("GiaKM")?.GetValue(item, null)?.ToString(), out giaKM);
+                int.TryParse(item.GetType().GetProperty("Gia")?.GetValue(item, null)?.ToString(), out giaGoc);
+
+                <div class="product-home-card bi-card-white rounded-3xl border border-slate-200/90 p-4 sm:p-5 shadow-sm hover:border-[#0052FF] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group" data-category="@loaiId">
+                    <div>
+                        <!-- Image Container -->
+                        <div class="relative overflow-hidden rounded-2xl bg-slate-900/5 h-48 md:h-52 flex items-center justify-center mb-4">
+                            <img src="@img" alt="@name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                            
+                            <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                                <span class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                    @mauSac
+                                </span>
+                            </div>
+                            @if (giaKM > 0 && giaKM < giaGoc)
+                            {
+                                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                    -@(((giaGoc - giaKM) * 100) / giaGoc)%
+                                </span>
+                            }
+                        </div>
+
+                        <!-- Ratings -->
+                        <div class="flex items-center space-x-1.5 text-xs mb-2">
+                            <div class="flex text-amber-400 text-[11px]">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            </div>
+                            <span class="text-[#4B5563] text-[11px] font-medium">(4.9/5 • 120+ Doanh nghiệp)</span>
+                        </div>
+
+                        <!-- Name -->
+                        <h3 class="text-base font-extrabold text-[#0F172A] line-clamp-2 leading-snug mb-3 min-h-[44px]">
+                            <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="text-[#0F172A] group-hover:text-[#0052FF] no-underline transition">
+                                @name
+                            </a>
+                        </h3>
+
+                        <!-- Badges -->
+                        <div class="flex flex-wrap gap-1.5 mb-4 text-xs">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-100 text-[#4B5563] font-medium text-[11px]">
+                                <i class="fa fa-microchip text-[#0052FF] mr-1"></i> @ram Luồng
+                            </span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-100 text-[#4B5563] font-medium text-[11px]">
+                                <i class="fa fa-users text-[#FF6B00] mr-1"></i> @boNho Acc
+                            </span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-[#10B981]/10 text-[#10B981] font-semibold border border-[#10B981]/25 text-[11px]">
+                                <i class="fa fa-shield-alt mr-1"></i> BIWEB License
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Price & Actions -->
+                    <div class="pt-3 border-t border-slate-100">
+                        <div class="flex items-baseline space-x-2 mb-3.5">
+                            @if (giaKM > 0)
+                            {
+                                <span class="text-xl md:text-2xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", giaKM)</span>
+                                <span class="text-xs text-[#4B5563] line-through">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                            }
+                            else
+                            {
+                                <span class="text-xl md:text-2xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                            }
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="/GioHang/InsertCart3?id=@id" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                <i class="fa fa-shopping-cart mr-1.5"></i> Đăng Ký
+                            </a>
+                            <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-[#0F172A] bg-slate-100 hover:bg-slate-200 transition no-underline">
+                                Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            <div id="homeEmptyNotice" class="col-span-full py-12 text-center" style="display: none;">
+                <div class="w-16 h-16 rounded-full bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-2xl mx-auto mb-3">
+                    <i class="fa fa-cubes"></i>
+                </div>
+                <h4 class="text-base font-bold text-[#0F172A] mb-1">Chưa có giải pháp hiển thị theo bộ lọc này</h4>
+                <p class="text-xs text-[#4B5563] mb-4">Bạn có thể vào Kho Giải Pháp để xem toàn bộ hệ sinh thái của BIWEB.</p>
+                <a href="/SanPham/Products" class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold text-white bi-btn-primary no-underline">
+                    Xem toàn bộ tại Kho Giải Pháp &rarr;
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== 12. BẢNG GÓI HỢP TÁC CHUYỂN ĐỔI SỐ ===================== -->
+<section id="pricing" class="bi-section bg-[#F8FAFC]">
+    <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Bảng Gói Giải Pháp</span>
+            <h2 class="bi-title">Lựa chọn mô hình đồng hành <span class="bi-text-gradient">cùng BIWEB</span></h2>
+            <p class="bi-lead">Thiết kế linh hoạt từ doanh nghiệp SME muốn tăng trưởng doanh thu đến Tập đoàn chuyển đổi số toàn diện.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+            
+            <!-- Plan 1: Growth Transformation -->
+            <div class="bi-hover-lift bg-white rounded-[28px] border border-slate-200 p-8 sm:p-10 flex flex-col justify-between">
+                <div>
+                    <div class="text-xs font-bold text-[#0052FF] uppercase tracking-wider mb-2">GÓI TĂNG TRƯỞNG</div>
+                    <h3 class="text-2xl font-black text-[#0F172A] mb-1">MarTech &amp; Omnichannel</h3>
+                    <p class="text-xs text-[#4B5563] mb-6">Dành cho doanh nghiệp muốn tự động hóa tiếp thị &amp; gom dữ liệu khách hàng</p>
+                    
+                    <div class="text-sm font-bold text-[#0F172A] mb-3">Hạng mục triển khai chính:</div>
+                    <ul class="bi-check-list mb-8 space-y-2.5">
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Audit hệ thống Marketing &amp; phễu chuyển đổi hiện tại</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Triển khai BIWEB MarTech+ (Tự động hóa nuôi dưỡng Lead)</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Tích hợp Zalo Mini App điểm chạm 70M user</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Gom dữ liệu khách hàng về BIWEB CDP 360° cơ bản</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Đào tạo chuyển giao quy trình cho nhân sự nội bộ</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Hỗ trợ kỹ thuật 24/7 trực tiếp từ chuyên gia</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="bi-btn-outline w-full py-4 text-sm font-bold text-center no-underline hover:no-underline">
+                    NHẬN TƯ VẤN GÓI NÀY
+                </a>
+            </div>
+
+            <!-- Plan 2: Enterprise ERP & AI Agent -->
+            <div class="relative bg-[#0F172A] rounded-[28px] p-8 sm:p-10 flex flex-col justify-between text-white shadow-[0_40px_80px_-25px_rgba(0,82,255,0.5)] border border-slate-800">
+                <span class="absolute -top-3.5 right-8 bi-badge-highlight text-xs font-black">KHUYÊN DÙNG DOANH NGHIỆP</span>
+                <div>
+                    <div class="text-xs font-bold text-[#00C6FF] uppercase tracking-wider mb-2">GÓI CHUYỂN ĐỔI SỐ TOÀN DIỆN</div>
+                    <h3 class="text-2xl font-black text-white mb-1">Enterprise ERP &amp; AI Agent</h3>
+                    <p class="text-xs text-slate-300 mb-6">Tái cấu trúc vận hành, xóa bỏ ốc đảo phòng ban &amp; may đo In-House</p>
+                    
+                    <div class="text-sm font-bold text-white mb-3">Hạng mục triển khai trọn gói:</div>
+                    <ul class="bi-check-list mb-8 space-y-2.5 text-slate-200">
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Toàn bộ tính năng mảng Tăng Trưởng (MarTech + CDP + Mini App)</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Triển khai BIWEB ERP: Tài chính - Kế toán - Nhân sự - Kho vận</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Tích hợp Trợ lý ảo AI Agent: Tăng 300% hiệu suất không tăng lương</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> May đo sâu theo quy trình nghiệp vụ đặc thù (Tailor-made)</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Kiến trúc Microservices &amp; API-first không dùng mã nguồn copy</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Máy chủ độc lập, chuẩn mực an toàn dữ liệu MOU BIWEB USA</li>
+                        <li><i class="fa fa-check-circle text-[#10B981]"></i> Ban cố vấn chiến lược đồng hành trực tiếp theo tháng</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="bi-btn-primary w-full py-4 text-sm font-bold text-center no-underline hover:no-underline shadow-lg">
+                    ĐĂNG KÝ TƯ VẤN TOÀN DIỆN
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 13. FAQ CHUYỂN ĐỔI SỐ ===================== -->
+<section class="bi-section bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-12">
+            <span class="bi-tag"><span class="bi-tag-dot"></span> Giải Đáp Thắc Mắc</span>
+            <h2 class="bi-title">Câu hỏi thường gặp</h2>
+            <p class="bi-lead">Những thắc mắc phổ biến của các chủ doanh nghiệp khi bắt đầu chuyển đổi số cùng BIWEB.</p>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 open:border-[#0052FF] transition" open>
+                <summary class="flex items-center justify-between cursor-pointer list-none text-base font-bold text-[#0F172A]">
+                    BIWEB khác biệt gì so với việc tự xây dựng đội ngũ công nghệ In-House?
+                    <i class="fa fa-plus text-[#0052FF] transition group-open:rotate-45"></i>
+                </summary>
+                <p class="text-sm text-[#4B5563] leading-relaxed mt-4 mb-0">
+                    Tự xây dựng phòng Marketing và IT In-house thường tốn kém chi phí lương rất lớn, dễ lãng phí 30–40% ngân sách và mất từ 6–12 tháng tuyển dụng, đào tạo nhưng chưa chắc đã tạo ra hệ thống ổn định. Hợp tác cùng BIWEB giúp doanh nghiệp sở hữu ngay hệ sinh thái công nghệ R&amp;D tự chủ đã kiểm chứng qua hơn 50+ đối tác, tiết kiệm đến 70% chi phí nhân sự và vận hành 24/7.
+                </p>
+            </details>
+
+            <details class="group bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 open:border-[#0052FF] transition">
+                <summary class="flex items-center justify-between cursor-pointer list-none text-base font-bold text-[#0F172A]">
+                    Hệ thống của BIWEB có sử dụng mã nguồn mở sao chép (copy source) không?
+                    <i class="fa fa-plus text-[#0052FF] transition group-open:rotate-45"></i>
+                </summary>
+                <p class="text-sm text-[#4B5563] leading-relaxed mt-4 mb-0">
+                    <strong>Hoàn toàn không.</strong> Hệ thống của BIWEB được xây dựng từ đội ngũ R&amp;D tự chủ (In-House R&amp;D) theo kiến trúc Microservices &amp; API-first độc quyền. Điều này đảm bảo khả năng may đo (Tailor-made) sát theo quy trình của từng doanh nghiệp và tuyệt đối không dính các lỗ hổng bảo mật của mã nguồn trôi nổi.
+                </p>
+            </details>
+
+            <details class="group bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 open:border-[#0052FF] transition">
+                <summary class="flex items-center justify-between cursor-pointer list-none text-base font-bold text-[#0F172A]">
+                    Dữ liệu kinh doanh và khách hàng của chúng tôi được bảo mật như thế nào?
+                    <i class="fa fa-plus text-[#0052FF] transition group-open:rotate-45"></i>
+                </summary>
+                <p class="text-sm text-[#4B5563] leading-relaxed mt-4 mb-0">
+                    BIWEB cam kết bảo mật cấp Enterprise (Enterprise-grade Security) với hệ thống máy chủ độc lập, mã hóa dữ liệu đầu cuối, phân quyền nhiều lớp và tuân thủ các chuẩn mực Data Privacy quốc tế theo khuôn khổ ký kết MOU BIWEB USA.
+                </p>
+            </details>
+
+            <details class="group bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 open:border-[#0052FF] transition">
+                <summary class="flex items-center justify-between cursor-pointer list-none text-base font-bold text-[#0F172A]">
+                    Thời gian triển khai một dự án chuyển đổi số mất bao lâu?
+                    <i class="fa fa-plus text-[#0052FF] transition group-open:rotate-45"></i>
+                </summary>
+                <p class="text-sm text-[#4B5563] leading-relaxed mt-4 mb-0">
+                    Với lộ trình 7 bước đã được chuẩn hóa, các hạng mục MarTech &amp; Zalo Mini App có thể go-live trong vòng 2–4 tuần. Các hệ thống ERP &amp; AI Agent chuyên sâu sẽ được triển khai theo từng giai đoạn cuốn chiếu (phase), giúp doanh nghiệp vừa vận hành vừa nhận thấy hiệu quả cải thiện ngay lập tức.
+                </p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 14. CTA & FORM NHẬN TƯ VẤN CHIẾN LƯỢC (TRANG 20 PDF) ===================== -->
+<section id="contact" class="bi-section bg-[#F8FAFC]">
+    <div class="container mx-auto">
+        <div class="relative overflow-hidden rounded-[32px] bg-[#0F172A] p-7 sm:p-12 lg:p-14 border border-slate-800 shadow-2xl">
+            <div class="absolute -top-28 -left-20 w-96 h-96 rounded-full bg-[#0052FF]/30 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-28 -right-20 w-96 h-96 rounded-full bg-[#FF6B00]/25 blur-3xl pointer-events-none"></div>
+
+            <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Details (Trang 20 PDF) -->
+                <div class="lg:col-span-6 text-center lg:text-left">
+                    <span class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#00C6FF]/15 border border-[#00C6FF]/30 text-[#00C6FF] text-xs font-bold uppercase tracking-wider mb-4">
+                        <i class="fa fa-handshake mr-1.5"></i> Kết Nối Chuyển Đổi Số
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-black text-white leading-tight mb-4">
+                        Sẵn sàng cùng doanh nghiệp bạn <br />
+                        <span class="bi-text-gradient">bước vào kỷ nguyên số.</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                        <strong>CÔNG TY CỔ PHẦN GIẢI PHÁP &amp; ĐẦU TƯ CÔNG NGHỆ BIWEB</strong><br />
+                        Liên hệ ngay để bắt đầu hành trình chuyển đổi số, tối ưu vận hành và bứt phá tăng trưởng doanh thu cùng các chuyên gia hàng đầu.
+                    </p>
+
+                    <!-- Contact Details directly from PDF Page 20 -->
+                    <div class="space-y-3.5 text-xs sm:text-sm text-slate-200 max-w-md mx-auto lg:mx-0 text-left">
+                        <div class="flex items-start gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-white/10 text-[#FF6B00] flex items-center justify-center text-sm flex-shrink-0 mt-0.5"><i class="fa fa-map-marker-alt"></i></span>
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">Trụ sở chính:</span>
+                                <strong class="text-white">The Hive • 94 Xuân Thủy • Phường An Khánh • TP. Hồ Chí Minh</strong>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-white/10 text-[#10B981] flex items-center justify-center text-sm flex-shrink-0 mt-0.5"><i class="fa fa-phone-alt"></i></span>
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">Hotline tư vấn chiến lược:</span>
+                                <a href="tel:0909008064" class="text-white hover:text-[#10B981] font-black text-base no-underline transition">0909 008 064</a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                            <div class="flex items-start gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-white/10 text-[#00C6FF] flex items-center justify-center text-xs flex-shrink-0 mt-0.5"><i class="fa fa-user-headset"></i></span>
+                                <div>
+                                    <span class="text-slate-400 block text-[10px]">Hỗ trợ khách hàng:</span>
+                                    <strong class="text-white text-xs">0845 722 689 (Ms. Trâm)</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="w-8 h-8 rounded-lg bg-white/10 text-[#FF6B00] flex items-center justify-center text-xs flex-shrink-0 mt-0.5"><i class="fa fa-code-branch"></i></span>
+                                <div>
+                                    <span class="text-slate-400 block text-[10px]">Hỗ trợ kỹ thuật:</span>
+                                    <strong class="text-white text-xs">0817 740 179 (Mr. Huỳnh Thi)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="w-9 h-9 rounded-xl bg-white/10 text-[#00C6FF] flex items-center justify-center text-sm flex-shrink-0"><i class="fa fa-globe"></i></span>
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">Website chính thức:</span>
+                                <a href="https://webplus.biweb.vn" target="_blank" class="text-[#00C6FF] font-bold hover:underline no-underline">webplus.biweb.vn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Consultation Form -->
+                <div class="lg:col-span-6">
+                    <form id="consultForm" class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl" onsubmit="return submitConsult(event)">
+                        <div class="mb-5">
+                            <h3 class="text-xl font-extrabold text-[#0F172A] m-0">Đăng ký tư vấn giải pháp</h3>
+                            <p class="text-xs text-[#4B5563] m-0 mt-1">Chuyên gia chiến lược BIWEB sẽ liên hệ lại trong vòng 15 phút.</p>
+                        </div>
+
+                        <div class="space-y-3.5 text-xs sm:text-sm">
+                            <div>
+                                <label class="block font-bold text-[#0F172A] mb-1">Họ và tên đại diện *</label>
+                                <input id="consultName" type="text" required placeholder="VD: Nguyễn Văn A" class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 text-[#0F172A] focus:outline-none focus:border-[#0052FF]" />
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block font-bold text-[#0F172A] mb-1">Số điện thoại *</label>
+                                    <input id="consultPhone" type="tel" required pattern="[0-9 +]{9,13}" placeholder="VD: 0909 xxx xxx" class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 text-[#0F172A] focus:outline-none focus:border-[#0052FF]" />
+                                </div>
+                                <div>
+                                    <label class="block font-bold text-[#0F172A] mb-1">Tên Doanh Nghiệp</label>
+                                    <input id="consultCompany" type="text" placeholder="VD: Công ty TNHH..." class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 text-[#0F172A] focus:outline-none focus:border-[#0052FF]" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block font-bold text-[#0F172A] mb-1">Email làm việc</label>
+                                <input id="consultEmail" type="email" placeholder="contact@company.com" class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 text-[#0F172A] focus:outline-none focus:border-[#0052FF]" />
+                            </div>
+
+                            <div>
+                                <label class="block font-bold text-[#0F172A] mb-2">Giải pháp quý doanh nghiệp đang quan tâm:</label>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <label class="flex items-center gap-2 p-2.5 bg-[#F8FAFC] border border-slate-200 rounded-xl cursor-pointer m-0">
+                                        <input type="checkbox" name="svc" value="BIWEB MarTech+" class="accent-[#0052FF]" checked />
+                                        <span>BIWEB MarTech+</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 p-2.5 bg-[#F8FAFC] border border-slate-200 rounded-xl cursor-pointer m-0">
+                                        <input type="checkbox" name="svc" value="ERP & AI Agent" class="accent-[#0052FF]" checked />
+                                        <span>ERP &amp; AI Agent</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 p-2.5 bg-[#F8FAFC] border border-slate-200 rounded-xl cursor-pointer m-0">
+                                        <input type="checkbox" name="svc" value="BIWEB CDP 360" class="accent-[#0052FF]" />
+                                        <span>BIWEB CDP 360°</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 p-2.5 bg-[#F8FAFC] border border-slate-200 rounded-xl cursor-pointer m-0">
+                                        <input type="checkbox" name="svc" value="Zalo Mini App" class="accent-[#0052FF]" />
+                                        <span>Zalo Mini App</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="bi-btn-primary w-full py-4 text-sm font-black mt-6 cursor-pointer shadow-lg tracking-wider uppercase">
+                            GỬI YÊU CẦU TƯ VẤN CHIẾN LƯỢC <i class="fa fa-paper-plane ml-2"></i>
+                        </button>
+
+                        <div id="consultSuccess" class="hidden mt-4 rounded-xl bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981] text-xs sm:text-sm font-semibold p-3.5">
+                            <i class="fa fa-check-circle mr-1.5"></i> Cảm ơn Quý doanh nghiệp! Chuyên gia BIWEB sẽ liên hệ lại trong ít phút.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Product category quick filter on homepage (with high-specificity CSS class toggling)
+    function filterHomeCategory(catId, btn) {
+        // Reset all buttons
+        var buttons = document.querySelectorAll('.home-cat-btn');
+        buttons.forEach(function (b) {
+            b.className = 'home-cat-btn px-4 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 text-[#4B5563] border border-slate-200 cursor-pointer transition whitespace-nowrap shadow-sm flex items-center gap-1.5';
+            var badge = b.querySelector('span:last-child');
+            if (badge) {
+                badge.className = 'ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-[10px] text-slate-600 font-bold';
+            }
+        });
+
+        // Set active button
+        if (btn) {
+            btn.className = 'home-cat-btn px-4 py-2.5 rounded-xl text-xs font-bold bi-btn-primary text-white shadow-sm border-0 cursor-pointer whitespace-nowrap transition flex items-center gap-1.5';
+            var activeBadge = btn.querySelector('span:last-child');
+            if (activeBadge) {
+                activeBadge.className = 'ml-1 px-1.5 py-0.5 rounded-md bg-white/20 text-[10px] text-white font-bold';
+            }
+        }
+
+        // Category labels mapping
+        var catLabels = {
+            'all': '',
+            '1': '• MarTech & Tối Ưu Ads',
+            '2': '• ERP, Nuôi Nick & AI',
+            '3': '• CDP & Quét Data Khách',
+            '4': '• Omnichannel & Tin Nhắn',
+            '5': '• Hạ Tầng Cloud & Proxy'
+        };
+        var labelEl = document.getElementById('homeFilterLabel');
+        if (labelEl) {
+            labelEl.innerText = catLabels[catId] || '';
+        }
+
+        // Filter cards
+        var cards = document.querySelectorAll('.product-home-card');
+        var matched = 0;
+        cards.forEach(function (c) {
+            var cCat = (c.getAttribute('data-category') || '').trim();
+            var isMatch = (catId === 'all' || cCat === String(catId));
+            if (isMatch) { 
+                c.classList.remove('is-hidden', 'hidden'); 
+                c.classList.add('is-visible', 'flex');
+                c.style.setProperty('display', 'flex', 'important');
+                matched++; 
+            } else { 
+                c.classList.remove('is-visible', 'flex');
+                c.classList.add('is-hidden', 'hidden'); 
+                c.style.setProperty('display', 'none', 'important');
+            }
+        });
+
+        // Update count badge
+        var countEl = document.getElementById('homeFilterCount');
+        if (countEl) {
+            countEl.innerText = matched + '/' + cards.length;
+        }
+
+        // Show/hide empty notice
+        var emptyEl = document.getElementById('homeEmptyNotice');
+        if (emptyEl) {
+            if (matched === 0) {
+                emptyEl.classList.remove('hidden');
+                emptyEl.style.setProperty('display', 'block', 'important');
+            } else {
+                emptyEl.classList.add('hidden');
+                emptyEl.style.setProperty('display', 'none', 'important');
+            }
+        }
+    }
+
+    // Consultation submission
+    function submitConsult(e) {
+        e.preventDefault();
+        var ok = document.getElementById('consultSuccess');
+        if (ok) ok.classList.remove('hidden');
+        var form = document.getElementById('consultForm');
+        if (form) form.reset();
+        return false;
+    }
+</script>

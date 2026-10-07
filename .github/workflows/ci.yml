@@ -1,0 +1,27 @@
+name: BIWEB CI / CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "master", "develop" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    name: Build & Verify
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '3.1.x'
+
+    - name: Restore Dependencies
+      run: dotnet restore Biweb.sln
+
+    - name: Build Solution
+      run: dotnet build Biweb.sln --configuration Release --no-restore

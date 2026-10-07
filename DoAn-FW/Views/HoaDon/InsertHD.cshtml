@@ -1,0 +1,87 @@
+@{
+    ViewData["Title"] = "Trạng Thái Đăng Ký Giải Pháp - BIWEB";
+    var maHD = ViewBag.MaHD != null ? ViewBag.MaHD.ToString() : "N/A";
+}
+
+<!-- Stepper Progress Bar -->
+<div class="bg-[#0F172A] text-white py-8 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span class="text-slate-500">/</span>
+            <span class="text-white">Trạng thái đặt hàng</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Kết Quả Xử Lý Đơn Hàng Giải Pháp
+        </h1>
+    </div>
+</div>
+
+<div class="py-16 bg-[#F8FAFC] min-h-[70vh] flex items-center justify-center">
+    <div class="container mx-auto px-4 max-w-lg">
+        <div class="bi-card-white rounded-3xl border border-slate-200/90 p-8 sm:p-10 shadow-xl text-center relative overflow-hidden">
+            <!-- Glow Accent -->
+            <div class="absolute -top-16 -right-16 w-36 h-36 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            @if (ViewBag.Count == 1)
+            {
+                <div class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-5 shadow-lg shadow-emerald-500/20 animate-pulse">
+                    <i class="fa fa-check"></i>
+                </div>
+                <h2 class="text-2xl font-black text-[#0F172A] mb-1">Đăng Ký Thành Công!</h2>
+                <div class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20 mb-4">
+                    Mã hợp đồng / Đơn hàng: #HD-@maHD
+                </div>
+                
+                <p class="text-xs sm:text-sm text-[#4B5563] mb-6 leading-relaxed">
+                    Đơn hàng giải pháp bản quyền đã được xác nhận thành công! Mã <strong>License Key</strong> và hồ sơ chuyển giao công nghệ đã được gửi tự động qua email của bạn.
+                </p>
+
+                <!-- Step Info Box -->
+                <div class="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-4 text-xs text-left text-[#4B5563] mb-6 space-y-2">
+                    <div class="flex items-center text-[#0F172A] font-bold">
+                        <i class="fa fa-info-circle text-[#0052FF] mr-2"></i> Các bước tiếp theo:
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="w-4 h-4 rounded-full bg-[#0052FF] text-white flex items-center justify-center text-[10px] font-bold mt-0.5">1</span>
+                        <span>Truy cập mục <strong>Kho License Đã Mua</strong> để lấy mã Key và tài liệu tích hợp API.</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="w-4 h-4 rounded-full bg-[#0052FF] text-white flex items-center justify-center text-[10px] font-bold mt-0.5">2</span>
+                        <span>Kích hoạt bản quyền trong trang quản trị hoặc kết nối vào hạ tầng doanh nghiệp của bạn.</span>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                        <span class="w-4 h-4 rounded-full bg-[#0052FF] text-white flex items-center justify-center text-[10px] font-bold mt-0.5">3</span>
+                        <span>Cần hỗ trợ kỹ thuật trực tiếp? Liên hệ Hotline <strong>0909 008 064</strong> hoặc Kỹ thuật <strong>0817 740 179</strong>.</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <a href="/DSSPMua/DSSPMua" class="w-full py-3.5 px-6 rounded-2xl font-bold text-sm text-white bi-btn-primary transition shadow-md block no-underline">
+                        <i class="fa fa-key mr-2"></i> Lấy License Key Trong Kho Bản Quyền
+                    </a>
+                    <a href="/HoaDon/LichSuHD" class="w-full py-3 px-6 rounded-2xl font-bold text-xs text-[#0F172A] hover:text-[#0052FF] bg-slate-100 hover:bg-slate-200 transition block no-underline">
+                        <i class="fa fa-file-invoice mr-1.5"></i> Quản Lý Lịch Sử Hợp Đồng
+                    </a>
+                    <a href="/SanPham/Products" class="inline-block text-xs font-semibold text-[#0052FF] hover:text-[#00C6FF] pt-2 no-underline">
+                        Tiếp tục khám phá hệ sinh thái giải pháp &rarr;
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="w-20 h-20 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-3xl mx-auto mb-5 shadow-sm">
+                    <i class="fa fa-times"></i>
+                </div>
+                <h2 class="text-2xl font-black text-[#0F172A] mb-2">Tạo Hóa Đơn Thất Bại!</h2>
+                <p class="text-xs sm:text-sm text-[#4B5563] mb-6 leading-relaxed">
+                    Có lỗi xảy ra trong quá trình xử lý đơn hàng. Vui lòng kiểm tra lại giỏ hàng hoặc liên hệ kỹ thuật qua hotline 0909 008 064.
+                </p>
+                <a href="/GioHang/Cart" class="w-full py-3.5 px-6 rounded-2xl font-bold text-sm text-white bg-rose-600 hover:bg-rose-700 transition shadow-md inline-block no-underline">
+                    Quay Lại Giỏ Hàng
+                </a>
+            }
+        </div>
+    </div>
+</div>

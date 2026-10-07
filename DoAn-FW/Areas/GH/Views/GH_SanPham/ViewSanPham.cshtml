@@ -1,0 +1,241 @@
+@using Web_projectframeword_admin.Models;
+@model SanPham
+@{
+    List<LoaiSanPham> ListLoaiSP = new List<LoaiSanPham>();
+    ListLoaiSP = ViewBag.DSLSP as List<LoaiSanPham> ?? new List<LoaiSanPham>();
+    List<ThuongHieu> ListTH = new List<ThuongHieu>();
+    ListTH = ViewBag.DSTH as List<ThuongHieu> ?? new List<ThuongHieu>();
+}
+
+<div class="content-wrapper" style="min-height: 639px;">
+    <form action="/GH/GH_SanPham/UpdateSanPham" method="post">
+        <section class="content-header">
+            <h1>
+                <i class="fa fa-cogs"></i> Chi Tiết & Cập Nhật License Tool
+            </h1>
+            <div class="breadcrumb">
+                <a class="btn btn-primary btn-sm" href="/GH/GH_SanPham/LietKeSanPham" role="button">
+                    <span class="glyphicon glyphicon-remove do_nos"></span> Thoát
+                </a>
+            </div>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box" id="view">
+                        <div class="box-header with-border">
+                            <div class="box-body">
+                                <div class="col-md-8" style="border-right: ridge;">
+                                    <div class="form-group">
+                                        <label for="tenSP">Tên Tool / Phần mềm Facebook</label>
+                                        <input type="text" class="form-control" name="TENSP" style="width:100%" placeholder="Tên sản phẩm" value="@Model.TENSP" readonly>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <Label for="maloaiSP">Phân loại Tool</Label>
+                                                    <select name="MALOAISP" class="form-control" disabled>
+                                                        @{
+                                                            var loaiList = new Dictionary<int, string> {
+                                                                { 1, "Tool Chạy Ads & Tối Ưu Camp" },
+                                                                { 2, "Tool Nuôi Nick & Tương Tác Tự Động" },
+                                                                { 3, "Tool Quét UID & Data Khách Hàng" },
+                                                                { 4, "Tool Seeding & Spam Tin Nhắn" },
+                                                                { 5, "Nguyên Liệu Ads, BM & Proxy" }
+                                                            };
+                                                            foreach (var kv in loaiList) {
+                                                                if (Model.MALOAISP == kv.Key) {
+                                                                    <option value="@kv.Key" selected>@kv.Value</option>
+                                                                } else {
+                                                                    <option value="@kv.Key">@kv.Value</option>
+                                                                }
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <Label>Đơn vị phát triển / Brand</Label>
+                                                    <select name="MATH" class="form-control" disabled>
+                                                        @{
+                                                            var mathList = new Dictionary<int, string> {
+                                                                { 1, "MKT Software (Công cụ Marketing tự động)" },
+                                                                { 2, "Ninja Team (Ninja Software)" },
+                                                                { 3, "FPlus Tools (Plus24h)" },
+                                                                { 4, "VFP Pro Team" },
+                                                                { 5, "GenLogin Corp (Anti-detect Browser)" },
+                                                                { 6, "Gologin Vietnam" },
+                                                                { 7, "AutoAds AI Group" },
+                                                                { 8, "Simple Tools (ATP Holdings)" },
+                                                                { 9, "MaxSystem Care Team" },
+                                                                { 10, "ProxyFB Tech" }
+                                                            };
+                                                            foreach (var kv in mathList) {
+                                                                if (Model.MATH == kv.Key) {
+                                                                    <option value="@kv.Key" selected>@kv.Value</option>
+                                                                } else {
+                                                                    <option value="@kv.Key">@kv.Value</option>
+                                                                }
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hinhAnh">Link ảnh đại diện Tool</label>
+                                        <input type="text" class="form-control" name="HINHANH" style="width:100%" placeholder="đường link hình ảnh" value="@Model.HINHANH" readonly>
+                                        <div style="margin-top: 10px;">
+                                            <img src="@Model.HINHANH" alt="@Model.TENSP" style="max-height: 120px; border-radius: 8px; border: 1px solid #ddd; padding: 4px;" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <span style="color: #1877f2; font-weight: 700; font-size: 18px;"><i class="fa fa-cogs"></i> Thông số bản quyền & Cấu hình phần mềm</span>
+                                        <div class="col-md-12" style="border-top:ridge; padding-top: 10px;">
+                                            <div class="col-md-6" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <label for="gia">Giá niêm yết (VNĐ)</label>
+                                                    <input name="GIA" class="form-control" type="number" value="@Model.GIA" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <label for="giaKM">Giá ưu đãi (VNĐ)</label>
+                                                    <input name="GIAKM" class="form-control" type="number" value="@Model.GIAKM" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <label for="mattsp">Mã cấu hình (MATTSP)</label>
+                                                    <input readonly name="MATTSP" class="form-control" type="number" value="@Model.MATTSP">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <label for="soLuong">Số lượng License trong kho</label>
+                                                    <input name="SOLUONG" class="form-control" type="number" value="@Model.SOLUONG" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <label for="ram">Số luồng chạy đồng thời (Threads)</label>
+                                                    <input name="RAM" class="form-control" type="number" value="@Model.RAM" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <label for="boNhoTrong">Số Nick quản lý tối đa (Acc)</label>
+                                                    <input name="BONHOTRONG" class="form-control" type="number" value="@Model.BONHOTRONG" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <label for="pin">Hạn bảo hành & Cập nhật (Ngày)</label>
+                                                    <input name="PIN" class="form-control" type="number" value="@Model.PIN" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <label for="kichthuocmanhinh">Phiên bản phần mềm (Version)</label>
+                                                    <input name="KICHTHUOCMANHINH" class="form-control" type="number" value="@Model.KICHTHUOCMANHINH" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <label for="cameraTruoc">Hệ điều hành hỗ trợ</label>
+                                                    <input name="CAMERATRUOC" class="form-control" type="text" value="@Model.CAMERATRUOC" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <label for="cameraSau">Hình thức cấp bản quyền</label>
+                                                    <input name="CAMERASAU" class="form-control" type="text" value="@Model.CAMERASAU" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <label for="mauSac">Gói thời hạn bản quyền</label>
+                                                    <input name="MAUSAC" class="form-control" type="text" value="@Model.MAUSAC" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="padding-right: 0px;">
+                                                <div class="form-group">
+                                                    <label for="cpu">Công nghệ / API nền tảng</label>
+                                                    <input name="CPU" class="form-control" type="text" value="@Model.CPU" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <span style="color: #1877f2; font-weight: 700; font-size: 18px;"><i class="fa fa-folder-open"></i> Danh mục Phân loại Tool</span>
+                                    <div class="col-md-12" style="border:ridge; padding-top: 10px; margin-bottom: 20px;">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover table-bordered" style="font-size: 14px;">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">ID</th>
+                                                        <th>Tên Loại sản phẩm</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @{ int i = 0; }
+                                                    @foreach (var item in ListLoaiSP)
+                                                    {
+                                                        i++;
+                                                        <tr>
+                                                            <td class="text-center" style="font-weight: 300;">@i</td>
+                                                            <td style="font-weight: 300;">@item.TENLOAISP</td>
+                                                        </tr>                          
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <span style="color: #1877f2; font-weight: 700; font-size: 18px;"><i class="fa fa-shield"></i> Nhà phát triển / Thương hiệu</span>
+                                    <div class="col-md-12" style="border:ridge; padding-top: 10px;">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover table-bordered" style="font-size: 14px;">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">ID</th>
+                                                        <th>Tên Thương hiệu</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @{ int j = 0; }
+                                                    @foreach (var item in ListTH)
+                                                    {
+                                                        j++;
+                                                        <tr>
+                                                            <td class="text-center" style="font-weight: 300;">@j</td>
+                                                            <td style="font-weight: 300;">@item.TENTH</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</div>

@@ -1,0 +1,159 @@
+@{
+    ViewData["Title"] = "Hệ Thống Giải Pháp Số Mới Nhất - BIWEB";
+    List<object> Model = ViewData["list"] as List<object>;
+    List<object> ModelLoaiSP = ViewData["ListLoaiSP"] as List<object>;
+    KhachHang kh = ViewBag.KH;
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<!-- Page Header Banner -->
+<div class="bg-[#0F172A] text-white py-10 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-semibold mb-2">
+            <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+            <span class="text-slate-500">/</span>
+            <span class="text-white">Giải pháp số</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Kho Giải Pháp MarTech & ERP Mới Nhất
+        </h1>
+        <p class="text-sm text-slate-300 mt-1 max-w-xl">
+            Cập nhật liên tục các giải pháp MarTech+, CDP+, Omnichannel Zalo Mini App và ERP & AI Agent từ BIWEB.
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-[#F8FAFC] min-h-screen">
+    <div class="container mx-auto px-4">
+        
+        @if (Model != null && Model.Count > 0)
+        {
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                @foreach (var item in Model)
+                {
+                    var id = item.GetType().GetProperty("MaTTSP")?.GetValue(item, null)?.ToString();
+                    var name = item.GetType().GetProperty("TenSP")?.GetValue(item, null)?.ToString();
+                    var img = item.GetType().GetProperty("HinhAnh")?.GetValue(item, null)?.ToString();
+                    var loaiId = item.GetType().GetProperty("MaLoaiSP")?.GetValue(item, null)?.ToString();
+                    var mauSac = item.GetType().GetProperty("MauSac")?.GetValue(item, null)?.ToString();
+                    var ram = item.GetType().GetProperty("Ram")?.GetValue(item, null)?.ToString();
+                    var boNho = item.GetType().GetProperty("BoNhoTrong")?.GetValue(item, null)?.ToString();
+                    var giaKM = 0;
+                    var giaGoc = 0;
+
+                    int.TryParse(item.GetType().GetProperty("GiaKM")?.GetValue(item, null)?.ToString(), out giaKM);
+                    int.TryParse(item.GetType().GetProperty("Gia")?.GetValue(item, null)?.ToString(), out giaGoc);
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <!-- Image Container -->
+                            <div class="relative overflow-hidden rounded-xl bg-slate-100 h-48 flex items-center justify-center mb-4">
+                                <img src="@img" alt="@name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-blue-600 text-white shadow-sm">
+                                    @mauSac
+                                </span>
+                                @if (giaKM > 0 && giaKM < giaGoc)
+                                {
+                                    <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500 text-white shadow-sm">
+                                        -@(((giaGoc - giaKM) * 100) / giaGoc)%
+                                    </span>
+                                }
+                            </div>
+
+                            <!-- Name -->
+                            <h3 class="text-base font-bold text-slate-800 line-clamp-2 leading-snug mb-3 min-h-[44px]">
+                                <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="text-slate-800 hover:text-blue-600 no-underline transition">
+                                    @name
+                                </a>
+                            </h3>
+
+                            <!-- Badges -->
+                            <div class="flex flex-wrap gap-1.5 mb-4 text-xs">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">
+                                    <i class="fa fa-microchip text-blue-500 mr-1"></i> @ram Luồng
+                                </span>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">
+                                    <i class="fa fa-users text-amber-500 mr-1"></i> @boNho Acc
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Price & Action -->
+                        <div class="pt-3 border-t border-slate-100">
+                            <div class="flex items-baseline space-x-2 mb-3">
+                                @if (giaKM > 0)
+                                {
+                                    <span class="text-lg font-black text-rose-600">@string.Format("{0:0,0 đ}", giaKM)</span>
+                                    <span class="text-xs text-slate-400 line-through">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                                }
+                                else
+                                {
+                                    <span class="text-lg font-black text-rose-600">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                                }
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2">
+                                <a href="/GioHang/InsertCart3?id=@id" class="inline-flex items-center justify-center px-3 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition shadow-sm no-underline">
+                                    <i class="fa fa-shopping-cart mr-1.5"></i> Mua Ngay
+                                </a>
+                                <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="inline-flex items-center justify-center px-3 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition no-underline">
+                                    Chi Tiết
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Pagination -->
+            @if (pager.TotalPages > 0)
+            {
+                <div class="mt-12 flex justify-center">
+                    <nav class="flex items-center space-x-1 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
+                        @if (pager.CurrentPage > 1)
+                        {
+                            <a href="/SanPham/DanhSachSP?pg=@(pager.CurrentPage - 1)" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition no-underline">
+                                <i class="fa fa-chevron-left"></i>
+                            </a>
+                        }
+
+                        @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                        {
+                            if (pge == pager.CurrentPage)
+                            {
+                                <span class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm">@pge</span>
+                            }
+                            else
+                            {
+                                <a href="/SanPham/DanhSachSP?pg=@pge" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition no-underline">@pge</a>
+                            }
+                        }
+
+                        @if (pager.CurrentPage < pager.TotalPages)
+                        {
+                            <a href="/SanPham/DanhSachSP?pg=@(pager.CurrentPage + 1)" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition no-underline">
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        }
+                    </nav>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8">
+                <i class="fa fa-box-open text-5xl text-slate-300 mb-4"></i>
+                <h3 class="text-lg font-bold text-slate-800">Không có phần mềm nào</h3>
+            </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,80 @@
+## =======================================================
+## BIWEB Repository - Git Ignore Rules
+## =======================================================
+
+# Build Results & Binaries
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio & IDE Cache
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.userprefs
+*.launchSettings.json.user
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+.idea/
+
+# Roslyn & Compilers
+*.codeanalysis
+*.ruleset
+
+# ASP.NET Core & Web Cache
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.StaticWebAssets.xml
+*.StaticWebAssets.Manifest.cache
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+**/packages/
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# OS Generated Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temp and Scratch directories
+scratch/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# Sensitive local configurations (keep appsettings.json, ignore secrets)
+appsettings.*.local.json
+secrets.json
+
+# Large Binary Files (over 50MB) - Use external storage or Git LFS if needed
+Docs/*.pdf.pdf

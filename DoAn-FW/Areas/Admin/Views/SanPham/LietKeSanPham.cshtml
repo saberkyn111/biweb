@@ -1,0 +1,106 @@
+@model IEnumerable<Web_projectframeword_admin.Models.SanPham>
+@{ int pages = Convert.ToInt32(ViewData["pages"]); int p = Convert.ToInt32(ViewData["page"]);}
+@{
+    <div class="content-wrapper" style="min-height: 639px; background-color: #f4f6f9;">
+        <section class="content-header" style="padding: 20px 20px 10px 20px;">
+            <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                <div class="col-sm-6">
+                    <h1 style="font-size: 22px; font-weight: 700; margin: 0; color: #1e293b;">
+                        <i class="fa fa-cogs" style="color: #1877f2; margin-right: 8px;"></i> Quản Lý Kho Tool FB & Phần Mềm Ads
+                    </h1>
+                </div>
+                <div class="col-sm-6 text-right" style="margin-top: 10px;">
+                    <form action="/Admin/SanPham/FindSanPham" method="post" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <div style="position: relative;">
+                            <input type="text" 
+                                   placeholder="Tìm kiếm tool FB..." 
+                                   name="ten" 
+                                   style="padding: 6px 12px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 13px; width: 200px; outline: none;">
+                            <button type="submit" style="padding: 6px 12px; background-color: #1877f2; border-radius: 6px; color: white; border: none; font-size: 13px; cursor: pointer;">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a class="btn btn-primary" href="/Admin/SanPham/EnterSanPham" role="button" style="background: #1877f2; border-color: #1877f2; border-radius: 6px; font-weight: 600; font-size: 13px; padding: 6px 14px;">
+                            <i class="fa fa-plus"></i> Thêm Tool Mới
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="content" style="padding: 15px 20px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary" style="border-radius: 12px; border-top: 3px solid #1877f2; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); background: #ffffff;">
+                        <div class="box-body" style="padding: 15px;">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped" style="margin-bottom: 0; font-size: 13px;">
+                                    <thead>
+                                        <tr style="background: #f8fafc; color: #475569; font-weight: 700; border-bottom: 2px solid #e2e8f0;">
+                                            <th class="text-center" style="width: 70px;">Mã</th>
+                                            <th>Tên Tool / Phần Mềm</th>
+                                            <th style="width: 100px;">Hình Ảnh</th>
+                                            <th>Phân Loại</th>
+                                            <th>Đơn Vị Phát Triển</th>
+                                            <th class="text-center">Kho Key</th>
+                                            <th class="text-center" style="width: 140px;">Thao Tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr style="vertical-align: middle;">
+                                                <td class="text-center" style="font-weight: 700; color: #64748b;">@item.MATTSP</td>
+                                                <td style="font-size: 14px; font-weight: 600; color: #1877f2;">
+                                                    @item.TENSP
+                                                </td>
+                                                <td>
+                                                    <img src="@item.HINHANH" alt="@item.TENSP" style="width: 70px; height: 50px; object-fit: cover; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info" style="font-size: 11px; padding: 4px 8px; border-radius: 4px; background-color: #0284c7;">
+                                                        @item.TENLOAISP
+                                                    </span>
+                                                </td>
+                                                <td style="font-weight: 500; color: #334155;">@item.TENTH</td>
+                                                <td class="text-center">
+                                                    <span class="badge" style="background: #10b981; font-size: 12px; padding: 4px 8px; border-radius: 6px;">
+                                                        @item.SOLUONG Key
+                                                    </span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-success btn-xs" href="/Admin/SanPham/ViewSanPham?Id=@item.MATTSP" role="button" style="border-radius: 4px; padding: 4px 10px; margin-right: 4px;">
+                                                        <i class="fa fa-edit"></i> Sửa
+                                                    </a>
+                                                    <a class="btn btn-danger btn-xs" href="/Admin/SanPham/DeleteSanPham?Id=@item.MATTSP&page=@p" onclick="return confirm('Xác nhận xóa Tool này khỏi hệ thống?')" role="button" style="border-radius: 4px; padding: 4px 10px;">
+                                                        <i class="fa fa-trash"></i> Xóa
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Pagination Footer -->
+                        <div class="box-footer clearfix" style="border-top: 1px solid #e2e8f0; padding: 15px; background: #fafafa; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                            <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                                <div class="col-sm-6 text-muted" style="font-size: 13px;">
+                                    Đang xem trang <strong>@p</strong> trên tổng số <strong>@pages</strong> trang
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <form action="/Admin/SanPham/LietKeSanPham" method="get" style="display: inline-flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 13px; color: #475569;">Chuyển tới trang:</span>
+                                        <input type="number" max="@pages" min="1" name="page" value="@p" style="width: 55px; padding: 4px 6px; border: 1px solid #cbd5e1; border-radius: 4px; text-align: center; font-size: 12px;" />
+                                        <input type="submit" value="Đi" class="btn btn-default btn-sm" style="border-radius: 4px; padding: 4px 10px; font-weight: 600;" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+}
