@@ -1,4 +1,7 @@
-@{
+const fs = require('fs');
+const path = require('path');
+
+const content = `@{
     ViewData["Title"] = "BIWEB - Martech Cho Doanh Nghiệp Số | Tăng Trưởng Bền Vững Với ERP & AI Agent";
     List<object> ListSP = ViewBag.ListSP ?? new List<object>();
     List<object> ListLoaiSP = ViewBag.ListLoaiSP as List<object> ?? new List<object>();
@@ -1591,7 +1594,7 @@
                 <i class="fa fa-filter text-[#0052FF]"></i>
                 <span>Đang hiển thị: <strong class="text-[#0F172A]" id="homeFilterCount">@countAll/@countAll</strong> giải pháp <span id="homeFilterLabel" class="text-[#0052FF] font-semibold"></span></span>
             </div>
-            <button type="button" onclick="filterHomeCategory('all', document.querySelector('.home-cat-btn[data-cat=\'all\']'))" class="text-[#0052FF] hover:text-[#00C6FF] hover:underline bg-transparent border-0 cursor-pointer p-0 font-semibold text-xs flex items-center gap-1">
+            <button type="button" onclick="filterHomeCategory('all', document.querySelector('.home-cat-btn[data-cat=\\'all\\']'))" class="text-[#0052FF] hover:text-[#00C6FF] hover:underline bg-transparent border-0 cursor-pointer p-0 font-semibold text-xs flex items-center gap-1">
                 <i class="fa fa-sync-alt text-[10px]"></i> Đặt lại tất cả
             </button>
         </div>
@@ -2047,3 +2050,8 @@
         return false;
     }
 </script>
+`;
+
+const targetPath = path.resolve(__dirname, '../DoAn-FW/Views/Home/Index.cshtml');
+fs.writeFileSync(targetPath, content, 'utf8');
+console.log('Successfully wrote redesigned Index.cshtml with original content and webthamkhao design & animations!');
