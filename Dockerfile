@@ -4,7 +4,7 @@
 # =======================================================
 
 # Stage 1: Build & Publish
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 
 # Copy Solution and Project files for caching restore layer
@@ -20,7 +20,7 @@ WORKDIR "/src/DoAn-FW"
 RUN dotnet publish "DoAn-FW.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Stage 2: Runtime Image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 
