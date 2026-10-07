@@ -139,20 +139,21 @@
 
         body {
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
-            background-color: #F8FAFC !important;
-            color: #4B5563 !important;
+            background-color: #070B14 !important;
+            color: #94A3B8 !important;
+            overflow-x: hidden;
         }
         html { scroll-behavior: smooth; scroll-padding-top: 90px; }
         a:hover, a:focus { text-decoration: none; }
-        h1, h2, h3, h4, h5, h6 { color: #0F172A; font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; }
         .bi-header-bg {
-            background: rgba(255, 255, 255, 0.92) !important;
-            backdrop-filter: saturate(180%) blur(14px);
-            -webkit-backdrop-filter: saturate(180%) blur(14px);
-            border-bottom: 1px solid #E2E8F0 !important;
+            background: rgba(7, 11, 20, 0.88) !important;
+            backdrop-filter: saturate(180%) blur(16px);
+            -webkit-backdrop-filter: saturate(180%) blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
             transition: box-shadow .25s ease;
         }
-        .bi-header-bg.is-scrolled { box-shadow: 0 8px 30px -12px rgba(15, 23, 42, 0.18); }
+        .bi-header-bg.is-scrolled { box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 198, 255, 0.15); }
         .bi-text-gradient {
             background: linear-gradient(90deg, #0052FF 0%, #00C6FF 100%);
             -webkit-background-clip: text; background-clip: text;
@@ -161,7 +162,7 @@
         .bi-nav-link {
             position: relative;
             transition: color 0.2s ease;
-            color: #0F172A !important;
+            color: #E2E8F0 !important;
             font-weight: 600;
             padding: 10px 14px !important;
             display: inline-flex;
@@ -175,32 +176,34 @@
             border-radius: 2px; background: linear-gradient(90deg, #0052FF, #00C6FF);
             transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
         }
-        .bi-nav-link:hover, .bi-nav-link.active { color: #0052FF !important; }
+        .bi-nav-link:hover, .bi-nav-link.active { color: #00C6FF !important; }
         .bi-nav-link:hover::after, .bi-nav-link.active::after { transform: scaleX(1); }
         .bi-mega-item {
             display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 14px;
-            color: #0F172A !important; text-decoration: none !important; transition: background .2s;
+            color: #E2E8F0 !important; text-decoration: none !important; transition: background .2s;
         }
-        .bi-mega-item:hover { background: #F8FAFC; }
-        .bi-mega-item b { display: block; font-size: 13px; font-weight: 700; }
-        .bi-mega-item small { display: block; font-size: 11px; color: #4B5563; margin-top: 2px; }
+        .bi-mega-item:hover { background: rgba(255, 255, 255, 0.07); }
+        .bi-mega-item b { display: block; font-size: 13px; font-weight: 700; color: #FFFFFF !important; }
+        .bi-mega-item small { display: block; font-size: 11px; color: #94A3B8; margin-top: 2px; }
         .bi-mega-icon { width: 38px; height: 38px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
         .bi-drop-item {
             display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px;
-            color: #0F172A; text-decoration: none !important; font-weight: 500; transition: background .2s;
+            color: #E2E8F0 !important; text-decoration: none !important; font-weight: 500; transition: background .2s, color .2s;
         }
-        .bi-drop-item:hover { background: #F8FAFC; color: #0052FF; }
+        .bi-drop-item:hover { background: rgba(255, 255, 255, 0.07); color: #00C6FF !important; }
         .bi-drop-item i { width: 16px; text-align: center; }
         .bi-mobile-link {
             display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px;
-            background: #F8FAFC; border: 1px solid #E2E8F0; color: #0F172A !important; font-weight: 600;
+            background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.08); color: #E2E8F0 !important; font-weight: 600;
             font-size: 13px; text-decoration: none !important; cursor: pointer; text-align: left; width: 100%;
         }
-        .bi-mobile-link:hover { border-color: #0052FF; color: #0052FF !important; }
+        .bi-mobile-link:hover { border-color: #00C6FF; color: #00C6FF !important; }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 198, 255, 0.15) !important;
         }
         .dropdown-menu-custom {
             opacity: 0;
@@ -238,13 +241,21 @@
     }
 }
 
-<body class="bg-[#F8FAFC] text-[#4B5563] antialiased flex flex-col min-h-screen">
+<body class="bg-[#070B14] text-[#94A3B8] antialiased flex flex-col min-h-screen relative selection:bg-[#0052FF]/30 selection:text-white">
 
     <!-- Preloader (BIWEB motion) -->
     <div id="biPreloader" aria-hidden="true">
         <div class="bi-loader-logo">2B</div>
         <div class="bi-loader-bar"></div>
     </div>
+
+    <!-- Ambient Cyber & Glow Background Elements -->
+    <div class="bi-dark-cyber-grid" aria-hidden="true"></div>
+    <div class="bi-aurora-glow" aria-hidden="true"></div>
+    <div class="bi-stars-layer" aria-hidden="true"></div>
+    <div class="bi-nebula-orb bi-nebula-1" aria-hidden="true"></div>
+    <div class="bi-nebula-orb bi-nebula-2" aria-hidden="true"></div>
+    <div class="bi-nebula-orb bi-nebula-3" aria-hidden="true"></div>
 
     <!-- Top Announcement Bar (thin, BIWEB brand gradient) -->
     <div class="bg-gradient-to-r from-[#0F172A] via-[#0052FF] to-[#00C6FF] text-white text-xs py-2 px-4 border-b border-white/10">
@@ -278,10 +289,10 @@
                         <span class="tracking-tighter">2B</span>
                     </div>
                     <div class="leading-none">
-                        <div class="text-xl font-extrabold tracking-tight text-[#0F172A]">
+                        <div class="text-xl font-extrabold tracking-tight text-white">
                             BI<span class="text-[#FF6B00]">WEB</span>
                         </div>
-                        <div class="text-[10px] text-[#4B5563] font-semibold tracking-wide uppercase mt-1 hidden sm:block">MarTech Cho Doanh Nghiệp Số</div>
+                        <div class="text-[10px] text-slate-400 font-semibold tracking-wide uppercase mt-1 hidden sm:block">MarTech Cho Doanh Nghiệp Số</div>
                     </div>
                 </a>
 
@@ -294,48 +305,48 @@
                         <a href="/Home/Index#ecosystem" class="bi-nav-link flex items-center">
                             Giải pháp <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
                         </a>
-                        <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-[620px] z-50">
-                            <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 grid grid-cols-2 gap-2">
-                                <a href="/Home/Index#martech" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
-                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-chart-line"></i></span>
+                        <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-[640px] z-50">
+                            <div class="bg-[#0F172A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_25px_rgba(0,198,255,0.15)] backdrop-blur-xl p-4 grid grid-cols-2 gap-2">
+                                <a href="/Home/Index#martech" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#0052FF]/20 text-[#00C6FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-chart-line"></i></span>
                                     <span>
-                                        <b class="text-sm text-[#0F172A] block font-bold">BIWEB MarTech+</b>
-                                        <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Tự động hóa Marketing, nuôi dưỡng Lead &amp; tăng tỷ lệ chuyển đổi</small>
+                                        <b class="text-sm text-white block font-bold">BIWEB MarTech+</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Tự động hóa Marketing, nuôi dưỡng Lead &amp; tăng tỷ lệ chuyển đổi</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#erp-ai" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
-                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-robot"></i></span>
+                                <a href="/Home/Index#erp-ai" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#FF6B00]/20 text-[#FF6B00] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-robot"></i></span>
                                     <span>
-                                        <b class="text-sm text-[#0F172A] block font-bold">BIWEB ERP &amp; AI Agent</b>
-                                        <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Tái cấu trúc vận hành, xóa bỏ ốc đảo phòng ban, tăng 300% hiệu suất</small>
+                                        <b class="text-sm text-white block font-bold">BIWEB ERP &amp; AI Agent</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Tái cấu trúc vận hành, xóa bỏ ốc đảo phòng ban, tăng 300% hiệu suất</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#cdp" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
-                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-database"></i></span>
+                                <a href="/Home/Index#cdp" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#10B981]/20 text-[#10B981] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-database"></i></span>
                                     <span>
-                                        <b class="text-sm text-[#0F172A] block font-bold">BIWEB CDP+ (360° Data)</b>
-                                        <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Hợp nhất dữ liệu Online - Offline về Single Source of Truth</small>
+                                        <b class="text-sm text-white block font-bold">BIWEB CDP+ (360° Data)</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Hợp nhất dữ liệu Online - Offline về Single Source of Truth</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#omnichannel" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
-                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#00C6FF]/10 text-[#0052FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-comments"></i></span>
+                                <a href="/Home/Index#omnichannel" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#00C6FF]/20 text-[#00C6FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-comments"></i></span>
                                     <span>
-                                        <b class="text-sm text-[#0F172A] block font-bold">Omnichannel &amp; Zalo Mini App</b>
-                                        <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Điểm chạm Zero-friction trên hệ sinh thái 70 triệu người dùng</small>
+                                        <b class="text-sm text-white block font-bold">Omnichannel &amp; Zalo Mini App</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Điểm chạm Zero-friction trên hệ sinh thái 70 triệu người dùng</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#core-tech" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
-                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#0F172A]/5 text-[#0F172A] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-microchip"></i></span>
+                                <a href="/Home/Index#core-tech" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-microchip"></i></span>
                                     <span>
-                                        <b class="text-sm text-[#0F172A] block font-bold">In-House R&amp;D May Đo</b>
-                                        <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Hệ thống độc quyền, Microservices &amp; API-first không dùng mã copy</small>
+                                        <b class="text-sm text-white block font-bold">In-House R&amp;D May Đo</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Hệ thống độc quyền, Microservices &amp; API-first không dùng mã copy</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#biweb-usa" class="bi-mega-item p-3 rounded-xl bg-[#F8FAFC] hover:bg-slate-100 transition no-underline flex items-start gap-3">
+                                <a href="/Home/Index#biweb-usa" class="bi-mega-item p-3 rounded-xl bg-white/5 hover:bg-white/10 transition no-underline flex items-start gap-3 border border-white/10">
                                     <span class="bi-mega-icon w-10 h-10 rounded-xl bg-gradient-to-br from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-globe-americas"></i></span>
                                     <span>
-                                        <b class="text-sm text-[#0052FF] block font-bold">Go Global · BIWEB USA</b>
-                                        <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Chuẩn mực bảo mật &amp; an toàn dữ liệu Enterprise-grade quốc tế</small>
+                                        <b class="text-sm text-[#00C6FF] block font-bold">Go Global · BIWEB USA</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Chuẩn mực bảo mật &amp; an toàn dữ liệu Enterprise-grade quốc tế</small>
                                     </span>
                                 </a>
                             </div>
@@ -348,8 +359,8 @@
                             Hệ sinh thái <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
                         </a>
                         <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-64 z-50">
-                            <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl p-2 text-xs">
-                                <a href="/Home/Index#ecosystem" class="bi-drop-item"><i class="fa fa-layer-group text-[#0052FF]"></i> Nền tảng hợp nhất 360°</a>
+                            <div class="bg-[#0F172A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_20px_rgba(0,198,255,0.15)] backdrop-blur-xl p-2 text-xs">
+                                <a href="/Home/Index#ecosystem" class="bi-drop-item"><i class="fa fa-layer-group text-[#00C6FF]"></i> Nền tảng hợp nhất 360°</a>
                                 <a href="/Home/Index#core-tech" class="bi-drop-item"><i class="fa fa-microchip text-[#FF6B00]"></i> Năng lực lõi R&amp;D</a>
                                 <a href="/Home/Index#team" class="bi-drop-item"><i class="fa fa-users text-[#10B981]"></i> Đội ngũ cốt cán</a>
                                 <a href="/Home/Index#pricing" class="bi-drop-item"><i class="fa fa-tags text-[#00C6FF]"></i> Bảng gói hợp tác</a>
@@ -363,9 +374,9 @@
                             Khách hàng <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
                         </a>
                         <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-64 z-50">
-                            <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl p-2 text-xs">
+                            <div class="bg-[#0F172A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_20px_rgba(0,198,255,0.15)] backdrop-blur-xl p-2 text-xs">
                                 <a href="/Home/Index#case-study" class="bi-drop-item"><i class="fa fa-briefcase text-[#10B981]"></i> Case Study thực chiến</a>
-                                <a href="/Home/Index#roadmap" class="bi-drop-item"><i class="fa fa-list-ol text-[#0052FF]"></i> Lộ trình 7 bước</a>
+                                <a href="/Home/Index#roadmap" class="bi-drop-item"><i class="fa fa-list-ol text-[#00C6FF]"></i> Lộ trình 7 bước</a>
                                 <a href="/Home/Index#partners" class="bi-drop-item"><i class="fa fa-handshake text-[#FF6B00]"></i> 50+ Đối tác doanh nghiệp</a>
                             </div>
                         </div>
@@ -377,35 +388,35 @@
 
                 <!-- Right Actions -->
                 <div class="flex items-center gap-2.5 flex-shrink-0">
-                    <a href="tel:0909008064" class="hidden 2xl:inline-flex items-center gap-1.5 text-xs font-bold text-[#0F172A] hover:text-[#0052FF] px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200/80 transition no-underline">
+                    <a href="tel:0909008064" class="hidden 2xl:inline-flex items-center gap-1.5 text-xs font-bold text-slate-200 hover:text-[#00C6FF] px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition no-underline">
                         <i class="fa fa-phone-alt text-[#FF6B00]"></i> 0909 008 064
                     </a>
 
                     <!-- CTA Tư Vấn Nhanh -->
-                    <a href="/Home/Index#contact" class="bi-btn-primary bi-cta-header text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-sm whitespace-nowrap" aria-label="Nhận tư vấn chiến lược">
+                    <a href="/Home/Index#contact" class="bi-btn-primary bi-cta-header text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-glow whitespace-nowrap" aria-label="Nhận tư vấn chiến lược">
                         <i class="fa fa-paper-plane mr-1.5"></i> <span class="bi-cta-text">Nhận tư vấn chiến lược</span>
                     </a>
 
                     @if (kh.MaKH > 0)
                     {
                         <div class="relative group">
-                            <button class="flex items-center gap-2 bg-white hover:bg-[#F8FAFC] border border-slate-200 rounded-full py-1.5 pl-1.5 pr-3 text-xs text-[#0F172A] transition focus:outline-none cursor-pointer">
+                            <button class="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full py-1.5 pl-1.5 pr-3 text-xs text-white transition focus:outline-none cursor-pointer">
                                 <span class="w-7 h-7 rounded-full bg-gradient-to-br from-[#0052FF] to-[#00C6FF] flex items-center justify-center font-bold text-white text-[11px]">
                                     @(string.IsNullOrEmpty(kh.TenKH) ? "U" : kh.TenKH.Substring(0, 1).ToUpper())
                                 </span>
                                 <span class="font-semibold max-w-[100px] truncate hidden sm:inline">@kh.TenKH</span>
-                                <i class="fa fa-chevron-down text-[9px] text-[#4B5563]"></i>
+                                <i class="fa fa-chevron-down text-[9px] text-slate-400"></i>
                             </button>
                             <div class="dropdown-menu-custom absolute right-0 top-full pt-2 w-60 z-50">
-                                <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl p-2 text-xs">
-                                    <div class="px-3 py-2.5 border-b border-slate-100 mb-1">
-                                        <div class="font-bold text-[#0F172A] truncate">@kh.TenKH</div>
-                                        <div class="text-[11px] text-[#4B5563] truncate">@kh.Email</div>
+                                <div class="bg-[#0F172A]/95 border border-white/10 rounded-2xl shadow-2xl backdrop-blur-xl p-2 text-xs">
+                                    <div class="px-3 py-2.5 border-b border-white/10 mb-1">
+                                        <div class="font-bold text-white truncate">@kh.TenKH</div>
+                                        <div class="text-[11px] text-slate-400 truncate">@kh.Email</div>
                                     </div>
-                                    <a href="/TaiKhoan/ThongTinTK" class="bi-drop-item"><i class="fa fa-user-circle text-[#0052FF]"></i> Thông tin tài khoản</a>
+                                    <a href="/TaiKhoan/ThongTinTK" class="bi-drop-item"><i class="fa fa-user-circle text-[#00C6FF]"></i> Thông tin tài khoản</a>
                                     <a href="/DSSPMua/DSSPMua" class="bi-drop-item"><i class="fa fa-key text-[#FF6B00]"></i> Kho License &amp; Giải pháp</a>
                                     <a href="/HoaDon/LichSuHD" class="bi-drop-item"><i class="fa fa-file-invoice-dollar text-[#10B981]"></i> Lịch sử đăng ký</a>
-                                    <div class="border-t border-slate-100 mt-1 pt-1">
+                                    <div class="border-t border-white/10 mt-1 pt-1">
                                         <a href="/TaiKhoan/DangXuat" class="bi-drop-item text-[#FF6B00]"><i class="fa fa-sign-out-alt"></i> Đăng xuất</a>
                                     </div>
                                 </div>
@@ -414,19 +425,19 @@
                     }
                     else
                     {
-                        <a href="/TaiKhoan/DangNhap" class="hidden md:inline-flex items-center text-[13px] font-semibold text-[#0F172A] hover:text-[#0052FF] px-2.5 py-2 no-underline hover:no-underline transition">
+                        <a href="/TaiKhoan/DangNhap" class="hidden md:inline-flex items-center text-[13px] font-semibold text-slate-200 hover:text-[#00C6FF] px-2.5 py-2 no-underline hover:no-underline transition">
                             Đăng nhập
                         </a>
                     }
 
                     <!-- Cart -->
-                    <a href="/GioHang/Cart" class="relative inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#F8FAFC] hover:bg-[#0052FF]/10 border border-slate-200 text-[#0F172A] hover:text-[#0052FF] transition no-underline hover:no-underline" title="Giỏ giải pháp">
+                    <a href="/GioHang/Cart" class="relative inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 hover:text-[#00C6FF] transition no-underline hover:no-underline" title="Giỏ giải pháp">
                         <i class="fa fa-shopping-bag text-sm"></i>
-                        <span class="absolute -top-1 -right-1 @(totalGH > 0 ? "bg-[#FF6B00] text-white" : "bg-slate-200 text-[#4B5563]") font-bold rounded-full min-w-[16px] h-[16px] px-1 flex items-center justify-center text-[9px] ring-2 ring-white">@totalGH</span>
+                        <span class="absolute -top-1 -right-1 @(totalGH > 0 ? "bg-[#FF6B00] text-white" : "bg-slate-700 text-slate-300") font-bold rounded-full min-w-[16px] h-[16px] px-1 flex items-center justify-center text-[9px] ring-2 ring-[#070B14]">@totalGH</span>
                     </a>
 
                     <!-- Hamburger (mobile/tablet) -->
-                    <button type="button" id="btnMobileMenu" onclick="toggleMobileMenu()" class="xl:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl bg-[#0F172A] text-white border-0 cursor-pointer" aria-label="Mở menu">
+                    <button type="button" id="btnMobileMenu" onclick="toggleMobileMenu()" class="xl:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/10 cursor-pointer transition" aria-label="Mở menu">
                         <i class="fa fa-bars" id="iconMobileMenu"></i>
                     </button>
                 </div>
@@ -434,28 +445,28 @@
         </div>
 
         <!-- Mobile / Tablet Drawer -->
-        <div id="mobileMenu" class="xl:hidden hidden border-t border-slate-200 bg-white shadow-xl">
+        <div id="mobileMenu" class="xl:hidden hidden border-t border-white/10 bg-[#070B14]/95 backdrop-blur-xl shadow-2xl">
             <div class="container mx-auto py-4 space-y-3">
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                    <a href="/Home/Index" class="bi-mobile-link"><i class="fa fa-home text-[#0052FF]"></i> Trang chủ</a>
+                    <a href="/Home/Index" class="bi-mobile-link"><i class="fa fa-home text-[#00C6FF]"></i> Trang chủ</a>
                     <a href="/Home/Index#ecosystem" class="bi-mobile-link"><i class="fa fa-layer-group text-[#FF6B00]"></i> Hệ sinh thái</a>
-                    <a href="/Home/Index#martech" class="bi-mobile-link"><i class="fa fa-chart-line text-[#0052FF]"></i> MarTech+</a>
+                    <a href="/Home/Index#martech" class="bi-mobile-link"><i class="fa fa-chart-line text-[#00C6FF]"></i> MarTech+</a>
                     <a href="/Home/Index#erp-ai" class="bi-mobile-link"><i class="fa fa-robot text-[#10B981]"></i> ERP &amp; AI Agent</a>
                     <a href="/Home/Index#cdp" class="bi-mobile-link"><i class="fa fa-database text-[#00C6FF]"></i> BIWEB CDP+</a>
                     <a href="/Home/Index#omnichannel" class="bi-mobile-link"><i class="fa fa-comments text-[#FF6B00]"></i> Zalo Mini App</a>
-                    <a href="/Home/Index#team" class="bi-mobile-link"><i class="fa fa-users text-[#0052FF]"></i> Đội ngũ cốt cán</a>
+                    <a href="/Home/Index#team" class="bi-mobile-link"><i class="fa fa-users text-[#00C6FF]"></i> Đội ngũ cốt cán</a>
                     <a href="/Home/Index#case-study" class="bi-mobile-link"><i class="fa fa-briefcase text-[#10B981]"></i> Case Study</a>
-                    <a href="/Home/Index#roadmap" class="bi-mobile-link"><i class="fa fa-list-ol text-[#0052FF]"></i> Lộ trình 7 bước</a>
-                    <a href="/SanPham/Products" class="bi-mobile-link"><i class="fa fa-cubes text-[#0F172A]"></i> Kho Giải Pháp</a>
+                    <a href="/Home/Index#roadmap" class="bi-mobile-link"><i class="fa fa-list-ol text-[#00C6FF]"></i> Lộ trình 7 bước</a>
+                    <a href="/SanPham/Products" class="bi-mobile-link"><i class="fa fa-cubes text-white"></i> Kho Giải Pháp</a>
                 </div>
-                <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
+                <div class="pt-2 border-t border-white/10 flex flex-col gap-2">
                     <a href="tel:0909008064" class="text-xs font-bold text-[#FF6B00] flex items-center gap-2 no-underline">
                         <i class="fa fa-phone-alt"></i> Hotline Chiến Lược: 0909 008 064
                     </a>
                     @if (kh.MaKH <= 0)
                     {
                         <div class="grid grid-cols-2 gap-2 pt-1">
-                            <a href="/TaiKhoan/DangNhap" class="bi-btn-outline text-center py-2.5 rounded-xl text-xs no-underline hover:no-underline">Đăng nhập</a>
+                            <a href="/TaiKhoan/DangNhap" class="bi-btn-outline text-center py-2.5 rounded-xl text-xs no-underline hover:no-underline text-white">Đăng nhập</a>
                             <a href="/TaiKhoan/DangKi" class="bi-btn-primary text-center py-2.5 rounded-xl text-xs no-underline hover:no-underline">Đăng ký</a>
                         </div>
                     }
@@ -498,7 +509,7 @@
         <!-- Back To Top Button -->
         <button id="btnBackToTop" 
                 onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-                class="w-10 h-10 rounded-full bg-white hover:bg-[#0052FF] text-[#0F172A] hover:text-white flex items-center justify-center text-sm shadow-md border border-slate-200 transition opacity-0 pointer-events-none cursor-pointer"
+                class="w-10 h-10 rounded-full bg-[#0F172A]/90 hover:bg-[#0052FF] text-white flex items-center justify-center text-sm shadow-[0_0_20px_rgba(0,198,255,0.3)] border border-white/20 transition opacity-0 pointer-events-none cursor-pointer"
                 title="Về đầu trang">
             <i class="fa fa-arrow-up"></i>
         </button>
@@ -506,20 +517,20 @@
 
     <!-- Live Social Proof Order Toast Notification (Bottom Left) -->
     <div id="liveOrderToast" 
-         class="fixed bottom-6 left-6 z-50 max-w-sm bg-white border border-slate-200 text-[#0F172A] rounded-2xl p-3.5 shadow-2xl backdrop-blur-md transform transition-all duration-500 translate-y-32 opacity-0 flex items-start space-x-3 pointer-events-none">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#10B981] to-[#00C6FF] text-[#0F172A] flex items-center justify-center text-base font-bold flex-shrink-0 mt-0.5">
+         class="fixed bottom-6 left-6 z-50 max-w-sm bg-[#0F172A]/95 border border-white/15 text-white rounded-2xl p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_25px_rgba(0,82,255,0.25)] backdrop-blur-xl transform transition-all duration-500 translate-y-32 opacity-0 flex items-start space-x-3 pointer-events-none">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#10B981] to-[#00C6FF] text-[#070B14] flex items-center justify-center text-base font-bold flex-shrink-0 mt-0.5">
             <i class="fa fa-check"></i>
         </div>
         <div class="flex-1 text-xs">
             <div class="flex items-center justify-between text-[10px] text-slate-400 mb-0.5">
-                <span class="text-[#10B981] font-bold uppercase tracking-wider">Đối tác mới đăng ký</span>
+                <span class="text-[#00C6FF] font-bold uppercase tracking-wider">Đối tác mới đăng ký</span>
                 <span id="toastTime">vừa xong</span>
             </div>
-            <div class="text-[#4B5563] leading-snug">
-                Doanh nghiệp <strong id="toastUser" class="text-[#0F172A]">tại TP. Hồ Chí Minh</strong> vừa đăng ký tư vấn <span id="toastProduct" class="text-[#FF6B00] font-semibold">BIWEB MarTech+ &amp; ERP Agent</span>
+            <div class="text-slate-300 leading-snug">
+                Doanh nghiệp <strong id="toastUser" class="text-white">tại TP. Hồ Chí Minh</strong> vừa đăng ký tư vấn <span id="toastProduct" class="text-[#FF6B00] font-semibold">BIWEB MarTech+ &amp; ERP Agent</span>
             </div>
         </div>
-        <button onclick="dismissToast()" class="text-slate-500 hover:text-[#0F172A] text-xs p-1 pointer-events-auto">
+        <button onclick="dismissToast()" class="text-slate-400 hover:text-white text-xs p-1 pointer-events-auto border-0 bg-transparent cursor-pointer">
             <i class="fa fa-times"></i>
         </button>
     </div>
