@@ -8,7 +8,7 @@
 }
 
 <!-- Breadcrumbs Header -->
-<div class="bg-[#0F172A] text-white py-6 border-b border-slate-800 relative overflow-hidden">
+<div class="bg-transparent text-white py-6 border-b border-white/10 relative overflow-hidden">
     <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium">
@@ -21,16 +21,16 @@
     </div>
 </div>
 
-<div class="py-12 bg-[#F8FAFC] min-h-screen">
+<div class="py-12 bg-transparent min-h-screen">
     <div class="container mx-auto px-4">
         
         <!-- Product Details Box -->
-        <div class="bi-card-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-sm mb-12">
+        <div class="bi-dark-card rounded-3xl border border-white/10 p-6 sm:p-10 shadow-sm mb-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 
                 <!-- Left Column: Tool Preview Image & Trust Badges -->
                 <div class="lg:col-span-5">
-                    <div class="rounded-2xl border border-slate-200 bg-slate-100 p-4 overflow-hidden relative group">
+                    <div class="rounded-2xl border border-white/10 bg-slate-950/70 p-4 overflow-hidden relative group">
                         <img class="xzoom w-full h-80 object-cover rounded-xl shadow-inner group-hover:scale-105 transition-transform duration-300" 
                              src="@ctsp.GetType().GetProperty("HinhAnh").GetValue(ctsp,null)"
                              xoriginal="@ctsp.GetType().GetProperty("HinhAnh").GetValue(ctsp,null)"
@@ -41,19 +41,19 @@
                     </div>
 
                     <!-- Guarantee Card -->
-                    <div class="mt-5 p-4 rounded-2xl bg-[#0052FF]/5 border border-[#0052FF]/20 text-[#0F172A]">
+                    <div class="mt-5 p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-slate-200">
                         <div class="flex items-center space-x-2 text-[#0052FF] font-bold text-sm mb-1">
                             <i class="fa fa-shield-alt text-base"></i>
                             <span>CAM KẾT CHẤT LƯỢNG & BẢO HÀNH</span>
                         </div>
-                        <p class="text-xs text-[#4B5563] leading-relaxed m-0">
+                        <p class="text-xs text-slate-300 leading-relaxed m-0">
                             License cấp chính hãng từ BIWEB. Đảm bảo uptime 99.9%, hỗ trợ chuyển giao công nghệ, miễn phí cập nhật nâng cấp phiên bản định kỳ theo triết lý "Tử tế để thành công".
                         </p>
                     </div>
 
                     <!-- Fast Contact -->
-                    <div class="mt-4 p-3.5 rounded-2xl bg-slate-100 border border-slate-200/90 flex items-center justify-between text-xs">
-                        <div class="flex items-center space-x-2 text-[#0F172A]">
+                    <div class="mt-4 p-3.5 rounded-2xl bg-slate-900/80 border border-white/10 flex items-center justify-between text-xs text-slate-300">
+                        <div class="flex items-center space-x-2 text-white">
                             <i class="fa fa-headset text-[#10B981] text-base"></i>
                             <span>Hỗ trợ tư vấn kỹ thuật trực tiếp?</span>
                         </div>
@@ -71,7 +71,7 @@
                         <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20">
                             @ctsp.GetType().GetProperty("LoaiSP").GetValue(ctsp, null).ToString()
                         </span>
-                        <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-[#4B5563] border border-slate-200">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-white/10">
                             Đơn vị R&D: @ctsp.GetType().GetProperty("TenTH").GetValue(ctsp, null).ToString()
                         </span>
                         <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/30">
@@ -80,45 +80,45 @@
                     </div>
 
                     <!-- Tool Title -->
-                    <h1 class="text-2xl sm:text-3xl font-black text-[#0F172A] leading-snug mb-4">
+                    <h1 class="text-2xl sm:text-3xl font-black text-white leading-snug mb-4">
                         @ctsp.GetType().GetProperty("TenSP").GetValue(ctsp, null)
                     </h1>
 
                     <!-- Price Box -->
-                    <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 mb-6 flex flex-wrap items-baseline gap-3">
+                    <div class="p-4 rounded-2xl bg-[#F8FAFC] border border-white/10 mb-6 flex flex-wrap items-baseline gap-3">
                         @if (int.Parse(ctsp.GetType().GetProperty("GiaKM").GetValue(ctsp, null).ToString()) > 0)
                         {
-                            <span class="text-3xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", ctsp.GetType().GetProperty("GiaKM").GetValue(ctsp, null))</span>
-                            <span class="text-base text-[#4B5563] line-through">@string.Format("{0:0,0 đ}", ctsp.GetType().GetProperty("Gia").GetValue(ctsp, null))</span>
+                            <span class="text-3xl font-black text-[#00C6FF]">@string.Format("{0:0,0 đ}", ctsp.GetType().GetProperty("GiaKM").GetValue(ctsp, null))</span>
+                            <span class="text-base text-slate-300 line-through">@string.Format("{0:0,0 đ}", ctsp.GetType().GetProperty("Gia").GetValue(ctsp, null))</span>
                             <span class="px-2.5 py-1 rounded-lg text-xs font-black bg-[#FF6B00] text-white shadow-sm">
                                 Tiết kiệm @string.Format("{0:0,0 đ}", int.Parse(ctsp.GetType().GetProperty("Gia").GetValue(ctsp, null).ToString()) - int.Parse(ctsp.GetType().GetProperty("GiaKM").GetValue(ctsp, null).ToString()))
                             </span>
                         }
                         else
                         {
-                            <span class="text-3xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", ctsp.GetType().GetProperty("Gia").GetValue(ctsp, null))</span>
+                            <span class="text-3xl font-black text-[#00C6FF]">@string.Format("{0:0,0 đ}", ctsp.GetType().GetProperty("Gia").GetValue(ctsp, null))</span>
                         }
                     </div>
 
                     <!-- Add to Cart Form -->
-                    <form action="/GioHang/InsertCart" method="get" class="mb-8 p-5 rounded-3xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm">
+                    <form action="/GioHang/InsertCart" method="get" class="mb-8 p-5 rounded-3xl bg-[#F8FAFC] border border-white/10 shadow-sm">
                         <input type="hidden" name="MaTTSP" value="@ctsp.GetType().GetProperty("MaTTSP").GetValue(ctsp, null).ToString()">
                         <input type="hidden" name="MaKH" value="@kh.MaKH">
                         <input type="hidden" name="MaLoaiSP" value="@ctsp.GetType().GetProperty("MaLoaiSP").GetValue(ctsp, null).ToString()">
                         <input type="hidden" name="SLTon" value="@ctsp.GetType().GetProperty("SoLuong").GetValue(ctsp, null).ToString()">
                         
                         <div class="flex flex-wrap items-center gap-4 mb-5">
-                            <label class="text-xs font-bold uppercase tracking-wider text-[#0F172A] m-0">Số lượng License / User:</label>
+                            <label class="text-xs font-bold uppercase tracking-wider text-white m-0">Số lượng License / User:</label>
                             <div class="flex items-center space-x-1 bg-white p-1 rounded-xl border border-slate-300">
-                                <button type="button" onclick="var el=document.getElementById('spQty'); var v=parseInt(el.value)||1; if(v>1) el.value=v-1;" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#0F172A] font-bold text-sm flex items-center justify-center transition border-0 cursor-pointer">-</button>
+                                <button type="button" onclick="var el=document.getElementById('spQty'); var v=parseInt(el.value)||1; if(v>1) el.value=v-1;" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-white font-bold text-sm flex items-center justify-center transition border-0 cursor-pointer">-</button>
                                 <input type="number"
                                        id="spQty"
-                                       class="w-14 py-1 text-center font-bold text-sm border-0 focus:outline-none text-[#0F172A]"
+                                       class="w-14 py-1 text-center font-bold text-sm border-0 focus:outline-none text-white"
                                        value="1"
                                        name="SoLuong"
                                        min="1"
                                        step="1" />
-                                <button type="button" onclick="var el=document.getElementById('spQty'); var v=parseInt(el.value)||1; el.value=v+1;" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#0F172A] font-bold text-sm flex items-center justify-center transition border-0 cursor-pointer">+</button>
+                                <button type="button" onclick="var el=document.getElementById('spQty'); var v=parseInt(el.value)||1; el.value=v+1;" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-white font-bold text-sm flex items-center justify-center transition border-0 cursor-pointer">+</button>
                             </div>
                             <span class="text-xs font-semibold text-[#10B981] flex items-center bg-[#10B981]/10 px-2.5 py-1 rounded-lg border border-[#10B981]/30">
                                 <i class="fa fa-check-circle mr-1.5"></i> Sẵn sàng bàn giao (@ctsp.GetType().GetProperty("SoLuong").GetValue(ctsp, null) bản quyền sẵn có)
@@ -141,40 +141,40 @@
 
                     <!-- Technical Specs Table -->
                     <div>
-                        <h2 class="text-base font-bold text-[#0F172A] mb-3 flex items-center">
+                        <h2 class="text-base font-bold text-white mb-3 flex items-center">
                             <i class="fa fa-sliders-h text-[#0052FF] mr-2"></i> Thông Số Kỹ Thuật & Khả Năng Triển Khai
                         </h2>
                         
-                        <div class="rounded-2xl border border-slate-200 overflow-hidden bg-white">
+                        <div class="rounded-2xl border border-white/10 overflow-hidden bg-white">
                             <table class="w-full text-xs text-left">
                                 <tbody class="divide-y divide-slate-100">
                                     <tr class="bg-slate-50/50">
-                                        <td class="py-2.5 px-4 font-semibold text-[#4B5563] w-1/3"><i class="fa fa-microchip text-[#0052FF] mr-2"></i> Khả năng xử lý & Luồng dữ liệu</td>
-                                        <td class="py-2.5 px-4 font-bold text-[#0F172A]">@ctsp.GetType().GetProperty("Ram").GetValue(ctsp, null).ToString()</td>
+                                        <td class="py-2.5 px-4 font-semibold text-slate-300 w-1/3"><i class="fa fa-microchip text-[#0052FF] mr-2"></i> Khả năng xử lý & Luồng dữ liệu</td>
+                                        <td class="py-2.5 px-4 font-bold text-white">@ctsp.GetType().GetProperty("Ram").GetValue(ctsp, null).ToString()</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2.5 px-4 font-semibold text-[#4B5563]"><i class="fa fa-database text-[#FF6B00] mr-2"></i> Quy mô tài khoản & Dữ liệu CDP</td>
-                                        <td class="py-2.5 px-4 font-bold text-[#0F172A]">Tối đa @ctsp.GetType().GetProperty("Bonhotrong").GetValue(ctsp, null).ToString() Records</td>
+                                        <td class="py-2.5 px-4 font-semibold text-slate-300"><i class="fa fa-database text-[#FF6B00] mr-2"></i> Quy mô tài khoản & Dữ liệu CDP</td>
+                                        <td class="py-2.5 px-4 font-bold text-white">Tối đa @ctsp.GetType().GetProperty("Bonhotrong").GetValue(ctsp, null).ToString() Records</td>
                                     </tr>
                                     <tr class="bg-slate-50/50">
-                                        <td class="py-2.5 px-4 font-semibold text-[#4B5563]"><i class="fa fa-history text-[#10B981] mr-2"></i> Hạn bảo hành & Hỗ trợ kỹ thuật</td>
-                                        <td class="py-2.5 px-4 font-bold text-[#0F172A]">@ctsp.GetType().GetProperty("Pin").GetValue(ctsp, null).ToString() Ngày bảo trì 24/7</td>
+                                        <td class="py-2.5 px-4 font-semibold text-slate-300"><i class="fa fa-history text-[#10B981] mr-2"></i> Hạn bảo hành & Hỗ trợ kỹ thuật</td>
+                                        <td class="py-2.5 px-4 font-bold text-white">@ctsp.GetType().GetProperty("Pin").GetValue(ctsp, null).ToString() Ngày bảo trì 24/7</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2.5 px-4 font-semibold text-[#4B5563]"><i class="fa fa-code-branch text-[#0052FF] mr-2"></i> Phiên bản phát hành</td>
-                                        <td class="py-2.5 px-4 font-bold text-[#0F172A]">Phiên bản v@ctsp.GetType().GetProperty("Kichthuocmanhinh").GetValue(ctsp, null).ToString()</td>
+                                        <td class="py-2.5 px-4 font-semibold text-slate-300"><i class="fa fa-code-branch text-[#0052FF] mr-2"></i> Phiên bản phát hành</td>
+                                        <td class="py-2.5 px-4 font-bold text-white">Phiên bản v@ctsp.GetType().GetProperty("Kichthuocmanhinh").GetValue(ctsp, null).ToString()</td>
                                     </tr>
                                     <tr class="bg-slate-50/50">
-                                        <td class="py-2.5 px-4 font-semibold text-[#4B5563]"><i class="fa fa-desktop text-purple-500 mr-2"></i> Môi trường & Nền tảng hỗ trợ</td>
-                                        <td class="py-2.5 px-4 font-bold text-[#0F172A]">@ctsp.GetType().GetProperty("Cameratruoc").GetValue(ctsp, null).ToString()</td>
+                                        <td class="py-2.5 px-4 font-semibold text-slate-300"><i class="fa fa-desktop text-purple-500 mr-2"></i> Môi trường & Nền tảng hỗ trợ</td>
+                                        <td class="py-2.5 px-4 font-bold text-white">@ctsp.GetType().GetProperty("Cameratruoc").GetValue(ctsp, null).ToString()</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2.5 px-4 font-semibold text-[#4B5563]"><i class="fa fa-key text-rose-500 mr-2"></i> Phương thức cấp phát bản quyền</td>
-                                        <td class="py-2.5 px-4 font-bold text-[#0F172A]">@ctsp.GetType().GetProperty("Camerasau").GetValue(ctsp, null).ToString()</td>
+                                        <td class="py-2.5 px-4 font-semibold text-slate-300"><i class="fa fa-key text-rose-500 mr-2"></i> Phương thức cấp phát bản quyền</td>
+                                        <td class="py-2.5 px-4 font-bold text-white">@ctsp.GetType().GetProperty("Camerasau").GetValue(ctsp, null).ToString()</td>
                                     </tr>
                                     <tr class="bg-slate-50/50">
-                                        <td class="py-2.5 px-4 font-semibold text-[#4B5563]"><i class="fa fa-cogs text-teal-500 mr-2"></i> Kiến trúc công nghệ & API</td>
-                                        <td class="py-2.5 px-4 font-bold text-[#0F172A]">@ctsp.GetType().GetProperty("Cpu").GetValue(ctsp, null).ToString()</td>
+                                        <td class="py-2.5 px-4 font-semibold text-slate-300"><i class="fa fa-cogs text-teal-500 mr-2"></i> Kiến trúc công nghệ & API</td>
+                                        <td class="py-2.5 px-4 font-bold text-white">@ctsp.GetType().GetProperty("Cpu").GetValue(ctsp, null).ToString()</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -187,13 +187,13 @@
         </div>
 
         <!-- Description & Guides Tabs -->
-        <div class="bi-card-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm mb-12">
-            <h2 class="text-lg font-bold text-[#0F172A] mb-4 pb-2 border-b border-slate-100 flex items-center">
+        <div class="bi-card-white rounded-3xl border border-white/10 p-6 sm:p-8 shadow-sm mb-12">
+            <h2 class="text-lg font-bold text-white mb-4 pb-2 border-b border-white/10 flex items-center">
                 <i class="fa fa-file-alt text-[#0052FF] mr-2"></i> Lợi Ích Cốt Lõi & Cam Kết Triển Khai
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-[#4B5563] leading-relaxed">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-300 leading-relaxed">
                 <div>
-                    <h3 class="text-sm font-bold text-[#0F172A] mb-2">Giá Trị Doanh Nghiệp Đạt Được:</h3>
+                    <h3 class="text-sm font-bold text-white mb-2">Giá Trị Doanh Nghiệp Đạt Được:</h3>
                     <ul class="space-y-2 list-none p-0">
                         <li class="flex items-start"><i class="fa fa-check text-[#10B981] mt-1 mr-2"></i> <span><strong>Tự động hóa vận hành 24/7:</strong> Rút ngắn thời gian xử lý nghiệp vụ, tự động hóa quy trình phối hợp liên phòng ban.</span></li>
                         <li class="flex items-start"><i class="fa fa-check text-[#10B981] mt-1 mr-2"></i> <span><strong>Bảo mật cấp doanh nghiệp:</strong> Kiến trúc Microservices & API-First, mã hóa dữ liệu đa tầng và phân quyền chặt chẽ.</span></li>
@@ -201,11 +201,11 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-sm font-bold text-[#0F172A] mb-2">Chính Sách Chuyển Giao & Hỗ Trợ Kỹ Thuật:</h3>
-                    <p class="text-xs text-[#4B5563] mb-3">
+                    <h3 class="text-sm font-bold text-white mb-2">Chính Sách Chuyển Giao & Hỗ Trợ Kỹ Thuật:</h3>
+                    <p class="text-xs text-slate-300 mb-3">
                         Sau khi kích hoạt giải pháp, đội ngũ chuyên gia công nghệ BIWEB sẽ đồng hành cùng quý doanh nghiệp trong công tác đào tạo nhân sự, tích hợp API và hỗ trợ vận hành liên tục.
                     </p>
-                    <div class="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200 text-xs">
+                    <div class="p-3 bg-[#F8FAFC] rounded-xl border border-white/10 text-xs">
                         <i class="fa fa-headset text-[#FF6B00] mr-1.5"></i> CSKH: <strong>0845 722 689 (Ms. Trâm)</strong> | Trưởng nhóm kỹ thuật AI: <strong>0817 740 179 (Mr. Huỳnh Thi)</strong>.
                     </div>
                 </div>
@@ -213,20 +213,20 @@
         </div>
 
         <!-- Reviews & Feedback Section -->
-        <div class="bi-card-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm mb-12">
-            <h2 class="text-lg font-bold text-[#0F172A] mb-6 flex items-center justify-between">
+        <div class="bi-card-white rounded-3xl border border-white/10 p-6 sm:p-8 shadow-sm mb-12">
+            <h2 class="text-lg font-bold text-white mb-6 flex items-center justify-between">
                 <span><i class="fa fa-comments text-[#0052FF] mr-2"></i> Đánh Giá Từ Đối Tác & Khách Hàng (@ListBL.Count())</span>
             </h2>
 
             <!-- Review Submission Form -->
-            <form action="/BinhLuan/ThemBinhLuan" method="post" class="mb-8 p-4 bg-[#F8FAFC] rounded-2xl border border-slate-200">
+            <form action="/BinhLuan/ThemBinhLuan" method="post" class="mb-8 p-4 bg-[#F8FAFC] rounded-2xl border border-white/10">
                 <input style="display : none" name="MaTTSP" value="@ctsp.GetType().GetProperty("MaTTSP").GetValue(ctsp,null)">
                 <input style="display : none" name="MaKH" value="@kh.MaKH">
                 <div class="mb-3">
-                    <label class="text-xs font-bold text-[#0F172A] block mb-1">Gửi phản hồi hoặc câu hỏi của bạn về giải pháp:</label>
+                    <label class="text-xs font-bold text-white block mb-1">Gửi phản hồi hoặc câu hỏi của bạn về giải pháp:</label>
                     <textarea name="NoiDung"
                               id="NoiDung"
-                              class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF] text-[#0F172A]"
+                              class="w-full p-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF] text-white"
                               placeholder="Chia sẻ phản hồi hoặc câu hỏi cần giải đáp về giải pháp chuyển đổi số BIWEB..."
                               rows="3"
                               required></textarea>
@@ -242,20 +242,20 @@
                 {
                     @foreach (var bl in ListBL)
                     {
-                        <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
+                        <div class="p-4 rounded-2xl bg-white border border-white/10 shadow-xs">
                             <div class="flex items-center space-x-3 mb-2">
                                 <div class="w-8 h-8 rounded-full bg-gradient-to-r from-[#0052FF] to-[#00C6FF] text-white font-bold text-xs flex items-center justify-center shadow-xs">
                                     @(bl.GetType().GetProperty("TenKH").GetValue(bl, null).ToString().Substring(0, 1))
                                 </div>
                                 <div>
-                                    <div class="text-xs font-bold text-[#0F172A]">@bl.GetType().GetProperty("TenKH").GetValue(bl, null).ToString()</div>
+                                    <div class="text-xs font-bold text-white">@bl.GetType().GetProperty("TenKH").GetValue(bl, null).ToString()</div>
                                     <div class="text-[10px] text-amber-500 flex items-center">
                                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                        <span class="text-[#4B5563] ml-1.5 font-medium">Đã sử dụng giải pháp</span>
+                                        <span class="text-slate-300 ml-1.5 font-medium">Đã sử dụng giải pháp</span>
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-xs text-[#4B5563] leading-relaxed m-0 pl-11">
+                            <p class="text-xs text-slate-300 leading-relaxed m-0 pl-11">
                                 @bl.GetType().GetProperty("NoiDung").GetValue(bl, null).ToString()
                             </p>
                         </div>

@@ -453,10 +453,117 @@
     }
 
     /* ------------------------------------------------------------
+       11. SMART ROUTING & GITHUB PAGES PATH RESOLVER
+       ------------------------------------------------------------ */
+    function initLinkRouting() {
+        var host = window.location.hostname;
+        var path = window.location.pathname;
+        var isGH = host.endsWith('github.io') || path.startsWith('/biweb');
+
+        if (isGH) {
+            var prefix = '/biweb';
+            // Rewrite all root-relative links to include repo prefix
+            $all('a[href^="/"]').forEach(function (a) {
+                var href = a.getAttribute('href');
+                if (href && href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/biweb')) {
+                    var newHref = prefix + href;
+                    // Standardize folder index
+                    if (newHref === '/biweb/Home/Index' || newHref === '/biweb/') newHref = '/biweb/';
+                    else if (!newHref.includes('.') && !newHref.endsWith('/') && !newHref.includes('?')) newHref += '/';
+                    a.setAttribute('href', newHref);
+                }
+            });
+
+            // Intercept clicks to prevent browser jumping out of repo root
+            doc.addEventListener('click', function (e) {
+                var a = e.target.closest && e.target.closest('a');
+                if (!a) return;
+                var href = a.getAttribute('href');
+                if (href && href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/biweb')) {
+                    e.preventDefault();
+                    var targetUrl = prefix + href;
+                    if (!targetUrl.includes('.') && !targetUrl.endsWith('/') && !targetUrl.includes('?')) targetUrl += '/';
+                    window.location.href = targetUrl;
+                }
+            }, true);
+        }
+    }
+
+    /* ------------------------------------------------------------
+       12. CLIENT-SIDE SHOPPING CART INTERACTION & BADGE
+       ------------------------------------------------------------ */
+    function initClientCart() {
+        var cartBadge = doc.querySelector('#siteHeader a[href*="Cart"] span, #siteHeader .fa-shopping-cart + span');
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('biweb_cart_items') || '[]'); } catch (e) { return []; }
+        }
+        function saveCart(items) {
+            localStorage.setItem('biweb_cart_items', JSON.stringify(items));
+            updateBadge();
+        }
+        function updateBadge() {
+            var items = getCart();
+            var total = items.reduce(function (sum, it) { return sum + (it.qty || 1); }, 0);
+            $all('header a[href*="Cart"] span, nav a[href*="Cart"] span, .bi-cart-badge').forEach(function (badge) {
+                badge.textContent = total;
+                badge.style.display = total > 0 ? 'inline-flex' : 'none';
+            });
+        }
+        updateBadge();
+
+        // Global addToCart helper
+        window.biwebAddToCart = function (product) {
+            var items = getCart();
+            var existing = items.find(function (it) { return it.id === product.id; });
+            if (existing) {
+                existing.qty = (existing.qty || 1) + (product.qty || 1);
+            } else {
+                items.push({
+                    id: product.id || String(Date.now()),
+                    name: product.name || 'Giải Pháp BIWEB',
+                    price: product.price || 0,
+                    img: product.img || '/img/sp1.jpg',
+                    spec: product.spec || 'Standard License',
+                    qty: product.qty || 1
+                });
+            }
+            saveCart(items);
+            if (typeof window.biToast === 'function') {
+                window.biToast('Đã thêm giải pháp vào giỏ hàng thành công! 🛒', 'success');
+            } else {
+                alert('Đã thêm ' + product.name + ' vào giỏ hàng thành công!');
+            }
+        };
+
+        // Intercept cart add buttons
+        doc.addEventListener('click', function (e) {
+            var btn = e.target.closest && e.target.closest('a[href*="InsertCart"], button[data-add-cart]');
+            if (!btn) return;
+            var card = btn.closest('.product-home-card, [data-product-id]') || doc;
+            var nameEl = card.querySelector('h3 a, h1, [data-product-name]');
+            var priceEl = card.querySelector('.font-black[class*="text-"], [data-product-price]');
+            var imgEl = card.querySelector('img');
+            
+            var name = nameEl ? nameEl.textContent.trim() : 'Giải Pháp BIWEB License';
+            var priceText = priceEl ? priceEl.textContent.replace(/[^\d]/g, '') : '2500000';
+            var price = parseInt(priceText, 10) || 2500000;
+            var img = imgEl ? imgEl.src : '/img/sp1.jpg';
+            var id = (btn.getAttribute('href') || '').split('id=')[1] || String(Date.now());
+
+            window.biwebAddToCart({ id: id, name: name, price: price, img: img, spec: 'BIWEB Enterprise License', qty: 1 });
+            
+            // If on static showcase or demo mode, prevent default server roundtrip
+            if (window.location.hostname.endsWith('github.io') || window.location.pathname.startsWith('/biweb')) {
+                e.preventDefault();
+            }
+        });
+    }
+
+    /* ------------------------------------------------------------
        BOOT
        ------------------------------------------------------------ */
     onReady(function () {
-        var steps = [initScrollProgress, initAmbientGlow, initFloatingWidgets, initMarquee, initSpotlight, initRipple, initHero, initFab, initScrollSpy, initMobileMenu, initCounters];
+        var steps = [initScrollProgress, initAmbientGlow, initFloatingWidgets, initMarquee, initSpotlight, initRipple, initHero, initFab, initScrollSpy, initMobileMenu, initCounters, initLinkRouting, initClientCart];
         steps.forEach(function (fn) { try { fn(); } catch (e) { console.error('[biweb-motion]', e); } });
         if (!reduceMotion) {
             try { prepareReveal(); } catch (e) { console.error('[biweb-motion]', e); }

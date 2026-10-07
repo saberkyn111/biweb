@@ -3,8 +3,7 @@
 }
 
 <!-- Breadcrumb Header -->
-<div class="bg-[#0F172A] text-white py-8 border-b border-slate-800 relative overflow-hidden">
-    <div class="absolute -top-12 right-0 w-64 h-64 bg-[#0052FF]/15 rounded-full blur-2xl pointer-events-none"></div>
+<div class="bg-transparent text-white py-8 border-b border-white/10 relative overflow-hidden">
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-medium mb-1">
             <a href="/Home/Index" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
@@ -20,32 +19,33 @@
     </div>
 </div>
 
-<div class="py-14 bg-[#F8FAFC] min-h-[650px] flex items-center justify-center">
+<div class="py-14 bg-transparent min-h-[650px] flex items-center justify-center">
     <div class="container mx-auto px-4 max-w-lg">
         
-        <div class="bi-card-white rounded-3xl border border-slate-200/90 p-8 sm:p-10 shadow-xl relative overflow-hidden">
+        <div class="bi-dark-card rounded-3xl border border-white/15 p-8 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_30px_rgba(0,198,255,0.15)] relative overflow-hidden backdrop-blur-2xl">
             <!-- Glow Accent -->
-            <div class="absolute -top-16 -right-16 w-36 h-36 bg-[#0052FF]/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -top-16 -right-16 w-40 h-40 bg-[#0052FF]/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-16 -left-16 w-40 h-40 bg-[#00C6FF]/15 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="text-center mb-8">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg shadow-[#0052FF]/30 font-black">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#0052FF] via-[#00C6FF] to-[#FF6B00] text-white flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg shadow-[#0052FF]/30 font-black">
                     2B
                 </div>
-                <h2 class="text-2xl font-black text-[#0F172A] tracking-tight">Chào Mừng Trở Lại!</h2>
-                <p class="text-xs text-[#4B5563] mt-1">Đăng nhập tài khoản hệ sinh thái MarTech & ERP BIWEB</p>
+                <h2 class="text-2xl font-black text-white tracking-tight">Cổng Doanh Nghiệp BIWEB</h2>
+                <p class="text-xs text-slate-300 mt-1">Đăng nhập để quản trị hệ sinh thái MarTech, CDP & ERP AI Agent</p>
             </div>
 
             @if (ViewBag.check != null)
             {
-                <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center space-x-2">
-                    <i class="fa fa-exclamation-triangle text-base text-rose-500 flex-shrink-0"></i>
+                <div class="mb-6 p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-semibold flex items-center space-x-2">
+                    <i class="fa fa-exclamation-triangle text-base text-rose-400 flex-shrink-0"></i>
                     <span>@ViewBag.check</span>
                 </div>
             }
 
             <form action="/TaiKhoan/KTDangNhap" method="post" id="loginForm" class="space-y-4">
                 <div>
-                    <label for="email" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-2">
+                    <label for="email" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                         Địa chỉ Email Doanh Nghiệp
                     </label>
                     <div class="relative">
@@ -57,16 +57,16 @@
                                name="email" 
                                required
                                placeholder="partner@biweb.vn hoặc email đăng ký"
-                               class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm text-[#0F172A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0052FF] transition" />
+                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900/90 border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 transition" />
                     </div>
                 </div>
 
                 <div>
                     <div class="flex items-center justify-between mb-2">
-                        <label for="pwd" class="text-xs font-bold text-[#0F172A] uppercase tracking-wider">
+                        <label for="pwd" class="text-xs font-bold text-slate-300 uppercase tracking-wider">
                             Mật khẩu
                         </label>
-                        <a href="javascript:alert('Vui lòng liên hệ Hotline BIWEB 0909 008 064 hoặc CSKH 0845 722 689 để được cấp lại mật khẩu.');" class="text-xs text-[#0052FF] hover:underline no-underline font-medium">
+                        <a href="javascript:alert('Vui lòng liên hệ Hotline BIWEB 0909 008 064 hoặc CSKH 0845 722 689 để được cấp lại mật khẩu.');" class="text-xs text-[#00C6FF] hover:underline no-underline font-medium">
                             Quên mật khẩu?
                         </a>
                     </div>
@@ -79,51 +79,51 @@
                                name="pwd" 
                                required
                                placeholder="••••••••"
-                               class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm text-[#0F172A] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0052FF] transition" />
+                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900/90 border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 transition" />
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between text-xs text-[#4B5563] pt-1">
+                <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
                     <label class="flex items-center space-x-2 cursor-pointer m-0">
-                        <input type="checkbox" checked class="w-4 h-4 rounded text-[#0052FF] focus:ring-[#0052FF] border-slate-300" />
+                        <input type="checkbox" checked class="w-4 h-4 rounded text-[#0052FF] bg-slate-800 border-white/20 focus:ring-[#00C6FF]" />
                         <span>Ghi nhớ phiên đăng nhập</span>
                     </label>
                 </div>
 
                 <button type="submit" 
-                        class="w-full py-3.5 px-4 rounded-xl font-bold text-white bi-btn-primary shadow-md shadow-[#0052FF]/25 transition duration-150 flex items-center justify-center space-x-2 text-sm mt-2 border-0 cursor-pointer">
+                        class="w-full py-3.5 px-4 rounded-xl font-bold text-white bi-btn-primary shadow-lg shadow-[#0052FF]/30 transition duration-150 flex items-center justify-center space-x-2 text-sm mt-3 border-0 cursor-pointer">
                     <i class="fa fa-sign-in-alt"></i>
-                    <span>Đăng Nhập</span>
+                    <span>Đăng Nhập Ngay</span>
                 </button>
             </form>
 
             <!-- Quick Demo Credentials Box -->
-            <div class="mt-6 p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 text-xs">
-                <div class="font-bold text-[#0F172A] mb-2 flex items-center justify-between">
-                    <span><i class="fa fa-user-check text-[#0052FF] mr-1.5"></i> Tài khoản trải nghiệm nhanh:</span>
+            <div class="mt-6 p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-xs">
+                <div class="font-bold text-white mb-2 flex items-center justify-between">
+                    <span><i class="fa fa-user-check text-[#00C6FF] mr-1.5"></i> Tài khoản trải nghiệm nhanh:</span>
                     <span class="text-[10px] text-slate-400 font-normal">Bấm để tự điền</span>
                 </div>
-                <div class="space-y-1.5">
+                <div class="space-y-2">
                     <button type="button" 
                             onclick="fillLogin('minhquan.ads@gmail.com', '123456')" 
-                            class="w-full text-left p-2 rounded-lg bg-white hover:bg-[#0052FF]/5 border border-slate-200 hover:border-[#0052FF]/30 transition flex items-center justify-between text-[11px] cursor-pointer">
-                        <span>👤 <strong>Khách Hàng / Đối tác:</strong> minhquan.ads@gmail.com</span>
-                        <span class="text-[#0052FF] font-bold">Điền &rarr;</span>
+                            class="w-full text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-white/10 hover:border-[#00C6FF]/50 transition flex items-center justify-between text-xs cursor-pointer text-slate-200">
+                        <span>👤 <strong class="text-white">Khách Hàng / Đối tác:</strong> minhquan.ads@gmail.com</span>
+                        <span class="text-[#00C6FF] font-bold">Điền &rarr;</span>
                     </button>
                     <button type="button" 
                             onclick="fillLogin('admin@fbtools.vn', '123456')" 
-                            class="w-full text-left p-2 rounded-lg bg-white hover:bg-[#0052FF]/5 border border-slate-200 hover:border-[#0052FF]/30 transition flex items-center justify-between text-[11px] cursor-pointer">
-                        <span>🛡️ <strong>Admin / Quản Trị Hệ Thống:</strong> admin@fbtools.vn</span>
-                        <span class="text-[#0052FF] font-bold">Điền &rarr;</span>
+                            class="w-full text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-white/10 hover:border-[#00C6FF]/50 transition flex items-center justify-between text-xs cursor-pointer text-slate-200">
+                        <span>🛡️ <strong class="text-white">Admin / Quản Trị Hệ Thống:</strong> admin@fbtools.vn</span>
+                        <span class="text-[#00C6FF] font-bold">Điền &rarr;</span>
                     </button>
                 </div>
             </div>
 
-            <div class="mt-6 pt-5 border-t border-slate-100 text-center">
-                <p class="text-xs text-[#4B5563] m-0">
+            <div class="mt-6 pt-5 border-t border-white/10 text-center">
+                <p class="text-xs text-slate-400 m-0">
                     Chưa có tài khoản BIWEB? 
-                    <a href="/TaiKhoan/DangKi" class="font-bold text-[#0052FF] hover:text-[#00C6FF] hover:underline ml-1">
-                        Đăng ký ngay
+                    <a href="/TaiKhoan/DangKi" class="font-bold text-[#00C6FF] hover:text-[#38bdf8] hover:underline ml-1">
+                        Đăng ký doanh nghiệp ngay
                     </a>
                 </p>
             </div>

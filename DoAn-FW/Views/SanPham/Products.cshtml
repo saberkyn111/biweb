@@ -46,7 +46,7 @@
 }
 
 <!-- Page Header Banner -->
-<div class="bg-[#0F172A] text-white py-12 border-b border-slate-800 relative overflow-hidden">
+<div class="bg-transparent text-white py-12 border-b border-white/10 relative overflow-hidden">
     <div class="absolute -top-24 right-0 w-96 h-96 bg-[#0052FF]/20 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-24 left-0 w-96 h-96 bg-[#00C6FF]/15 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -81,11 +81,11 @@
     </div>
 </div>
 
-<div class="py-10 bg-[#F8FAFC] min-h-screen">
+<div class="py-10 bg-transparent min-h-screen">
     <div class="container mx-auto px-4">
         
         <!-- Search and Sort Toolbar -->
-        <div class="bi-card-white rounded-2xl p-4 border border-slate-200/90 shadow-sm mb-8">
+        <div class="bi-dark-card rounded-2xl p-4 border border-white/10 shadow-sm mb-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
                 
                 <!-- Search Box -->
@@ -95,7 +95,7 @@
                             <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
                                 <i class="fa fa-search"></i>
                             </span>
-                            <input type="search" name="search" value="@Context.Request.Query["search"]" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0052FF] focus:border-[#0052FF] text-sm text-[#0F172A]" placeholder="Tìm kiếm giải pháp MarTech, ERP, AI Agent, CDP..." />
+                            <input type="search" name="search" value="@Context.Request.Query["search"]" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/15 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 text-sm text-white placeholder-slate-500" placeholder="Tìm kiếm giải pháp MarTech, ERP, AI Agent, CDP..." />
                         </div>
                         @if (!string.IsNullOrEmpty(Context.Request.Query["sortOrder"]))
                         {
@@ -109,8 +109,8 @@
 
                 <!-- Sort Dropdown -->
                 <div class="lg:col-span-4 flex items-center justify-end">
-                    <label class="text-xs text-[#4B5563] mr-2 font-medium whitespace-nowrap">Sắp xếp theo:</label>
-                    <select name="sortOrder" id="sortOrder" onchange="sortProduct(this.value)" class="w-full sm:w-auto py-2.5 px-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0052FF] bg-white text-[#0F172A]">
+                    <label class="text-xs text-slate-300 mr-2 font-medium whitespace-nowrap">Sắp xếp theo:</label>
+                    <select name="sortOrder" id="sortOrder" onchange="sortProduct(this.value)" class="w-full sm:w-auto py-2.5 px-3 rounded-xl border border-white/15 text-sm focus:outline-none focus:border-[#00C6FF] bg-slate-900 text-white">
                         <option value="" selected="@(string.IsNullOrEmpty(currentSort))">-- Mặc định --</option>
                         <option value="price_asc" selected="@(currentSort == "price_asc")">Giá: Thấp đến Cao</option>
                         <option value="price_desc" selected="@(currentSort == "price_desc")">Giá: Cao đến Thấp</option>
@@ -126,7 +126,7 @@
             
             <!-- Filter Sidebar -->
             <aside class="lg:col-span-3">
-                <form action="/SanPham/Products" method="get" id="filterSidebarForm" class="bi-card-white rounded-2xl border border-slate-200/90 p-5 shadow-sm space-y-6">
+                <form action="/SanPham/Products" method="get" id="filterSidebarForm" class="bi-dark-card rounded-2xl border border-white/10 p-5 shadow-sm space-y-6">
                     @if (!string.IsNullOrEmpty(Context.Request.Query["search"]))
                     {
                         <input type="hidden" name="search" value="@Context.Request.Query["search"]" />
@@ -136,21 +136,21 @@
                         <input type="hidden" name="sortOrder" value="@Context.Request.Query["sortOrder"]" />
                     }
                     
-                    <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-                        <h2 class="text-base font-bold text-[#0F172A] flex items-center m-0">
+                    <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                        <h2 class="text-base font-bold text-white flex items-center m-0">
                             <i class="fa fa-filter text-[#0052FF] mr-2"></i> BỘ LỌC TÌM KIẾM
                         </h2>
-                        <a href="/SanPham/Products" class="text-xs text-[#4B5563] hover:text-[#0052FF] transition no-underline font-medium">
+                        <a href="/SanPham/Products" class="text-xs text-slate-300 hover:text-[#0052FF] transition no-underline font-medium">
                             <i class="fa fa-redo mr-1"></i> Đặt lại
                         </a>
                     </div>
 
                     <!-- Category Filter -->
                     <div>
-                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
                             <i class="fa fa-layer-group text-[#0052FF] mr-1.5"></i> Phân Loại Tool
                         </h3>
-                        <div class="space-y-2 text-sm text-[#4B5563]">
+                        <div class="space-y-2 text-sm text-slate-300">
                             @foreach (var hang in ModelLoaiSP)
                             {
                                 var loaiId = hang.GetType().GetProperty("MaLoaiSP").GetValue(hang, null)?.ToString();
@@ -164,14 +164,14 @@
                         </div>
                     </div>
 
-                    <hr class="border-slate-100 m-0" />
+                    <hr class="border-white/10 m-0" />
 
                     <!-- Threads Filter -->
                     <div>
-                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
                             <i class="fa fa-microchip text-[#00C6FF] mr-1.5"></i> Số Luồng (Threads)
                         </h3>
-                        <div class="space-y-2 text-sm text-[#4B5563]">
+                        <div class="space-y-2 text-sm text-slate-300">
                             @foreach (var hang in ModelRam)
                             {
                                 var ramVal = hang.GetType().GetProperty("Ram").GetValue(hang, null)?.ToString();
@@ -184,14 +184,14 @@
                         </div>
                     </div>
 
-                    <hr class="border-slate-100 m-0" />
+                    <hr class="border-white/10 m-0" />
 
                     <!-- Accounts Managed Filter -->
                     <div>
-                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
                             <i class="fa fa-users text-[#FF6B00] mr-1.5"></i> Số Nick Quản Lý (Acc)
                         </h3>
-                        <div class="space-y-2 text-sm text-[#4B5563]">
+                        <div class="space-y-2 text-sm text-slate-300">
                             @foreach (var hang in ModelMemory)
                             {
                                 var memVal = hang.GetType().GetProperty("BoNhoTrong").GetValue(hang, null)?.ToString();
@@ -204,14 +204,14 @@
                         </div>
                     </div>
 
-                    <hr class="border-slate-100 m-0" />
+                    <hr class="border-white/10 m-0" />
 
                     <!-- Developer Brands Filter -->
                     <div>
-                        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
                             <i class="fa fa-building text-[#10B981] mr-1.5"></i> Đơn Vị Phát Triển
                         </h3>
-                        <div class="space-y-2 text-sm text-[#4B5563] max-h-48 overflow-y-auto pr-1">
+                        <div class="space-y-2 text-sm text-slate-300 max-h-48 overflow-y-auto pr-1">
                             @foreach (var hang in ModelHang)
                             {
                                 var thId = hang.GetType().GetProperty("MaTH").GetValue(hang, null)?.ToString();
@@ -240,7 +240,7 @@
                 @if (hasAnyFilter)
                 {
                     <div class="mb-6 p-4 bg-white rounded-2xl border border-[#0052FF]/30 shadow-sm flex flex-wrap items-center gap-2 text-xs">
-                        <span class="font-bold text-[#0F172A] flex items-center mr-1">
+                        <span class="font-bold text-white flex items-center mr-1">
                             <i class="fa fa-filter text-[#0052FF] mr-1.5"></i> Đang lọc:
                         </span>
                         @foreach (var key in Context.Request.Query.Keys)
@@ -284,10 +284,10 @@
                             var giaKM = int.Parse(item.GetType().GetProperty("GiaKM").GetValue(item, null).ToString());
                             var giaGoc = int.Parse(item.GetType().GetProperty("Gia").GetValue(item, null).ToString());
 
-                            <div class="bi-card-white rounded-3xl border border-slate-200/90 p-4 sm:p-5 shadow-sm hover:border-[#0052FF] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
                                 <div>
                                     <!-- Tool Image Container -->
-                                    <div class="relative overflow-hidden rounded-2xl bg-slate-100 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
                                         <img src="@img" alt="@name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                                         
                                         <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
@@ -302,37 +302,37 @@
                                     </div>
 
                                     <!-- Title -->
-                                    <h3 class="text-sm sm:text-base font-extrabold text-[#0F172A] line-clamp-2 leading-snug mb-2 min-h-[42px]">
-                                        <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="text-[#0F172A] group-hover:text-[#0052FF] no-underline transition">
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="text-white group-hover:text-[#0052FF] no-underline transition">
                                             @name
                                         </a>
                                     </h3>
 
                                     <!-- Spec Badges -->
                                     <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-100 text-[#4B5563] font-medium">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
                                             <i class="fa fa-microchip text-[#0052FF] mr-1"></i> @ram Luồng
                                         </span>
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-100 text-[#4B5563] font-medium">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
                                             <i class="fa fa-users text-[#FF6B00] mr-1"></i> @boNho Acc
                                         </span>
-                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/10 text-[#10B981] font-semibold border border-[#10B981]/25 text-[10px]">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
                                             <i class="fa fa-check mr-1"></i> Auto Key
                                         </span>
                                     </div>
                                 </div>
 
                                 <!-- Price & Action -->
-                                <div class="pt-3 border-t border-slate-100">
+                                <div class="pt-3 border-t border-white/10">
                                     <div class="flex items-baseline space-x-2 mb-3">
                                         @if (giaKM > 0)
                                         {
-                                            <span class="text-xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", giaKM)</span>
-                                            <span class="text-xs text-[#4B5563] line-through">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                                            <span class="text-xl font-black text-[#00C6FF]">@string.Format("{0:0,0 đ}", giaKM)</span>
+                                            <span class="text-xs text-slate-300 line-through">@string.Format("{0:0,0 đ}", giaGoc)</span>
                                         }
                                         else
                                         {
-                                            <span class="text-xl font-black text-[#0052FF]">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                                            <span class="text-xl font-black text-[#00C6FF]">@string.Format("{0:0,0 đ}", giaGoc)</span>
                                         }
                                     </div>
 
@@ -340,7 +340,7 @@
                                         <a href="/GioHang/InsertCart3?id=@id" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
                                             <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
                                         </a>
-                                        <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-[#0F172A] bg-slate-100 hover:bg-slate-200 transition no-underline">
+                                        <a href="/SanPham/ChiTietSP?t=@id&l=@loaiId" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
                                             Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
                                         </a>
                                     </div>
@@ -353,10 +353,10 @@
                     @if (pager.TotalPages > 0)
                     {
                         <div class="mt-12 flex justify-center">
-                            <nav class="inline-flex items-center space-x-1.5 bg-white p-2 rounded-2xl border border-slate-200/90 shadow-sm">
+                            <nav class="inline-flex items-center space-x-1.5 bg-slate-900/90 p-2 rounded-2xl border border-white/10 shadow-sm">
                                 @if (pager.CurrentPage > 1)
                                 {
-                                    <a href="javascript:void(0);" onclick="navigatePage(@(pager.CurrentPage - 1))" class="px-3.5 py-2 rounded-xl text-xs font-bold text-[#4B5563] hover:bg-slate-100 no-underline transition">
+                                    <a href="javascript:void(0);" onclick="navigatePage(@(pager.CurrentPage - 1))" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 no-underline transition">
                                         <i class="fa fa-chevron-left mr-1"></i> Trước
                                     </a>
                                 }
@@ -369,13 +369,13 @@
                                     }
                                     else
                                     {
-                                        <a href="javascript:void(0);" onclick="navigatePage(@pge)" class="px-4 py-2 rounded-xl text-xs font-semibold text-[#4B5563] hover:text-[#0F172A] hover:bg-slate-100 no-underline transition">@pge</a>
+                                        <a href="javascript:void(0);" onclick="navigatePage(@pge)" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 no-underline transition">@pge</a>
                                     }
                                 }
 
                                 @if (pager.CurrentPage < pager.TotalPages)
                                 {
-                                    <a href="javascript:void(0);" onclick="navigatePage(@(pager.CurrentPage + 1))" class="px-3.5 py-2 rounded-xl text-xs font-bold text-[#4B5563] hover:bg-slate-100 no-underline transition">
+                                    <a href="javascript:void(0);" onclick="navigatePage(@(pager.CurrentPage + 1))" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 no-underline transition">
                                         Sau <i class="fa fa-chevron-right ml-1"></i>
                                     </a>
                                 }
@@ -385,12 +385,12 @@
                 }
                 else
                 {
-                    <div class="bg-white rounded-3xl p-12 text-center border border-slate-200/90 shadow-sm">
+                    <div class="bg-white rounded-3xl p-12 text-center border border-white/10 shadow-sm">
                         <div class="w-16 h-16 rounded-full bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-2xl mx-auto mb-4">
                             <i class="fa fa-search"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-[#0F172A] mb-2">Không tìm thấy phần mềm / Tool Facebook nào!</h3>
-                        <p class="text-xs sm:text-sm text-[#4B5563] mb-6">Vui lòng thử lại với từ khóa tìm kiếm hoặc bỏ chọn bớt bộ lọc.</p>
+                        <h3 class="text-lg font-bold text-white mb-2">Không tìm thấy phần mềm / Tool Facebook nào!</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mb-6">Vui lòng thử lại với từ khóa tìm kiếm hoặc bỏ chọn bớt bộ lọc.</p>
                         <a href="/SanPham/Products" class="inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-bold text-white bi-btn-primary no-underline">
                             <i class="fa fa-redo mr-2"></i> Xem Tất Cả Tool
                         </a>

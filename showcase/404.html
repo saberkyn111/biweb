@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIWEB - Đang chuyển hướng...</title>
+    <script>
+    (function() {
+        var host = window.location.hostname;
+        var pathname = window.location.pathname;
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+
+        // If domain root was hit without /biweb, add /biweb immediately
+        if (!pathname.startsWith('/biweb')) {
+            var target = '/biweb' + pathname;
+            if (!target.includes('.') && !target.endsWith('/')) target += '/';
+            window.location.replace(window.location.origin + target + search + hash);
+            return;
+        }
+
+        // Inside /biweb, map routes to physical static showcase directories
+        var subPath = pathname.replace(/^\/biweb\/?/, '');
+        if (subPath.startsWith('SanPham/Products')) {
+            window.location.replace('/biweb/SanPham/Products/' + search + hash);
+        } else if (subPath.startsWith('SanPham/ChiTietSP')) {
+            window.location.replace('/biweb/SanPham/ChiTietSP/' + search + hash);
+        } else if (subPath.startsWith('TaiKhoan/DangNhap')) {
+            window.location.replace('/biweb/TaiKhoan/DangNhap/' + search + hash);
+        } else if (subPath.startsWith('TaiKhoan/DangKi') || subPath.startsWith('TaiKhoan/DangKy')) {
+            window.location.replace('/biweb/TaiKhoan/DangKi/' + search + hash);
+        } else if (subPath.startsWith('GioHang/Cart')) {
+            window.location.replace('/biweb/GioHang/Cart/' + search + hash);
+        } else {
+            // Default back to homepage
+            setTimeout(function() {
+                window.location.replace('/biweb/');
+            }, 600);
+        }
+    })();
+    </script>
+    <link rel="stylesheet" href="/biweb/css/biweb-theme.css" />
+    <link rel="stylesheet" href="/biweb/css/biweb-motion.css" />
+</head>
+<body class="bg-[#070B14] text-white flex items-center justify-center min-h-screen p-6 font-sans">
+    <div class="bi-dark-card rounded-3xl border border-white/15 p-8 max-w-md w-full text-center shadow-2xl">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-glow">
+            2B
+        </div>
+        <h2 class="text-xl font-black text-white mb-2">Đang kết nối hệ thống BIWEB...</h2>
+        <p class="text-xs text-slate-400 mb-6">Đang tự động chuyển hướng bạn đến đúng tính năng trong hệ sinh thái.</p>
+        <div class="w-10 h-10 border-2 border-[#00C6FF] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+        <a href="/biweb/" class="inline-flex items-center px-4 py-2.5 rounded-xl font-bold text-xs text-white bi-btn-primary no-underline">
+            Về Trang Chủ BIWEB &rarr;
+        </a>
+    </div>
+</body>
+</html>

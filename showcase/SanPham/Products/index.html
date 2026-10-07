@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kho Gi&#x1EA3;i Ph&#xE1;p &amp; Ph&#x1EA7;n M&#x1EC1;m Chuy&#x1EC3;n &#x110;&#x1ED5;i S&#x1ED1; - BIWEB</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS v3 via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            important: true,
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        bi: {
+                            primary: '#0052FF',
+                            accent: '#00C6FF',
+                            textPrimary: '#0F172A',
+                            textSecondary: '#4B5563',
+                            bgLight: '#F8FAFC',
+                            bgDark: '#0F172A',
+                            success: '#10B981',
+                            highlight: '#FF6B00',
+                        },
+                        fb: {
+                            50: '#f0f6ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            400: '#00C6FF',
+                            500: '#0052FF',
+                            600: '#0047e0',
+                            700: '#003bbd',
+                            800: '#003099',
+                            900: '#0F172A',
+                        },
+                        darkbg: '#0F172A',
+                        cardbg: '#111827',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(0, 82, 255, 0.4)',
+                        'glow-accent': '0 0 30px rgba(0, 198, 255, 0.45)',
+                        'glow-highlight': '0 0 25px rgba(255, 107, 0, 0.45)',
+                        'float': '0 12px 32px -6px rgba(0, 82, 255, 0.15)',
+                    }
+                }
+            },
+            corePlugins: {
+                preflight: false,
+            }
+        }
+    </script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Custom CSS & Biweb Theme -->
+    <link rel="stylesheet" href="../../css/owl.carousel.css" />
+    <link href="../../style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <link rel="stylesheet" href="../../css/biweb-theme.css" />
+    <link rel="stylesheet" href="../../css/biweb-motion.css?v=Xt8vocnZpYvybY08ST50adHBqcfziqM0_x7k6RRyHd4" />
+    <script>document.documentElement.classList.add('bi-js');</script>
+
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- CSS STYLE-->
+    <link rel="stylesheet" type="text/css" href="../../css/xzoom.css" media="all" />
+    <script type="text/javascript" src="../../js/xzoom.js"></script>
+
+    <style>
+        /* Expand Bootstrap container for modern widescreen desktop (100% zoom) */
+        .container, .container-fluid {
+            width: 100% !important;
+            max-width: 1440px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+        @media (min-width: 1600px) {
+            .container, .container-fluid {
+                max-width: 1536px !important;
+            }
+        }
+
+        /* Override Bootstrap 3 .hidden !important so Tailwind responsive classes work properly */
+        .hidden {
+            display: none;
+        }
+        @media (min-width: 640px) {
+            .sm\:block { display: block !important; }
+            .sm\:inline-block { display: inline-block !important; }
+            .sm\:inline { display: inline !important; }
+            .sm\:flex { display: flex !important; }
+            .sm\:inline-flex { display: inline-flex !important; }
+            .sm\:grid { display: grid !important; }
+        }
+        @media (min-width: 768px) {
+            .md\:block { display: block !important; }
+            .md\:inline-block { display: inline-block !important; }
+            .md\:inline { display: inline !important; }
+            .md\:flex { display: flex !important; }
+            .md\:inline-flex { display: inline-flex !important; }
+            .md\:grid { display: grid !important; }
+        }
+        @media (min-width: 1024px) {
+            .lg\:block { display: block !important; }
+            .lg\:inline-block { display: inline-block !important; }
+            .lg\:inline { display: inline !important; }
+            .lg\:flex { display: flex !important; }
+            .lg\:inline-flex { display: inline-flex !important; }
+            .lg\:grid { display: grid !important; }
+            .lg\:hidden { display: none !important; }
+        }
+        @media (min-width: 1280px) {
+            .xl\:block { display: block !important; }
+            .xl\:inline-block { display: inline-block !important; }
+            .xl\:inline { display: inline !important; }
+            .xl\:flex { display: flex !important; }
+            .xl\:inline-flex { display: inline-flex !important; }
+            .xl\:grid { display: grid !important; }
+            .xl\:hidden { display: none !important; }
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+            background-color: #070B14 !important;
+            color: #94A3B8 !important;
+            overflow-x: hidden;
+        }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        a:hover, a:focus { text-decoration: none; }
+        h1, h2, h3, h4, h5, h6 { color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bi-header-bg {
+            background: rgba(7, 11, 20, 0.88) !important;
+            backdrop-filter: saturate(180%) blur(16px);
+            -webkit-backdrop-filter: saturate(180%) blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            transition: box-shadow .25s ease;
+        }
+        .bi-header-bg.is-scrolled { box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 198, 255, 0.15); }
+        .bi-text-gradient {
+            background: linear-gradient(90deg, #0052FF 0%, #00C6FF 100%);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+        }
+        .bi-nav-link {
+            position: relative;
+            transition: color 0.2s ease;
+            color: #E2E8F0 !important;
+            font-weight: 600;
+            padding: 10px 14px !important;
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            white-space: nowrap;
+            text-decoration: none !important;
+        }
+        .bi-nav-link::after {
+            content: ''; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 2px;
+            border-radius: 2px; background: linear-gradient(90deg, #0052FF, #00C6FF);
+            transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+        }
+        .bi-nav-link:hover, .bi-nav-link.active { color: #00C6FF !important; }
+        .bi-nav-link:hover::after, .bi-nav-link.active::after { transform: scaleX(1); }
+        .bi-mega-item {
+            display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 14px;
+            color: #E2E8F0 !important; text-decoration: none !important; transition: background .2s;
+        }
+        .bi-mega-item:hover { background: rgba(255, 255, 255, 0.07); }
+        .bi-mega-item b { display: block; font-size: 13px; font-weight: 700; color: #FFFFFF !important; }
+        .bi-mega-item small { display: block; font-size: 11px; color: #94A3B8; margin-top: 2px; }
+        .bi-mega-icon { width: 38px; height: 38px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+        .bi-drop-item {
+            display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px;
+            color: #E2E8F0 !important; text-decoration: none !important; font-weight: 500; transition: background .2s, color .2s;
+        }
+        .bi-drop-item:hover { background: rgba(255, 255, 255, 0.07); color: #00C6FF !important; }
+        .bi-drop-item i { width: 16px; text-align: center; }
+        .bi-mobile-link {
+            display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px;
+            background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.08); color: #E2E8F0 !important; font-weight: 600;
+            font-size: 13px; text-decoration: none !important; cursor: pointer; text-align: left; width: 100%;
+        }
+        .bi-mobile-link:hover { border-color: #00C6FF; color: #00C6FF !important; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 198, 255, 0.15) !important;
+        }
+        .dropdown-menu-custom {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease-in-out;
+        }
+        .group:hover .dropdown-menu-custom {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 82, 255, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(0, 198, 255, 0.8); }
+        }
+        .pulse-glow {
+            animation: pulseGlow 2.5s infinite;
+        }
+    </style>
+</head>
+
+
+<body class="bg-[#070B14] text-[#94A3B8] antialiased flex flex-col min-h-screen relative selection:bg-[#0052FF]/30 selection:text-white">
+
+    <!-- Preloader (BIWEB motion) -->
+    <div id="biPreloader" aria-hidden="true">
+        <div class="bi-loader-logo">2B</div>
+        <div class="bi-loader-bar"></div>
+    </div>
+
+    <!-- Ambient Cyber & Glow Background Elements -->
+    <div class="bi-dark-cyber-grid" aria-hidden="true"></div>
+    <div class="bi-aurora-glow" aria-hidden="true"></div>
+    <div class="bi-stars-layer" aria-hidden="true"></div>
+    <div class="bi-nebula-orb bi-nebula-1" aria-hidden="true"></div>
+    <div class="bi-nebula-orb bi-nebula-2" aria-hidden="true"></div>
+    <div class="bi-nebula-orb bi-nebula-3" aria-hidden="true"></div>
+
+    <!-- Top Announcement Bar (thin, BIWEB brand gradient) -->
+    <div class="bg-gradient-to-r from-[#0F172A] via-[#0052FF] to-[#00C6FF] text-white text-xs py-2 px-4 border-b border-white/10">
+        <div class="container mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2.5 mx-auto md:mx-0">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-[#FF6B00] text-white tracking-wide shadow-sm">
+                    <i class="fa fa-sparkles mr-1"></i> BIWEB ECOSYSTEM
+                </span>
+                <span class="text-white/95 bi-topbar-long">Hệ sinh thái MarTech cho doanh nghiệp số: <strong class="text-white font-semibold">WebApp · CRM · ERP · AI Agent · Zalo Mini App</strong></span>
+            </div>
+            <div class="hidden md:flex items-center gap-4 text-xs text-white/90">
+                <span class="flex items-center"><i class="fa fa-map-marker-alt text-[#00C6FF] mr-1.5"></i> The Hive • 94 Xuân Thủy, TP. HCM</span>
+                <a href="tel:0909008064" class="text-white hover:text-[#00C6FF] flex items-center font-bold no-underline transition">
+                    <i class="fa fa-phone-alt text-[#FF6B00] mr-1.5"></i> Hotline Chiến Lược: 0909 008 064
+                </a>
+                <a href="https://webplus.biweb.vn" target="_blank" class="text-white/90 hover:text-white flex items-center font-medium no-underline">
+                    <i class="fa fa-globe text-[#00C6FF] mr-1.5"></i> webplus.biweb.vn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header (BIWEB Brand Style) -->
+    <header id="siteHeader" class="bi-header-bg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between gap-4 h-[72px]">
+
+                <!-- Logo BIWEB -->
+                <a href="../../" class="flex items-center gap-3 no-underline hover:no-underline flex-shrink-0 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF6B00] via-[#0052FF] to-[#00C6FF] flex items-center justify-center text-white text-lg font-black shadow-float group-hover:scale-105 transition-transform">
+                        <span class="tracking-tighter">2B</span>
+                    </div>
+                    <div class="leading-none">
+                        <div class="text-xl font-extrabold tracking-tight text-white">
+                            BI<span class="text-[#FF6B00]">WEB</span>
+                        </div>
+                        <div class="text-[10px] text-slate-400 font-semibold tracking-wide uppercase mt-1 hidden sm:block">MarTech Cho Doanh Nghiệp Số</div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation (Clean, Streamlined 6 Menus) -->
+                <nav class="hidden xl:flex items-center gap-1">
+                    <a href="../../" class="bi-nav-link">Trang chủ</a>
+
+                    <!-- Dropdown Giải pháp (Mega Menu) -->
+                    <div class="relative group">
+                        <a href="../../#ecosystem" class="bi-nav-link flex items-center">
+                            Giải pháp <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
+                        </a>
+                        <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-[640px] z-50">
+                            <div class="bg-[#0F172A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_25px_rgba(0,198,255,0.15)] backdrop-blur-xl p-4 grid grid-cols-2 gap-2">
+                                <a href="../../#martech" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#0052FF]/20 text-[#00C6FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-chart-line"></i></span>
+                                    <span>
+                                        <b class="text-sm text-white block font-bold">BIWEB MarTech+</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Tự động hóa Marketing, nuôi dưỡng Lead &amp; tăng tỷ lệ chuyển đổi</small>
+                                    </span>
+                                </a>
+                                <a href="../../#erp-ai" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#FF6B00]/20 text-[#FF6B00] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-robot"></i></span>
+                                    <span>
+                                        <b class="text-sm text-white block font-bold">BIWEB ERP &amp; AI Agent</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Tái cấu trúc vận hành, xóa bỏ ốc đảo phòng ban, tăng 300% hiệu suất</small>
+                                    </span>
+                                </a>
+                                <a href="../../#cdp" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#10B981]/20 text-[#10B981] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-database"></i></span>
+                                    <span>
+                                        <b class="text-sm text-white block font-bold">BIWEB CDP+ (360° Data)</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Hợp nhất dữ liệu Online - Offline về Single Source of Truth</small>
+                                    </span>
+                                </a>
+                                <a href="../../#omnichannel" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#00C6FF]/20 text-[#00C6FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-comments"></i></span>
+                                    <span>
+                                        <b class="text-sm text-white block font-bold">Omnichannel &amp; Zalo Mini App</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Điểm chạm Zero-friction trên hệ sinh thái 70 triệu người dùng</small>
+                                    </span>
+                                </a>
+                                <a href="../../#core-tech" class="bi-mega-item p-3 rounded-xl hover:bg-white/5 transition no-underline flex items-start gap-3">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-microchip"></i></span>
+                                    <span>
+                                        <b class="text-sm text-white block font-bold">In-House R&amp;D May Đo</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Hệ thống độc quyền, Microservices &amp; API-first không dùng mã copy</small>
+                                    </span>
+                                </a>
+                                <a href="../../#biweb-usa" class="bi-mega-item p-3 rounded-xl bg-white/5 hover:bg-white/10 transition no-underline flex items-start gap-3 border border-white/10">
+                                    <span class="bi-mega-icon w-10 h-10 rounded-xl bg-gradient-to-br from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-globe-americas"></i></span>
+                                    <span>
+                                        <b class="text-sm text-[#00C6FF] block font-bold">Go Global · BIWEB USA</b>
+                                        <small class="text-xs text-slate-400 block leading-snug mt-0.5">Chuẩn mực bảo mật &amp; an toàn dữ liệu Enterprise-grade quốc tế</small>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Hệ sinh thái & Năng lực -->
+                    <div class="relative group">
+                        <a href="../../#ecosystem" class="bi-nav-link flex items-center">
+                            Hệ sinh thái <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
+                        </a>
+                        <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-64 z-50">
+                            <div class="bg-[#0F172A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_20px_rgba(0,198,255,0.15)] backdrop-blur-xl p-2 text-xs">
+                                <a href="../../#ecosystem" class="bi-drop-item"><i class="fa fa-layer-group text-[#00C6FF]"></i> Nền tảng hợp nhất 360°</a>
+                                <a href="../../#core-tech" class="bi-drop-item"><i class="fa fa-microchip text-[#FF6B00]"></i> Năng lực lõi R&amp;D</a>
+                                <a href="../../#team" class="bi-drop-item"><i class="fa fa-users text-[#10B981]"></i> Đội ngũ cốt cán</a>
+                                <a href="../../#pricing" class="bi-drop-item"><i class="fa fa-tags text-[#00C6FF]"></i> Bảng gói hợp tác</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Khách hàng & Case Study -->
+                    <div class="relative group">
+                        <a href="../../#case-study" class="bi-nav-link flex items-center">
+                            Khách hàng <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
+                        </a>
+                        <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-64 z-50">
+                            <div class="bg-[#0F172A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_20px_rgba(0,198,255,0.15)] backdrop-blur-xl p-2 text-xs">
+                                <a href="../../#case-study" class="bi-drop-item"><i class="fa fa-briefcase text-[#10B981]"></i> Case Study thực chiến</a>
+                                <a href="../../#roadmap" class="bi-drop-item"><i class="fa fa-list-ol text-[#00C6FF]"></i> Lộ trình 7 bước</a>
+                                <a href="../../#partners" class="bi-drop-item"><i class="fa fa-handshake text-[#FF6B00]"></i> 50+ Đối tác doanh nghiệp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../../SanPham/Products/" class="bi-nav-link">Kho giải pháp</a>
+                    <a href="../../#contact" class="bi-nav-link">Liên hệ</a>
+                </nav>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-2.5 flex-shrink-0">
+                    <a href="tel:0909008064" class="hidden 2xl:inline-flex items-center gap-1.5 text-xs font-bold text-slate-200 hover:text-[#00C6FF] px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition no-underline">
+                        <i class="fa fa-phone-alt text-[#FF6B00]"></i> 0909 008 064
+                    </a>
+
+                    <!-- CTA Tư Vấn Nhanh -->
+                    <a href="../../#contact" class="bi-btn-primary bi-cta-header text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-glow whitespace-nowrap" aria-label="Nhận tư vấn chiến lược">
+                        <i class="fa fa-paper-plane mr-1.5"></i> <span class="bi-cta-text">Nhận tư vấn chiến lược</span>
+                    </a>
+
+                        <a href="../../TaiKhoan/DangNhap/" class="hidden md:inline-flex items-center text-[13px] font-semibold text-slate-200 hover:text-[#00C6FF] px-2.5 py-2 no-underline hover:no-underline transition">
+                            Đăng nhập
+                        </a>
+
+                    <!-- Cart -->
+                    <a href="../../GioHang/Cart/" class="relative inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 hover:text-[#00C6FF] transition no-underline hover:no-underline" title="Giỏ giải pháp">
+                        <i class="fa fa-shopping-bag text-sm"></i>
+                        <span class="absolute -top-1 -right-1 bg-slate-700 text-slate-300 font-bold rounded-full min-w-[16px] h-[16px] px-1 flex items-center justify-center text-[9px] ring-2 ring-[#070B14]">0</span>
+                    </a>
+
+                    <!-- Hamburger (mobile/tablet) -->
+                    <button type="button" id="btnMobileMenu" onclick="toggleMobileMenu()" class="xl:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/10 cursor-pointer transition" aria-label="Mở menu">
+                        <i class="fa fa-bars" id="iconMobileMenu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile / Tablet Drawer -->
+        <div id="mobileMenu" class="xl:hidden hidden border-t border-white/10 bg-[#070B14]/95 backdrop-blur-xl shadow-2xl">
+            <div class="container mx-auto py-4 space-y-3">
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <a href="../../" class="bi-mobile-link"><i class="fa fa-home text-[#00C6FF]"></i> Trang chủ</a>
+                    <a href="../../#ecosystem" class="bi-mobile-link"><i class="fa fa-layer-group text-[#FF6B00]"></i> Hệ sinh thái</a>
+                    <a href="../../#martech" class="bi-mobile-link"><i class="fa fa-chart-line text-[#00C6FF]"></i> MarTech+</a>
+                    <a href="../../#erp-ai" class="bi-mobile-link"><i class="fa fa-robot text-[#10B981]"></i> ERP &amp; AI Agent</a>
+                    <a href="../../#cdp" class="bi-mobile-link"><i class="fa fa-database text-[#00C6FF]"></i> BIWEB CDP+</a>
+                    <a href="../../#omnichannel" class="bi-mobile-link"><i class="fa fa-comments text-[#FF6B00]"></i> Zalo Mini App</a>
+                    <a href="../../#team" class="bi-mobile-link"><i class="fa fa-users text-[#00C6FF]"></i> Đội ngũ cốt cán</a>
+                    <a href="../../#case-study" class="bi-mobile-link"><i class="fa fa-briefcase text-[#10B981]"></i> Case Study</a>
+                    <a href="../../#roadmap" class="bi-mobile-link"><i class="fa fa-list-ol text-[#00C6FF]"></i> Lộ trình 7 bước</a>
+                    <a href="../../SanPham/Products/" class="bi-mobile-link"><i class="fa fa-cubes text-white"></i> Kho Giải Pháp</a>
+                </div>
+                <div class="pt-2 border-t border-white/10 flex flex-col gap-2">
+                    <a href="tel:0909008064" class="text-xs font-bold text-[#FF6B00] flex items-center gap-2 no-underline">
+                        <i class="fa fa-phone-alt"></i> Hotline Chiến Lược: 0909 008 064
+                    </a>
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <a href="../../TaiKhoan/DangNhap/" class="bi-btn-outline text-center py-2.5 rounded-xl text-xs no-underline hover:no-underline text-white">Đăng nhập</a>
+                            <a href="../../TaiKhoan/DangKi/" class="bi-btn-primary text-center py-2.5 rounded-xl text-xs no-underline hover:no-underline">Đăng ký</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Page Body -->
+    <main class="flex-grow">
+        
+<!-- Page Header Banner -->
+<div class="bg-transparent text-white py-12 border-b border-white/10 relative overflow-hidden">
+    <div class="absolute -top-24 right-0 w-96 h-96 bg-[#0052FF]/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 left-0 w-96 h-96 bg-[#00C6FF]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 text-center sm:text-left flex flex-wrap justify-between items-center gap-6 relative z-10">
+        <div>
+            <div class="flex items-center space-x-2 text-xs text-[#00C6FF] font-semibold mb-2">
+                <a href="../../" class="hover:text-white no-underline text-[#00C6FF]">Trang chủ</a>
+                <span class="text-slate-500">/</span>
+                <span class="text-white">Kho Giải Pháp Số</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+                Kho Giải Pháp &amp; Phần Mềm BIWEB
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl leading-relaxed m-0">
+                Các module MarTech, CDP 360°, ERP &amp; AI Agent giúp doanh nghiệp tự động hóa vận hành, tối ưu chi phí và tăng trưởng doanh thu bền vững.
+            </p>
+        </div>
+        <div class="hidden md:flex items-center space-x-4 text-xs bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-xl">
+            <div class="text-center px-3 border-r border-slate-800">
+                <div class="text-xl font-black text-[#00C6FF]">50+</div>
+                <div class="text-slate-400 text-[11px] font-medium mt-0.5">Đối Tác Tin Dùng</div>
+            </div>
+            <div class="text-center px-3 border-r border-slate-800">
+                <div class="text-xl font-black text-[#10B981]">100%</div>
+                <div class="text-slate-400 text-[11px] font-medium mt-0.5">In-House R&amp;D</div>
+            </div>
+            <div class="text-center px-3">
+                <div class="text-xl font-black text-[#FF6B00]">24/7</div>
+                <div class="text-slate-400 text-[11px] font-medium mt-0.5">Đồng Hành Chiến Lược</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-10 bg-transparent min-h-screen">
+    <div class="container mx-auto px-4">
+        
+        <!-- Search and Sort Toolbar -->
+        <div class="bi-dark-card rounded-2xl p-4 border border-white/10 shadow-sm mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+                
+                <!-- Search Box -->
+                <div class="lg:col-span-8">
+                    <form action="" method="get" class="flex gap-2">
+                        <div class="relative flex-1">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            <input type="search" name="search" value="" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/15 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 text-sm text-white placeholder-slate-500" placeholder="Tìm kiếm giải pháp MarTech, ERP, AI Agent, CDP..." />
+                        </div>
+                        <button type="submit" class="px-5 py-2.5 rounded-xl font-bold text-sm text-white bi-btn-primary shadow-sm flex items-center whitespace-nowrap border-0 cursor-pointer">
+                            <i class="fa fa-search mr-1.5"></i> Tìm Kiếm
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sort Dropdown -->
+                <div class="lg:col-span-4 flex items-center justify-end">
+                    <label class="text-xs text-slate-300 mr-2 font-medium whitespace-nowrap">Sắp xếp theo:</label>
+                    <select name="sortOrder" id="sortOrder" onchange="sortProduct(this.value)" class="w-full sm:w-auto py-2.5 px-3 rounded-xl border border-white/15 text-sm focus:outline-none focus:border-[#00C6FF] bg-slate-900 text-white">
+                        <option value="" selected="selected">-- Mặc định --</option>
+                        <option value="price_asc">Giá: Thấp đến Cao</option>
+                        <option value="price_desc">Giá: Cao đến Thấp</option>
+                        <option value="name_asc">Tên Tool: A-Z</option>
+                        <option value="name_desc">Tên Tool: Z-A</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Filter Sidebar -->
+            <aside class="lg:col-span-3">
+                <form action="" method="get" id="filterSidebarForm" class="bi-dark-card rounded-2xl border border-white/10 p-5 shadow-sm space-y-6">
+                    
+                    <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                        <h2 class="text-base font-bold text-white flex items-center m-0">
+                            <i class="fa fa-filter text-[#0052FF] mr-2"></i> BỘ LỌC TÌM KIẾM
+                        </h2>
+                        <a href="../../SanPham/Products/" class="text-xs text-slate-300 hover:text-[#0052FF] transition no-underline font-medium">
+                            <i class="fa fa-redo mr-1"></i> Đặt lại
+                        </a>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
+                            <i class="fa fa-layer-group text-[#0052FF] mr-1.5"></i> Phân Loại Tool
+                        </h3>
+                        <div class="space-y-2 text-sm text-slate-300">
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaLoaiSP" value="1"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs leading-snug ">Tool Ch&#x1EA1;y Ads &amp; T&#x1ED1;i &#x1AF;u Camp</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaLoaiSP" value="2"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs leading-snug ">Tool Nu&#xF4;i Nick &amp; T&#x1B0;&#x1A1;ng T&#xE1;c T&#x1EF1; &#x110;&#x1ED9;ng</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaLoaiSP" value="3"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs leading-snug ">Tool Qu&#xE9;t UID &amp; Data Kh&#xE1;ch H&#xE0;ng</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaLoaiSP" value="4"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs leading-snug ">Tool Seeding &amp; Spam Tin Nh&#x1EAF;n</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaLoaiSP" value="5"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs leading-snug ">Nguy&#xEA;n Li&#x1EC7;u Ads, BM &amp; Proxy</span>
+                                </label>
+                        </div>
+                    </div>
+
+                    <hr class="border-white/10 m-0" />
+
+                    <!-- Threads Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
+                            <i class="fa fa-microchip text-[#00C6FF] mr-1.5"></i> Số Luồng (Threads)
+                        </h3>
+                        <div class="space-y-2 text-sm text-slate-300">
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="5"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">5 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="10"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">10 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="15"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">15 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="20"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">20 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="25"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">25 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="30"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">30 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="40"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">40 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="50"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">50 Luồng song song</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Ram" value="100"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">100 Luồng song song</span>
+                                </label>
+                        </div>
+                    </div>
+
+                    <hr class="border-white/10 m-0" />
+
+                    <!-- Accounts Managed Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
+                            <i class="fa fa-users text-[#FF6B00] mr-1.5"></i> Số Nick Quản Lý (Acc)
+                        </h3>
+                        <div class="space-y-2 text-sm text-slate-300">
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="5"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">5 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="50"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">50 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="100"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">100 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="200"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">200 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="300"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">300 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="400"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">400 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="500"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">500 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="800"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">800 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="1000"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">1000 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="1500"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">1500 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="2000"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">2000 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="5000"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">5000 Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="Memory" value="10000"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">10000 Accounts</span>
+                                </label>
+                        </div>
+                    </div>
+
+                    <hr class="border-white/10 m-0" />
+
+                    <!-- Developer Brands Filter -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3 flex items-center">
+                            <i class="fa fa-building text-[#10B981] mr-1.5"></i> Đơn Vị Phát Triển
+                        </h3>
+                        <div class="space-y-2 text-sm text-slate-300 max-h-48 overflow-y-auto pr-1">
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="1"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">MetaAds Pro</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="2"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">Ninja Software</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="3"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">Simple FB Tech</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="4"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">FPlus Automation</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="5"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">MaxCare System</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="6"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">MKT Software</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="7"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">AdsPower Anti-Detect</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="8"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">Gologin Browser</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="9"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">VSoftware VN</span>
+                                </label>
+                                <label class="flex items-center space-x-2.5 cursor-pointer hover:text-[#0052FF] transition font-normal m-0">
+                                    <input type="checkbox" name="MaTH" value="10"  onchange="document.getElementById('filterSidebarForm').submit()" class="rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] w-4 h-4 cursor-pointer">
+                                    <span class="text-xs ">ProxyVN &amp; Cloud Ads</span>
+                                </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-3 rounded-xl font-bold text-sm text-white bi-btn-primary shadow-md transition flex items-center justify-center border-0 cursor-pointer">
+                        <i class="fa fa-check mr-2"></i> Áp Dụng Lọc
+                    </button>
+                </form>
+            </aside>
+
+            <!-- Product Cards Grid -->
+            <main class="lg:col-span-9">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Tool Auto L&#xEA;n Camp &amp; Nh&#xE2;n Nh&#xF3;m Ads Facebook (AdsAuto Campaign Pro)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -22%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=1&l=1" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Tool Auto L&#xEA;n Camp &amp; Nh&#xE2;n Nh&#xF3;m Ads Facebook (AdsAuto Campaign Pro)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 50 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 500 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">690.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">890.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=1" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=1&l=1" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Ph&#x1EA7;n m&#x1EC1;m Nu&#xF4;i Nick Facebook T&#x1EF1; &#x110;&#x1ED9;ng (MaxCare Auto System)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -20%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=2&l=2" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Ph&#x1EA7;n m&#x1EC1;m Nu&#xF4;i Nick Facebook T&#x1EF1; &#x110;&#x1ED9;ng (MaxCare Auto System)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 100 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 2000 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">1.200.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">1.500.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=2" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=2&l=2" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Tool Qu&#xE9;t UID T&#x1B0;&#x1A1;ng T&#xE1;c &amp; Th&#xE0;nh Vi&#xEA;n Nh&#xF3;m (Simple UID Pro)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -25%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=3&l=3" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Tool Qu&#xE9;t UID T&#x1B0;&#x1A1;ng T&#xE1;c &amp; Th&#xE0;nh Vi&#xEA;n Nh&#xF3;m (Simple UID Pro)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 30 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 1000 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">600.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">800.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=3" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=3&l=3" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Tool Qu&#xE9;t &amp; Ph&#xE2;n T&#xED;ch Target &#x110;&#x1ED1;i Th&#x1EE7; Facebook Ads (SpyAds Detective)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -24%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=4&l=1" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Tool Qu&#xE9;t &amp; Ph&#xE2;n T&#xED;ch Target &#x110;&#x1ED1;i Th&#x1EE7; Facebook Ads (SpyAds Detective)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 10 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 50 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">490.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">650.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=4" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=4&l=1" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Tool T&#x1EF1; &#x110;&#x1ED9;ng Kh&#xE1;ng Ngh&#x1ECB; BM &amp; TKQC 282/902 (Auto Appeal BM)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i V&#x129;nh Vi&#x1EC5;n
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -20%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=5&l=1" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Tool T&#x1EF1; &#x110;&#x1ED9;ng Kh&#xE1;ng Ngh&#x1ECB; BM &amp; TKQC 282/902 (Auto Appeal BM)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 30 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 200 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">950.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">1.200.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=5" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=5&l=1" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Ph&#x1EA7;n m&#x1EC1;m Auto Seeding Comment &amp; Th&#x1EA3; Tim B&#xE1;n H&#xE0;ng (FPlus Seeding)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -22%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=6&l=4" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Ph&#x1EA7;n m&#x1EC1;m Auto Seeding Comment &amp; Th&#x1EA3; Tim B&#xE1;n H&#xE0;ng (FPlus Seeding)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 50 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 1500 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">700.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">900.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=6" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=6&l=4" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Tool G&#x1EED;i Tin Nh&#x1EAF;n Fanpage H&#xE0;ng Lo&#x1EA1;t CSKH (Messenger Broadcast Pro)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -26%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=7&l=4" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Tool G&#x1EED;i Tin Nh&#x1EAF;n Fanpage H&#xE0;ng Lo&#x1EA1;t CSKH (Messenger Broadcast Pro)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 30 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 800 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">990.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">1.350.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=7" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=7&l=4" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Tr&#xEC;nh Duy&#x1EC7;t &#x1EA8;n Danh Qu&#x1EA3;n L&#xFD; H&#xE0;ng Ng&#xE0;n Nick (AdsPower Antidetect Pro)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -17%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=8&l=5" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Tr&#xEC;nh Duy&#x1EC7;t &#x1EA8;n Danh Qu&#x1EA3;n L&#xFD; H&#xE0;ng Ng&#xE0;n Nick (AdsPower Antidetect Pro)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 100 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 5000 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">1.490.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">1.800.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=8" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=8&l=5" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bi-dark-card rounded-3xl border border-white/10 p-4 sm:p-5 shadow-sm hover:border-[#00C6FF] hover:shadow-[0_15px_35px_rgba(0,198,255,0.2)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <!-- Tool Image Container -->
+                                    <div class="relative overflow-hidden rounded-2xl bg-slate-950/70 border border-white/5 h-44 sm:h-48 flex items-center justify-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&amp;auto=format&amp;fit=crop&amp;q=80" alt="Tool Chuy&#x1EC3;n &#x110;&#x1ED5;i UID Ra S&#x1ED1; &#x110;i&#x1EC7;n Tho&#x1EA1;i &amp; Email (UID to Phone Converter)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        
+                                        <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#0052FF] text-white shadow-sm">
+                                            G&#xF3;i 1 N&#x103;m
+                                        </span>
+                                            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-lg text-[11px] font-extrabold bg-[#FF6B00] text-white shadow-sm">
+                                                -20%
+                                            </span>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug mb-2 min-h-[42px]">
+                                        <a href="../../SanPham/ChiTietSP/?t=9&l=3" class="text-white group-hover:text-[#0052FF] no-underline transition">
+                                            Tool Chuy&#x1EC3;n &#x110;&#x1ED5;i UID Ra S&#x1ED1; &#x110;i&#x1EC7;n Tho&#x1EA1;i &amp; Email (UID to Phone Converter)
+                                        </a>
+                                    </h3>
+
+                                    <!-- Spec Badges -->
+                                    <div class="flex flex-wrap gap-1.5 mb-3 text-[11px]">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-microchip text-[#0052FF] mr-1"></i> 50 Luồng
+                                        </span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg bg-slate-800/80 text-slate-300 font-medium border border-white/5">
+                                            <i class="fa fa-users text-[#FF6B00] mr-1"></i> 5000 Acc
+                                        </span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#10B981]/15 text-[#10B981] font-semibold border border-[#10B981]/30 text-[10px]">
+                                            <i class="fa fa-check mr-1"></i> Auto Key
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Price & Action -->
+                                <div class="pt-3 border-t border-white/10">
+                                    <div class="flex items-baseline space-x-2 mb-3">
+                                            <span class="text-xl font-black text-[#00C6FF]">950.000 &#x111;</span>
+                                            <span class="text-xs text-slate-300 line-through">1.200.000 &#x111;</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="/GioHang/InsertCart3?id=9" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-white bi-btn-primary shadow-sm no-underline">
+                                            <i class="fa fa-shopping-cart mr-1.5"></i> Mua Key
+                                        </a>
+                                        <a href="../../SanPham/ChiTietSP/?t=9&l=3" class="inline-flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 hover:border-[#00C6FF]/40 transition no-underline">
+                                            Chi Tiết <i class="fa fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- Pagination -->
+                        <div class="mt-12 flex justify-center">
+                            <nav class="inline-flex items-center space-x-1.5 bg-slate-900/90 p-2 rounded-2xl border border-white/10 shadow-sm">
+
+                                        <span class="px-4 py-2 rounded-xl text-xs font-bold bi-btn-primary text-white shadow-sm">1</span>
+                                        <a href="javascript:void(0);" onclick="navigatePage(2)" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 no-underline transition">2</a>
+                                        <a href="javascript:void(0);" onclick="navigatePage(3)" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 no-underline transition">3</a>
+
+                                    <a href="javascript:void(0);" onclick="navigatePage(2)" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 no-underline transition">
+                                        Sau <i class="fa fa-chevron-right ml-1"></i>
+                                    </a>
+                            </nav>
+                        </div>
+            </main>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function navigatePage(pageNumber) {
+        if (pageNumber < 1) return;
+        var url = new URL(window.location.href);
+        url.searchParams.set('pg', pageNumber);
+        window.location.href = url.toString();
+    }
+
+    function sortProduct(sortInfor) {
+        var url = new URL(window.location.href);
+        if (sortInfor) {
+            url.searchParams.set('sortOrder', sortInfor);
+        } else {
+            url.searchParams.delete('sortOrder');
+        }
+        url.searchParams.set('pg', '1');
+        window.location.href = url.toString();
+    }
+
+    function removeFilter(name, value) {
+        var url = new URL(window.location.href);
+        var allValues = url.searchParams.getAll(name).filter(function(v) { return v !== value; });
+        url.searchParams.delete(name);
+        allValues.forEach(function(v) { url.searchParams.append(name, v); });
+        url.searchParams.set('pg', '1');
+        window.location.href = url.toString();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var url = new URL(window.location.href);
+        var sortOrder = url.searchParams.get("sortOrder");
+        if (sortOrder && document.getElementById("sortOrder")) {
+            document.getElementById("sortOrder").value = sortOrder;
+        }
+
+        ['MaLoaiSP', 'Ram', 'Memory', 'MaTH'].forEach(function(param) {
+            var values = url.searchParams.getAll(param);
+            if (values.length > 0) {
+                var checkboxes = document.querySelectorAll('input[name="' + param + '"]');
+                checkboxes.forEach(function (checkbox) {
+                    if (values.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+    </main>
+
+    <!-- Floating Support & Quick Contact Widget (Bottom Right) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Quick Consultation Request Modal -->
+        <a href="../../#contact" 
+           class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#FF6B00] to-[#FF8C33] text-white flex items-center justify-center text-lg shadow-lg hover:shadow-glow-highlight transition transform hover:scale-110 no-underline"
+           title="Nhận tư vấn chiến lược chuyển đổi số">
+            <i class="fa fa-paper-plane animate-pulse"></i>
+        </a>
+        <!-- Technical Support (Mr. Huỳnh Thi) -->
+        <a href="tel:0817740179" 
+           class="w-12 h-12 rounded-full bg-[#0052FF] text-white flex items-center justify-center text-lg shadow-lg hover:shadow-glow transition transform hover:scale-110 no-underline"
+           title="Hỗ trợ kỹ thuật: 0817 740 179 (Mr. Huỳnh Thi)">
+            <i class="fa fa-cogs"></i>
+        </a>
+        <!-- Customer Service (Ms. Trâm) -->
+        <a href="tel:0845722689" 
+           class="w-12 h-12 rounded-full bg-[#00C6FF] text-[#0F172A] flex items-center justify-center text-lg shadow-lg hover:shadow-glow-accent transition transform hover:scale-110 no-underline"
+           title="Hỗ trợ khách hàng: 0845 722 689 (Ms. Trâm)">
+            <i class="fa fa-headset"></i>
+        </a>
+        <!-- Hotline Call (Strategy Consultation) -->
+        <a href="tel:0909008064" 
+           class="w-12 h-12 rounded-full bg-[#10B981] hover:bg-emerald-600 text-white flex items-center justify-center text-lg shadow-lg hover:shadow-glow transition transform hover:scale-110 no-underline"
+           title="Hotline tư vấn chiến lược: 0909 008 064">
+            <i class="fa fa-phone-alt"></i>
+        </a>
+        <!-- Back To Top Button -->
+        <button id="btnBackToTop" 
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="w-10 h-10 rounded-full bg-[#0F172A]/90 hover:bg-[#0052FF] text-white flex items-center justify-center text-sm shadow-[0_0_20px_rgba(0,198,255,0.3)] border border-white/20 transition opacity-0 pointer-events-none cursor-pointer"
+                title="Về đầu trang">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- Live Social Proof Order Toast Notification (Bottom Left) -->
+    <div id="liveOrderToast" 
+         class="fixed bottom-6 left-6 z-50 max-w-sm bg-[#0F172A]/95 border border-white/15 text-white rounded-2xl p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_25px_rgba(0,82,255,0.25)] backdrop-blur-xl transform transition-all duration-500 translate-y-32 opacity-0 flex items-start space-x-3 pointer-events-none">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#10B981] to-[#00C6FF] text-[#070B14] flex items-center justify-center text-base font-bold flex-shrink-0 mt-0.5">
+            <i class="fa fa-check"></i>
+        </div>
+        <div class="flex-1 text-xs">
+            <div class="flex items-center justify-between text-[10px] text-slate-400 mb-0.5">
+                <span class="text-[#00C6FF] font-bold uppercase tracking-wider">Đối tác mới đăng ký</span>
+                <span id="toastTime">vừa xong</span>
+            </div>
+            <div class="text-slate-300 leading-snug">
+                Doanh nghiệp <strong id="toastUser" class="text-white">tại TP. Hồ Chí Minh</strong> vừa đăng ký tư vấn <span id="toastProduct" class="text-[#FF6B00] font-semibold">BIWEB MarTech+ &amp; ERP Agent</span>
+            </div>
+        </div>
+        <button onclick="dismissToast()" class="text-slate-400 hover:text-white text-xs p-1 pointer-events-auto border-0 bg-transparent cursor-pointer">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Modern Tech Footer (BIWEB Dark #0F172A) -->
+    <footer class="bi-footer pt-16 pb-8 border-t border-slate-800/80 bg-[#0F172A] text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
+                
+                <!-- Col 1: About BIWEB (5 cols) -->
+                <div class="lg:col-span-4">
+                    <div class="flex items-center space-x-2 text-white mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF6B00] via-[#0052FF] to-[#00C6FF] flex items-center justify-center text-white text-lg font-black shadow-md">
+                            2B
+                        </div>
+                        <span class="text-xl font-black tracking-tight text-white">BI<span class="text-[#FF6B00]">WEB</span></span>
+                    </div>
+                    <div class="text-xs font-bold text-[#00C6FF] uppercase tracking-wider mb-2">
+                        Martech Cho Doanh Nghiệp Số
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+                        <strong>CÔNG TY CỔ PHẦN GIẢI PHÁP &amp; ĐẦU TƯ CÔNG NGHỆ BIWEB</strong> — Xây dựng hệ sinh thái công nghệ từ R&amp;D tự chủ: WebApp - CRM - ERP - AI Agent - Zalo Mini App, giúp doanh nghiệp vận hành liền mạch, bảo mật và tối ưu mọi điểm chạm.
+                    </p>
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10 mb-4">
+                        <div class="text-[11px] font-bold text-[#FF6B00] uppercase mb-1">“Tử tế để thành công”</div>
+                        <p class="text-xs text-slate-300 m-0 italic">Chọn làm những bài toán công nghệ khó nhất để mang lại giá trị thực và tạo sự khác biệt vượt trội.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 text-[11px] font-semibold">
+                            <i class="fa fa-shield-check text-[#10B981] mr-1.5"></i> In-House R&amp;D
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 text-[11px] font-semibold">
+                            <i class="fa fa-lock text-[#00C6FF] mr-1.5"></i> Chuẩn BIWEB USA
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 text-[11px] font-semibold">
+                            <i class="fa fa-robot text-[#FF6B00] mr-1.5"></i> AI Agent Tự Động Hóa
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Hệ Sinh Thái Giải Pháp (3 cols) -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-white text-xs font-bold uppercase tracking-wider mb-4 border-l-4 border-[#0052FF] pl-3">
+                        Hệ Sinh Thái Giải Pháp
+                    </h3>
+                    <ul class="space-y-2.5 text-xs sm:text-sm list-none p-0 m-0">
+                        <li><a href="../../#martech" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB MarTech+ (Tự động hóa tiếp thị)</a></li>
+                        <li><a href="../../#erp-ai" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB ERP &amp; AI Agent (Vận hành lõi)</a></li>
+                        <li><a href="../../#cdp" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB CDP+ (Dữ liệu khách hàng 360°)</a></li>
+                        <li><a href="../../#omnichannel" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Omnichannel &amp; Zalo Mini App</a></li>
+                        <li><a href="../../#core-tech" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Kiến trúc Microservices &amp; API-first</a></li>
+                        <li><a href="../../SanPham/Products/" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Kho phần mềm &amp; công cụ số</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Đội Ngũ & Case Study (2 cols) -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-white text-xs font-bold uppercase tracking-wider mb-4 border-l-4 border-[#FF6B00] pl-3">
+                        Thực Chiến &amp; Đội Ngũ
+                    </h3>
+                    <ul class="space-y-2.5 text-xs sm:text-sm list-none p-0 m-0">
+                        <li><a href="../../#team" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-user-tie text-[#FF6B00] mr-2"></i> Th.S Nguyễn Phúc Khoa (Chủ tịch)</a></li>
+                        <li><a href="../../#team" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-user-check text-[#FF6B00] mr-2"></i> CEO Nguyễn Đăng Hoàng Sơn</a></li>
+                        <li><a href="../../#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study DigiBird</a></li>
+                        <li><a href="../../#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study Nature Pharma</a></li>
+                        <li><a href="../../#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study Tân Phú Land</a></li>
+                        <li><a href="../../#biweb-usa" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-globe text-[#FF6B00] mr-2"></i> MOU BIWEB USA</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Liên Hệ & Văn Phòng (3 cols) -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-white text-xs font-bold uppercase tracking-wider mb-4 border-l-4 border-[#10B981] pl-3">
+                        Liên Hệ Trực Tiếp
+                    </h3>
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="flex items-start space-x-3">
+                            <i class="fa fa-map-marker-alt text-[#FF6B00] mt-1 text-base"></i>
+                            <div>
+                                <div class="text-[11px] text-slate-400">Trụ sở công ty:</div>
+                                <div class="text-white font-semibold">The Hive • 94 Xuân Thủy, Phường An Khánh, TP. Thủ Đức, TP. Hồ Chí Minh</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa fa-phone-alt text-[#10B981] mt-1 text-base"></i>
+                            <div>
+                                <div class="text-[11px] text-slate-400">Hotline Tư Vấn Chiến Lược:</div>
+                                <a href="tel:0909008064" class="text-white font-extrabold text-base hover:text-[#10B981] no-underline transition">0909 008 064</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa fa-user-headset text-[#00C6FF] mt-1 text-base"></i>
+                            <div>
+                                <div class="text-[11px] text-slate-400">Hỗ trợ khách hàng:</div>
+                                <div class="text-slate-200"><strong>0845 722 689</strong> (Ms. Trâm)</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa fa-code-branch text-[#0052FF] mt-1 text-base"></i>
+                            <div>
+                                <div class="text-[11px] text-slate-400">Hỗ trợ kỹ thuật:</div>
+                                <div class="text-slate-200"><strong>0817 740 179</strong> (Mr. Huỳnh Thi)</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa fa-globe text-[#00C6FF] mt-1 text-base"></i>
+                            <div>
+                                <div class="text-[11px] text-slate-400">Website chính thức:</div>
+                                <a href="https://webplus.biweb.vn" target="_blank" class="text-[#00C6FF] hover:underline font-semibold no-underline">webplus.biweb.vn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Compliance -->
+            <div class="py-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs">
+                <div class="flex items-center space-x-3 text-slate-400">
+                    <span class="font-bold text-white">BIWEB Ecosystem:</span>
+                    <span>Tăng trưởng đột phá với Martech — Phát triển bền vững với ERP &amp; AI Agent.</span>
+                </div>
+                <div class="flex items-center space-x-4 text-slate-400">
+                    <span><i class="fa fa-shield-alt text-[#10B981] mr-1"></i> Data Privacy Enterprise</span>
+                    <span>•</span>
+                    <span><i class="fa fa-certificate text-[#00C6FF] mr-1"></i> MOU BIWEB USA</span>
+                    <span>•</span>
+                    <a href="/Admin/HomeAdmin" class="text-slate-400 hover:text-white no-underline"><i class="fa fa-user-shield mr-1"></i> Quản trị</a>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/60 text-center text-xs text-slate-400">
+                © 2026 CÔNG TY CỔ PHẦN GIẢI PHÁP &amp; ĐẦU TƯ CÔNG NGHỆ BIWEB. Bản quyền được bảo hộ.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL 1: TRA CỨU LICENSE & TẢI BỘ CÀI ==================== -->
+    <div id="licenseModal" class="fixed inset-0 z-[999] bg-[#0A1022]/85 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="bg-[#0F172A] border border-slate-700/80 rounded-3xl max-w-xl w-full p-6 text-white shadow-2xl relative overflow-hidden transform transition-all duration-300 scale-95" id="licenseModalCard">
+            <!-- Close Button -->
+            <button onclick="closeLicenseModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center transition border-0 cursor-pointer">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center space-x-3 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#0052FF] to-[#00C6FF] flex items-center justify-center text-xl shadow-glow text-white flex-shrink-0">
+                    <i class="fa fa-shield-alt"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-white m-0">Tra Cứu Bản Quyền &amp; Hệ Thống BIWEB</h3>
+                    <p class="text-xs text-slate-400 m-0 mt-0.5">Kiểm tra trạng thái bản quyền MarTech, ERP &amp; AI Agent cho doanh nghiệp</p>
+                </div>
+            </div>
+
+            <!-- Search Form -->
+            <div class="space-y-3 mb-5">
+                <div class="relative flex items-center">
+                    <span class="absolute left-3.5 text-slate-400 text-sm">
+                        <i class="fa fa-search"></i>
+                    </span>
+                    <input type="text" id="licenseInput" placeholder="Nhập mã Hợp đồng / License Key (VD: BIWEB-MARTECH-2026)..." 
+                           class="w-full bg-slate-900 text-white placeholder-slate-400 text-xs sm:text-sm rounded-xl pl-10 pr-24 py-3 border border-slate-700 focus:outline-none focus:border-[#0052FF] focus:ring-1 focus:ring-[#0052FF]"
+                           onkeypress="if(event.key === 'Enter') lookupLicense()" />
+                    <button type="button" onclick="lookupLicense()" 
+                            class="absolute right-1.5 px-4 py-2 bg-gradient-to-r from-[#0052FF] to-[#00C6FF] hover:opacity-90 text-white text-xs font-bold rounded-lg transition border-0 cursor-pointer shadow-sm">
+                        Tra cứu
+                    </button>
+                </div>
+
+                <!-- Quick Demo Pills -->
+                <div class="flex flex-wrap items-center gap-1.5 text-[11px] text-slate-400">
+                    <span class="font-medium text-slate-500">Mã mẫu:</span>
+                    <button type="button" onclick="fillDemoKey('BIWEB-MARTECH-PRO')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-slate-700 text-[#00C6FF] border border-slate-700 transition cursor-pointer">
+                        🚀 BIWEB-MARTECH-PRO
+                    </button>
+                    <button type="button" onclick="fillDemoKey('BIWEB-ERP-AGENT')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-slate-700 text-[#10B981] border border-slate-700 transition cursor-pointer">
+                        🤖 BIWEB-ERP-AGENT
+                    </button>
+                    <button type="button" onclick="fillDemoKey('BIWEB-CDP-360')" class="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-slate-700 text-[#FF6B00] border border-slate-700 transition cursor-pointer">
+                        📊 BIWEB-CDP-360
+                    </button>
+                </div>
+            </div>
+
+            <!-- License Result Area -->
+            <div id="licenseResult" class="bg-slate-950/70 rounded-2xl border border-slate-800 p-4 space-y-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <span id="resBadge" class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30 mb-1">
+                            <i class="fa fa-check-circle mr-1"></i> BẢN QUYỀN HỢP LỆ (ACTIVE)
+                        </span>
+                        <h4 id="resToolName" class="text-base font-bold text-white m-0">BIWEB MarTech &amp; AI Automation Platform</h4>
+                        <div id="resPackage" class="text-xs text-slate-400 mt-0.5">Gói: Enterprise All-in-One (Doanh Nghiệp Số)</div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-xl bg-[#0052FF]/20 border border-[#00C6FF]/40 text-[#00C6FF] font-mono text-xs font-bold">
+                        v6.0
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-slate-400 block text-[10px]">Tài khoản / Thiết bị:</span>
+                        <div class="flex items-center justify-between mt-1">
+                            <strong id="resDevices" class="text-[#10B981] text-sm">Không giới hạn</strong>
+                            <span class="text-[10px] text-[#00C6FF]">
+                                Microservices API
+                            </span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-slate-400 block text-[10px]">Thời hạn hỗ trợ:</span>
+                        <strong id="resExpiry" class="text-[#FF6B00] text-sm block mt-1">Trọn đời &amp; Bảo hành 24/7</strong>
+                    </div>
+                </div>
+
+                <!-- Key Display Box -->
+                <div class="bg-slate-900 p-3 rounded-xl border border-slate-700/80 flex items-center justify-between">
+                    <div class="truncate mr-2">
+                        <span class="text-[10px] text-slate-400 block">Mã kích hoạt giải pháp:</span>
+                        <code id="resKeyCode" class="text-[#00C6FF] font-mono font-bold text-sm tracking-wider">BIWEB-MARTECH-2026-ENT</code>
+                    </div>
+                    <button type="button" onclick="copyLicenseKey()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-medium border border-slate-600 transition flex items-center flex-shrink-0 cursor-pointer">
+                        <i class="fa fa-copy mr-1 text-[#00C6FF]"></i> Copy
+                    </button>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    <a href="tel:0909008064" class="w-full py-2.5 px-4 bg-gradient-to-r from-[#0052FF] to-[#00C6FF] hover:opacity-95 text-white rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1.5 shadow-md no-underline">
+                        <i class="fa fa-phone-alt"></i>
+                        <span>Hotline: 0909 008 064</span>
+                    </a>
+                    <a href="tel:0817740179" class="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-[#00C6FF] rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1.5 border border-slate-700 no-underline">
+                        <i class="fa fa-cogs text-[#00C6FF]"></i>
+                        <span>Kỹ Thuật: 0817 740 179</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Reset HWID Notice Toast -->
+            <div id="hwidResetToast" class="hidden mt-3 p-3 bg-emerald-950/80 border border-[#10B981]/40 rounded-xl text-xs text-[#10B981] items-center justify-between">
+                <span class="flex items-center"><i class="fa fa-check-circle mr-2 text-[#10B981]"></i> Hệ thống BIWEB đã xác thực mã bản quyền thành công!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 2: BẢN VÁ & CHANGELOG THUẬT TOÁN META ==================== -->
+    <div id="changelogModal" class="fixed inset-0 z-[999] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="bg-slate-900 border border-slate-700/80 rounded-3xl max-w-2xl w-full p-6 text-white shadow-2xl relative overflow-hidden transform transition-all duration-300 scale-95" id="changelogModalCard">
+            <!-- Close Button -->
+            <button onclick="closeChangelogModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center transition border-0 cursor-pointer">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center space-x-3 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-xl shadow-glow text-white flex-shrink-0">
+                    <i class="fa fa-code-branch"></i>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h3 class="text-lg font-black text-white m-0">Nhật Ký Cập Nhật & Bản Vá Thuật Toán</h3>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Meta Graph API v20.0</span>
+                    </div>
+                    <p class="text-xs text-slate-400 m-0 mt-0.5">Cập nhật liên tục để đảm bảo dàn VIA và Camp chạy mượt không checkpoint</p>
+                </div>
+            </div>
+
+            <!-- Changelog Timeline -->
+            <div class="max-h-96 overflow-y-auto pr-2 space-y-4 text-xs">
+                
+                <!-- Item 1: Latest Patch -->
+                <div class="p-4 rounded-2xl bg-slate-800/80 border border-blue-500/40 relative">
+                    <span class="absolute -top-2.5 right-4 px-2.5 py-0.5 bg-rose-600 text-white text-[10px] font-extrabold rounded-full uppercase tracking-wider shadow-sm animate-pulse">
+                        Bản Vá Mới Nhất
+                    </span>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-bold text-sky-400 flex items-center">
+                            <i class="fa fa-tag mr-1.5 text-blue-400"></i> Bản vá v5.4.8 (Hôm nay)
+                        </span>
+                        <span class="text-slate-400 text-[11px]">05/10/2026</span>
+                    </div>
+                    <ul class="space-y-1.5 text-slate-300 pl-4 m-0">
+                        <li><strong>Bypass Checkpoint 282:</strong> Khắc phục cơ chế quét thẻ Visa debit ngân hàng VPBank, MBBank khi gắn vào BM.</li>
+                        <li><strong>Tự động giải Captcha:</strong> Tích hợp AI giải quyết captcha xoay 3D của Facebook với độ chính xác 99.4%.</li>
+                        <li><strong>Tối ưu CPU:</strong> Giảm 35% RAM khi chạy đồng thời 200 tab Chrome giả lập vân tay.</li>
+                    </ul>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-bold text-emerald-400 flex items-center">
+                            <i class="fa fa-tag mr-1.5 text-emerald-400"></i> Bản vá v5.4.6
+                        </span>
+                        <span class="text-slate-400 text-[11px]">02/10/2026</span>
+                    </div>
+                    <ul class="space-y-1.5 text-slate-300 pl-4 m-0">
+                        <li><strong>Fix Checkpoint 902:</strong> Kháng nghị tài khoản tự động bằng template phôi CCCD mới.</li>
+                        <li><strong>Hỗ trợ Proxy Dân Cư:</strong> Bổ sung tự động đổi IP sau mỗi 5 phút cho gói MaxCare nuôi nick.</li>
+                    </ul>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-bold text-amber-400 flex items-center">
+                            <i class="fa fa-tag mr-1.5 text-amber-400"></i> Bản phát hành v5.4.0
+                        </span>
+                        <span class="text-slate-400 text-[11px]">25/09/2026</span>
+                    </div>
+                    <ul class="space-y-1.5 text-slate-300 pl-4 m-0">
+                        <li><strong>Auto Camp CBO:</strong> Hỗ trợ nhân bản 50 nhóm quảng cáo với tỷ lệ reach cao hơn 40%.</li>
+                        <li><strong>Quét UID Livestream:</strong> Lọc số điện thoại trực tiếp từ comment với tốc độ 500 comment/phút.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Action -->
+            <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+                <span class="text-slate-400">Tất cả khách hàng đang dùng gói bản quyền đều được tự động update miễn phí.</span>
+                <button type="button" onclick="downloadInstaller()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition border-0 cursor-pointer shadow-sm flex items-center">
+                    <i class="fa fa-download mr-1.5"></i> Tải Bản Update v5.4.8 (.zip)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 3: NHẬN KEY DÙNG THỬ 3 NGÀY ==================== -->
+    <div id="trialModal" class="fixed inset-0 z-[999] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="bg-slate-900 border border-slate-700/80 rounded-3xl max-w-lg w-full p-6 text-white shadow-2xl relative overflow-hidden transform transition-all duration-300 scale-95" id="trialModalCard">
+            <!-- Close Button -->
+            <button onclick="closeTrialModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center transition border-0 cursor-pointer">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center space-x-3 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-xl shadow-glow text-slate-950 font-black flex-shrink-0">
+                    <i class="fa fa-gift"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-white m-0">Đăng Ký Dùng Thử 3 Ngày (Free)</h3>
+                    <p class="text-xs text-slate-400 m-0 mt-0.5">Trải nghiệm đầy đủ 100% tính năng bản quyền không giới hạn</p>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div id="trialForm" class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-slate-300 font-semibold mb-1.5">Chọn phần mềm bạn muốn test:</label>
+                    <select id="trialToolSelect" class="w-full bg-slate-800 text-white rounded-xl px-3 py-2.5 border border-slate-700 focus:outline-none focus:border-amber-400">
+                        <option value="Tool Auto L&#xEA;n Camp &amp; CBO Facebook v5.4">Tool Auto Lên Camp & CBO Facebook v5.4</option>
+                        <option value="MaxCare Facebook Pro Nu&#xF4;i Nick Kh&#xE1;ng 282">MaxCare Facebook Pro Nuôi Nick Kháng 282</option>
+                        <option value="Simple UID Pro Qu&#xE9;t Livestream &amp; Group">Simple UID Pro Quét Livestream & Group</option>
+                        <option value="Ninja Auto Post &amp; R&#x1EA3;i Comment Messenger">Ninja Auto Post & Rải Comment Messenger</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-slate-300 font-semibold mb-1.5">Số điện thoại hoặc Telegram của bạn:</label>
+                    <input type="text" id="trialContact" placeholder="VD: 0988 888 888 hoặc @mediabuyer" 
+                           class="w-full bg-slate-800 text-white rounded-xl px-3.5 py-2.5 border border-slate-700 focus:outline-none focus:border-amber-400 text-xs" />
+                </div>
+
+                <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-300 text-[11px]">
+                    <i class="fa fa-info-circle mr-1 text-amber-400"></i> Key sẽ được khởi tạo tự động trên màn hình ngay lập tức, bạn có thể copy và kích hoạt luôn!
+                </div>
+
+                <button type="button" onclick="generateTrialKey()" class="w-full py-3 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black rounded-xl transition shadow-lg shadow-amber-400/20 text-xs flex items-center justify-center space-x-2 border-0 cursor-pointer">
+                    <i class="fa fa-bolt"></i>
+                    <span>Khởi Tạo Key Dùng Thử Ngay</span>
+                </button>
+            </div>
+
+            <!-- Trial Key Generated Card -->
+            <div id="trialSuccessCard" class="hidden space-y-4 text-xs">
+                <div class="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-center">
+                    <span class="inline-block p-2 rounded-full bg-emerald-500/20 text-emerald-400 text-lg mb-2">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    <h4 class="text-sm font-bold text-white mb-1">Khởi Tạo Key Dùng Thử Thành Công!</h4>
+                    <p class="text-[11px] text-slate-300 m-0">Thời hạn sử dụng: <strong>72 Giờ (3 Ngày)</strong> kể từ lúc kích hoạt</p>
+                </div>
+
+                <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-slate-400 block">License Key Test của bạn:</span>
+                        <code id="trialGeneratedKey" class="text-amber-300 font-mono font-bold text-sm">TRIAL-72H-MAX-2026</code>
+                    </div>
+                    <button type="button" onclick="copyTrialKey()" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-xs font-semibold border border-slate-600 transition cursor-pointer">
+                        <i class="fa fa-copy mr-1 text-amber-400"></i> Copy
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 pt-2">
+                    <button type="button" onclick="downloadInstaller()" class="py-2.5 px-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition flex items-center justify-center space-x-1.5 border-0 cursor-pointer">
+                        <i class="fa fa-download"></i>
+                        <span>Tải Bộ Cài (.zip)</span>
+                    </button>
+                    <button type="button" onclick="closeTrialModal()" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl font-medium transition border border-slate-700 cursor-pointer">
+                        Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 4: HỖ TRỢ KỸ THUẬT & ULTRAVIEW ==================== -->
+    <div id="supportModal" class="fixed inset-0 z-[999] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="bg-slate-900 border border-slate-700/80 rounded-3xl max-w-md w-full p-6 text-white shadow-2xl relative overflow-hidden transform transition-all duration-300 scale-95" id="supportModalCard">
+            <!-- Close Button -->
+            <button onclick="closeSupportModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center transition border-0 cursor-pointer">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center space-x-3 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-xl shadow-glow text-white flex-shrink-0">
+                    <i class="fa fa-headset"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-white m-0">Trung Tâm Hỗ Trợ Kỹ Thuật</h3>
+                    <p class="text-xs text-slate-400 m-0 mt-0.5">Kỹ thuật viên kết nối Ultraview hỗ trợ trong 5 phút</p>
+                </div>
+            </div>
+
+            <!-- Quick Options -->
+            <div class="space-y-2.5 text-xs">
+                <a href="tel:0909008064" class="p-3 bg-slate-800 hover:bg-slate-700/80 border border-slate-700 rounded-2xl flex items-center space-x-3 transition no-underline text-white block">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">
+                        <i class="fa fa-phone-alt"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold text-sm text-emerald-300">Hotline Tư Vấn Chiến Lược</div>
+                        <div class="text-[11px] text-slate-400">0909 008 064 (24/7 Toàn quốc)</div>
+                    </div>
+                    <i class="fa fa-chevron-right text-slate-500 text-xs"></i>
+                </a>
+
+                <a href="tel:0845722689" class="p-3 bg-slate-800 hover:bg-slate-700/80 border border-slate-700 rounded-2xl flex items-center space-x-3 transition no-underline text-white block">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-lg flex-shrink-0">
+                        <i class="fa fa-headset"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold text-sm text-sky-300">Hỗ Trợ Khách Hàng</div>
+                        <div class="text-[11px] text-slate-400">0845 722 689 (Ms. Trâm)</div>
+                    </div>
+                    <i class="fa fa-chevron-right text-slate-500 text-xs"></i>
+                </a>
+
+                <a href="tel:0817740179" class="p-3 bg-slate-800 hover:bg-slate-700/80 border border-slate-700 rounded-2xl flex items-center space-x-3 transition no-underline text-white block">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg flex-shrink-0">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold text-sm text-amber-300">Hỗ Trợ Kỹ Thuật Trực Tiếp</div>
+                        <div class="text-[11px] text-slate-400">0817 740 179 (Mr. Huỳnh Thi)</div>
+                    </div>
+                    <i class="fa fa-chevron-right text-slate-500 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- jQuery plugins -->
+    <script src="../../js/owl.carousel.min.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../../js/jquery.easing.1.3.min.js"></script>
+    <script src="../../js/main.js"></script>
+
+    <!-- Interactive Standout Modals & Tools Script -->
+    <script>
+        // Modal Handlers
+        function openLicenseModal() {
+            var m = document.getElementById('licenseModal');
+            var card = document.getElementById('licenseModalCard');
+            if (m && card) {
+                m.classList.remove('opacity-0', 'pointer-events-none');
+                m.classList.add('opacity-100', 'pointer-events-auto');
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }
+        }
+        function closeLicenseModal() {
+            var m = document.getElementById('licenseModal');
+            var card = document.getElementById('licenseModalCard');
+            if (m && card) {
+                m.classList.add('opacity-0', 'pointer-events-none');
+                m.classList.remove('opacity-100', 'pointer-events-auto');
+                card.classList.add('scale-95');
+                card.classList.remove('scale-100');
+            }
+        }
+
+        function openChangelogModal() {
+            var m = document.getElementById('changelogModal');
+            var card = document.getElementById('changelogModalCard');
+            if (m && card) {
+                m.classList.remove('opacity-0', 'pointer-events-none');
+                m.classList.add('opacity-100', 'pointer-events-auto');
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }
+        }
+        function closeChangelogModal() {
+            var m = document.getElementById('changelogModal');
+            var card = document.getElementById('changelogModalCard');
+            if (m && card) {
+                m.classList.add('opacity-0', 'pointer-events-none');
+                m.classList.remove('opacity-100', 'pointer-events-auto');
+                card.classList.add('scale-95');
+                card.classList.remove('scale-100');
+            }
+        }
+
+        function openTrialModal() {
+            var m = document.getElementById('trialModal');
+            var card = document.getElementById('trialModalCard');
+            if (m && card) {
+                m.classList.remove('opacity-0', 'pointer-events-none');
+                m.classList.add('opacity-100', 'pointer-events-auto');
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+                document.getElementById('trialForm').classList.remove('hidden');
+                document.getElementById('trialSuccessCard').classList.add('hidden');
+            }
+        }
+        function closeTrialModal() {
+            var m = document.getElementById('trialModal');
+            var card = document.getElementById('trialModalCard');
+            if (m && card) {
+                m.classList.add('opacity-0', 'pointer-events-none');
+                m.classList.remove('opacity-100', 'pointer-events-auto');
+                card.classList.add('scale-95');
+                card.classList.remove('scale-100');
+            }
+        }
+
+        function openSupportModal() {
+            var m = document.getElementById('supportModal');
+            var card = document.getElementById('supportModalCard');
+            if (m && card) {
+                m.classList.remove('opacity-0', 'pointer-events-none');
+                m.classList.add('opacity-100', 'pointer-events-auto');
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }
+        }
+        function closeSupportModal() {
+            var m = document.getElementById('supportModal');
+            var card = document.getElementById('supportModalCard');
+            if (m && card) {
+                m.classList.add('opacity-0', 'pointer-events-none');
+                m.classList.remove('opacity-100', 'pointer-events-auto');
+                card.classList.add('scale-95');
+                card.classList.remove('scale-100');
+            }
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLicenseModal();
+                closeChangelogModal();
+                closeTrialModal();
+                closeSupportModal();
+            }
+        });
+
+        // Demo key fill
+        function fillDemoKey(key) {
+            var input = document.getElementById('licenseInput');
+            if (input) {
+                input.value = key;
+                lookupLicense();
+            }
+        }
+
+        // Mock Database of Keys
+        var demoKeyDb = {
+            'FB-CAMP-2026': {
+                name: 'Tool Auto Lên Camp & CBO Facebook v5.4.8',
+                package: 'Gói: Agency Lifetime (Vĩnh Viễn)',
+                devices: '1 / 3 Máy',
+                expiry: 'Vĩnh viễn (Trọn đời)',
+                key: 'FB-CAMP-2026-X99-PRO'
+            },
+            'MAXCARE-VIP-999': {
+                name: 'MaxCare Pro - Nuôi Nick & Kháng Checkpoint 282',
+                package: 'Gói: Đa Luồng Không Giới Hạn VIA',
+                devices: '2 / 3 Máy',
+                expiry: 'Hạn dùng: 365 Ngày (Còn 312 ngày)',
+                key: 'MAXCARE-VIP-999-ULTRA'
+            },
+            'PROXY-VN-SUPER': {
+                name: 'Proxy Dân Cư IPv6 Xoay Tự Động',
+                package: 'Gói: 50 Ports Tốc Độ Cao',
+                devices: '1 / 1 IP Whitelist',
+                expiry: 'Hạn dùng: 30 Ngày (Còn 22 ngày)',
+                key: 'PROXY-VN-SOCKS5-SUPER'
+            }
+        };
+
+        function lookupLicense() {
+            var val = (document.getElementById('licenseInput').value || '').trim();
+            if (!val) {
+                alert('Vui lòng nhập License Key hoặc Số điện thoại để tra cứu!');
+                return;
+            }
+
+            var item = demoKeyDb[val.toUpperCase()] || {
+                name: 'Tool Facebook Ads Chuyên Nghiệp - Bản Quyền Hợp Lệ',
+                package: 'Gói Kích Hoạt Theo Tài Khoản: ' + val,
+                devices: '1 / 3 Máy',
+                expiry: 'Vĩnh viễn (Lifetime Support)',
+                key: val.toUpperCase()
+            };
+
+            document.getElementById('resToolName').innerText = item.name;
+            document.getElementById('resPackage').innerText = item.package;
+            document.getElementById('resDevices').innerText = item.devices;
+            document.getElementById('resExpiry').innerText = item.expiry;
+            document.getElementById('resKeyCode').innerText = item.key;
+            document.getElementById('hwidResetToast').classList.add('hidden');
+        }
+
+        function resetHWID() {
+            document.getElementById('resDevices').innerText = '0 / 3 Máy (Sẵn sàng kích hoạt)';
+            var toast = document.getElementById('hwidResetToast');
+            if (toast) {
+                toast.classList.remove('hidden');
+                toast.classList.add('flex');
+            }
+        }
+
+        function copyLicenseKey() {
+            var code = document.getElementById('resKeyCode').innerText;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(function() {
+                    alert('📋 Đã sao chép License Key: ' + code);
+                });
+            } else {
+                alert('License Key: ' + code);
+            }
+        }
+
+        function downloadInstaller() {
+            alert('📥 Đang tải bộ cài đặt v5.4.8 (.zip - 48MB)... Vui lòng giải nén và mở bằng quyền "Run as Administrator"!');
+        }
+
+        // Generate Free 3-Day Trial Key
+        function generateTrialKey() {
+            var contact = (document.getElementById('trialContact').value || '').trim();
+            if (!contact) {
+                alert('Vui lòng nhập Số điện thoại hoặc Telegram để nhận mã!');
+                return;
+            }
+            var tool = document.getElementById('trialToolSelect').value;
+            var rand = Math.floor(1000 + Math.random() * 9000);
+            var generated = 'TRIAL-72H-' + rand + '-PRO';
+
+            document.getElementById('trialGeneratedKey').innerText = generated;
+            document.getElementById('trialForm').classList.add('hidden');
+            document.getElementById('trialSuccessCard').classList.remove('hidden');
+        }
+
+        function copyTrialKey() {
+            var code = document.getElementById('trialGeneratedKey').innerText;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(function() {
+                    alert('📋 Đã sao chép Key Dùng Thử: ' + code);
+                });
+            } else {
+                alert('Key Dùng Thử: ' + code);
+            }
+        }
+
+        // Back to top scroll observer
+        window.addEventListener('scroll', function() {
+            var btn = document.getElementById('btnBackToTop');
+            if (btn) {
+                if (window.scrollY > 300) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+        });
+
+        // Fake live social proof popup generator
+        var sampleOrders = [
+            { user: "Minh Quân (Hà Nội)", tool: "Tool Auto Lên Camp & CBO v5.4", time: "2 phút trước" },
+            { user: "Hoàng Long (TP.HCM)", tool: "MaxCare Nuôi Nick Kháng 282", time: "5 phút trước" },
+            { user: "Anh Tuấn (Đà Nẵng)", tool: "Simple UID Pro Quét Livestream", time: "1 phút trước" },
+            { user: "Thu Trang (Hải Phòng)", tool: "Gói 10x Tài Khoản BM50 Kháng", time: "8 phút trước" },
+            { user: "Văn Hùng (Cần Thơ)", tool: "Ninja Auto Post & Rải Comment", time: "4 phút trước" }
+        ];
+
+        var toastIndex = 0;
+        function showNextToast() {
+            var toast = document.getElementById('liveOrderToast');
+            if (!toast) return;
+
+            var item = sampleOrders[toastIndex % sampleOrders.length];
+            toastIndex++;
+
+            document.getElementById('toastUser').innerText = item.user;
+            document.getElementById('toastProduct').innerText = item.tool;
+            document.getElementById('toastTime').innerText = item.time;
+
+            toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+            setTimeout(function() {
+                dismissToast();
+            }, 5000);
+        }
+
+        function dismissToast() {
+            var toast = document.getElementById('liveOrderToast');
+            if (toast) {
+                toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+                toast.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        // Start toast cycle after 4 seconds
+        setTimeout(function() {
+            showNextToast();
+            setInterval(showNextToast, 22000);
+        }, 4000);
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobileMenu');
+            var icon = document.getElementById('iconMobileMenu');
+            if (!menu) return;
+            var open = menu.classList.toggle('hidden') === false;
+            if (icon) icon.className = open ? 'fa fa-times' : 'fa fa-bars';
+        }
+
+        // Header shadow on scroll
+        (function () {
+            var header = document.getElementById('siteHeader');
+            function onScroll() { if (header) header.classList.toggle('is-scrolled', window.scrollY > 10); }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
+
+    <script src="../../js/biweb-motion.js?v=092hcZHfPz2orDGIMddrs2X5LThWnmrIAuhmW4mhWqk"></script>
+
+    
+
+        <script>
+        (function() {
+            document.addEventListener('DOMContentLoaded', function() {
+                var searchInput = document.querySelector('input[name="search"]');
+                var sortSelect = document.getElementById('sortOrder');
+                var cards = Array.from(document.querySelectorAll('main .grid > div'));
+
+                function filterAndSort() {
+                    var term = (searchInput?.value || '').toLowerCase().trim();
+                    var selectedLoai = Array.from(document.querySelectorAll('input[name="MaLoaiSP"]:checked')).map(function(el){ return el.value; });
+                    var selectedRam = Array.from(document.querySelectorAll('input[name="Ram"]:checked')).map(function(el){ return el.value; });
+                    var selectedMem = Array.from(document.querySelectorAll('input[name="Memory"]:checked')).map(function(el){ return el.value; });
+
+                    cards.forEach(function(card) {
+                        var text = card.textContent.toLowerCase();
+                        var matchSearch = !term || text.includes(term);
+                        var match = matchSearch;
+                        card.style.display = match ? 'flex' : 'none';
+                    });
+
+                    // Sort
+                    var sortVal = sortSelect?.value;
+                    if (sortVal && cards[0] && cards[0].parentElement) {
+                        var parent = cards[0].parentElement;
+                        var visibleCards = cards.filter(function(c) { return c.style.display !== 'none'; });
+                        visibleCards.sort(function(a, b) {
+                            var priceA = parseInt((a.querySelector('.font-black')?.textContent || '0').replace(/[^\d]/g, ''), 10);
+                            var priceB = parseInt((b.querySelector('.font-black')?.textContent || '0').replace(/[^\d]/g, ''), 10);
+                            var nameA = (a.querySelector('h3 a')?.textContent || '').trim().toLowerCase();
+                            var nameB = (b.querySelector('h3 a')?.textContent || '').trim().toLowerCase();
+
+                            if (sortVal === 'price_asc') return priceA - priceB;
+                            if (sortVal === 'price_desc') return priceB - priceA;
+                            if (sortVal === 'name_asc') return nameA.localeCompare(nameB);
+                            if (sortVal === 'name_desc') return nameB.localeCompare(nameA);
+                            return 0;
+                        });
+                        visibleCards.forEach(function(c) { parent.appendChild(c); });
+                    }
+                }
+
+                if (searchInput) {
+                    searchInput.addEventListener('input', filterAndSort);
+                }
+                if (sortSelect) {
+                    sortSelect.addEventListener('change', filterAndSort);
+                }
+                document.querySelectorAll('#filterSidebarForm input[type="checkbox"]').forEach(function(cb) {
+                    cb.addEventListener('change', function(e) {
+                        e.preventDefault();
+                        filterAndSort();
+                    });
+                });
+            });
+        })();
+        </script>
+        
+</body>
+</html>
