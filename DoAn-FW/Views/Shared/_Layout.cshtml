@@ -72,6 +72,8 @@
     <link href="~/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/responsive.css" />
     <link rel="stylesheet" href="~/css/biweb-theme.css" />
+    <link rel="stylesheet" href="~/css/biweb-motion.css" asp-append-version="true" />
+    <script>document.documentElement.classList.add('bi-js');</script>
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -238,6 +240,12 @@
 
 <body class="bg-[#F8FAFC] text-[#4B5563] antialiased flex flex-col min-h-screen">
 
+    <!-- Preloader (BIWEB motion) -->
+    <div id="biPreloader" aria-hidden="true">
+        <div class="bi-loader-logo">2B</div>
+        <div class="bi-loader-bar"></div>
+    </div>
+
     <!-- Top Announcement Bar (thin, BIWEB brand gradient) -->
     <div class="bg-gradient-to-r from-[#0F172A] via-[#0052FF] to-[#00C6FF] text-white text-xs py-2 px-4 border-b border-white/10">
         <div class="container mx-auto flex flex-wrap justify-between items-center gap-2">
@@ -245,7 +253,7 @@
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-[#FF6B00] text-white tracking-wide shadow-sm">
                     <i class="fa fa-sparkles mr-1"></i> BIWEB ECOSYSTEM
                 </span>
-                <span class="text-white/95">Hệ sinh thái MarTech cho doanh nghiệp số: <strong class="text-white font-semibold">WebApp · CRM · ERP · AI Agent · Zalo Mini App</strong></span>
+                <span class="text-white/95 bi-topbar-long">Hệ sinh thái MarTech cho doanh nghiệp số: <strong class="text-white font-semibold">WebApp · CRM · ERP · AI Agent · Zalo Mini App</strong></span>
             </div>
             <div class="hidden md:flex items-center gap-4 text-xs text-white/90">
                 <span class="flex items-center"><i class="fa fa-map-marker-alt text-[#00C6FF] mr-1.5"></i> The Hive • 94 Xuân Thủy, TP. HCM</span>
@@ -354,8 +362,8 @@
                     </form>
 
                     <!-- CTA Tư Vấn Nhanh -->
-                    <a href="/Home/Index#contact" class="bi-btn-primary text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-sm whitespace-nowrap">
-                        <i class="fa fa-paper-plane mr-1.5 hidden sm:inline"></i> Nhận tư vấn chiến lược
+                    <a href="/Home/Index#contact" class="bi-btn-primary bi-cta-header text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-sm whitespace-nowrap" aria-label="Nhận tư vấn chiến lược">
+                        <i class="fa fa-paper-plane mr-1.5"></i> <span class="bi-cta-text">Nhận tư vấn chiến lược</span>
                     </a>
 
                     @if (kh.MaKH > 0)
@@ -442,7 +450,7 @@
     </main>
 
     <!-- Floating Support & Quick Contact Widget (Bottom Right) -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-2.5">
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <!-- Quick Consultation Request Modal -->
         <a href="/Home/Index#contact" 
            class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#FF6B00] to-[#FF8C33] text-white flex items-center justify-center text-lg shadow-lg hover:shadow-glow-highlight transition transform hover:scale-110 no-underline"
@@ -1250,6 +1258,8 @@
             onScroll();
         })();
     </script>
+
+    <script src="~/js/biweb-motion.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

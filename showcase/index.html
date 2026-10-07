@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="utf-8" />
@@ -72,6 +72,8 @@
     <link href="./style.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="stylesheet" href="./css/biweb-theme.css" />
+    <link rel="stylesheet" href="./css/biweb-motion.css?v=SHwqdPdmeaOipf2h2PG85FkgGgQksMcCKmj5516PeiM" />
+    <script>document.documentElement.classList.add('bi-js');</script>
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -224,6 +226,12 @@
 
 <body class="bg-[#F8FAFC] text-[#4B5563] antialiased flex flex-col min-h-screen">
 
+    <!-- Preloader (BIWEB motion) -->
+    <div id="biPreloader" aria-hidden="true">
+        <div class="bi-loader-logo">2B</div>
+        <div class="bi-loader-bar"></div>
+    </div>
+
     <!-- Top Announcement Bar (thin, BIWEB brand gradient) -->
     <div class="bg-gradient-to-r from-[#0F172A] via-[#0052FF] to-[#00C6FF] text-white text-xs py-2 px-4 border-b border-white/10">
         <div class="container mx-auto flex flex-wrap justify-between items-center gap-2">
@@ -231,7 +239,7 @@
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-[#FF6B00] text-white tracking-wide shadow-sm">
                     <i class="fa fa-sparkles mr-1"></i> BIWEB ECOSYSTEM
                 </span>
-                <span class="text-white/95">Hệ sinh thái MarTech cho doanh nghiệp số: <strong class="text-white font-semibold">WebApp · CRM · ERP · AI Agent · Zalo Mini App</strong></span>
+                <span class="text-white/95 bi-topbar-long">Hệ sinh thái MarTech cho doanh nghiệp số: <strong class="text-white font-semibold">WebApp · CRM · ERP · AI Agent · Zalo Mini App</strong></span>
             </div>
             <div class="hidden md:flex items-center gap-4 text-xs text-white/90">
                 <span class="flex items-center"><i class="fa fa-map-marker-alt text-[#00C6FF] mr-1.5"></i> The Hive • 94 Xuân Thủy, TP. HCM</span>
@@ -251,7 +259,7 @@
             <div class="flex items-center justify-between gap-4 h-[72px]">
 
                 <!-- Logo BIWEB -->
-                <a href="/Home/Index" class="flex items-center gap-3 no-underline hover:no-underline flex-shrink-0 group">
+                <a href="./" class="flex items-center gap-3 no-underline hover:no-underline flex-shrink-0 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF6B00] via-[#0052FF] to-[#00C6FF] flex items-center justify-center text-white text-lg font-black shadow-float group-hover:scale-105 transition-transform">
                         <span class="tracking-tighter">2B</span>
                     </div>
@@ -265,51 +273,51 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden xl:flex items-center gap-0.5">
-                    <a href="/Home/Index" class="bi-nav-link">Trang chủ</a>
+                    <a href="./" class="bi-nav-link">Trang chủ</a>
 
                     <!-- Dropdown Solutions -->
                     <div class="relative group">
-                        <a href="/Home/Index#ecosystem" class="bi-nav-link flex items-center">
+                        <a href="#ecosystem" class="bi-nav-link flex items-center">
                             Giải pháp <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
                         </a>
                         <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-[620px] z-50">
                             <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 grid grid-cols-2 gap-2">
-                                <a href="/Home/Index#martech" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
+                                <a href="#martech" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
                                     <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#0052FF]/10 text-[#0052FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-chart-line"></i></span>
                                     <span>
                                         <b class="text-sm text-[#0F172A] block font-bold">BIWEB MarTech+</b>
                                         <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Tự động hóa Marketing, nuôi dưỡng Lead &amp; tăng tỷ lệ chuyển đổi</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#erp-ai" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
+                                <a href="#erp-ai" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
                                     <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-robot"></i></span>
                                     <span>
                                         <b class="text-sm text-[#0F172A] block font-bold">BIWEB ERP &amp; AI Agent</b>
                                         <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Tái cấu trúc vận hành, xóa bỏ ốc đảo phòng ban, tăng 300% hiệu suất</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#cdp" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
+                                <a href="#cdp" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
                                     <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-database"></i></span>
                                     <span>
                                         <b class="text-sm text-[#0F172A] block font-bold">BIWEB CDP+ (360° Data)</b>
                                         <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Hợp nhất dữ liệu Online - Offline về Single Source of Truth</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#omnichannel" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
+                                <a href="#omnichannel" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
                                     <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#00C6FF]/10 text-[#0052FF] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-comments"></i></span>
                                     <span>
                                         <b class="text-sm text-[#0F172A] block font-bold">Omnichannel &amp; Zalo Mini App</b>
                                         <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Điểm chạm Zero-friction trên hệ sinh thái 70 triệu người dùng</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#core-tech" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
+                                <a href="#core-tech" class="bi-mega-item p-3 rounded-xl hover:bg-slate-50 transition no-underline flex items-start gap-3">
                                     <span class="bi-mega-icon w-10 h-10 rounded-xl bg-[#0F172A]/5 text-[#0F172A] flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-microchip"></i></span>
                                     <span>
                                         <b class="text-sm text-[#0F172A] block font-bold">In-House R&amp;D May Đo</b>
                                         <small class="text-xs text-[#4B5563] block leading-snug mt-0.5">Hệ thống độc quyền, Microservices &amp; API-first không dùng mã copy</small>
                                     </span>
                                 </a>
-                                <a href="/Home/Index#biweb-usa" class="bi-mega-item p-3 rounded-xl bg-[#F8FAFC] hover:bg-slate-100 transition no-underline flex items-start gap-3">
+                                <a href="#biweb-usa" class="bi-mega-item p-3 rounded-xl bg-[#F8FAFC] hover:bg-slate-100 transition no-underline flex items-start gap-3">
                                     <span class="bi-mega-icon w-10 h-10 rounded-xl bg-gradient-to-br from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center text-base flex-shrink-0"><i class="fa fa-globe-americas"></i></span>
                                     <span>
                                         <b class="text-sm text-[#0052FF] block font-bold">Go Global · BIWEB USA</b>
@@ -320,14 +328,14 @@
                         </div>
                     </div>
 
-                    <a href="/Home/Index#ecosystem" class="bi-nav-link">Hệ sinh thái</a>
-                    <a href="/Home/Index#core-tech" class="bi-nav-link">Năng lực lõi</a>
-                    <a href="/Home/Index#team" class="bi-nav-link">Đội ngũ cốt cán</a>
-                    <a href="/Home/Index#case-study" class="bi-nav-link">Case Study</a>
-                    <a href="/Home/Index#roadmap" class="bi-nav-link">Lộ trình 7 bước</a>
-                    <a href="/Home/Index#partners" class="bi-nav-link">Đối tác 50+</a>
+                    <a href="#ecosystem" class="bi-nav-link">Hệ sinh thái</a>
+                    <a href="#core-tech" class="bi-nav-link">Năng lực lõi</a>
+                    <a href="#team" class="bi-nav-link">Đội ngũ cốt cán</a>
+                    <a href="#case-study" class="bi-nav-link">Case Study</a>
+                    <a href="#roadmap" class="bi-nav-link">Lộ trình 7 bước</a>
+                    <a href="#partners" class="bi-nav-link">Đối tác 50+</a>
                     <a href="/SanPham/Products" class="bi-nav-link">Kho giải pháp</a>
-                    <a href="/Home/Index#contact" class="bi-nav-link">Liên hệ</a>
+                    <a href="#contact" class="bi-nav-link">Liên hệ</a>
                 </nav>
 
                 <!-- Right Actions -->
@@ -340,8 +348,8 @@
                     </form>
 
                     <!-- CTA Tư Vấn Nhanh -->
-                    <a href="/Home/Index#contact" class="bi-btn-primary text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-sm whitespace-nowrap">
-                        <i class="fa fa-paper-plane mr-1.5 hidden sm:inline"></i> Nhận tư vấn chiến lược
+                    <a href="#contact" class="bi-btn-primary bi-cta-header text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-sm whitespace-nowrap" aria-label="Nhận tư vấn chiến lược">
+                        <i class="fa fa-paper-plane mr-1.5"></i> <span class="bi-cta-text">Nhận tư vấn chiến lược</span>
                     </a>
 
                         <a href="/TaiKhoan/DangNhap" class="hidden md:inline-flex items-center text-[13px] font-semibold text-[#0F172A] hover:text-[#0052FF] px-2.5 py-2 no-underline hover:no-underline transition">
@@ -366,15 +374,15 @@
         <div id="mobileMenu" class="xl:hidden hidden border-t border-slate-200 bg-white shadow-xl">
             <div class="container mx-auto py-4 space-y-3">
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                    <a href="/Home/Index" class="bi-mobile-link"><i class="fa fa-home text-[#0052FF]"></i> Trang chủ</a>
-                    <a href="/Home/Index#ecosystem" class="bi-mobile-link"><i class="fa fa-layer-group text-[#FF6B00]"></i> Hệ sinh thái</a>
-                    <a href="/Home/Index#martech" class="bi-mobile-link"><i class="fa fa-chart-line text-[#0052FF]"></i> MarTech+</a>
-                    <a href="/Home/Index#erp-ai" class="bi-mobile-link"><i class="fa fa-robot text-[#10B981]"></i> ERP &amp; AI Agent</a>
-                    <a href="/Home/Index#cdp" class="bi-mobile-link"><i class="fa fa-database text-[#00C6FF]"></i> BIWEB CDP+</a>
-                    <a href="/Home/Index#omnichannel" class="bi-mobile-link"><i class="fa fa-comments text-[#FF6B00]"></i> Zalo Mini App</a>
-                    <a href="/Home/Index#team" class="bi-mobile-link"><i class="fa fa-users text-[#0052FF]"></i> Đội ngũ cốt cán</a>
-                    <a href="/Home/Index#case-study" class="bi-mobile-link"><i class="fa fa-briefcase text-[#10B981]"></i> Case Study</a>
-                    <a href="/Home/Index#roadmap" class="bi-mobile-link"><i class="fa fa-list-ol text-[#0052FF]"></i> Lộ trình 7 bước</a>
+                    <a href="./" class="bi-mobile-link"><i class="fa fa-home text-[#0052FF]"></i> Trang chủ</a>
+                    <a href="#ecosystem" class="bi-mobile-link"><i class="fa fa-layer-group text-[#FF6B00]"></i> Hệ sinh thái</a>
+                    <a href="#martech" class="bi-mobile-link"><i class="fa fa-chart-line text-[#0052FF]"></i> MarTech+</a>
+                    <a href="#erp-ai" class="bi-mobile-link"><i class="fa fa-robot text-[#10B981]"></i> ERP &amp; AI Agent</a>
+                    <a href="#cdp" class="bi-mobile-link"><i class="fa fa-database text-[#00C6FF]"></i> BIWEB CDP+</a>
+                    <a href="#omnichannel" class="bi-mobile-link"><i class="fa fa-comments text-[#FF6B00]"></i> Zalo Mini App</a>
+                    <a href="#team" class="bi-mobile-link"><i class="fa fa-users text-[#0052FF]"></i> Đội ngũ cốt cán</a>
+                    <a href="#case-study" class="bi-mobile-link"><i class="fa fa-briefcase text-[#10B981]"></i> Case Study</a>
+                    <a href="#roadmap" class="bi-mobile-link"><i class="fa fa-list-ol text-[#0052FF]"></i> Lộ trình 7 bước</a>
                     <a href="/SanPham/Products" class="bi-mobile-link"><i class="fa fa-cubes text-[#0F172A]"></i> Kho Giải Pháp</a>
                 </div>
                 <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
@@ -3731,9 +3739,9 @@
     </main>
 
     <!-- Floating Support & Quick Contact Widget (Bottom Right) -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-2.5">
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <!-- Quick Consultation Request Modal -->
-        <a href="/Home/Index#contact" 
+        <a href="#contact" 
            class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#FF6B00] to-[#FF8C33] text-white flex items-center justify-center text-lg shadow-lg hover:shadow-glow-highlight transition transform hover:scale-110 no-underline"
            title="Nhận tư vấn chiến lược chuyển đổi số">
             <i class="fa fa-paper-plane animate-pulse"></i>
@@ -3827,11 +3835,11 @@
                         Hệ Sinh Thái Giải Pháp
                     </h3>
                     <ul class="space-y-2.5 text-xs sm:text-sm list-none p-0 m-0">
-                        <li><a href="/Home/Index#martech" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB MarTech+ (Tự động hóa tiếp thị)</a></li>
-                        <li><a href="/Home/Index#erp-ai" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB ERP &amp; AI Agent (Vận hành lõi)</a></li>
-                        <li><a href="/Home/Index#cdp" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB CDP+ (Dữ liệu khách hàng 360°)</a></li>
-                        <li><a href="/Home/Index#omnichannel" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Omnichannel &amp; Zalo Mini App</a></li>
-                        <li><a href="/Home/Index#core-tech" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Kiến trúc Microservices &amp; API-first</a></li>
+                        <li><a href="#martech" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB MarTech+ (Tự động hóa tiếp thị)</a></li>
+                        <li><a href="#erp-ai" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB ERP &amp; AI Agent (Vận hành lõi)</a></li>
+                        <li><a href="#cdp" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> BIWEB CDP+ (Dữ liệu khách hàng 360°)</a></li>
+                        <li><a href="#omnichannel" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Omnichannel &amp; Zalo Mini App</a></li>
+                        <li><a href="#core-tech" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Kiến trúc Microservices &amp; API-first</a></li>
                         <li><a href="/SanPham/Products" class="text-slate-400 hover:text-[#00C6FF] no-underline transition flex items-center"><i class="fa fa-angle-right text-[#0052FF] mr-2"></i> Kho phần mềm &amp; công cụ số</a></li>
                     </ul>
                 </div>
@@ -3842,12 +3850,12 @@
                         Thực Chiến &amp; Đội Ngũ
                     </h3>
                     <ul class="space-y-2.5 text-xs sm:text-sm list-none p-0 m-0">
-                        <li><a href="/Home/Index#team" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-user-tie text-[#FF6B00] mr-2"></i> Th.S Nguyễn Phúc Khoa (Chủ tịch)</a></li>
-                        <li><a href="/Home/Index#team" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-user-check text-[#FF6B00] mr-2"></i> CEO Nguyễn Đăng Hoàng Sơn</a></li>
-                        <li><a href="/Home/Index#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study DigiBird</a></li>
-                        <li><a href="/Home/Index#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study Nature Pharma</a></li>
-                        <li><a href="/Home/Index#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study Tân Phú Land</a></li>
-                        <li><a href="/Home/Index#biweb-usa" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-globe text-[#FF6B00] mr-2"></i> MOU BIWEB USA</a></li>
+                        <li><a href="#team" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-user-tie text-[#FF6B00] mr-2"></i> Th.S Nguyễn Phúc Khoa (Chủ tịch)</a></li>
+                        <li><a href="#team" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-user-check text-[#FF6B00] mr-2"></i> CEO Nguyễn Đăng Hoàng Sơn</a></li>
+                        <li><a href="#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study DigiBird</a></li>
+                        <li><a href="#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study Nature Pharma</a></li>
+                        <li><a href="#case-study" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-bolt text-[#FF6B00] mr-2"></i> Case Study Tân Phú Land</a></li>
+                        <li><a href="#biweb-usa" class="text-slate-400 hover:text-[#FF6B00] no-underline transition flex items-center"><i class="fa fa-globe text-[#FF6B00] mr-2"></i> MOU BIWEB USA</a></li>
                     </ul>
                 </div>
 
@@ -4539,6 +4547,8 @@
             onScroll();
         })();
     </script>
+
+    <script src="./js/biweb-motion.js?v=7TYWVtb4WegYKkCKKHDMOhtudCNZyojAT2zeUaphAww"></script>
 
     
 </body>
