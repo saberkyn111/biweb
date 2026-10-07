@@ -10,8 +10,8 @@ namespace DoAn_FW.Infrastructure
     /// </summary>
     public static class DbConfig
     {
-        // Default connection string (standard MySQL port 3306, biweb_db database)
-        private const string DefaultConnection = "server=localhost;port=3306;database=biweb_db;uid=root;password=;";
+        // Default connection string (matches local MySQL configuration)
+        private const string DefaultConnection = "server=localhost;port=3307;database=website_dienthoai;uid=root;password=;";
 
         public static string ConnectionString { get; set; } = DefaultConnection;
 
