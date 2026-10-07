@@ -197,11 +197,98 @@ html .hidden { visibility: visible !important; }
 
 /* Chữ gradient ánh sáng chạy */
 .bi-text-gradient {
+    display: inline-block;
     background-image: linear-gradient(90deg, #0052FF 0%, #00C6FF 30%, #0052FF 60%, #00C6FF 100%) !important;
     background-size: 220% 100% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
     animation: biShimmerText 6s linear infinite;
+    line-height: inherit;
 }
 @keyframes biShimmerText { from { background-position: 0% 50%; } to { background-position: 220% 50%; } }
+
+/* Tiêu đề mục liên hệ & các tiêu đề lớn */
+#contact h2 {
+    line-height: 1.25 !important;
+    margin-bottom: 1.25rem !important;
+}
+
+/* Hiệu ứng Floating Ambient Orbs (quầng sáng phát sáng động trong nền) */
+.bi-ambient-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+    will-change: transform;
+}
+.bi-orb-blue {
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(0, 82, 255, 0.45) 0%, rgba(0, 82, 255, 0) 70%);
+    top: -40px; left: -60px;
+    animation: biOrbFloat1 16s ease-in-out infinite alternate;
+}
+.bi-orb-cyan {
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.4) 0%, rgba(0, 198, 255, 0) 70%);
+    bottom: -40px; right: -50px;
+    animation: biOrbFloat2 20s ease-in-out infinite alternate;
+}
+.bi-orb-orange {
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.3) 0%, rgba(255, 107, 0) 0%);
+    top: 35%; right: 10%;
+    animation: biOrbFloat3 18s ease-in-out infinite alternate;
+}
+@keyframes biOrbFloat1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, 35px) scale(1.12); }
+    100% { transform: translate(-25px, 50px) scale(0.92); }
+}
+@keyframes biOrbFloat2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-45px, -35px) scale(1.1); }
+    100% { transform: translate(25px, -25px) scale(0.95); }
+}
+@keyframes biOrbFloat3 {
+    0% { transform: translate(0, 0) scale(0.9); }
+    50% { transform: translate(-35px, 25px) scale(1.1); }
+    100% { transform: translate(45px, -20px) scale(1); }
+}
+
+/* Floating micro-badges (chuyển động nổi bồng bềnh thu hút) */
+.bi-float-slow {
+    animation: biFloatSlow 5s ease-in-out infinite;
+}
+.bi-float-delayed {
+    animation: biFloatSlow 5.5s ease-in-out 1.2s infinite;
+}
+@keyframes biFloatSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+/* Pulsing live radar dot (chấm tín hiệu trực tiếp) */
+.bi-dot-pulse {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.bi-dot-pulse::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 9999px;
+    background: currentColor;
+    opacity: 0.6;
+    animation: biPulseRadar 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes biPulseRadar {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    70%, 100% { transform: scale(2.4); opacity: 0; }
+}
 
 /* Dashboard mockup 3D tilt */
 .bi-tilt { transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2,.8,.2,1); will-change: transform; }

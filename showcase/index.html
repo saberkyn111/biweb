@@ -72,7 +72,7 @@
     <link href="./style.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="stylesheet" href="./css/biweb-theme.css" />
-    <link rel="stylesheet" href="./css/biweb-motion.css?v=SHwqdPdmeaOipf2h2PG85FkgGgQksMcCKmj5516PeiM" />
+    <link rel="stylesheet" href="./css/biweb-motion.css?v=IaO_CxgePrbIg-B1zGPF8Afy3mTi1svkg2bMaBB82tg" />
     <script>document.documentElement.classList.add('bi-js');</script>
 
     <!-- jQuery -->
@@ -271,11 +271,11 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation -->
-                <nav class="hidden xl:flex items-center gap-0.5">
+                <!-- Desktop Navigation (Clean, Streamlined 6 Menus) -->
+                <nav class="hidden xl:flex items-center gap-1">
                     <a href="./" class="bi-nav-link">Trang chủ</a>
 
-                    <!-- Dropdown Solutions -->
+                    <!-- Dropdown Giải pháp (Mega Menu) -->
                     <div class="relative group">
                         <a href="#ecosystem" class="bi-nav-link flex items-center">
                             Giải pháp <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
@@ -328,24 +328,44 @@
                         </div>
                     </div>
 
-                    <a href="#ecosystem" class="bi-nav-link">Hệ sinh thái</a>
-                    <a href="#core-tech" class="bi-nav-link">Năng lực lõi</a>
-                    <a href="#team" class="bi-nav-link">Đội ngũ cốt cán</a>
-                    <a href="#case-study" class="bi-nav-link">Case Study</a>
-                    <a href="#roadmap" class="bi-nav-link">Lộ trình 7 bước</a>
-                    <a href="#partners" class="bi-nav-link">Đối tác 50+</a>
+                    <!-- Dropdown Hệ sinh thái & Năng lực -->
+                    <div class="relative group">
+                        <a href="#ecosystem" class="bi-nav-link flex items-center">
+                            Hệ sinh thái <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
+                        </a>
+                        <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-64 z-50">
+                            <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl p-2 text-xs">
+                                <a href="#ecosystem" class="bi-drop-item"><i class="fa fa-layer-group text-[#0052FF]"></i> Nền tảng hợp nhất 360°</a>
+                                <a href="#core-tech" class="bi-drop-item"><i class="fa fa-microchip text-[#FF6B00]"></i> Năng lực lõi R&amp;D</a>
+                                <a href="#team" class="bi-drop-item"><i class="fa fa-users text-[#10B981]"></i> Đội ngũ cốt cán</a>
+                                <a href="#pricing" class="bi-drop-item"><i class="fa fa-tags text-[#00C6FF]"></i> Bảng gói hợp tác</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Khách hàng & Case Study -->
+                    <div class="relative group">
+                        <a href="#case-study" class="bi-nav-link flex items-center">
+                            Khách hàng <i class="fa fa-chevron-down ml-1.5 text-[9px] opacity-60"></i>
+                        </a>
+                        <div class="dropdown-menu-custom absolute left-0 top-full pt-3 w-64 z-50">
+                            <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl p-2 text-xs">
+                                <a href="#case-study" class="bi-drop-item"><i class="fa fa-briefcase text-[#10B981]"></i> Case Study thực chiến</a>
+                                <a href="#roadmap" class="bi-drop-item"><i class="fa fa-list-ol text-[#0052FF]"></i> Lộ trình 7 bước</a>
+                                <a href="#partners" class="bi-drop-item"><i class="fa fa-handshake text-[#FF6B00]"></i> 50+ Đối tác doanh nghiệp</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="/SanPham/Products" class="bi-nav-link">Kho giải pháp</a>
                     <a href="#contact" class="bi-nav-link">Liên hệ</a>
                 </nav>
 
                 <!-- Right Actions -->
                 <div class="flex items-center gap-2.5 flex-shrink-0">
-                    <!-- Search -->
-                    <form action="/SanPham/Products" method="get" class="hidden 2xl:flex relative items-center">
-                        <i class="fa fa-search absolute left-3.5 text-[#4B5563] text-xs pointer-events-none"></i>
-                        <input type="search" name="search" placeholder="Tìm giải pháp..."
-                               class="w-40 focus:w-52 bg-[#F8FAFC] text-[#0F172A] placeholder-[#4B5563] text-xs rounded-full pl-9 pr-3 py-2 border border-slate-200 focus:border-[#0052FF] focus:outline-none transition-all" />
-                    </form>
+                    <a href="tel:0909008064" class="hidden 2xl:inline-flex items-center gap-1.5 text-xs font-bold text-[#0F172A] hover:text-[#0052FF] px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200/80 transition no-underline">
+                        <i class="fa fa-phone-alt text-[#FF6B00]"></i> 0909 008 064
+                    </a>
 
                     <!-- CTA Tư Vấn Nhanh -->
                     <a href="#contact" class="bi-btn-primary bi-cta-header text-xs sm:text-[13px] px-4 sm:px-5 py-2.5 rounded-full items-center no-underline hover:no-underline font-bold shadow-sm whitespace-nowrap" aria-label="Nhận tư vấn chiến lược">
@@ -3530,56 +3550,65 @@
                     <span class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#00C6FF]/15 border border-[#00C6FF]/30 text-[#00C6FF] text-xs font-bold uppercase tracking-wider mb-4">
                         <i class="fa fa-handshake mr-1.5"></i> Kết Nối Chuyển Đổi Số
                     </span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-black text-white leading-tight mb-4">
-                        Sẵn sàng cùng doanh nghiệp bạn <br />
-                        <span class="bi-text-gradient">bước vào kỷ nguyên số.</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-[42px] font-black text-white leading-[1.25] mb-5 tracking-tight">
+                        Sẵn sàng cùng doanh nghiệp bạn <br class="hidden sm:inline" />
+                        <span class="bi-text-gradient inline-block">bước vào kỷ nguyên số.</span>
                     </h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-                        <strong>CÔNG TY CỔ PHẦN GIẢI PHÁP &amp; ĐẦU TƯ CÔNG NGHỆ BIWEB</strong><br />
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/10 text-white text-xs font-bold uppercase tracking-wide mb-3 border border-white/15">
+                        <i class="fa fa-building text-[#FF6B00]"></i> CÔNG TY CỔ PHẦN GIẢI PHÁP &amp; ĐẦU TƯ CÔNG NGHỆ BIWEB
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
                         Liên hệ ngay để bắt đầu hành trình chuyển đổi số, tối ưu vận hành và bứt phá tăng trưởng doanh thu cùng các chuyên gia hàng đầu.
                     </p>
 
-                    <!-- Contact Details directly from PDF Page 20 -->
-                    <div class="space-y-3.5 text-xs sm:text-sm text-slate-200 max-w-md mx-auto lg:mx-0 text-left">
-                        <div class="flex items-start gap-3">
-                            <span class="w-9 h-9 rounded-xl bg-white/10 text-[#FF6B00] flex items-center justify-center text-sm flex-shrink-0 mt-0.5"><i class="fa fa-map-marker-alt"></i></span>
+                    <!-- Contact Details Cards (Clean, Glassmorphism, High Contrast) -->
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-200 max-w-lg mx-auto lg:mx-0 text-left">
+                        <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#00C6FF]/40 transition">
+                            <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center text-sm flex-shrink-0 shadow-sm"><i class="fa fa-map-marker-alt"></i></span>
                             <div>
-                                <span class="text-slate-400 block text-[11px]">Trụ sở chính:</span>
-                                <strong class="text-white">The Hive • 94 Xuân Thủy • Phường An Khánh • TP. Hồ Chí Minh</strong>
+                                <span class="text-slate-400 block text-[11px] font-semibold uppercase tracking-wider">Trụ sở chính:</span>
+                                <strong class="text-white text-xs sm:text-sm leading-snug block mt-0.5">The Hive • 94 Xuân Thủy • Phường An Khánh • TP. Thủ Đức, TP. HCM</strong>
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-3">
-                            <span class="w-9 h-9 rounded-xl bg-white/10 text-[#10B981] flex items-center justify-center text-sm flex-shrink-0 mt-0.5"><i class="fa fa-phone-alt"></i></span>
-                            <div>
-                                <span class="text-slate-400 block text-[11px]">Hotline tư vấn chiến lược:</span>
-                                <a href="tel:0909008064" class="text-white hover:text-[#10B981] font-black text-base no-underline transition">0909 008 064</a>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                            <div class="flex items-start gap-2.5">
-                                <span class="w-8 h-8 rounded-lg bg-white/10 text-[#00C6FF] flex items-center justify-center text-xs flex-shrink-0 mt-0.5"><i class="fa fa-user-headset"></i></span>
+                        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#10B981]/50 transition">
+                            <div class="flex items-center gap-3.5">
+                                <span class="w-10 h-10 rounded-xl bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30 flex items-center justify-center text-sm flex-shrink-0"><i class="fa fa-phone-alt"></i></span>
                                 <div>
-                                    <span class="text-slate-400 block text-[10px]">Hỗ trợ khách hàng:</span>
-                                    <strong class="text-white text-xs">0845 722 689 (Ms. Trâm)</strong>
+                                    <span class="text-slate-400 block text-[11px] font-semibold uppercase tracking-wider">Hotline Tư Vấn Chiến Lược:</span>
+                                    <a href="tel:0909008064" class="text-white hover:text-[#10B981] font-black text-base sm:text-lg tracking-wide no-underline transition">0909 008 064</a>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-2.5">
-                                <span class="w-8 h-8 rounded-lg bg-white/10 text-[#FF6B00] flex items-center justify-center text-xs flex-shrink-0 mt-0.5"><i class="fa fa-code-branch"></i></span>
-                                <div>
-                                    <span class="text-slate-400 block text-[10px]">Hỗ trợ kỹ thuật:</span>
-                                    <strong class="text-white text-xs">0817 740 179 (Mr. Huỳnh Thi)</strong>
+                            <span class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30">Realtime 24/7</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#00C6FF]/30 transition">
+                                <span class="w-8 h-8 rounded-lg bg-[#00C6FF]/20 text-[#00C6FF] flex items-center justify-center text-xs flex-shrink-0"><i class="fa fa-headset"></i></span>
+                                <div class="min-w-0">
+                                    <span class="text-slate-400 block text-[10px] font-medium">Hỗ trợ khách hàng:</span>
+                                    <a href="tel:0845722689" class="text-white font-bold text-xs hover:text-[#00C6FF] no-underline truncate block">0845 722 689 (Ms. Trâm)</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#FF6B00]/30 transition">
+                                <span class="w-8 h-8 rounded-lg bg-[#FF6B00]/20 text-[#FF6B00] flex items-center justify-center text-xs flex-shrink-0"><i class="fa fa-laptop-code"></i></span>
+                                <div class="min-w-0">
+                                    <span class="text-slate-400 block text-[10px] font-medium">Hỗ trợ kỹ thuật:</span>
+                                    <a href="tel:0817740179" class="text-white font-bold text-xs hover:text-[#FF6B00] no-underline truncate block">0817 740 179 (Mr. Thi)</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-3 pt-2">
-                            <span class="w-9 h-9 rounded-xl bg-white/10 text-[#00C6FF] flex items-center justify-center text-sm flex-shrink-0"><i class="fa fa-globe"></i></span>
-                            <div>
-                                <span class="text-slate-400 block text-[11px]">Website chính thức:</span>
-                                <a href="https://webplus.biweb.vn" target="_blank" class="text-[#00C6FF] font-bold hover:underline no-underline">webplus.biweb.vn</a>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-lg bg-white/10 text-[#00C6FF] flex items-center justify-center text-xs flex-shrink-0"><i class="fa fa-globe"></i></span>
+                                <div>
+                                    <span class="text-slate-400 block text-[10px]">Website giải pháp chính thức:</span>
+                                    <a href="https://webplus.biweb.vn" target="_blank" class="text-[#00C6FF] font-bold text-xs hover:underline no-underline">webplus.biweb.vn</a>
+                                </div>
                             </div>
+                            <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold"><i class="fa fa-shield-alt text-[#10B981]"></i> Chuẩn BIWEB USA</span>
                         </div>
                     </div>
                 </div>
@@ -4548,7 +4577,7 @@
         })();
     </script>
 
-    <script src="./js/biweb-motion.js?v=7TYWVtb4WegYKkCKKHDMOhtudCNZyojAT2zeUaphAww"></script>
+    <script src="./js/biweb-motion.js?v=SZeL4S5NJir7q9ed-CeL5sjsJYao5UVwdldSsTQgCkA"></script>
 
     
 </body>

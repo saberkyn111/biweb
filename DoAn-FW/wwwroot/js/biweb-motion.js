@@ -146,8 +146,9 @@
         /* --- Tiêu đề section --- */
         $all('section .bi-title, section h2', main).forEach(function (h) {
             if (h.closest('#hero')) return;
-            if (!h.closest('[data-reveal]')) { splitWords(h); h.setAttribute('data-split-reveal', '1'); }
+            if (!h.closest('[data-reveal]')) { mark(h, 'up', 0.05); }
             var head = h.parentElement;
+            if (!head) return;
             var k = 0;
             Array.prototype.slice.call(head.children).forEach(function (sib) {
                 if (sib === h) return;
@@ -218,7 +219,7 @@
        5. COUNTERS
        ------------------------------------------------------------ */
     function initCounters() {
-        var re = /^([+\-−]?)(\d{1,3}(?:\.\d{3})+|\d+(?:,\d+)?)(\s?[^\d]{0,14})$/;
+        var re = /^([+\-−]?)(\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?)([%+xXkKmMbB\s]?[^\d]{0,14})$/;
         var els = $all('main .font-black, main .font-extrabold, main [class*="text-3xl"], main [class*="text-4xl"]').filter(function (el) {
             if (el.children.length) return false;
             var t = el.textContent.trim();
@@ -230,13 +231,19 @@
         function run(el) {
             var m = el.textContent.trim().match(re);
             if (!m) return;
-            var thousands = m[2].indexOf('.') > -1;
-            var decimals = !thousands && m[2].indexOf(',') > -1 ? m[2].split(',')[1].length : 0;
-            var target = parseFloat(m[2].replace(/\./g, '').replace(',', '.'));
+            var raw = m[2];
+            var isDecimal = raw.indexOf(',') > -1 || (raw.indexOf('.') > -1 && raw.split('.').length === 2 && raw.split('.')[1].length <= 2);
+            var decimals = 0;
+            var thousands = !isDecimal && raw.indexOf('.') > -1;
+            if (isDecimal) {
+                var sep = raw.indexOf(',') > -1 ? ',' : '.';
+                decimals = raw.split(sep)[1].length;
+            }
+            var target = parseFloat(raw.replace(/\./g, isDecimal && raw.indexOf('.') > -1 ? '.' : '').replace(',', '.'));
             if (!isFinite(target) || target === 0) return;
             var start = null, dur = Math.min(2200, 900 + String(Math.round(target)).length * 180);
             function fmt(v) {
-                if (decimals) return v.toFixed(decimals).replace('.', ',');
+                if (decimals) return v.toFixed(decimals);
                 var s = String(Math.round(v));
                 return thousands ? s.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : s;
             }
@@ -255,7 +262,7 @@
             entries.forEach(function (en) {
                 if (en.isIntersecting) { run(en.target); io.unobserve(en.target); }
             });
-        }, { threshold: 0.6 });
+        }, { threshold: 0.5 });
         els.forEach(function (el) { io.observe(el); });
     }
 
@@ -263,18 +270,20 @@
        6. CARD SPOTLIGHT
        ------------------------------------------------------------ */
     function initSpotlight() {
-        var cards = $all('section .grid > *').filter(function (c) {
+        var cards = $all('section .grid > *, .bi-card, .bi-spot').filter(function (c) {
             var cls = c.className || '';
             if (typeof cls !== 'string') return false;
-            if (!/rounded-(2xl|3xl|\[)/.test(cls) && !/bi-card/.test(cls)) return false;
             var pos = window.getComputedStyle(c).position;
             return pos !== 'absolute' && pos !== 'fixed';
         });
         cards.forEach(function (c) {
             c.classList.add('bi-spot');
             var sec = c.closest('section');
-            if (sec && /text-white|from-\[#0F172A\]/.test(sec.className)) c.classList.add('bi-spot-dark');
-            else if (/bg-\[#0F172A\]|bg-slate-9|bi-card-dark/.test(c.className)) c.classList.add('bi-spot-dark');
+            if (sec && (/text-white|from-\[#0F172A\]|bg-\[#0F172A\]/.test(sec.className) || sec.id === 'contact')) {
+                c.classList.add('bi-spot-dark');
+            } else if (/bg-\[#0F172A\]|bg-slate-9|bi-card-dark/.test(c.className)) {
+                c.classList.add('bi-spot-dark');
+            }
         });
         if (!finePointer) return;
         doc.addEventListener('pointermove', function (e) {
@@ -284,6 +293,41 @@
             card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
             card.style.setProperty('--my', (e.clientY - r.top) + 'px');
         }, { passive: true });
+    }
+
+    /* ------------------------------------------------------------
+       6B. AMBIENT GLOW ORBS & FLOATING MICRO-WIDGETS
+       ------------------------------------------------------------ */
+    function initAmbientGlow() {
+        var targets = ['#hero', '#ecosystem', '#core-tech', '#contact'];
+        targets.forEach(function (sel) {
+            var sec = doc.querySelector(sel);
+            if (!sec || sec.querySelector('.bi-ambient-orb')) return;
+            var pos = window.getComputedStyle(sec).position;
+            if (pos === 'static') sec.style.position = 'relative';
+
+            var orbBlue = doc.createElement('div');
+            orbBlue.className = 'bi-ambient-orb bi-orb-blue';
+            var orbCyan = doc.createElement('div');
+            orbCyan.className = 'bi-ambient-orb bi-orb-cyan';
+
+            sec.insertBefore(orbCyan, sec.firstChild);
+            sec.insertBefore(orbBlue, sec.firstChild);
+        });
+    }
+
+    function initFloatingWidgets() {
+        var badges = $all('#hero .rounded-2xl, #hero .rounded-xl, #hero .shadow-lg, section [class*="bg-emerald"], section [class*="bg-blue-"]').filter(function (el) {
+            var txt = el.textContent.trim();
+            return /([+\-]\d+%|\d+\.?\d*x|Realtime|USA|Delaware|Uptime)/i.test(txt) && el.children.length <= 3;
+        });
+        badges.forEach(function (b, idx) {
+            b.classList.add(idx % 2 === 0 ? 'bi-float-slow' : 'bi-float-delayed');
+        });
+
+        $all('.fa-circle.text-emerald-400, .fa-circle.text-green-400, .fa-circle.text-emerald-500').forEach(function (dot) {
+            dot.classList.add('bi-dot-pulse');
+        });
     }
 
     /* ------------------------------------------------------------
@@ -412,7 +456,7 @@
        BOOT
        ------------------------------------------------------------ */
     onReady(function () {
-        var steps = [initScrollProgress, initMarquee, initSpotlight, initRipple, initHero, initFab, initScrollSpy, initMobileMenu, initCounters];
+        var steps = [initScrollProgress, initAmbientGlow, initFloatingWidgets, initMarquee, initSpotlight, initRipple, initHero, initFab, initScrollSpy, initMobileMenu, initCounters];
         steps.forEach(function (fn) { try { fn(); } catch (e) { console.error('[biweb-motion]', e); } });
         if (!reduceMotion) {
             try { prepareReveal(); } catch (e) { console.error('[biweb-motion]', e); }
