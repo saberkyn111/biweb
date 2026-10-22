@@ -62,7 +62,7 @@
                                 </span>
                                 @if (giaKM > 0 && giaKM < giaGoc)
                                 {
-                                    <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500 text-white shadow-sm">
+                                    <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[11px] font-bold bg-blue-500 text-white shadow-sm">
                                         -@(((giaGoc - giaKM) * 100) / giaGoc)%
                                     </span>
                                 }
@@ -81,7 +81,7 @@
                                     <i class="fa fa-microchip text-blue-500 mr-1"></i> @ram Luồng
                                 </span>
                                 <span class="inline-flex items-center px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">
-                                    <i class="fa fa-users text-amber-500 mr-1"></i> @boNho Acc
+                                    <i class="fa fa-users text-sky-500 mr-1"></i> @boNho Acc
                                 </span>
                             </div>
                         </div>
@@ -91,12 +91,12 @@
                             <div class="flex items-baseline space-x-2 mb-3">
                                 @if (giaKM > 0)
                                 {
-                                    <span class="text-lg font-black text-rose-600">@string.Format("{0:0,0 đ}", giaKM)</span>
+                                    <span class="text-lg font-black text-blue-600">@string.Format("{0:0,0 đ}", giaKM)</span>
                                     <span class="text-xs text-slate-400 line-through">@string.Format("{0:0,0 đ}", giaGoc)</span>
                                 }
                                 else
                                 {
-                                    <span class="text-lg font-black text-rose-600">@string.Format("{0:0,0 đ}", giaGoc)</span>
+                                    <span class="text-lg font-black text-blue-600">@string.Format("{0:0,0 đ}", giaGoc)</span>
                                 }
                             </div>
 

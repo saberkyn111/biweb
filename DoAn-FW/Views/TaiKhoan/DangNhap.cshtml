@@ -14,7 +14,7 @@
             Đăng Nhập Cổng Doanh Nghiệp
         </h1>
         <p class="text-xs sm:text-sm text-slate-300 mt-1 m-0">
-            Truy cập để quản lý bản quyền License, giải pháp CDP, ERP & AI Agent và dịch vụ kỹ thuật BIWEB
+            Truy cập để quản lý bản quyền License, giải pháp CDP, ERP &amp; AI Agent và dịch vụ kỹ thuật BIWEB
         </p>
     </div>
 </div>
@@ -22,23 +22,23 @@
 <div class="py-14 bg-transparent min-h-[650px] flex items-center justify-center">
     <div class="container mx-auto px-4 max-w-lg">
         
-        <div class="bi-dark-card rounded-3xl border border-white/15 p-8 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_30px_rgba(0,198,255,0.15)] relative overflow-hidden backdrop-blur-2xl">
+        <div class="bi-dark-card rounded-3xl border border-white/15 p-8 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_30px_rgba(0,198,255,0.18)] relative overflow-hidden backdrop-blur-2xl">
             <!-- Glow Accent -->
             <div class="absolute -top-16 -right-16 w-40 h-40 bg-[#0052FF]/20 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -bottom-16 -left-16 w-40 h-40 bg-[#00C6FF]/15 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="text-center mb-8">
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#0052FF] via-[#00C6FF] to-[#FF6B00] text-white flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg shadow-[#0052FF]/30 font-black">
-                    2B
+                <div class="w-24 h-20 rounded-2xl bg-black border border-[#00C6FF]/50 flex items-center justify-center mx-auto mb-4 p-2 shadow-lg shadow-[#0052FF]/30 overflow-hidden">
+                    <img src="/img/logo.jpg" alt="BIWEB" class="w-full h-full object-contain" />
                 </div>
                 <h2 class="text-2xl font-black text-white tracking-tight">Cổng Doanh Nghiệp BIWEB</h2>
-                <p class="text-xs text-slate-300 mt-1">Đăng nhập để quản trị hệ sinh thái MarTech, CDP & ERP AI Agent</p>
+                <p class="text-xs text-slate-300 mt-1">Đăng nhập để quản trị hệ sinh thái MarTech, CDP &amp; ERP AI Agent</p>
             </div>
 
             @if (ViewBag.check != null)
             {
-                <div class="mb-6 p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-semibold flex items-center space-x-2">
-                    <i class="fa fa-exclamation-triangle text-base text-rose-400 flex-shrink-0"></i>
+                <div class="mb-6 p-4 rounded-2xl bg-[#0052FF]/15 border border-[#00C6FF]/40 text-white text-xs font-semibold flex items-center space-x-2">
+                    <i class="fa fa-exclamation-triangle text-base text-[#00C6FF] flex-shrink-0"></i>
                     <span>@ViewBag.check</span>
                 </div>
             }
@@ -57,7 +57,7 @@
                                name="email" 
                                required
                                placeholder="partner@biweb.vn hoặc email đăng ký"
-                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900/90 border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 transition" />
+                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-[#050811]/90 border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 transition" />
                     </div>
                 </div>
 
@@ -79,7 +79,7 @@
                                name="pwd" 
                                required
                                placeholder="••••••••"
-                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-900/90 border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 transition" />
+                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-[#050811]/90 border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF]/40 transition" />
                     </div>
                 </div>
 
@@ -98,7 +98,7 @@
             </form>
 
             <!-- Quick Demo Credentials Box -->
-            <div class="mt-6 p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-xs">
+            <div class="mt-6 p-4 rounded-2xl bg-[#050811]/80 border border-white/10 text-xs">
                 <div class="font-bold text-white mb-2 flex items-center justify-between">
                     <span><i class="fa fa-user-check text-[#00C6FF] mr-1.5"></i> Tài khoản trải nghiệm nhanh:</span>
                     <span class="text-[10px] text-slate-400 font-normal">Bấm để tự điền</span>
@@ -106,13 +106,13 @@
                 <div class="space-y-2">
                     <button type="button" 
                             onclick="fillLogin('minhquan.ads@gmail.com', '123456')" 
-                            class="w-full text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-white/10 hover:border-[#00C6FF]/50 transition flex items-center justify-between text-xs cursor-pointer text-slate-200">
+                            class="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#00C6FF]/50 transition flex items-center justify-between text-xs cursor-pointer text-slate-200">
                         <span>👤 <strong class="text-white">Khách Hàng / Đối tác:</strong> minhquan.ads@gmail.com</span>
                         <span class="text-[#00C6FF] font-bold">Điền &rarr;</span>
                     </button>
                     <button type="button" 
                             onclick="fillLogin('admin@fbtools.vn', '123456')" 
-                            class="w-full text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-white/10 hover:border-[#00C6FF]/50 transition flex items-center justify-between text-xs cursor-pointer text-slate-200">
+                            class="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#00C6FF]/50 transition flex items-center justify-between text-xs cursor-pointer text-slate-200">
                         <span>🛡️ <strong class="text-white">Admin / Quản Trị Hệ Thống:</strong> admin@fbtools.vn</span>
                         <span class="text-[#00C6FF] font-bold">Điền &rarr;</span>
                     </button>
@@ -122,7 +122,7 @@
             <div class="mt-6 pt-5 border-t border-white/10 text-center">
                 <p class="text-xs text-slate-400 m-0">
                     Chưa có tài khoản BIWEB? 
-                    <a href="/TaiKhoan/DangKi" class="font-bold text-[#00C6FF] hover:text-[#38bdf8] hover:underline ml-1">
+                    <a href="/TaiKhoan/DangKi" class="font-bold text-[#00C6FF] hover:text-white hover:underline ml-1">
                         Đăng ký doanh nghiệp ngay
                     </a>
                 </p>

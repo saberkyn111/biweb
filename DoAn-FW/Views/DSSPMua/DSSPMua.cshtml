@@ -60,12 +60,12 @@
                 </div>
 
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                    <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl font-bold">
                         <i class="fa fa-shield-check"></i>
                     </div>
                     <div>
                         <div class="text-xs text-slate-400">Trạng Thái Bản Quyền</div>
-                        <div class="text-xl font-extrabold text-emerald-600">Đang Hoạt Động</div>
+                        <div class="text-xl font-extrabold text-sky-600">Đang Hoạt Động</div>
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                                             <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0052FF]/10 text-[#0052FF] border border-[#0052FF]/20">
                                                 Gói @mauSac
                                             </span>
-                                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200">
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-sky-50 text-sky-600 border border-sky-200">
                                                 <i class="fa fa-circle text-[7px] mr-1 animate-pulse"></i> Đã cấp bản quyền
                                             </span>
                                         </div>
@@ -129,7 +129,7 @@
                                         <div class="flex items-center space-x-3 text-xs text-[#4B5563] mt-1 font-medium">
                                             <span><i class="fa fa-microchip text-[#0052FF] mr-1"></i> @ram</span>
                                             <span>•</span>
-                                            <span><i class="fa fa-database text-amber-500 mr-1"></i> @boNho</span>
+                                            <span><i class="fa fa-database text-sky-500 mr-1"></i> @boNho</span>
                                             <span>•</span>
                                             <span>Số lượng: <strong>@SoLuong License</strong></span>
                                         </div>
@@ -139,8 +139,8 @@
                                 <!-- License Key Box -->
                                 <div class="w-full lg:w-80 bg-[#0F172A] text-white rounded-2xl p-4 border border-slate-800 space-y-2">
                                     <div class="flex items-center justify-between text-[11px] text-slate-400">
-                                        <span><i class="fa fa-key text-amber-400 mr-1"></i> LICENSE KEY BẢN QUYỀN:</span>
-                                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                                        <span><i class="fa fa-key text-sky-400 mr-1"></i> LICENSE KEY BẢN QUYỀN:</span>
+                                        <span class="text-sky-400 font-bold">ACTIVE</span>
                                     </div>
                                     <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded-xl border border-slate-800">
                                         <code id="key_@i" class="font-mono text-xs text-[#00C6FF] font-bold select-all tracking-wider">
@@ -210,12 +210,12 @@
         if (navigator.clipboard) {
             navigator.clipboard.writeText(keyText).then(function() {
                 var oldHtml = btn.innerHTML;
-                btn.innerHTML = '<i class="fa fa-check text-emerald-300"></i> Đã Copy!';
+                btn.innerHTML = '<i class="fa fa-check text-sky-300"></i> Đã Copy!';
                 btn.classList.remove('bg-blue-600');
-                btn.classList.add('bg-emerald-600');
+                btn.classList.add('bg-sky-600');
                 setTimeout(function() {
                     btn.innerHTML = oldHtml;
-                    btn.classList.remove('bg-emerald-600');
+                    btn.classList.remove('bg-sky-600');
                     btn.classList.add('bg-blue-600');
                 }, 2000);
             });

@@ -1,16 +1,14 @@
 /**
- * BIWEB THEME DESIGN SYSTEM
+ * BIWEB THEME DESIGN SYSTEM (3-Tone: Black - White - Blue)
  * Reference: https://www.biweb.vn/
  * 
  * Palette:
  * - Brand Primary: #0052FF (Xanh dương công nghệ)
  * - Brand Accent: #00C6FF (Xanh Bright Cyan - dùng làm Gradient)
- * - Text Primary: #0F172A (Đen xám đậm - dùng cho Heading)
- * - Text Secondary: #4B5563 (Xám trung tính - dùng cho đoạn văn)
- * - Background Light: #F8FAFC (Xám nhạt nền section)
- * - Background Dark: #0F172A (Đen Navy - Footer & Card Highlight)
- * - Success/Growth: #10B981 (Xanh lá số liệu tăng trưởng)
- * - Highlight Badge: #FF6B00 (Cam nhấn nổi bật)
+ * - Text Primary: #FFFFFF (Trắng tinh khiết - dùng cho Heading)
+ * - Text Secondary: #CBD5E1 (Trắng xám dịu - dùng cho đoạn văn)
+ * - Background Light: #FFFFFF (Trắng tinh khiết)
+ * - Background Dark: #050811 / #0F172A (Đen công nghệ & Đen Navy)
  */
 
 :root {
@@ -18,39 +16,39 @@
     --bi-primary-hover: #0045d8;
     --bi-accent: #00C6FF;
     --bi-accent-hover: #00b0e6;
-    --bi-text-primary: #0F172A;
-    --bi-text-secondary: #4B5563;
-    --bi-bg-light: #F8FAFC;
-    --bi-bg-dark: #0F172A;
-    --bi-success: #10B981;
-    --bi-highlight: #FF6B00;
-    --bi-highlight-hover: #e66000;
+    --bi-text-primary: #FFFFFF;
+    --bi-text-secondary: #CBD5E1;
+    --bi-bg-light: #FFFFFF;
+    --bi-bg-dark: #050811;
+    --bi-success: #00C6FF;
+    --bi-highlight: #0052FF;
+    --bi-highlight-hover: #00C6FF;
 
     --bi-gradient-primary: linear-gradient(135deg, #0052FF 0%, #0099FF 50%, #00C6FF 100%);
     --bi-gradient-primary-hover: linear-gradient(135deg, #0045d8 0%, #0088e6 50%, #00b0e6 100%);
     --bi-gradient-accent: linear-gradient(135deg, #00C6FF 0%, #0052FF 100%);
-    --bi-gradient-hero: linear-gradient(135deg, #070e1e 0%, #0F172A 60%, #0b1f48 100%);
-    --bi-gradient-card-dark: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 16, 32, 0.98) 100%);
-    --bi-gradient-highlight: linear-gradient(135deg, #FF6B00 0%, #FF8C33 100%);
+    --bi-gradient-hero: linear-gradient(135deg, #03060c 0%, #050811 60%, #0b1f48 100%);
+    --bi-gradient-card-dark: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(5, 8, 17, 0.98) 100%);
+    --bi-gradient-highlight: linear-gradient(135deg, #0052FF 0%, #00C6FF 100%);
 
     --bi-glow: 0 0 25px rgba(0, 82, 255, 0.35);
     --bi-glow-accent: 0 0 30px rgba(0, 198, 255, 0.45);
-    --bi-glow-success: 0 0 20px rgba(16, 185, 129, 0.4);
-    --bi-glow-highlight: 0 0 20px rgba(255, 107, 0, 0.4);
+    --bi-glow-success: 0 0 20px rgba(0, 198, 255, 0.4);
+    --bi-glow-highlight: 0 0 20px rgba(0, 82, 255, 0.45);
 
-    --bi-card-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
-    --bi-card-shadow-hover: 0 20px 35px -8px rgba(0, 82, 255, 0.18), 0 8px 16px -4px rgba(0, 198, 255, 0.12);
+    --bi-card-shadow: 0 10px 30px -5px rgba(5, 8, 17, 0.5), 0 4px 6px -2px rgba(0, 82, 255, 0.12);
+    --bi-card-shadow-hover: 0 20px 35px -8px rgba(0, 82, 255, 0.28), 0 8px 16px -4px rgba(0, 198, 255, 0.18);
 }
 
 /* Base resets & typography */
 body {
-    background-color: var(--bi-bg-light) !important;
+    background-color: #050811 !important;
     color: var(--bi-text-secondary) !important;
     font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--bi-text-primary);
+    color: #FFFFFF;
     font-weight: 800;
     letter-spacing: -0.02em;
 }
@@ -61,13 +59,13 @@ p {
 
 /* Gradient Text Utilities */
 .bi-text-gradient {
-    background: linear-gradient(135deg, #0052FF 0%, #00C6FF 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #00C6FF 50%, #0052FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .bi-text-gradient-cyan {
-    background: linear-gradient(135deg, #00C6FF 0%, #60A5FA 100%);
+    background: linear-gradient(135deg, #00C6FF 0%, #FFFFFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -84,8 +82,8 @@ p {
     color: #FFFFFF !important;
     font-weight: 700 !important;
     border-radius: 14px !important;
-    border: none !important;
-    box-shadow: 0 8px 24px -4px rgba(0, 82, 255, 0.4) !important;
+    border: 1px solid rgba(0, 198, 255, 0.35) !important;
+    box-shadow: 0 8px 24px -4px rgba(0, 82, 255, 0.45) !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -101,9 +99,9 @@ p {
 }
 
 .bi-btn-outline {
-    background: #FFFFFF !important;
-    color: #0F172A !important;
-    border: 1.5px solid #E2E8F0 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #FFFFFF !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
     font-weight: 700 !important;
     border-radius: 14px !important;
     transition: all 0.25s ease-in-out !important;
@@ -111,22 +109,23 @@ p {
     align-items: center !important;
     justify-content: center !important;
     text-decoration: none !important;
-    box-shadow: 0 4px 14px -6px rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.4) !important;
 }
 
 .bi-btn-outline:hover {
-    border-color: var(--bi-primary) !important;
-    color: var(--bi-primary) !important;
+    border-color: #00C6FF !important;
+    color: #00C6FF !important;
+    background: rgba(0, 82, 255, 0.15) !important;
     transform: translateY(-2px) !important;
 }
 
 .bi-btn-highlight {
-    background: var(--bi-gradient-highlight) !important;
-    color: #FFFFFF !important;
+    background: #FFFFFF !important;
+    color: #050811 !important;
     font-weight: 800 !important;
     border-radius: 14px !important;
-    border: none !important;
-    box-shadow: 0 8px 20px -3px rgba(255, 107, 0, 0.4) !important;
+    border: 1.5px solid #00C6FF !important;
+    box-shadow: 0 8px 24px -3px rgba(0, 198, 255, 0.4) !important;
     transition: all 0.25s ease !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -135,29 +134,32 @@ p {
 }
 
 .bi-btn-highlight:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 12px 25px -4px rgba(255, 107, 0, 0.55) !important;
+    background: var(--bi-gradient-primary) !important;
     color: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px -4px rgba(0, 82, 255, 0.6) !important;
 }
 
 /* Badges */
 .bi-badge-highlight {
-    background: var(--bi-highlight) !important;
+    background: linear-gradient(135deg, #0052FF 0%, #00C6FF 100%) !important;
     color: #FFFFFF !important;
     font-weight: 800 !important;
     letter-spacing: 0.03em;
     border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     display: inline-flex !important;
     align-items: center !important;
-    padding: 3px 9px !important;
+    padding: 4px 11px !important;
     font-size: 11px !important;
-    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3) !important;
+    box-shadow: 0 2px 12px rgba(0, 82, 255, 0.45) !important;
 }
 
 .bi-badge-growth {
-    background: rgba(16, 185, 129, 0.12) !important;
-    color: var(--bi-success) !important;
-    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    background: rgba(0, 198, 255, 0.14) !important;
+    color: #00C6FF !important;
+    border: 1px solid rgba(0, 198, 255, 0.35) !important;
     font-weight: 700 !important;
     border-radius: 8px !important;
     display: inline-flex !important;
@@ -168,7 +170,7 @@ p {
 
 .bi-badge-cyan {
     background: rgba(0, 198, 255, 0.12) !important;
-    color: #0099FF !important;
+    color: #00C6FF !important;
     border: 1px solid rgba(0, 198, 255, 0.35) !important;
     font-weight: 700 !important;
     border-radius: 8px !important;
@@ -179,9 +181,9 @@ p {
 }
 
 .bi-badge-primary {
-    background: rgba(0, 82, 255, 0.1) !important;
-    color: var(--bi-primary) !important;
-    border: 1px solid rgba(0, 82, 255, 0.25) !important;
+    background: rgba(0, 82, 255, 0.15) !important;
+    color: #38BDF8 !important;
+    border: 1px solid rgba(0, 82, 255, 0.35) !important;
     font-weight: 700 !important;
     border-radius: 8px !important;
     display: inline-flex !important;
@@ -192,38 +194,38 @@ p {
 
 /* Cards */
 .bi-card-white {
-    background: rgba(15, 23, 42, 0.78) !important;
+    background: rgba(10, 15, 29, 0.85) !important;
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 24px !important;
-    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(0, 82, 255, 0.15) !important;
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.75), 0 0 25px -5px rgba(0, 82, 255, 0.18) !important;
     transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
     color: #E2E8F0 !important;
 }
 
 .bi-card-white:hover {
-    border-color: rgba(0, 198, 255, 0.6) !important;
+    border-color: rgba(0, 198, 255, 0.65) !important;
     transform: translateY(-8px) !important;
     box-shadow: 0 28px 65px -15px rgba(0, 198, 255, 0.35), 0 0 40px rgba(0, 82, 255, 0.4) !important;
 }
 
 .bi-card-dark {
-    background: var(--bi-bg-dark) !important;
-    border: 1px solid rgba(0, 198, 255, 0.2) !important;
+    background: #050811 !important;
+    border: 1px solid rgba(0, 198, 255, 0.25) !important;
     border-radius: 24px !important;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5) !important;
-    color: #E2E8F0 !important;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6) !important;
+    color: #FFFFFF !important;
 }
 
 /* Pulsing Status Dot */
 .bi-status-dot {
     width: 8px;
     height: 8px;
-    background-color: var(--bi-success);
+    background-color: #00C6FF;
     border-radius: 50%;
     display: inline-block;
-    box-shadow: 0 0 10px var(--bi-success);
+    box-shadow: 0 0 10px #00C6FF;
     animation: biPulse 2s infinite;
 }
 
@@ -240,12 +242,12 @@ p {
 
 /* Biweb Header Bar */
 .bi-header {
-    background: #0F172A !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #050811 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .bi-nav-item {
-    color: #E2E8F0 !important;
+    color: #FFFFFF !important;
     font-weight: 600 !important;
     padding: 8px 14px !important;
     border-radius: 12px !important;
@@ -258,14 +260,14 @@ p {
 
 .bi-nav-item:hover, .bi-nav-item.active {
     color: #00C6FF !important;
-    background: rgba(0, 198, 255, 0.08) !important;
+    background: rgba(0, 198, 255, 0.1) !important;
 }
 
 /* Biweb Footer */
 .bi-footer {
-    background: #0F172A !important;
-    color: #94A3B8 !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #050811 !important;
+    color: #CBD5E1 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .bi-footer h3, .bi-footer h4 {
@@ -273,7 +275,7 @@ p {
 }
 
 .bi-footer a {
-    color: #94A3B8 !important;
+    color: #CBD5E1 !important;
     text-decoration: none !important;
     transition: color 0.2s ease !important;
 }
@@ -285,7 +287,7 @@ p {
 /* Form input focus state */
 input:focus, select:focus, textarea:focus {
     border-color: #0052FF !important;
-    box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.2) !important;
 }
 
 /* ================= BIWEB LANDING UTILITIES ================= */
@@ -295,22 +297,22 @@ input:focus, select:focus, textarea:focus {
 .bi-tag {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 14px; border-radius: 999px;
-    background: rgba(0, 82, 255, 0.08); color: #0052FF;
-    border: 1px solid rgba(0, 82, 255, 0.18);
+    background: rgba(0, 82, 255, 0.14); color: #00C6FF;
+    border: 1px solid rgba(0, 198, 255, 0.35);
     font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
 }
-.bi-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #0052FF, #00C6FF); }
+.bi-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #FFFFFF, #00C6FF); }
 
 .bi-title {
     font-size: clamp(28px, 3.6vw, 44px); line-height: 1.18; font-weight: 800;
-    color: #0F172A; letter-spacing: -0.025em; margin: 14px 0 14px;
+    color: #FFFFFF; letter-spacing: -0.025em; margin: 14px 0 14px;
 }
-.bi-lead { font-size: 16px; line-height: 1.75; color: #4B5563; margin: 0; }
+.bi-lead { font-size: 16px; line-height: 1.75; color: #CBD5E1; margin: 0; }
 
 .bi-grid-bg {
     background-image:
-        linear-gradient(rgba(0, 82, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 82, 255, 0.06) 1px, transparent 1px);
+        linear-gradient(rgba(0, 82, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 82, 255, 0.08) 1px, transparent 1px);
     background-size: 44px 44px;
     -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
     mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
@@ -330,13 +332,13 @@ input:focus, select:focus, textarea:focus {
 .bi-icon-gradient { background: linear-gradient(135deg, #0052FF, #00C6FF); color: #fff; box-shadow: 0 10px 24px -8px rgba(0, 82, 255, .55); }
 
 .bi-check-list { list-style: none; padding: 0; margin: 0; }
-.bi-check-list li { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; color: #4B5563; font-size: 14px; line-height: 1.55; }
-.bi-check-list li i { margin-top: 3px; }
+.bi-check-list li { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; color: #E2E8F0; font-size: 14px; line-height: 1.55; }
+.bi-check-list li i { margin-top: 3px; color: #00C6FF; }
 
 .bi-step { position: relative; }
 .bi-step-num {
-    width: 56px; height: 56px; border-radius: 18px; background: #fff; border: 2px solid #E2E8F0;
-    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; color: #0052FF;
+    width: 56px; height: 56px; border-radius: 18px; background: #050811; border: 2px solid rgba(0, 198, 255, 0.35);
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; color: #00C6FF;
     position: relative; z-index: 2; transition: all .3s ease;
 }
 .bi-step:hover .bi-step-num { background: linear-gradient(135deg, #0052FF, #00C6FF); color: #fff; border-color: transparent; transform: translateY(-4px); }
@@ -344,8 +346,8 @@ input:focus, select:focus, textarea:focus {
 .bi-hover-lift { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
 .bi-hover-lift:hover { transform: translateY(-6px); box-shadow: var(--bi-card-shadow-hover); border-color: #0052FF; }
 
-/* Range slider (light) */
-.bi-range { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 999px; background: #E2E8F0; outline: none; }
+/* Range slider */
+.bi-range { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 999px; background: #1E293B; outline: none; }
 .bi-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 5px solid #0052FF; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 82, 255, .35); }
 .bi-range::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 5px solid #0052FF; cursor: pointer; }
 .bi-range:focus { box-shadow: none !important; }

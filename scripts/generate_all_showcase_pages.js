@@ -178,9 +178,9 @@ async function main() {
                     var email = document.getElementById('email')?.value || 'partner@biweb.vn';
                     localStorage.setItem('biweb_user', JSON.stringify({ email: email, name: email.split('@')[0] }));
                     if (typeof window.biToast === 'function') {
-                        window.biToast('Đăng nhập thành công! Chào mừng trở lại.', 'success');
+                        window.biToast('ÄÄƒng nháº­p thÃ nh cÃ´ng! ChÃ o má»«ng trá»Ÿ láº¡i.', 'success');
                     } else {
-                        alert('Đăng nhập thành công! Chào mừng ' + email);
+                        alert('ÄÄƒng nháº­p thÃ nh cÃ´ng! ChÃ o má»«ng ' + email);
                     }
                     setTimeout(function() {
                         window.location.href = '../../';
@@ -213,10 +213,10 @@ async function main() {
             if (form) {
                 form.onsubmit = function(e) {
                     e.preventDefault();
-                    var name = document.getElementById('TenKH')?.value || 'Đối Tác Doanh Nghiệp';
+                    var name = document.getElementById('TenKH')?.value || 'Äá»‘i TÃ¡c Doanh Nghiá»‡p';
                     var email = document.getElementById('Email')?.value || 'partner@biweb.vn';
                     localStorage.setItem('biweb_user', JSON.stringify({ email: email, name: name }));
-                    alert('Đăng ký tài khoản doanh nghiệp thành công! Chào mừng ' + name + ' gia nhập hệ sinh thái BIWEB.');
+                    alert('ÄÄƒng kÃ½ tÃ i khoáº£n doanh nghiá»‡p thÃ nh cÃ´ng! ChÃ o má»«ng ' + name + ' gia nháº­p há»‡ sinh thÃ¡i BIWEB.');
                     window.location.href = '../../';
                 };
             }
@@ -244,8 +244,8 @@ async function main() {
         <script>
         (function() {
             var defaultCartItems = [
-                { id: '1', name: 'Hệ Thống BIWEB MarTech+ Enterprise', price: 15000000, img: '../../img/sp1.jpg', spec: 'Enterprise License • 64 Luồng • 50.000 Acc', qty: 1 },
-                { id: '2', name: 'BIWEB CDP 360° Realtime Sync', price: 9500000, img: '../../img/sp2.jpg', spec: 'Standard Key • 32 Luồng • 20.000 Acc', qty: 1 }
+                { id: '1', name: 'Há»‡ Thá»‘ng BIWEB MarTech+ Enterprise', price: 15000000, img: '../../img/sp1.jpg', spec: 'Enterprise License â€¢ 64 Luá»“ng â€¢ 50.000 Acc', qty: 1 },
+                { id: '2', name: 'BIWEB CDP 360Â° Realtime Sync', price: 9500000, img: '../../img/sp2.jpg', spec: 'Standard Key â€¢ 32 Luá»“ng â€¢ 20.000 Acc', qty: 1 }
             ];
 
             function getSavedCart() {
@@ -262,7 +262,7 @@ async function main() {
             }
 
             function formatVnd(num) {
-                return num.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, '.') + ' đ';
+                return num.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, '.') + ' Ä‘';
             }
 
             var discountPercent = 0;
@@ -273,19 +273,19 @@ async function main() {
                 if (code === 'BIWEB2026' || code === 'VIP10') {
                     discountPercent = 10;
                     if (msgEl) {
-                        msgEl.innerHTML = '<span class="text-emerald-400 font-bold">✓ Áp dụng mã ' + code + ' thành công: Giảm 10%!</span>';
+                        msgEl.innerHTML = '<span class="text-emerald-400 font-bold">âœ“ Ãp dá»¥ng mÃ£ ' + code + ' thÃ nh cÃ´ng: Giáº£m 10%!</span>';
                     }
                 } else if (code === 'ENTERPRISE') {
                     discountPercent = 20;
                     if (msgEl) {
-                        msgEl.innerHTML = '<span class="text-emerald-400 font-bold">✓ Áp dụng mã ENTERPRISE: Giảm 20% tổng đơn!</span>';
+                        msgEl.innerHTML = '<span class="text-emerald-400 font-bold">âœ“ Ãp dá»¥ng mÃ£ ENTERPRISE: Giáº£m 20% tá»•ng Ä‘Æ¡n!</span>';
                     }
                 } else if (!code) {
                     discountPercent = 0;
-                    if (msgEl) msgEl.innerHTML = '<span class="text-rose-400">Vui lòng nhập mã ưu đãi.</span>';
+                    if (msgEl) msgEl.innerHTML = '<span class="text-rose-400">Vui lÃ²ng nháº­p mÃ£ Æ°u Ä‘Ã£i.</span>';
                 } else {
                     discountPercent = 0;
-                    if (msgEl) msgEl.innerHTML = '<span class="text-rose-400">Mã ưu đãi không hợp lệ hoặc đã hết lượt.</span>';
+                    if (msgEl) msgEl.innerHTML = '<span class="text-rose-400">MÃ£ Æ°u Ä‘Ã£i khÃ´ng há»£p lá»‡ hoáº·c Ä‘Ã£ háº¿t lÆ°á»£t.</span>';
                 }
                 renderCartUI();
             };
@@ -327,7 +327,7 @@ async function main() {
                             </div>
                         </div>
                         <div class="text-right sm:text-center w-28">
-                            <div class="text-xs text-slate-400">Đơn giá</div>
+                            <div class="text-xs text-slate-400">ÄÆ¡n giÃ¡</div>
                             <div class="text-sm font-black text-[#00C6FF]">\${formatVnd(item.price)}</div>
                         </div>
                         <div class="flex items-center space-x-2">
@@ -336,11 +336,11 @@ async function main() {
                             <button type="button" onclick="changeCartQty('\${item.id}', 1)" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold border border-white/10 flex items-center justify-center cursor-pointer transition">+</button>
                         </div>
                         <div class="text-right w-28">
-                            <div class="text-xs text-slate-400">Thành tiền</div>
+                            <div class="text-xs text-slate-400">ThÃ nh tiá»n</div>
                             <div class="text-sm font-black text-white">\${formatVnd(itemTotal)}</div>
                         </div>
                         <div>
-                            <button type="button" onclick="removeCartItem('\${item.id}')" title="Xóa" class="text-slate-500 hover:text-rose-400 p-2 text-sm bg-transparent border-0 cursor-pointer transition">
+                            <button type="button" onclick="removeCartItem('\${item.id}')" title="XÃ³a" class="text-slate-500 hover:text-rose-400 p-2 text-sm bg-transparent border-0 cursor-pointer transition">
                                 <i class="fa fa-trash-alt"></i>
                             </button>
                         </div>
@@ -381,22 +381,22 @@ async function main() {
                                 <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-emerald-500/30">
                                     <i class="fa fa-check-circle"></i>
                                 </div>
-                                <h3 class="text-2xl font-black text-white mb-2">Đăng Ký Đơn Hàng Thành Công!</h3>
-                                <p class="text-xs text-slate-300 mb-6">Mã giao dịch hợp đồng: <strong class="text-[#00C6FF] font-mono text-sm">\${orderCode}</strong>. Đội ngũ kỹ thuật BIWEB sẽ kích hoạt License và liên hệ bàn giao trong vòng 15 phút.</p>
+                                <h3 class="text-2xl font-black text-white mb-2">ÄÄƒng KÃ½ ÄÆ¡n HÃ ng ThÃ nh CÃ´ng!</h3>
+                                <p class="text-xs text-slate-300 mb-6">MÃ£ giao dá»‹ch há»£p Ä‘á»“ng: <strong class="text-[#00C6FF] font-mono text-sm">\${orderCode}</strong>. Äá»™i ngÅ© ká»¹ thuáº­t BIWEB sáº½ kÃ­ch hoáº¡t License vÃ  liÃªn há»‡ bÃ n giao trong vÃ²ng 15 phÃºt.</p>
                                 
                                 <div class="bg-slate-900/90 rounded-2xl p-4 border border-white/10 mb-6 text-left text-xs space-y-2">
-                                    <div class="flex justify-between"><span class="text-slate-400">Hình thức thanh toán:</span><span class="text-white font-bold">Chuyển khoản VietQR Doanh Nghiệp</span></div>
-                                    <div class="flex justify-between"><span class="text-slate-400">Ngân hàng thụ hưởng:</span><span class="text-white font-bold">Techcombank - 1903.6868.8888</span></div>
-                                    <div class="flex justify-between"><span class="text-slate-400">Chủ tài khoản:</span><span class="text-white font-bold">CONG TY TNHH CONG NGHE BIWEB</span></div>
-                                    <div class="flex justify-between"><span class="text-slate-400">Nội dung chuyển khoản:</span><span class="text-[#FF6B00] font-mono font-bold">\${orderCode}</span></div>
+                                    <div class="flex justify-between"><span class="text-slate-400">HÃ¬nh thá»©c thanh toÃ¡n:</span><span class="text-white font-bold">Chuyá»ƒn khoáº£n VietQR Doanh Nghiá»‡p</span></div>
+                                    <div class="flex justify-between"><span class="text-slate-400">NgÃ¢n hÃ ng thá»¥ hÆ°á»Ÿng:</span><span class="text-white font-bold">Techcombank - 1903.6868.8888</span></div>
+                                    <div class="flex justify-between"><span class="text-slate-400">Chá»§ tÃ i khoáº£n:</span><span class="text-white font-bold">CONG TY TNHH CONG NGHE BIWEB</span></div>
+                                    <div class="flex justify-between"><span class="text-slate-400">Ná»™i dung chuyá»ƒn khoáº£n:</span><span class="text-[#FF6B00] font-mono font-bold">\${orderCode}</span></div>
                                 </div>
 
                                 <div class="flex flex-col sm:flex-row gap-3">
                                     <button type="button" onclick="document.getElementById('orderSuccessModal').remove(); window.location.href='../../';" class="flex-1 py-3 rounded-xl font-bold text-white bi-btn-primary shadow-glow cursor-pointer border-0 text-sm">
-                                        Về Trang Chủ BIWEB
+                                        Vá» Trang Chá»§ BIWEB
                                     </button>
                                     <button type="button" onclick="window.print()" class="px-5 py-3 rounded-xl font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-white/10 cursor-pointer text-sm">
-                                        <i class="fa fa-print mr-1.5"></i> In Hợp Đồng
+                                        <i class="fa fa-print mr-1.5"></i> In Há»£p Äá»“ng
                                     </button>
                                 </div>
                             </div>
@@ -427,7 +427,7 @@ async function main() {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BIWEB - Đang chuyển hướng...</title>
+    <title>BIWEB - Äang chuyá»ƒn hÆ°á»›ng...</title>
     <script>
     (function() {
         var host = window.location.hostname;
@@ -471,11 +471,11 @@ async function main() {
         <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#0052FF] to-[#00C6FF] text-white flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-glow">
             2B
         </div>
-        <h2 class="text-xl font-black text-white mb-2">Đang kết nối hệ thống BIWEB...</h2>
-        <p class="text-xs text-slate-400 mb-6">Đang tự động chuyển hướng bạn đến đúng tính năng trong hệ sinh thái.</p>
+        <h2 class="text-xl font-black text-white mb-2">Äang káº¿t ná»‘i há»‡ thá»‘ng BIWEB...</h2>
+        <p class="text-xs text-slate-400 mb-6">Äang tá»± Ä‘á»™ng chuyá»ƒn hÆ°á»›ng báº¡n Ä‘áº¿n Ä‘Ãºng tÃ­nh nÄƒng trong há»‡ sinh thÃ¡i.</p>
         <div class="w-10 h-10 border-2 border-[#00C6FF] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
         <a href="/biweb/" class="inline-flex items-center px-4 py-2.5 rounded-xl font-bold text-xs text-white bi-btn-primary no-underline">
-            Về Trang Chủ BIWEB &rarr;
+            Vá» Trang Chá»§ BIWEB &rarr;
         </a>
     </div>
 </body>
@@ -500,6 +500,7 @@ async function main() {
     };
     copyRecursive(path.join(repoRoot, 'DoAn-FW/wwwroot/css'), path.join(showcaseRoot, 'css'));
     copyRecursive(path.join(repoRoot, 'DoAn-FW/wwwroot/js'), path.join(showcaseRoot, 'js'));
+    copyRecursive(path.join(repoRoot, 'DoAn-FW/wwwroot/img'), path.join(showcaseRoot, 'img'));
 
     console.log('All showcase pages generated and assets synced successfully!');
 }

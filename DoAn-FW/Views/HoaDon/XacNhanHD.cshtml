@@ -100,7 +100,7 @@
                     <!-- Payment Method Selection -->
                     <div class="bi-card-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                         <h2 class="text-base font-bold text-[#0F172A] pb-3 border-b border-slate-100 flex items-center m-0">
-                            <i class="fa fa-credit-card text-[#10B981] mr-2.5"></i>
+                            <i class="fa fa-credit-card text-[#00C6FF] mr-2.5"></i>
                             Chọn Hình Thức Thanh Toán
                         </h2>
 
@@ -111,7 +111,7 @@
                                 <div class="ml-3 flex-1 text-xs">
                                     <div class="flex items-center justify-between">
                                         <span class="font-bold text-[#0F172A] text-sm">Chuyển Khoản Ngân Hàng (VietQR Tự Động)</span>
-                                        <span class="px-2.5 py-0.5 rounded-lg bg-[#10B981] text-white font-black text-[10px]">KHUYÊN DÙNG</span>
+                                        <span class="px-2.5 py-0.5 rounded-lg bg-[#00C6FF] text-white font-black text-[10px]">KHUYÊN DÙNG</span>
                                     </div>
                                     <p class="text-[#4B5563] mt-1 mb-2">Hệ thống quét mã QR tự động cấp License Key qua Email trong 30 giây ngay sau khi giao dịch thành công.</p>
                                     <div class="p-3 rounded-xl bg-white border border-[#0052FF]/30 flex items-center space-x-3 text-[#0F172A]">
@@ -165,7 +165,7 @@
                         <!-- Recipient Email & Info -->
                         <div>
                             <label for="DiaChi" class="block text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-2">
-                                Địa chỉ Email / Zalo Nhận License Key <span class="text-rose-500">*</span>
+                                Địa chỉ Email / Zalo Nhận License Key <span class="text-blue-500">*</span>
                             </label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -207,12 +207,12 @@
                                     Giảm giá khuyến mãi:
                                     @if (KM.SoPTKM > 0 && KM.TTienToiThieu <= TongTien)
                                     {
-                                        <span class="ml-1.5 px-2 py-0.5 rounded text-[10px] font-bold bg-[#10B981]/15 text-[#10B981]">
+                                        <span class="ml-1.5 px-2 py-0.5 rounded text-[10px] font-bold bg-[#00C6FF]/15 text-[#00C6FF]">
                                             -@KM.SoPTKM%
                                         </span>
                                     }
                                 </span>
-                                <span class="font-bold text-[#10B981]">-@string.Format("{0:0,0 đ}", TienGiam)</span>
+                                <span class="font-bold text-[#00C6FF]">-@string.Format("{0:0,0 đ}", TienGiam)</span>
                             </div>
                             <div class="pt-2 border-t border-slate-200 flex justify-between items-baseline">
                                 <span class="text-sm font-extrabold text-[#0F172A]">Tổng tiền thanh toán:</span>

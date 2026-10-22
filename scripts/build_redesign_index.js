@@ -530,8 +530,8 @@ const content = `@{
             <div class="lg:col-span-2 text-center flex flex-col items-center justify-center py-6" data-reveal="zoom">
                 <div class="relative">
                     <div class="absolute -inset-3 bg-gradient-to-r from-[#0052FF] via-[#00C6FF] to-[#FF6B00] rounded-full blur-xl opacity-60 animate-pulse"></div>
-                    <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-[#FF6B00] via-[#0052FF] to-[#00C6FF] flex items-center justify-center text-white text-3xl font-black shadow-glow relative transform hover:rotate-6 transition duration-300">
-                        2B
+                    <div class="w-28 h-24 rounded-3xl bg-black border-2 border-[#00C6FF]/50 flex items-center justify-center p-2 shadow-glow relative transform hover:rotate-6 transition duration-300 overflow-hidden">
+                        <img src="/img/logo.jpg" alt="BIWEB Digital Transformation" class="w-full h-full object-contain" loading="lazy" />
                     </div>
                 </div>
                 <div class="text-base font-black text-white mt-4">BIWEB HUB</div>
@@ -643,7 +643,7 @@ const content = `@{
 
                         <!-- Official MarTech Architecture Graphic from biweb.vn -->
                         <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 p-2 mb-6 group">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/42ddb6f6-8c46-4448-a006-2187f3dd3tq8.png" alt="Kiến trúc Martech BIWEB" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                            <img src="/img/martech.jpg" alt="Kiến trúc Martech BIWEB" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         </div>
                         
                         <div class="grid grid-cols-3 gap-3 mb-6">
@@ -694,7 +694,7 @@ const content = `@{
 
                         <!-- Official CDP Graphic from biweb.vn -->
                         <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 p-2 mb-6 group">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/6cef00cb-66b9-474d-9d41-eacfc4ebc0a8.png" alt="BIWEB CDP 360" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                            <img src="/img/cdp.png" alt="BIWEB CDP 360" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         </div>
 
                         <div class="grid grid-cols-2 gap-3 text-xs">
@@ -782,8 +782,8 @@ const content = `@{
                     </p>
 
                     <!-- Omnichannel Visual from biweb.vn -->
-                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-50 p-2 mb-6 group">
-                        <img src="https://w.ladicdn.com/61430febd1330500bc45af33/b4c11416-ca33-4f9e-be33-1ecfc0fbb38a.png" alt="BIWEB Omnichannel Ecosystem" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 p-2 mb-6 group">
+                        <img src="/img/omnichannel.png" alt="BIWEB Omnichannel Ecosystem" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                     </div>
 
                     <div class="grid grid-cols-2 gap-3 text-xs">
@@ -819,7 +819,7 @@ const content = `@{
 
                     <!-- Zalo Mini App Visual from biweb.vn -->
                     <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 p-2 mb-6 group">
-                        <img src="https://w.ladicdn.com/61430febd1330500bc45af33/d28a5b57-6ae9-42b7-bdfe-aeb49ec10c00.png" alt="Zalo Mini App Platform" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <img src="/img/zalominiapp.png" alt="Zalo Mini App Platform" class="w-full h-auto object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                     </div>
                     
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
@@ -1183,8 +1183,8 @@ const content = `@{
                                 CHỦ TỊCH HỘI ĐỒNG QUẢN TRỊ BIWEB
                             </div>
                         </div>
-                        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#0052FF] shadow-lg flex-shrink-0">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/5c0d02ea-bfca-4dd1-a8d6-e26b3be373b5.png" alt="Th.S Nguyễn Phúc Khoa" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl overflow-hidden border-2 border-[#0052FF] shadow-lg flex-shrink-0 bg-slate-900">
+                            <img src="/img/nguyenphuckhoa.jpg" alt="Th.S Nguyễn Phúc Khoa" class="w-full h-full object-cover object-[center_18%]" loading="lazy" />
                         </div>
                     </div>
 
@@ -1215,8 +1215,8 @@ const content = `@{
                                 FOUNDER &amp; CEO BIWEB
                             </div>
                         </div>
-                        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#FF6B00] shadow-lg flex-shrink-0">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/87865267-27b0-4db8-bf08-16e507bfa7c8.png" alt="Ông Nguyễn Đăng Hoàng Sơn" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl overflow-hidden border-2 border-[#FF6B00] shadow-lg flex-shrink-0 bg-slate-900">
+                            <img src="/img/nguyendanghoangson.jpg" alt="Ông Nguyễn Đăng Hoàng Sơn" class="w-full h-full object-cover object-top" loading="lazy" />
                         </div>
                     </div>
 
@@ -1243,8 +1243,8 @@ const content = `@{
             <div class="bi-spot bi-hover-lift bi-dark-card rounded-3xl border border-white/10 p-6 flex flex-col justify-between shadow-sm" data-reveal="up" style="--bi-delay: 0.05s;">
                 <div>
                     <div class="flex items-center gap-3.5 mb-4">
-                        <div class="w-14 h-14 rounded-2xl overflow-hidden border border-[#0052FF]/30 flex-shrink-0 shadow-sm">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/2764bfe2-b94f-4d40-b49b-733f11d17ee6.png" alt="Trương Ngọc An" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="w-16 h-20 rounded-2xl overflow-hidden border border-[#0052FF]/40 flex-shrink-0 shadow-sm bg-slate-900">
+                            <img src="/img/truongngocan.jpg" alt="Trương Ngọc An" class="w-full h-full object-cover object-[center_15%]" loading="lazy" />
                         </div>
                         <div>
                             <h4 class="text-base font-extrabold text-white m-0">Trương Ngọc An</h4>
@@ -1262,8 +1262,8 @@ const content = `@{
             <div class="bi-spot bi-hover-lift bi-dark-card rounded-3xl border border-white/10 p-6 flex flex-col justify-between shadow-sm" data-reveal="up" style="--bi-delay: 0.1s;">
                 <div>
                     <div class="flex items-center gap-3.5 mb-4">
-                        <div class="w-14 h-14 rounded-2xl overflow-hidden border border-[#10B981]/30 flex-shrink-0 shadow-sm">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/3b0a233b-7419-482f-8700-ae896796c5aa.png" alt="Văn Đức Sơn Hà" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="w-16 h-20 rounded-2xl overflow-hidden border border-[#10B981]/40 flex-shrink-0 shadow-sm bg-slate-900">
+                            <img src="/img/sonha.jpg" alt="Văn Đức Sơn Hà" class="w-full h-full object-cover object-top" loading="lazy" />
                         </div>
                         <div>
                             <h4 class="text-base font-extrabold text-white m-0">Văn Đức Sơn Hà</h4>
@@ -1281,8 +1281,8 @@ const content = `@{
             <div class="bi-spot bi-hover-lift bi-dark-card rounded-3xl border border-white/10 p-6 flex flex-col justify-between shadow-sm" data-reveal="up" style="--bi-delay: 0.15s;">
                 <div>
                     <div class="flex items-center gap-3.5 mb-4">
-                        <div class="w-14 h-14 rounded-2xl overflow-hidden border border-[#00C6FF]/30 flex-shrink-0 shadow-sm">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/ca5439ba-73f1-4db3-a006-25fe4e710d2d.png" alt="Lê Quan Phước" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="w-16 h-20 rounded-2xl overflow-hidden border border-[#00C6FF]/40 flex-shrink-0 shadow-sm bg-slate-900">
+                            <img src="/img/lequanphuoc.jpg" alt="Lê Quan Phước" class="w-full h-full object-cover object-top" loading="lazy" />
                         </div>
                         <div>
                             <h4 class="text-base font-extrabold text-white m-0">Lê Quan Phước</h4>
@@ -1300,8 +1300,8 @@ const content = `@{
             <div class="bi-spot bi-hover-lift bi-dark-card rounded-3xl border border-white/10 p-6 flex flex-col justify-between shadow-sm" data-reveal="up" style="--bi-delay: 0.2s;">
                 <div>
                     <div class="flex items-center gap-3.5 mb-4">
-                        <div class="w-14 h-14 rounded-2xl overflow-hidden border border-[#FF6B00]/30 flex-shrink-0 shadow-sm">
-                            <img src="https://w.ladicdn.com/61430febd1330500bc45af33/745e7f91-5bcf-46c9-8d7d-5a820ca15357.png" alt="Huỳnh Thi" class="w-full h-full object-cover" loading="lazy" />
+                        <div class="w-16 h-20 rounded-2xl overflow-hidden border border-[#FF6B00]/40 flex-shrink-0 shadow-sm bg-slate-900">
+                            <img src="/img/huynhthi.jpg" alt="Huỳnh Thi" class="w-full h-full object-cover object-top" loading="lazy" />
                         </div>
                         <div>
                             <h4 class="text-base font-extrabold text-white m-0">Huỳnh Thi</h4>
@@ -1319,9 +1319,9 @@ const content = `@{
 
         <!-- Strategic Partnerships (DigiBird & UEF) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal="up">
-            <div class="p-6 bi-dark-card rounded-3xl border border-white/10 shadow-sm flex items-center gap-5">
-                <div class="w-16 h-16 rounded-2xl overflow-hidden border border-white/10 flex-shrink-0 bg-slate-50 flex items-center justify-center p-2">
-                    <img src="https://w.ladicdn.com/61430febd1330500bc45af33/d12bfa4e-eeeb-4ff3-832f-a9cb8b9bc1ae.png" alt="DigiBird Platform" class="w-full h-auto object-contain" />
+            <div class="p-6 bi-dark-card rounded-3xl border border-white/10 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                <div class="w-full sm:w-44 h-24 rounded-2xl overflow-hidden border border-white/15 flex-shrink-0 bg-black flex items-center justify-center p-3">
+                    <img src="/img/digibird.jpg" alt="DigiBird Platform" class="w-full h-full object-contain" loading="lazy" />
                 </div>
                 <div>
                     <span class="text-[11px] font-extrabold text-[#0052FF] uppercase">Đối Tác Chiến Lược Đồng Sáng Lập</span>
@@ -1329,9 +1329,9 @@ const content = `@{
                     <p class="text-xs text-slate-300 m-0">Nền tảng Loyalty &amp; Mini App hàng đầu, hỗ trợ doanh nghiệp tạo trải nghiệm giữ chân khách hàng hiệu quả.</p>
                 </div>
             </div>
-            <div class="p-6 bi-dark-card rounded-3xl border border-white/10 shadow-sm flex items-center gap-5">
-                <div class="w-16 h-16 rounded-2xl overflow-hidden border border-white/10 flex-shrink-0 bg-slate-50 flex items-center justify-center p-2">
-                    <img src="https://w.ladicdn.com/61430febd1330500bc45af33/ef305335-51dc-4966-8b94-0cfb08eb5430.png" alt="UEF" class="w-full h-auto object-contain" />
+            <div class="p-6 bi-dark-card rounded-3xl border border-white/10 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                <div class="w-full sm:w-44 h-28 rounded-2xl overflow-hidden border border-[#10B981]/30 flex-shrink-0 bg-slate-900">
+                    <img src="/img/uef.jpg" alt="Lễ ký kết hợp tác Đại Học Kinh Tế - Tài Chính UEF" class="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div>
                     <span class="text-[11px] font-extrabold text-[#10B981] uppercase">Hợp Tác Toàn Diện 5 Năm</span>
@@ -1360,12 +1360,23 @@ const content = `@{
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             <!-- Case Study 1: DigiBird (Trang 15) -->
-            <div class="bi-spot bi-hover-lift bi-dark-card rounded-[28px] border border-white/10 p-7 sm:p-8 flex flex-col justify-between shadow-sm" data-reveal="up" style="--bi-delay: 0.05s;">
+            <div class="bi-spot bi-hover-lift bi-dark-card rounded-[28px] border border-white/10 p-7 sm:p-8 flex flex-col justify-between shadow-sm overflow-hidden" data-reveal="up" style="--bi-delay: 0.05s;">
                 <div>
-                    <div class="flex items-center justify-between gap-3 mb-4">
+                    <div class="flex items-center justify-between gap-3 mb-3">
                         <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#0052FF]/10 text-[#0052FF]">Công Nghệ &amp; MarTech</span>
                         <span class="text-xs font-bold text-slate-300">Biweb x DigiBird</span>
                     </div>
+
+                    <!-- Co-branding Banner: digibird.jpg -->
+                    <div class="h-14 rounded-xl bg-black border border-white/10 px-3 py-1.5 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="/img/digibird.jpg" alt="Biweb x DigiBird" class="h-full w-auto object-contain" loading="lazy" />
+                    </div>
+
+                    <!-- Real Cooperation Photo: hoptacvoidigibird.jpg -->
+                    <div class="rounded-2xl overflow-hidden mb-4 h-48 bg-slate-900 border border-white/10 group">
+                        <img src="/img/hoptacvoidigibird.jpg" alt="Hợp tác với DigiBird" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    </div>
+
                     <h3 class="text-xl font-extrabold text-white mb-3">
                         DIGIBIRD — Kiến Tạo Tăng Trưởng Bền Vững
                     </h3>
@@ -1386,14 +1397,19 @@ const content = `@{
             <!-- Case Study 2: Nature Pharma Group (Trang 16) with Real Photo -->
             <div class="bi-spot bi-hover-lift bi-dark-card rounded-[28px] border border-white/10 p-7 sm:p-8 flex flex-col justify-between shadow-sm overflow-hidden" data-reveal="up" style="--bi-delay: 0.1s;">
                 <div>
-                    <div class="flex items-center justify-between gap-3 mb-4">
+                    <div class="flex items-center justify-between gap-3 mb-3">
                         <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#10B981]/10 text-[#10B981]">Dược Phẩm &amp; Phân Phối</span>
                         <span class="text-xs font-bold text-slate-300">Sau 3 tháng</span>
                     </div>
 
-                    <!-- Photo from biweb.vn -->
-                    <div class="rounded-2xl overflow-hidden mb-4 h-36 bg-slate-100">
-                        <img src="https://w.ladicdn.com/61430febd1330500bc45af33/40bf2b61-9f93-455d-a602-cb41a4a40877.png" alt="Nature Pharma Case Study" class="w-full h-full object-cover" loading="lazy" />
+                    <!-- Co-branding Banner: naturepharma.jpg -->
+                    <div class="h-14 rounded-xl bg-black border border-white/10 px-3 py-1.5 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="/img/naturepharma.jpg" alt="Biweb x Nature Pharma" class="h-full w-auto object-contain" loading="lazy" />
+                    </div>
+
+                    <!-- Real Building Photo: naturepharma viet nam.jpg -->
+                    <div class="rounded-2xl overflow-hidden mb-4 h-48 bg-slate-900 border border-white/10 group">
+                        <img src="/img/naturepharma viet nam.jpg" alt="Công ty Cổ phần Dược Nature Việt Nam" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                     </div>
 
                     <h3 class="text-xl font-extrabold text-white mb-3">
@@ -1421,14 +1437,19 @@ const content = `@{
             <!-- Case Study 3: Tân Phú Land (Trang 17) with Real Photo -->
             <div class="bi-spot bi-hover-lift rounded-[28px] bg-[#0F172A] p-7 sm:p-8 text-white flex flex-col justify-between shadow-2xl border border-slate-800 overflow-hidden" data-reveal="up" style="--bi-delay: 0.15s;">
                 <div>
-                    <div class="flex items-center justify-between gap-3 mb-4">
+                    <div class="flex items-center justify-between gap-3 mb-3">
                         <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-[#FF6B00] text-white">Bất Động Sản</span>
                         <span class="text-xs text-slate-400">Khách hàng: Anh Lê Văn Hùng</span>
                     </div>
 
-                    <!-- Photo from biweb.vn -->
-                    <div class="rounded-2xl overflow-hidden mb-4 h-36 bg-slate-900 border border-white/10">
-                        <img src="https://w.ladicdn.com/61430febd1330500bc45af33/86cf6f1d-ff14-41d9-83bc-2d1f7e340cf3.png" alt="Tân Phú Land Case Study" class="w-full h-full object-cover" loading="lazy" />
+                    <!-- Co-branding Banner: tanphuland.jpg -->
+                    <div class="h-14 rounded-xl bg-black border border-white/10 px-3 py-1.5 mb-3 flex items-center justify-center overflow-hidden">
+                        <img src="/img/tanphuland.jpg" alt="Biweb x Tân Phú Land" class="h-full w-auto object-contain" loading="lazy" />
+                    </div>
+
+                    <!-- Real Cooperation Photo: hoptacvoitanphuland.jpg -->
+                    <div class="rounded-2xl overflow-hidden mb-4 h-48 bg-slate-900 border border-white/10 group">
+                        <img src="/img/hoptacvoitanphuland.jpg" alt="Hợp tác với Tân Phú Land" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                     </div>
 
                     <h3 class="text-xl font-extrabold text-white mb-2">
@@ -2052,6 +2073,6 @@ const content = `@{
 </script>
 `;
 
-const targetPath = path.resolve(__dirname, '../DoAn-FW/Views/Home/Index.cshtml');
+const targetPath = path.join(__dirname, '..', 'DoAn-FW', 'Views', 'Home', 'Index.cshtml');
 fs.writeFileSync(targetPath, content, 'utf8');
-console.log('Successfully wrote redesigned Index.cshtml with original content and webthamkhao design & animations!');
+console.log('Successfully wrote redesigned Index.cshtml (' + content.length + ' chars)');

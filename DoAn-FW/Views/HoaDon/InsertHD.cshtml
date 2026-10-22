@@ -22,11 +22,11 @@
     <div class="container mx-auto px-4 max-w-lg">
         <div class="bi-card-white rounded-3xl border border-slate-200/90 p-8 sm:p-10 shadow-xl text-center relative overflow-hidden">
             <!-- Glow Accent -->
-            <div class="absolute -top-16 -right-16 w-36 h-36 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -top-16 -right-16 w-36 h-36 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
             @if (ViewBag.Count == 1)
             {
-                <div class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-5 shadow-lg shadow-emerald-500/20 animate-pulse">
+                <div class="w-20 h-20 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-3xl mx-auto mb-5 shadow-lg shadow-sky-500/20 animate-pulse">
                     <i class="fa fa-check"></i>
                 </div>
                 <h2 class="text-2xl font-black text-[#0F172A] mb-1">Đăng Ký Thành Công!</h2>
@@ -71,14 +71,14 @@
             }
             else
             {
-                <div class="w-20 h-20 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-3xl mx-auto mb-5 shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-3xl mx-auto mb-5 shadow-sm">
                     <i class="fa fa-times"></i>
                 </div>
                 <h2 class="text-2xl font-black text-[#0F172A] mb-2">Tạo Hóa Đơn Thất Bại!</h2>
                 <p class="text-xs sm:text-sm text-[#4B5563] mb-6 leading-relaxed">
                     Có lỗi xảy ra trong quá trình xử lý đơn hàng. Vui lòng kiểm tra lại giỏ hàng hoặc liên hệ kỹ thuật qua hotline 0909 008 064.
                 </p>
-                <a href="/GioHang/Cart" class="w-full py-3.5 px-6 rounded-2xl font-bold text-sm text-white bg-rose-600 hover:bg-rose-700 transition shadow-md inline-block no-underline">
+                <a href="/GioHang/Cart" class="w-full py-3.5 px-6 rounded-2xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-700 transition shadow-md inline-block no-underline">
                     Quay Lại Giỏ Hàng
                 </a>
             }

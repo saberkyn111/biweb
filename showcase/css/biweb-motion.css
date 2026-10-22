@@ -1,5 +1,5 @@
 /**
- * BIWEB MOTION & RESPONSIVE LAYER
+ * BIWEB MOTION & RESPONSIVE LAYER (3-Tone: Black - White - Blue)
  * Lớp hiệu ứng chuyển động + tinh chỉnh responsive, lấy cảm hứng từ https://www.biweb.vn/
  * - Mọi hiệu ứng "ẩn trước khi hiện" chỉ kích hoạt khi <html> có class .bi-js
  *   (JS đã chạy) → không bao giờ mất nội dung nếu JS lỗi.
@@ -12,7 +12,7 @@
 html { -webkit-text-size-adjust: 100%; }
 main, footer { overflow-x: clip; }
 img, video { max-width: 100%; height: auto; }
-::selection { background: rgba(0, 82, 255, .18); color: #0F172A; }
+::selection { background: rgba(0, 82, 255, .3); color: #FFFFFF; }
 
 /* FIX: Bootstrap 3 đặt `.hidden { visibility: hidden !important }` → các phần tử Tailwind
    dạng `hidden md:flex` / `hidden xl:flex` (menu desktop, nút đăng nhập, thông tin top bar…)
@@ -22,8 +22,8 @@ html .hidden { visibility: visible !important; }
 /* Thanh cuộn thương hiệu */
 @media (hover: hover) and (pointer: fine) {
     ::-webkit-scrollbar { width: 10px; height: 10px; }
-    ::-webkit-scrollbar-track { background: #F1F5F9; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #0052FF, #00C6FF); border-radius: 999px; border: 2px solid #F1F5F9; }
+    ::-webkit-scrollbar-track { background: #050811; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #0052FF, #00C6FF); border-radius: 999px; border: 2px solid #050811; }
 }
 
 /* Container gọn hơn trên điện thoại */
@@ -109,24 +109,26 @@ html .hidden { visibility: visible !important; }
 #biPreloader {
     position: fixed; inset: 0; z-index: 99999;
     display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 18px;
-    background: radial-gradient(ellipse at top, #0b1f48 0%, #0F172A 60%, #070e1e 100%);
+    background: radial-gradient(ellipse at top, #0b1f48 0%, #050811 65%, #000000 100%);
     transition: opacity .55s ease, visibility .55s ease;
     animation: biPreHide .5s ease 3.5s forwards; /* tự ẩn nếu JS lỗi */
 }
 @keyframes biPreHide { to { opacity: 0; visibility: hidden; } }
 #biPreloader.is-done { opacity: 0; visibility: hidden; }
 .bi-loader-logo {
-    width: 64px; height: 64px; border-radius: 18px;
+    width: 96px; height: 76px; border-radius: 18px;
     display: flex; align-items: center; justify-content: center;
+    padding: 6px; overflow: hidden;
     font: 900 24px/1 'Plus Jakarta Sans', sans-serif; color: #fff; letter-spacing: -.06em;
-    background: linear-gradient(135deg, #FF6B00, #0052FF 55%, #00C6FF);
+    background: #000000;
+    border: 2px solid rgba(0, 198, 255, 0.55);
     box-shadow: 0 0 0 0 rgba(0, 198, 255, .6);
     animation: biLogoPulse 1.4s ease-in-out infinite;
 }
-.bi-loader-bar { width: 140px; height: 3px; border-radius: 999px; background: rgba(255,255,255,.12); overflow: hidden; }
+.bi-loader-bar { width: 140px; height: 3px; border-radius: 999px; background: rgba(255,255,255,.15); overflow: hidden; }
 .bi-loader-bar::after {
     content: ''; display: block; width: 40%; height: 100%; border-radius: inherit;
-    background: linear-gradient(90deg, #0052FF, #00C6FF);
+    background: linear-gradient(90deg, #0052FF, #00C6FF, #FFFFFF);
     animation: biLoaderSlide 1s ease-in-out infinite;
 }
 @keyframes biLogoPulse {
@@ -142,8 +144,8 @@ html .hidden { visibility: visible !important; }
 #biScrollProgress {
     position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 9999;
     transform-origin: 0 50%; transform: scaleX(0);
-    background: linear-gradient(90deg, #FF6B00, #0052FF 45%, #00C6FF);
-    box-shadow: 0 0 12px rgba(0, 198, 255, .6);
+    background: linear-gradient(90deg, #0052FF, #00C6FF 55%, #FFFFFF);
+    box-shadow: 0 0 12px rgba(0, 198, 255, .65);
     pointer-events: none;
 }
 
@@ -195,10 +197,10 @@ html .hidden { visibility: visible !important; }
 #hero .bi-grid-bg { animation: biGridPan 24s linear infinite; }
 @keyframes biGridPan { from { background-position: 0 0, 0 0; } to { background-position: 44px 44px, 44px 44px; } }
 
-/* Chữ gradient ánh sáng chạy */
+/* Chữ gradient ánh sáng chạy (3-Tone: Blue - Cyan - White) */
 .bi-text-gradient {
     display: inline-block;
-    background-image: linear-gradient(90deg, #0052FF 0%, #00C6FF 30%, #0052FF 60%, #00C6FF 100%) !important;
+    background-image: linear-gradient(90deg, #0052FF 0%, #00C6FF 35%, #FFFFFF 55%, #00C6FF 80%, #0052FF 100%) !important;
     background-size: 220% 100% !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
@@ -213,7 +215,7 @@ html .hidden { visibility: visible !important; }
     margin-bottom: 1.25rem !important;
 }
 
-/* Hiệu ứng Floating Ambient Orbs (quầng sáng phát sáng động trong nền) */
+/* Hiệu ứng Floating Ambient Orbs (quầng sáng phát sáng động trong nền - thuần Blue & White) */
 .bi-ambient-orb {
     position: absolute;
     border-radius: 9999px;
@@ -237,7 +239,7 @@ html .hidden { visibility: visible !important; }
 }
 .bi-orb-orange {
     width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(255, 107, 0, 0.3) 0%, rgba(255, 107, 0) 0%);
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.28) 0%, rgba(0, 82, 255, 0) 70%);
     top: 35%; right: 10%;
     animation: biOrbFloat3 18s ease-in-out infinite alternate;
 }
@@ -328,7 +330,7 @@ html .hidden { visibility: visible !important; }
 .bi-btn-outline { position: relative; overflow: hidden; isolation: isolate; }
 .bi-cta-pulse { animation: biOutlinePulse 2.4s cubic-bezier(.66,0,0,1) infinite; }
 @keyframes biOutlinePulse {
-    0%   { outline: 2px solid rgba(0, 82, 255, .55); outline-offset: 0; }
+    0%   { outline: 2px solid rgba(0, 198, 255, .65); outline-offset: 0; }
     100% { outline: 2px solid rgba(0, 198, 255, 0); outline-offset: 16px; }
 }
 @keyframes biCtaPulse { 0% { box-shadow: 0 12px 28px -8px rgba(0,82,255,.6), 0 0 0 0 rgba(0, 82, 255, .5); } 100% { box-shadow: 0 12px 28px -8px rgba(0,82,255,.6), 0 0 0 18px rgba(0, 82, 255, 0); } }
@@ -340,14 +342,14 @@ html .hidden { visibility: visible !important; }
 .bi-spot::before {
     content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none;
     opacity: 0; transition: opacity .35s ease;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 198, 255, .14), transparent 45%);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 198, 255, .16), transparent 45%);
 }
 @media (hover: hover) and (pointer: fine) {
-    .bi-spot:hover { transform: translateY(-6px) !important; box-shadow: 0 24px 48px -18px rgba(0, 82, 255, .28) !important; border-color: rgba(0, 82, 255, .45) !important; }
+    .bi-spot:hover { transform: translateY(-6px) !important; box-shadow: 0 24px 48px -18px rgba(0, 82, 255, .32) !important; border-color: rgba(0, 198, 255, .5) !important; }
     .bi-spot:hover::before { opacity: 1; }
 }
 /* Nền tối (section USA / contact) */
-.bi-spot.bi-spot-dark::before { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 198, 255, .22), transparent 45%); }
+.bi-spot.bi-spot-dark::before { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 198, 255, .24), transparent 45%); }
 
 /* Icon trong card xoay nhẹ khi hover */
 @media (hover: hover) {
@@ -369,21 +371,21 @@ html .hidden { visibility: visible !important; }
 .bi-marquee-item {
     display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
     padding: 10px 20px; border-radius: 999px;
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(10, 15, 29, 0.9);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 13px; font-weight: 700; color: #E2E8F0;
-    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 198, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 13px; font-weight: 700; color: #FFFFFF;
+    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 198, 255, 0.12);
     transition: all 0.3s ease;
 }
 .bi-marquee-item:hover {
-    border-color: rgba(0, 198, 255, 0.5);
+    border-color: rgba(0, 198, 255, 0.55);
     color: #00C6FF;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px -5px rgba(0, 82, 255, 0.35);
+    box-shadow: 0 8px 25px -5px rgba(0, 82, 255, 0.38);
 }
-.bi-marquee-item i { color: #10B981; font-size: 11px; }
+.bi-marquee-item i { color: #00C6FF; font-size: 11px; }
 @keyframes biMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ================================================================
@@ -395,7 +397,7 @@ html .hidden { visibility: visible !important; }
 .bi-fab > a[href^="tel:"]:last-of-type::before {
     /* vòng sóng cho nút hotline */
     content: ''; position: absolute; inset: 0; border-radius: 50%;
-    border: 2px solid #10B981; animation: biRing 1.8s ease-out infinite; pointer-events: none;
+    border: 2px solid #00C6FF; animation: biRing 1.8s ease-out infinite; pointer-events: none;
 }
 @keyframes biRing { from { transform: scale(1); opacity: .9; } to { transform: scale(1.7); opacity: 0; } }
 .bi-fab-toggle { display: none; }
@@ -430,7 +432,7 @@ html .hidden { visibility: visible !important; }
 /* Nút back-to-top có vòng tiến trình */
 #btnBackToTop { position: relative; }
 #btnBackToTop svg.bi-ring { position: absolute; inset: -3px; width: calc(100% + 6px); height: calc(100% + 6px); transform: rotate(-90deg); pointer-events: none; }
-#btnBackToTop svg.bi-ring circle { fill: none; stroke: #0052FF; stroke-width: 2.5; stroke-linecap: round; transition: stroke-dashoffset .1s linear; }
+#btnBackToTop svg.bi-ring circle { fill: none; stroke: #00C6FF; stroke-width: 2.5; stroke-linecap: round; transition: stroke-dashoffset .1s linear; }
 
 /* ================================================================
    9. MODAL & TOAST entrance
@@ -447,7 +449,7 @@ html .hidden { visibility: visible !important; }
 }
 
 /* ================================================================
-   11. HIGH-TECH DARK BACKGROUND SYSTEM & GLOWING EFFECTS
+   11. HIGH-TECH DARK BACKGROUND SYSTEM & GLOWING EFFECTS (Black - White - Blue)
    ================================================================ */
 /* Background Cyber Grid with glowing points */
 .bi-dark-cyber-grid {
@@ -457,8 +459,8 @@ html .hidden { visibility: visible !important; }
     z-index: 0;
     background-image: 
         radial-gradient(rgba(0, 198, 255, 0.16) 1.2px, transparent 1.2px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
     background-size: 36px 36px, 72px 72px, 72px 72px;
     mask-image: radial-gradient(ellipse at 50% 50%, black 75%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 75%, transparent 100%);
@@ -473,7 +475,7 @@ html .hidden { visibility: visible !important; }
     width: 100vw;
     max-width: 1500px;
     height: 550px;
-    background: radial-gradient(ellipse at 50% -20%, rgba(0, 198, 255, 0.3) 0%, rgba(0, 82, 255, 0.22) 40%, rgba(255, 107, 0, 0.1) 70%, transparent 85%);
+    background: radial-gradient(ellipse at 50% -20%, rgba(0, 198, 255, 0.32) 0%, rgba(0, 82, 255, 0.25) 45%, rgba(255, 255, 255, 0.06) 72%, transparent 88%);
     filter: blur(65px);
     pointer-events: none;
     z-index: 0;
@@ -509,7 +511,7 @@ html .hidden { visibility: visible !important; }
 }
 .bi-nebula-3 {
     width: 460px; height: 460px;
-    background: radial-gradient(circle, rgba(255, 107, 0, 0.28) 0%, rgba(255, 107, 0) 0%);
+    background: radial-gradient(circle, rgba(0, 82, 255, 0.32) 0%, rgba(255, 255, 255, 0) 70%);
     top: 75%; left: 8%;
     animation: biNebulaDrift3 24s ease-in-out infinite alternate;
 }
@@ -540,14 +542,14 @@ html .hidden { visibility: visible !important; }
         radial-gradient(1px 1px at 25px 35px, #fff, rgba(0,0,0,0)),
         radial-gradient(1.5px 1.5px at 85px 145px, rgba(0,198,255,0.85), rgba(0,0,0,0)),
         radial-gradient(1px 1px at 180px 220px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 320px 80px, rgba(255,107,0,0.85), rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 320px 80px, rgba(0,82,255,0.85), rgba(0,0,0,0)),
         radial-gradient(1.2px 1.2px at 450px 310px, rgba(0,198,255,0.9), rgba(0,0,0,0)),
         radial-gradient(1px 1px at 580px 190px, #fff, rgba(0,0,0,0)),
         radial-gradient(1.5px 1.5px at 720px 420px, rgba(0,82,255,0.85), rgba(0,0,0,0)),
         radial-gradient(1px 1px at 860px 110px, #fff, rgba(0,0,0,0)),
         radial-gradient(1.5px 1.5px at 980px 290px, rgba(0,198,255,0.85), rgba(0,0,0,0)),
         radial-gradient(1px 1px at 1120px 70px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.2px 1.2px at 1260px 380px, rgba(255,107,0,0.8), rgba(0,0,0,0)),
+        radial-gradient(1.2px 1.2px at 1260px 380px, rgba(0,198,255,0.8), rgba(0,0,0,0)),
         radial-gradient(1px 1px at 1390px 210px, #fff, rgba(0,0,0,0));
     background-repeat: repeat;
     background-size: 700px 500px;
@@ -561,16 +563,16 @@ html .hidden { visibility: visible !important; }
 
 /* Glassmorphism Dark Card ("Hiệu ứng nổi và đẹp") */
 .bi-dark-card {
-    background: rgba(15, 23, 42, 0.78) !important;
+    background: rgba(10, 15, 29, 0.85) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(0, 82, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.75), 0 0 25px -5px rgba(0, 82, 255, 0.18) !important;
     transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease !important;
     position: relative;
 }
 .bi-dark-card:hover {
-    border-color: rgba(0, 198, 255, 0.6) !important;
+    border-color: rgba(0, 198, 255, 0.65) !important;
     box-shadow: 0 28px 65px -15px rgba(0, 198, 255, 0.35), 0 0 40px rgba(0, 82, 255, 0.4) !important;
     transform: translateY(-8px) !important;
 }
@@ -578,11 +580,11 @@ html .hidden { visibility: visible !important; }
 /* Floating Badges with luminous aura ("Hiệu ứng nổi") */
 .bi-floating-pill {
     animation: biFloat 6s ease-in-out infinite;
-    box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 198, 255, 0.3) !important;
+    box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 198, 255, 0.35) !important;
 }
 .bi-floating-pill-delay {
     animation: biFloat 6s ease-in-out 1.5s infinite;
-    box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 107, 0, 0.3) !important;
+    box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 82, 255, 0.35) !important;
 }
 
 /* Glowing Border Accent */
@@ -595,7 +597,7 @@ html .hidden { visibility: visible !important; }
     inset: -1px;
     border-radius: inherit;
     padding: 1.5px;
-    background: linear-gradient(135deg, rgba(0, 198, 255, 0.75), transparent 50%, rgba(255, 107, 0, 0.7));
+    background: linear-gradient(135deg, rgba(0, 198, 255, 0.8), transparent 50%, rgba(0, 82, 255, 0.8));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -609,7 +611,7 @@ html .hidden { visibility: visible !important; }
 
 /* Text & Lead in dark mode */
 .bi-lead-dark {
-    color: #94A3B8 !important;
+    color: #CBD5E1 !important;
 }
 
 /* Pill badge on dark */
@@ -619,8 +621,8 @@ html .hidden { visibility: visible !important; }
     gap: 8px;
     padding: 6px 16px;
     border-radius: 9999px;
-    background: rgba(0, 82, 255, 0.15) !important;
-    border: 1px solid rgba(0, 198, 255, 0.35) !important;
+    background: rgba(0, 82, 255, 0.16) !important;
+    border: 1px solid rgba(0, 198, 255, 0.4) !important;
     color: #00C6FF !important;
     font-size: 11px;
     font-weight: 800;
@@ -632,27 +634,26 @@ html .hidden { visibility: visible !important; }
 
 /* Global Dark Theme Overrides */
 body {
-    background-color: #070B14 !important;
-    color: #94A3B8 !important;
+    background-color: #050811 !important;
+    color: #CBD5E1 !important;
 }
 .bi-title {
     color: #FFFFFF !important;
 }
 .bi-lead {
-    color: #94A3B8 !important;
+    color: #CBD5E1 !important;
 }
 .bi-tag {
-    background: rgba(0, 82, 255, 0.15) !important;
-    border: 1px solid rgba(0, 198, 255, 0.35) !important;
+    background: rgba(0, 82, 255, 0.16) !important;
+    border: 1px solid rgba(0, 198, 255, 0.4) !important;
     color: #00C6FF !important;
     box-shadow: 0 0 18px rgba(0, 198, 255, 0.25) !important;
 }
 .bi-check-list li {
-    color: #CBD5E1 !important;
+    color: #E2E8F0 !important;
 }
 .bi-step-num {
-    background: #0F172A !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
+    background: #050811 !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
     color: #00C6FF !important;
 }
-
