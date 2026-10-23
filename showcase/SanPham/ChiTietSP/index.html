@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="utf-8" />
@@ -17,6 +17,18 @@
         tailwind.config = {
             important: true,
             theme: {
+                fontSize: {
+                    'xs': ['13.5px', { lineHeight: '1.55' }],
+                    'sm': ['15px', { lineHeight: '1.6' }],
+                    'base': ['16.5px', { lineHeight: '1.65' }],
+                    'lg': ['18.5px', { lineHeight: '1.6' }],
+                    'xl': ['20.5px', { lineHeight: '1.45' }],
+                    '2xl': ['24px', { lineHeight: '1.35' }],
+                    '3xl': ['28px', { lineHeight: '1.25' }],
+                    '4xl': ['34px', { lineHeight: '1.2' }],
+                    '5xl': ['44px', { lineHeight: '1.15' }],
+                    '6xl': ['54px', { lineHeight: '1.1' }],
+                },
                 extend: {
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
@@ -71,7 +83,7 @@
     <link rel="stylesheet" href="../../css/owl.carousel.css" />
     <link href="../../style.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../css/responsive.css" />
-    <link rel="stylesheet" href="../../css/biweb-theme.css" />
+    <link rel="stylesheet" href="../../css/biweb-theme.css?v=3" />
     <link rel="stylesheet" href="../../css/biweb-motion.css?v=Xt8vocnZpYvybY08ST50adHBqcfziqM0_x7k6RRyHd4" />
     <script>document.documentElement.classList.add('bi-js');</script>
 
@@ -143,7 +155,7 @@
             color: #94A3B8 !important;
             overflow-x: hidden;
         }
-        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        html { font-size: 12.5px !important; scroll-behavior: smooth; scroll-padding-top: 90px; }
         a:hover, a:focus { text-decoration: none; }
         h1, h2, h3, h4, h5, h6 { color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; }
         .bi-header-bg {
@@ -167,7 +179,7 @@
             padding: 10px 14px !important;
             display: inline-flex;
             align-items: center;
-            font-size: 14px;
+            font-size: 15px;
             white-space: nowrap;
             text-decoration: none !important;
         }
@@ -183,8 +195,8 @@
             color: #E2E8F0 !important; text-decoration: none !important; transition: background .2s;
         }
         .bi-mega-item:hover { background: rgba(255, 255, 255, 0.07); }
-        .bi-mega-item b { display: block; font-size: 13px; font-weight: 700; color: #FFFFFF !important; }
-        .bi-mega-item small { display: block; font-size: 11px; color: #94A3B8; margin-top: 2px; }
+        .bi-mega-item b { display: block; font-size: 14.5px; font-weight: 700; color: #FFFFFF !important; }
+        .bi-mega-item small { display: block; font-size: 12.5px; color: #94A3B8; margin-top: 2px; }
         .bi-mega-icon { width: 38px; height: 38px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
         .bi-drop-item {
             display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px;
@@ -195,7 +207,7 @@
         .bi-mobile-link {
             display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px;
             background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.08); color: #E2E8F0 !important; font-weight: 600;
-            font-size: 13px; text-decoration: none !important; cursor: pointer; text-align: left; width: 100%;
+            font-size: 14.5px; text-decoration: none !important; cursor: pointer; text-align: left; width: 100%;
         }
         .bi-mobile-link:hover { border-color: #00C6FF; color: #00C6FF !important; }
         .glass-panel {
